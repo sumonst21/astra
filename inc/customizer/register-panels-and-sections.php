@@ -158,6 +158,41 @@
 				'title'    => __( 'Blog / Archive', 'astra' ),
 				'panel'    => 'panel-layout',
 				'section'  => 'section-blog-group',
+				'section_has_tab' => true,
+			)
+		)
+	);
+
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-blog-general',
+			array(
+				'priority' => 5,
+				'title'    => __( 'General', 'astra' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-blog',
+			)
+		)
+	);
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-blog-style',
+			array(
+				'priority' => 5,
+				'title'    => __( 'Style', 'astra' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-blog',
+			)
+		)
+	);
+	$wp_customize->add_section(
+		new Astra_WP_Customize_Section(
+			$wp_customize, 'section-blog-advanced',
+			array(
+				'priority' => 5,
+				'title'    => __( 'Advanced', 'astra' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-blog',
 			)
 		)
 	);

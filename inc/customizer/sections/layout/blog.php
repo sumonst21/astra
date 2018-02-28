@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[blog-post-content]', array(
-			'section'  => 'section-blog',
+			'section'  => 'section-blog-general',
 			'label'    => __( 'Blog Post Content', 'astra' ),
 			'type'     => 'select',
 			'priority' => 50,
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Sortable(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-post-structure]', array(
 				'type'     => 'ast-sortable',
-				'section'  => 'section-blog',
+				'section'  => 'section-blog-general',
 				'priority' => 100,
 				'label'    => __( 'Blog Post Structure', 'astra' ),
 				'choices'  => array(
@@ -75,7 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Sortable(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-meta]', array(
 				'type'     => 'ast-sortable',
-				'section'  => 'section-blog',
+				'section'  => 'section-blog-style',
 				'priority' => 105,
 				'label'    => __( 'Blog Meta', 'astra' ),
 				'choices'  => array(
@@ -96,7 +96,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-width]', array(
 				'type'     => 'ast-divider',
-				'section'  => 'section-blog',
+				'section'  => 'section-blog-advanced',
 				'priority' => 110,
 				'settings' => array(),
 			)
@@ -116,7 +116,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		ASTRA_THEME_SETTINGS . '[blog-width]', array(
 			'type'     => 'select',
-			'section'  => 'section-blog',
+			'section'  => 'section-blog-advanced',
 			'priority' => 115,
 			'label'    => __( 'Blog Content Width', 'astra' ),
 			'choices'  => array(
@@ -141,7 +141,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Slider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-max-width]', array(
 				'type'        => 'ast-slider',
-				'section'     => 'section-blog',
+				'section'     => 'section-blog-advanced',
 				'priority'    => 120,
 				'label'       => __( 'Enter Width', 'astra' ),
 				'suffix'      => '',
