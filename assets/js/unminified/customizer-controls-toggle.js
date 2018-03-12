@@ -257,6 +257,61 @@
 		/**
 		 * Blog Single
 		 */
+		 'astra-settings[blog-single-tabs]' :
+		[
+			{
+				controls: [
+					'astra-settings[blog-single-post-structure]',
+					'astra-settings[ast-styling-section-single-blog-layouts]',
+					'astra-settings[blog-single-width]',
+				],
+				callback: function( tab ) {
+					if ( 'layout' === tab ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'astra-settings[divider-section-header-single-title]',
+					'astra-settings[font-size-entry-title]',
+				],
+				callback: function( tab ) {
+					if ( 'typography' === tab ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'astra-settings[blog-single-meta]',
+				],
+				callback: function( tab ) {
+
+					var blog_structure = api( 'astra-settings[blog-single-post-structure]' ).get();
+
+					if ( jQuery.inArray ( "single-title-meta", blog_structure ) !== -1 && 'layout' === tab ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'astra-settings[blog-single-max-width]'
+				],
+				callback: function( tab ) {
+
+					var blog_width = api( 'astra-settings[blog-single-width]' ).get();
+					if ( 'custom' == blog_width && 'layout' === tab ) {
+						return true;
+					}
+					return false;
+				}
+			}
+		],
 		 'astra-settings[blog-single-post-structure]' :
 		[
 			{
@@ -264,7 +319,10 @@
 					'astra-settings[blog-single-meta]',
 				],
 				callback: function( blog_structure ) {
-					if ( jQuery.inArray ( "single-title-meta", blog_structure ) !== -1 ) {
+
+					var tab = api( 'astra-settings[blog-single-tabs]' ).get();
+
+					if ( jQuery.inArray ( "single-title-meta", blog_structure ) !== -1 && 'layout' === tab ) {
 						return true;
 					}
 					return false;
@@ -279,12 +337,13 @@
 				],
 				callback: function( blog_width ) {
 
-					if ( 'custom' == blog_width ) {
+					var tab = api( 'astra-settings[blog-single-tabs]' ).get();
+					if ( 'custom' == blog_width && 'layout' === tab ) {
 						return true;
 					}
 					return false;
 				}
-		}
+			}
 		],
 		'astra-settings[blog-single-meta]' :
 		[

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-header-single-title]', array(
 				'type'     => 'ast-divider',
-				'section'  => 'section-single-typo',
+				'section'  => 'section-blog-single',
 				'priority' => 5,
 				'label'    => __( 'Single Post / Page Title', 'astra' ),
 				'settings' => array(),
@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Responsive(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-entry-title]', array(
 				'type'        => 'ast-responsive',
-				'section'     => 'section-single-typo',
+				'section'     => 'section-blog-single',
 				'priority'    => 10,
 				'label'       => __( 'Font Size', 'astra' ),
 				'input_attrs' => array(

@@ -14,6 +14,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
+	 * Option: Blog Single Tabs
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[blog-single-tabs]', array(
+			'default' => 'layout',
+			'type' => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Astra_Control_Radio_Tabs(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-single-tabs]', array(
+				'type'     => 'ast-radio-tabs',
+				'label'    => __( 'Blog Single Tabs', 'astra' ),
+				'section'  => 'section-blog-single',
+				'priority' => 0,
+				'choices'  => apply_filters( 'astra_customizer_blog_single_tabs', array(
+					'layout'     => array(
+						ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
+						ASTRA_THEME_SETTINGS . '[blog-single-meta]',
+						ASTRA_THEME_SETTINGS . '[ast-styling-section-single-blog-layouts]',
+						ASTRA_THEME_SETTINGS . '[blog-single-width]',
+						ASTRA_THEME_SETTINGS . '[blog-single-max-width]',
+					),
+					'colors'     => array(),
+					'typography' => array(
+						ASTRA_THEME_SETTINGS . '[divider-section-header-single-title]',
+						ASTRA_THEME_SETTINGS . '[font-size-entry-title]'
+					),
+				) ),
+			)
+		)
+	);
+
+	/**
 	 * Option: Display Post Structure
 	 */
 	$wp_customize->add_setting(

@@ -248,14 +248,6 @@
 		)
 	);
 
-	$wp_customize->add_section(
-		'section-single-typo', array(
-			'title'    => __( 'Single Page / Post', 'astra' ),
-			'panel'    => 'panel-typography',
-			'priority' => 45,
-		)
-	);
-
 	/**
 	 * Buttons Section
 	 */
