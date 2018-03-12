@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new WP_Customize_Color_Control(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-color]', array(
 				'label'   => __( 'Text Color', 'astra' ),
-				'section' => 'section-colors-footer',
+				'section' => 'section-footer-small',
 			)
 		)
 	);
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new WP_Customize_Color_Control(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-link-color]', array(
 				'label'   => __( 'Link Color', 'astra' ),
-				'section' => 'section-colors-footer',
+				'section' => 'section-footer-small',
 			)
 		)
 	);
@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new WP_Customize_Color_Control(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-link-h-color]', array(
 				'label'   => __( 'Link Hover Color', 'astra' ),
-				'section' => 'section-colors-footer',
+				'section' => 'section-footer-small',
 			)
 		)
 	);
@@ -79,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-footer-image]', array(
-				'section'  => 'section-colors-footer',
+				'section'  => 'section-footer-small',
 				'type'     => 'ast-divider',
 				'settings' => array(),
 			)
@@ -102,7 +102,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-bg-color]', array(
 				'type'    => 'ast-color',
 				'label'   => __( 'Background Color', 'astra' ),
-				'section' => 'section-colors-footer',
+				'section' => 'section-footer-small',
 			)
 		)
 	);

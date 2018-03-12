@@ -12,6 +12,50 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+	
+	/**
+	 * Option: Footer Bar Tabs
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[footer-bar-tabs]', array(
+			'default' => 'layout',
+			'type' => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Astra_Control_Radio_Tabs(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-bar-tabs]', array(
+				'type'     => 'ast-radio-tabs',
+				'label'    => __( 'Footer Bar Tabs', 'astra' ),
+				'section'  => 'section-footer-small',
+				'priority' => 0,
+				'choices'  => apply_filters( 'astra_customizer_footer_bar_tabs', array(
+					'layout'     => array(
+						ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+						ASTRA_THEME_SETTINGS . '[section-ast-small-footer-layout-info]',
+						ASTRA_THEME_SETTINGS . '[footer-sml-section-1]',
+						ASTRA_THEME_SETTINGS . '[footer-sml-section-1-credit]',
+						ASTRA_THEME_SETTINGS . '[footer-sml-section-2]',
+						ASTRA_THEME_SETTINGS . '[footer-sml-section-2-credit]',
+						ASTRA_THEME_SETTINGS . '[section-ast-small-footer-typography]',
+						ASTRA_THEME_SETTINGS . '[footer-sml-divider]',
+						ASTRA_THEME_SETTINGS . '[footer-sml-divider-color]',
+						ASTRA_THEME_SETTINGS . '[footer-layout-width]',
+					),
+					'colors'     => array(
+						ASTRA_THEME_SETTINGS . '[footer-color]',
+						ASTRA_THEME_SETTINGS . '[footer-link-color]',
+						ASTRA_THEME_SETTINGS . '[footer-link-h-color]',
+						ASTRA_THEME_SETTINGS . '[divider-footer-image]',
+						ASTRA_THEME_SETTINGS . '[footer-bg-color]',
+					),
+					'typography' => array(
+					),
+				) ),
+			)
+		)
+	);
 
 	/**
 	 * Option: Footer Bar Layout

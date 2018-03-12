@@ -15,7 +15,7 @@
 			var control = this;
 
 			// Change the value.
-			this.container.on( 'click', '.radio-tabs-wrapper label', function() {				
+			this.container.on( 'click', '.radio-tabs-wrapper label', function() {
 			
 				// Add active class.
 				$(this).siblings().removeClass('activated');
