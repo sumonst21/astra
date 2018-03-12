@@ -208,14 +208,6 @@
 		)
 	);
 
-	$wp_customize->add_section(
-		'section-footer-adv-color-bg', array(
-			'title'    => __( 'Footer Widgets', 'astra' ),
-			'panel'    => 'panel-colors-background',
-			'priority' => 55,
-		)
-	);
-
 	/**
 	 * Typography Panel
 	 */
