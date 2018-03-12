@@ -62,6 +62,33 @@
 	 */
 	ASTCustomizerToggles = {
 
+
+		/**
+		 * Sidebar
+		 */
+		'astra-settings[sidebar-tabs]' :
+		[
+			{
+				controls: [
+					'astra-settings[site-sidebar-layout]',
+					'astra-settings[single-page-sidebar-layout-divider]',
+					'astra-settings[single-page-sidebar-layout]',
+					'astra-settings[single-post-sidebar-layout]',
+					'astra-settings[archive-post-sidebar-layout]',
+					'astra-settings[divider-section-sidebar-width]',
+					'astra-settings[site-sidebar-width]',
+					'astra-settings[site-sidebar-width-description]',
+				],
+				callback: function( tab )
+				{
+					if ( 'layout' == tab ) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+
 		'astra-settings[display-site-title]' :
 		[
 			{

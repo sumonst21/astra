@@ -50,8 +50,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
-
-
 	/**
 	 * Option: Blog Post Content
 	 */
