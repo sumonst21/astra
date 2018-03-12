@@ -224,6 +224,67 @@
 		/**
 		 * Blog
 		 */
+		'astra-settings[blog-tabs]' :
+		[
+			{
+				controls: [
+					'astra-settings[blog-post-content]',
+					'astra-settings[blog-post-structure]',
+					'astra-settings[ast-styling-section-blog-width]',
+					'astra-settings[blog-width]',
+				],
+				callback: function( tab )
+				{
+					if ( 'layout' == tab ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'astra-settings[divider-section-archive-summary-box-typo]',
+					'astra-settings[font-size-archive-summary-title]',
+					'astra-settings[divider-section-archive-typo-archive-title]',
+					'astra-settings[font-size-page-title]',
+				],
+				callback: function( tab )
+				{
+					if ( 'typography' == tab ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'astra-settings[blog-max-width]',
+				],
+				callback: function( tab )
+				{
+					var blog_width = api( 'astra-settings[blog-width]' ).get();
+
+					if ( 'custom' == blog_width && 'layout' === tab ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'astra-settings[blog-meta]',
+				],
+				callback: function( tab )
+				{
+					var blog_structure = api( 'astra-settings[blog-post-structure]' ).get();
+
+					if ( jQuery.inArray ( "title-meta", blog_structure ) !== -1 && 'layout' === tab ) {
+						return true;
+					}
+					return false;
+				}
+			}
+		],
 		'astra-settings[blog-width]' :
 		[
 			{
@@ -232,12 +293,14 @@
 				],
 				callback: function( blog_width ) {
 
-					if ( 'custom' == blog_width ) {
+					var tab = api( 'astra-settings[blog-tabs]' ).get();
+
+					if ( 'custom' == blog_width && 'layout' === tab ) {
 						return true;
 					}
 					return false;
 				}
-		}
+			}
 		],
 		'astra-settings[blog-post-structure]' :
 		[
@@ -245,14 +308,21 @@
 				controls: [
 					'astra-settings[blog-meta]',
 				],
-				callback: function( blog_structure ) {
-					if ( jQuery.inArray ( "title-meta", blog_structure ) !== -1 ) {
+				callback: function( blog_structure )
+				{
+					var tab = api( 'astra-settings[blog-tabs]' ).get();
+					if ( jQuery.inArray ( "title-meta", blog_structure ) !== -1 && 'layout' === tab ) {
 						return true;
 					}
 					return false;
 				}
 			}
 		],
+
+
+
+
+
 
 		/**
 		 * Blog Single

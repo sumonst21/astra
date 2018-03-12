@@ -240,14 +240,6 @@
 		)
 	);
 
-	$wp_customize->add_section(
-		'section-archive-typo', array(
-			'title'    => __( 'Blog / Archive', 'astra' ),
-			'panel'    => 'panel-typography',
-			'priority' => 40,
-		)
-	);
-
 	/**
 	 * Buttons Section
 	 */
