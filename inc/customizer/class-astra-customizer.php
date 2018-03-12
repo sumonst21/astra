@@ -107,6 +107,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 */
 			$wp_customize->register_control_type( 'Astra_Control_Sortable' );
 			$wp_customize->register_control_type( 'Astra_Control_Radio_Image' );
+			$wp_customize->register_control_type( 'Astra_Control_Radio_Tabs' );
 			$wp_customize->register_control_type( 'Astra_Control_Slider' );
 			$wp_customize->register_control_type( 'Astra_Control_Responsive_Slider' );
 			$wp_customize->register_control_type( 'Astra_Control_Responsive' );

@@ -484,7 +484,43 @@
 				],
 				callback: function( footer_widget_area ) {
 
-					if ( 'disabled' != footer_widget_area ) {
+					var footer_widget_tabs = api( 'astra-settings[footer-widget-tabs]' ).get();
+
+					if ( 'disabled' != footer_widget_area && 'colors' === footer_widget_tabs ) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+		'astra-settings[footer-widget-tabs]' :
+		[
+			{
+				controls: [
+					'astra-settings[footer-adv]',
+				],
+				callback: function( footer_widget_tabs ) {
+
+					if ( 'layout' === footer_widget_tabs ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'astra-settings[footer-adv-background-divider]',
+					'astra-settings[footer-adv-wgt-title-color]',
+					'astra-settings[footer-adv-text-color]',
+					'astra-settings[footer-adv-link-color]',
+					'astra-settings[footer-adv-link-h-color]',
+					'astra-settings[footer-adv-bg-color]',
+				],
+				callback: function( footer_widget_tabs ) {
+
+					var footer_widget_area = api( 'astra-settings[footer-adv]' ).get();
+
+					if ( 'disabled' != footer_widget_area && 'colors' === footer_widget_tabs ) {
 						return true;
 					}
 					return false;

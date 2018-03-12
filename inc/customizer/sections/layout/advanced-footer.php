@@ -14,6 +14,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
+	 * Option: Footer Widget Tabs
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[footer-widget-tabs]', array(
+			'default' => 'layout',
+			'type' => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Astra_Control_Radio_Tabs(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-widget-tabs]', array(
+				'type'     => 'ast-radio-tabs',
+				'label'    => __( 'Footer Widget Tabs', 'astra' ),
+				'section'  => 'section-footer-adv',
+				'priority' => 0,
+				'choices'  => apply_filters( 'astra_customizer_footer_widget_tabs', array(
+					'layout'     => array(
+						ASTRA_THEME_SETTINGS . '[footer-adv]'
+					),
+					'colors'     => array(
+						ASTRA_THEME_SETTINGS . '[footer-color]',
+						ASTRA_THEME_SETTINGS . '[footer-link-color]',
+						ASTRA_THEME_SETTINGS . '[footer-link-h-color]',
+						ASTRA_THEME_SETTINGS . '[footer-bg-color]',
+					),
+					'typography' => array(),
+				) ),
+			)
+		)
+	);
+
+	/**
 	 * Option: Footer Widgets Layout Layout
 	 */
 	$wp_customize->add_setting(
