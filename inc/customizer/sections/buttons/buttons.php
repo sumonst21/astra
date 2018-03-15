@@ -14,6 +14,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
+	 * Option: Button Tabs
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[button-tabs]', array(
+			'default' => 'layout',
+			'type' => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Astra_Control_Radio_Tabs(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[button-tabs]', array(
+				'type'     => 'ast-radio-tabs',
+				'label'    => __( 'Button Tabs', 'astra' ),
+				'section'  => 'section-buttons',
+				'priority' => 0,
+				'choices'  => apply_filters( 'astra_customizer_button_tabs', array(
+					'layout'     => array(
+						ASTRA_THEME_SETTINGS . '[button-radius]',
+						ASTRA_THEME_SETTINGS . '[button-v-padding]',
+						ASTRA_THEME_SETTINGS . '[button-h-padding]',
+					),
+					'colors'     => array(
+						ASTRA_THEME_SETTINGS . '[button-color]',
+						ASTRA_THEME_SETTINGS . '[button-h-color]',
+						ASTRA_THEME_SETTINGS . '[button-bg-color]',
+						ASTRA_THEME_SETTINGS . '[button-bg-h-color]',
+					),
+					'typography' => array(),
+				) ),
+			)
+		)
+	);
+
+	/**
 	 * Option: Button Color
 	 */
 	$wp_customize->add_setting(

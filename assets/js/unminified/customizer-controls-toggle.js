@@ -62,6 +62,41 @@
 	 */
 	ASTCustomizerToggles = {
 
+		/**
+		 * Button
+		 */
+		'astra-settings[button-tabs]' :
+		[
+			{
+				controls: [
+					'astra-settings[button-radius]',
+					'astra-settings[button-v-padding]',
+					'astra-settings[button-h-padding]',
+				],
+				callback: function( tab )
+				{
+					if ( 'layout' == tab ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'astra-settings[button-color]',
+					'astra-settings[button-h-color]',
+					'astra-settings[button-bg-color]',
+					'astra-settings[button-bg-h-color]'
+				],
+				callback: function( tab )
+				{
+					if ( 'colors' == tab ) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
 
 		/**
 		 * Sidebar
