@@ -63,6 +63,36 @@
 	ASTCustomizerToggles = {
 
 		/**
+		 * Header
+		 */
+		'astra-settings[header-tabs]' :
+		[
+			{
+				controls: [
+					'astra-settings[header-layouts]',
+
+					'astra-settings[disable-primary-nav]',
+					'astra-settings[header-main-rt-section]',
+					'astra-settings[header-display-outside-menu]',
+					'astra-settings[header-main-rt-section-html]',
+					'astra-settings[header-main-sep]',
+					'astra-settings[header-main-sep-color]',
+					'astra-settings[header-main-layout-width]',
+					'astra-settings[header-main-menu-label-divider]',
+					'astra-settings[header-main-menu-label]',
+					'astra-settings[header-main-menu-align]',
+				],
+				callback: function( tab )
+				{
+					if ( 'layout' == tab ) {
+						return true;
+					}
+					return false;
+				}
+			}
+		],
+
+		/**
 		 * Button
 		 */
 		'astra-settings[button-tabs]' :
