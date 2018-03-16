@@ -89,7 +89,36 @@
 					}
 					return false;
 				}
+			},
+			{
+				controls: [
+					'astra-settings[divider-section-header-typo-title]',
+					'astra-settings[font-size-site-title]',
+				],
+				callback: function( tab )
+				{
+					var value = api( 'astra-settings[display-site-title]' ).get();
+					if ( 'typography' === tab && value ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'astra-settings[divider-section-header-typo-tagline]',
+					'astra-settings[font-size-site-tagline]',
+				],
+				callback: function( tab )
+				{
+					var value = api( 'astra-settings[display-site-tagline]' ).get();
+					if ( 'typography' === tab && value ) {
+						return true;
+					}
+					return false;
+				}
 			}
+
 		],
 
 		/**
@@ -161,9 +190,10 @@
 					'astra-settings[divider-section-header-typo-title]',
 					'astra-settings[font-size-site-title]',
 				],
-				callback: function( value ) {
-
-					if ( value ) {
+				callback: function( value )
+				{
+					var tab = api( 'astra-settings[header-tabs]' ).get();
+					if ( 'typography' === tab && value ) {
 						return true;
 					}
 					return false;
@@ -194,9 +224,10 @@
 					'astra-settings[divider-section-header-typo-tagline]',
 					'astra-settings[font-size-site-tagline]',
 				],
-				callback: function( value ) {
-
-					if ( value ) {
+				callback: function( value )
+				{
+					var tab = api( 'astra-settings[header-tabs]' ).get();
+					if ( 'typography' === tab && value ) {
 						return true;
 					}
 					return false;

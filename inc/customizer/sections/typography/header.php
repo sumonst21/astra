@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-header-typo-title]', array(
 				'type'     => 'ast-divider',
-				'section'  => 'section-header-typo',
+				'section'  => 'section-header',
 				'priority' => 5,
 				'label'    => __( 'Site Title', 'astra' ),
 				'settings' => array(),
@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Responsive(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-site-title]', array(
 				'type'        => 'ast-responsive',
-				'section'     => 'section-header-typo',
+				'section'     => 'section-header',
 				'priority'    => 10,
 				'label'       => __( 'Font Size', 'astra' ),
 				'input_attrs' => array(
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-header-typo-tagline]', array(
 				'type'     => 'ast-divider',
-				'section'  => 'section-header-typo',
+				'section'  => 'section-header',
 				'priority' => 15,
 				'label'    => __( 'Site Tagline', 'astra' ),
 				'settings' => array(),
@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Responsive(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-site-tagline]', array(
 				'type'        => 'ast-responsive',
-				'section'     => 'section-header-typo',
+				'section'     => 'section-header',
 				'priority'    => 20,
 				'label'       => __( 'Font Size', 'astra' ),
 				'input_attrs' => array(

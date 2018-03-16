@@ -45,7 +45,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 						ASTRA_THEME_SETTINGS . '[header-main-menu-align]',
 					),
 					'colors'     => array(),
-					'typography' => array(),
+					'typography' => array(
+						ASTRA_THEME_SETTINGS . '[divider-section-header-typo-title]',
+						ASTRA_THEME_SETTINGS . '[font-size-site-title]',
+						ASTRA_THEME_SETTINGS . '[divider-section-header-typo-tagline]',
+						ASTRA_THEME_SETTINGS . '[font-size-site-tagline]',
+					),
 				) ),
 			)
 		)
