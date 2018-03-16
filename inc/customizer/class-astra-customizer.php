@@ -334,7 +334,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 		}
 	}
-}// End if().
+}
 
 /**
  *  Kicking this off by calling 'get_instance()' method
