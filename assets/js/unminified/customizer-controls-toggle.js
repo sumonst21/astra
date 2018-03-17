@@ -146,6 +146,7 @@
 			{
 				controls: [
 					'astra-settings[font-size-site-tagline]',
+					'astra-settings[divider-section-header-typo-tagline]',
 				],
 				callback: function( tab )
 				{
@@ -260,6 +261,7 @@
 			{
 				controls: [
 					'astra-settings[font-size-site-tagline]',
+					'astra-settings[divider-section-header-typo-tagline]',
 				],
 				callback: function( value )
 				{
