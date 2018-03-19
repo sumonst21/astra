@@ -236,6 +236,24 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				)
 			);
 
+			$astra_pro_version = defined( 'ASTRA_EXT_VER' ) ? ASTRA_EXT_VER : 0;
+
+			wp_localize_script(
+				'astra-extend-customizer-js', 'astraExtended', apply_filters(
+					'astra_theme_customizer_extend_js_localize', array(
+						'astra_pro_installed'       => ( $astra_pro_version ) ? true : false,
+						'astra_pro_version'         => $astra_pro_version,
+						'astra_pro_upgrade_message' => sprintf(
+							__( 'You have <b>%1$s</b> version %2$s. We have categorize the <a target="_blank" href="%3$s">customizer options into the tabs</a>. Goto <a href="%4$s">update plugin</a> page.', 'astra' ),
+							astra_get_addon_name(),
+							$astra_pro_version,
+							'https://wpastra.com/',
+							admin_url( 'update-core.php' )
+						),
+					)
+				)
+			);
+
 		}
 
 		/**

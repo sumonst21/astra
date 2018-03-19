@@ -8,6 +8,14 @@
 
   var api = wp.customize;
 
+  if( astraExtended.astra_pro_installed ) {
+    if( parseFloat('1.2.5') >= parseFloat( astraExtended.astra_pro_version ) ) {
+      api.notifications.add( new wp.customize.Notification( 'upgrade_astra_addon_notification', {
+            type: 'warning',
+            message: astraExtended.astra_pro_upgrade_message,
+      } ) );
+    }
+
   api.bind( 'pane-contents-reflowed', function() {
 
     // Reflow sections
