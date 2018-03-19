@@ -15,6 +15,7 @@
             message: astraExtended.astra_pro_upgrade_message,
       } ) );
     }
+  }
 
   api.bind( 'pane-contents-reflowed', function() {
 
