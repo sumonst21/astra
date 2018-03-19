@@ -417,6 +417,8 @@
 					'astra-settings[font-size-archive-summary-title]',
 					'astra-settings[divider-section-archive-typo-archive-title]',
 					'astra-settings[font-size-page-title]',
+					'astra-settings[ast-blog-typography-more-feature-divider]',
+					'astra-settings[ast-blog-typography-more-feature-description]',
 				],
 				callback: function( tab )
 				{
