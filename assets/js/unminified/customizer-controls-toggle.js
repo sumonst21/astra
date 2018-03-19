@@ -501,6 +501,32 @@
 		[
 			{
 				controls: [
+					'astra-settings[ast-blog-single-more-feature-divider]',
+					'astra-settings[ast-blog-single-more-feature-description]',
+				],
+				callback: function( tab )
+				{
+					if ( 'layout' === tab ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'astra-settings[ast-sngle-blog-typography-more-feature-divider]',
+					'astra-settings[ast-sngle-blog-typography-more-feature-description]',
+				],
+				callback: function( tab )
+				{
+					if ( 'typography' === tab ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
 					'astra-settings[blog-single-post-structure]',
 					'astra-settings[ast-styling-section-single-blog-layouts]',
 					'astra-settings[blog-single-width]',
