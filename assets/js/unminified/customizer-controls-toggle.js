@@ -147,6 +147,8 @@
 				controls: [
 					'astra-settings[font-size-site-tagline]',
 					'astra-settings[divider-section-header-typo-tagline]',
+					'astra-settings[ast-header-typography-more-feature-divider]',
+					'astra-settings[ast-header-typography-more-feature-description]',
 				],
 				callback: function( tab )
 				{
@@ -262,6 +264,8 @@
 				controls: [
 					'astra-settings[font-size-site-tagline]',
 					'astra-settings[divider-section-header-typo-tagline]',
+					'astra-settings[ast-header-typography-more-feature-divider]',
+					'astra-settings[ast-header-typography-more-feature-description]',
 				],
 				callback: function( value )
 				{
@@ -513,7 +517,8 @@
 					'astra-settings[divider-section-header-single-title]',
 					'astra-settings[font-size-entry-title]',
 				],
-				callback: function( tab ) {
+				callback: function( tab )
+				{
 					if ( 'typography' === tab ) {
 						return true;
 					}
