@@ -92,7 +92,7 @@ class Astra_Control_Radio_Tabs extends WP_Customize_Control {
 		<div id="{{ data.uid }}" class="radio-tabs-wrapper">
 			<# for ( key in data.choices ) { #>
 				<# if ( data.choices[ key ].length > 0 ) { #>
-					<label for="{{ data.id }}{{ key }}" {{{ data.labelStyle }}} <# if ( 'layout' == key ) { #> class="activated" <# } #> >
+					<label for="{{ data.id }}{{ key }}" {{{ data.labelStyle }}} <# if ( data.value == key ) { #> class="activated" <# } #> >
 						<input type="radio" name="{{ data.id }}" value="{{ key }}" />
 						<span class="image-clickable">{{ key }}</span>
 					</label>
