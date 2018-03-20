@@ -195,7 +195,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			// Customizer Core.
 			wp_enqueue_script( 'astra-customizer-controls-toggle-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
-			
+
 			// Extended Customizer Assets - Panel extended.
 			wp_enqueue_style( 'astra-extend-customizer-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, ASTRA_THEME_VERSION );
 			wp_enqueue_script( 'astra-extend-customizer-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
@@ -244,6 +244,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						'astra_pro_installed'       => ( $astra_pro_version ) ? true : false,
 						'astra_pro_version'         => $astra_pro_version,
 						'astra_pro_upgrade_message' => sprintf(
+							/* translators: %1$s is the addon white label name, %2$s addon version, %3$s customizer tab article link, %4$s plugin update page link */
 							__( 'You have <b>%1$s</b> version %2$s. We have categorize the <a target="_blank" href="%3$s">customizer options into the tabs</a>. Goto <a href="%4$s">update plugin</a> page.', 'astra' ),
 							astra_get_addon_name(),
 							$astra_pro_version,

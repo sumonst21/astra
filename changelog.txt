@@ -1,3 +1,6 @@
+v1.2.6
+- Improvement: Categorize the customizer options into the tabs. It is more user friendly for quick customization.
+
 v1.2.5
 - Improvement: Whitelabel from Astra Pro now updates the strings and urls on Astra's welcome page as well.
 

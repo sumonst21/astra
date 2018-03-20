@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[sidebar-tabs]', array(
 			'default' => 'layout',
-			'type' => 'option',
+			'type'    => 'option',
 		)
 	);
 
@@ -30,21 +30,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'    => __( 'Sidebar Tabs', 'astra' ),
 				'section'  => 'section-sidebars',
 				'priority' => 0,
-				'choices'  => apply_filters( 'astra_customizer_sidebar_tabs', array(
-					'layout'     => array(
-						ASTRA_THEME_SETTINGS . '[sidebar-tabs]',
-						ASTRA_THEME_SETTINGS . '[site-sidebar-layout]',
-						ASTRA_THEME_SETTINGS . '[single-page-sidebar-layout-divider]',
-						ASTRA_THEME_SETTINGS . '[single-page-sidebar-layout]',
-						ASTRA_THEME_SETTINGS . '[single-post-sidebar-layout]',
-						ASTRA_THEME_SETTINGS . '[archive-post-sidebar-layout]',
-						ASTRA_THEME_SETTINGS . '[divider-section-sidebar-width]',
-						ASTRA_THEME_SETTINGS . '[site-sidebar-width]',
-						ASTRA_THEME_SETTINGS . '[site-sidebar-width-description]',
-					),
-					'colors'     => array(),
-					'typography' => array(),
-				) ),
+				'choices'  => apply_filters(
+					'astra_customizer_sidebar_tabs', array(
+						'layout'     => array(
+							ASTRA_THEME_SETTINGS . '[sidebar-tabs]',
+							ASTRA_THEME_SETTINGS . '[site-sidebar-layout]',
+							ASTRA_THEME_SETTINGS . '[single-page-sidebar-layout-divider]',
+							ASTRA_THEME_SETTINGS . '[single-page-sidebar-layout]',
+							ASTRA_THEME_SETTINGS . '[single-post-sidebar-layout]',
+							ASTRA_THEME_SETTINGS . '[archive-post-sidebar-layout]',
+							ASTRA_THEME_SETTINGS . '[divider-section-sidebar-width]',
+							ASTRA_THEME_SETTINGS . '[site-sidebar-width]',
+							ASTRA_THEME_SETTINGS . '[site-sidebar-width-description]',
+						),
+						'colors'     => array(),
+						'typography' => array(),
+					)
+				),
 			)
 		)
 	);

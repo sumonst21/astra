@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[header-tabs]', array(
 			'default' => 'layout',
-			'type' => 'option',
+			'type'    => 'option',
 		)
 	);
 
@@ -30,28 +30,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'    => __( 'Header Tabs', 'astra' ),
 				'section'  => 'section-header',
 				'priority' => 0,
-				'choices'  => apply_filters( 'astra_customizer_header_tabs', array(
-					'layout'     => array(
-						ASTRA_THEME_SETTINGS . '[header-layouts]',
-						ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
-						ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
-						ASTRA_THEME_SETTINGS . '[header-display-outside-menu]',
-						ASTRA_THEME_SETTINGS . '[header-main-rt-section-html]',
-						ASTRA_THEME_SETTINGS . '[header-main-sep]',
-						ASTRA_THEME_SETTINGS . '[header-main-sep-color]',
-						ASTRA_THEME_SETTINGS . '[header-main-layout-width]',
-						ASTRA_THEME_SETTINGS . '[header-main-menu-label-divider]',
-						ASTRA_THEME_SETTINGS . '[header-main-menu-label]',
-						ASTRA_THEME_SETTINGS . '[header-main-menu-align]',
-					),
-					'colors'     => array(),
-					'typography' => array(
-						ASTRA_THEME_SETTINGS . '[divider-section-header-typo-title]',
-						ASTRA_THEME_SETTINGS . '[font-size-site-title]',
-						ASTRA_THEME_SETTINGS . '[divider-section-header-typo-tagline]',
-						ASTRA_THEME_SETTINGS . '[font-size-site-tagline]',
-					),
-				) ),
+				'choices'  => apply_filters(
+					'astra_customizer_header_tabs', array(
+						'layout'     => array(
+							ASTRA_THEME_SETTINGS . '[header-layouts]',
+							ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
+							ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+							ASTRA_THEME_SETTINGS . '[header-display-outside-menu]',
+							ASTRA_THEME_SETTINGS . '[header-main-rt-section-html]',
+							ASTRA_THEME_SETTINGS . '[header-main-sep]',
+							ASTRA_THEME_SETTINGS . '[header-main-sep-color]',
+							ASTRA_THEME_SETTINGS . '[header-main-layout-width]',
+							ASTRA_THEME_SETTINGS . '[header-main-menu-label-divider]',
+							ASTRA_THEME_SETTINGS . '[header-main-menu-label]',
+							ASTRA_THEME_SETTINGS . '[header-main-menu-align]',
+						),
+						'colors'     => array(),
+						'typography' => array(
+							ASTRA_THEME_SETTINGS . '[divider-section-header-typo-title]',
+							ASTRA_THEME_SETTINGS . '[font-size-site-title]',
+							ASTRA_THEME_SETTINGS . '[divider-section-header-typo-tagline]',
+							ASTRA_THEME_SETTINGS . '[font-size-site-tagline]',
+						),
+					)
+				),
 			)
 		)
 	);

@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[blog-tabs]', array(
 			'default' => 'layout',
-			'type' => 'option',
+			'type'    => 'option',
 		)
 	);
 
@@ -29,23 +29,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'    => __( 'Blog Tabs', 'astra' ),
 				'section'  => 'section-blog',
 				'priority' => 0,
-				'choices'  => apply_filters( 'astra_customizer_blog_tabs', array(
-					'layout'     => array(
-						ASTRA_THEME_SETTINGS . '[blog-post-content]',
-						ASTRA_THEME_SETTINGS . '[blog-post-structure]',
-						ASTRA_THEME_SETTINGS . '[blog-meta]',
-						ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-width]',
-						ASTRA_THEME_SETTINGS . '[blog-width]',
-						ASTRA_THEME_SETTINGS . '[blog-max-width]',
-					),
-					'colors'     => array(),
-					'typography' => array(
-						ASTRA_THEME_SETTINGS . '[divider-section-archive-summary-box-typo]',
-						ASTRA_THEME_SETTINGS . '[font-size-archive-summary-title]',
-						ASTRA_THEME_SETTINGS . '[divider-section-archive-typo-archive-title]',
-						ASTRA_THEME_SETTINGS . '[font-size-page-title]',
-					),
-				) ),
+				'choices'  => apply_filters(
+					'astra_customizer_blog_tabs', array(
+						'layout'     => array(
+							ASTRA_THEME_SETTINGS . '[blog-post-content]',
+							ASTRA_THEME_SETTINGS . '[blog-post-structure]',
+							ASTRA_THEME_SETTINGS . '[blog-meta]',
+							ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-width]',
+							ASTRA_THEME_SETTINGS . '[blog-width]',
+							ASTRA_THEME_SETTINGS . '[blog-max-width]',
+						),
+						'colors'     => array(),
+						'typography' => array(
+							ASTRA_THEME_SETTINGS . '[divider-section-archive-summary-box-typo]',
+							ASTRA_THEME_SETTINGS . '[font-size-archive-summary-title]',
+							ASTRA_THEME_SETTINGS . '[divider-section-archive-typo-archive-title]',
+							ASTRA_THEME_SETTINGS . '[font-size-page-title]',
+						),
+					)
+				),
 			)
 		)
 	);

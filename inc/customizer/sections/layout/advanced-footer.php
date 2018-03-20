@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[footer-widget-tabs]', array(
 			'default' => 'layout',
-			'type' => 'option',
+			'type'    => 'option',
 		)
 	);
 
@@ -30,18 +30,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'    => __( 'Footer Widget Tabs', 'astra' ),
 				'section'  => 'section-footer-adv',
 				'priority' => 0,
-				'choices'  => apply_filters( 'astra_customizer_footer_widget_tabs', array(
-					'layout'     => array(
-						ASTRA_THEME_SETTINGS . '[footer-adv]'
-					),
-					'colors'     => array(
-						ASTRA_THEME_SETTINGS . '[footer-color]',
-						ASTRA_THEME_SETTINGS . '[footer-link-color]',
-						ASTRA_THEME_SETTINGS . '[footer-link-h-color]',
-						ASTRA_THEME_SETTINGS . '[footer-bg-color]',
-					),
-					'typography' => array(),
-				) ),
+				'choices'  => apply_filters(
+					'astra_customizer_footer_widget_tabs', array(
+						'layout'     => array(
+							ASTRA_THEME_SETTINGS . '[footer-adv]',
+						),
+						'colors'     => array(
+							ASTRA_THEME_SETTINGS . '[footer-color]',
+							ASTRA_THEME_SETTINGS . '[footer-link-color]',
+							ASTRA_THEME_SETTINGS . '[footer-link-h-color]',
+							ASTRA_THEME_SETTINGS . '[footer-bg-color]',
+						),
+						'typography' => array(),
+					)
+				),
 			)
 		)
 	);

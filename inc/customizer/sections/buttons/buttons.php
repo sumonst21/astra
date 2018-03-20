@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting(
 		ASTRA_THEME_SETTINGS . '[button-tabs]', array(
 			'default' => 'layout',
-			'type' => 'option',
+			'type'    => 'option',
 		)
 	);
 
@@ -30,20 +30,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'    => __( 'Button Tabs', 'astra' ),
 				'section'  => 'section-buttons',
 				'priority' => 0,
-				'choices'  => apply_filters( 'astra_customizer_button_tabs', array(
-					'layout'     => array(
-						ASTRA_THEME_SETTINGS . '[button-radius]',
-						ASTRA_THEME_SETTINGS . '[button-v-padding]',
-						ASTRA_THEME_SETTINGS . '[button-h-padding]',
-					),
-					'colors'     => array(
-						ASTRA_THEME_SETTINGS . '[button-color]',
-						ASTRA_THEME_SETTINGS . '[button-h-color]',
-						ASTRA_THEME_SETTINGS . '[button-bg-color]',
-						ASTRA_THEME_SETTINGS . '[button-bg-h-color]',
-					),
-					'typography' => array(),
-				) ),
+				'choices'  => apply_filters(
+					'astra_customizer_button_tabs', array(
+						'layout'     => array(
+							ASTRA_THEME_SETTINGS . '[button-radius]',
+							ASTRA_THEME_SETTINGS . '[button-v-padding]',
+							ASTRA_THEME_SETTINGS . '[button-h-padding]',
+						),
+						'colors'     => array(
+							ASTRA_THEME_SETTINGS . '[button-color]',
+							ASTRA_THEME_SETTINGS . '[button-h-color]',
+							ASTRA_THEME_SETTINGS . '[button-bg-color]',
+							ASTRA_THEME_SETTINGS . '[button-bg-h-color]',
+						),
+						'typography' => array(),
+					)
+				),
 			)
 		)
 	);

@@ -61,9 +61,9 @@ class Astra_Control_Radio_Tabs extends WP_Customize_Control {
 		$this->json['id']   = $this->id;
 		$this->json['link'] = $this->get_link();
 
-		$id   = str_replace('[', '-', $this->id);
-		$id   = str_replace(']', '', $id);
-		$this->json['uid']   = sanitize_key( $id );
+		$id                = str_replace( '[', '-', $this->id );
+		$id                = str_replace( ']', '', $id );
+		$this->json['uid'] = sanitize_key( $id );
 
 		$this->json['inputAttrs'] = '';
 		$this->json['labelStyle'] = '';
