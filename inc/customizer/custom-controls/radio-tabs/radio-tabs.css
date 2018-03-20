@@ -45,3 +45,10 @@
   text-transform: capitalize;
   font-weight: 600;
 }
+
+/**
+ * Hide only one tab.
+ */
+.radio-tabs-wrapper label:only-child {
+    display: none;
+}
