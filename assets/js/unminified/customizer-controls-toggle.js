@@ -69,6 +69,20 @@
 		[
 			{
 				controls: [
+					'astra-settings[header-display-outside-menu]',
+				],
+				callback: function( tab )
+				{
+					var custom_menu = api( 'astra-settings[header-main-rt-section]' ).get();
+
+					if ( 'layout' === tab && 'none' !=  custom_menu ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
 					'astra-settings[header-main-sep-color]',
 				],
 				callback: function( tab )
@@ -116,7 +130,6 @@
 
 					'astra-settings[disable-primary-nav]',
 					'astra-settings[header-main-rt-section]',
-					'astra-settings[header-display-outside-menu]',
 					'astra-settings[header-main-sep]',
 					'astra-settings[header-main-layout-width]',
 					'astra-settings[header-main-menu-align]',
@@ -147,13 +160,24 @@
 				controls: [
 					'astra-settings[font-size-site-tagline]',
 					'astra-settings[divider-section-header-typo-tagline]',
-					'astra-settings[ast-header-typography-more-feature-divider]',
-					'astra-settings[ast-header-typography-more-feature-description]',
 				],
 				callback: function( tab )
 				{
 					var value = api( 'astra-settings[display-site-tagline]' ).get();
 					if ( 'typography' === tab && value ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'astra-settings[ast-header-typography-more-feature-divider]',
+					'astra-settings[ast-header-typography-more-feature-description]',
+				],
+				callback: function( tab )
+				{
+					if ( 'typography' === tab ) {
 						return true;
 					}
 					return false;
@@ -264,8 +288,6 @@
 				controls: [
 					'astra-settings[font-size-site-tagline]',
 					'astra-settings[divider-section-header-typo-tagline]',
-					'astra-settings[ast-header-typography-more-feature-divider]',
-					'astra-settings[ast-header-typography-more-feature-description]',
 				],
 				callback: function( value )
 				{
@@ -381,9 +403,11 @@
 				controls: [
 					'astra-settings[header-display-outside-menu]',
 				],
-				callback: function( custom_menu ) {
-					
-					if ( 'none' !=  custom_menu ) {
+				callback: function( custom_menu )
+				{
+					var tab = api( 'astra-settings[header-tabs]' ).get();
+
+					if ( 'layout' === tab && 'none' !=  custom_menu ) {
 						return true;
 					}
 					return false;
