@@ -980,6 +980,8 @@
 			{
 				controls: [
 					'astra-settings[footer-adv]',
+					'astra-settings[ast-footer-widget-more-feature-divider]',
+					'astra-settings[ast-footer-widget-more-feature-description]',
 				],
 				callback: function( footer_widget_tabs ) {
 
