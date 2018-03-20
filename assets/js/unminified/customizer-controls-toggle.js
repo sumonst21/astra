@@ -426,6 +426,8 @@
 					'astra-settings[blog-post-structure]',
 					'astra-settings[ast-styling-section-blog-width]',
 					'astra-settings[blog-width]',
+					'astra-settings[ast-blog-more-feature-divider]',
+					'astra-settings[ast-blog-more-feature-description]',
 				],
 				callback: function( tab )
 				{
