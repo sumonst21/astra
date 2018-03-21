@@ -24,6 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'priority' => 0,
 				'label'    => __( 'Archive Summary Box Title', 'astra' ),
 				'settings' => array(),
+				'hide_border' => true,
 			)
 		)
 	);

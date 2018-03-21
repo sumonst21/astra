@@ -19,11 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-header-single-title]', array(
-				'type'     => 'ast-divider',
-				'section'  => 'section-blog-single',
-				'priority' => 5,
-				'label'    => __( 'Single Post / Page Title', 'astra' ),
-				'settings' => array(),
+				'type'        => 'ast-divider',
+				'section'     => 'section-blog-single',
+				'priority'    => 5,
+				'label'       => __( 'Single Post / Page Title', 'astra' ),
+				'settings'    => array(),
+				'hide_border' => true,
 			)
 		)
 	);

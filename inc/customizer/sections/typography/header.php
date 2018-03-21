@@ -24,6 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'priority' => 5,
 				'label'    => __( 'Site Title', 'astra' ),
 				'settings' => array(),
+				'hide_border' => true,
 			)
 		)
 	);

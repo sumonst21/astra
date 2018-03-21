@@ -33,6 +33,14 @@ class Astra_Control_Divider extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
+	public $hide_border = '';
+
+	/**
+	 * The control type.
+	 *
+	 * @access public
+	 * @var string
+	 */
 	public $caption = '';
 
 	/**
@@ -56,6 +64,7 @@ class Astra_Control_Divider extends WP_Customize_Control {
 		$this->json['label']       = esc_html( $this->label );
 		$this->json['caption']     = $this->caption;
 		$this->json['description'] = $this->description;
+		$this->json['hide_border'] = isset( $this->hide_border ) ? esc_html( $this->hide_border ) : false;
 	}
 
 	/**
@@ -74,7 +83,10 @@ class Astra_Control_Divider extends WP_Customize_Control {
 		<# if ( data.caption ) { #>
 			<span class="customize-control-caption">{{{ data.caption }}}</span>
 		<# } #>
-		<hr />
+		
+		<# if ( ! data.hide_border ) { #>
+			<hr />		
+		<# } #>
 
 		<label class="customizer-text">
 			<# if ( data.label ) { #>
