@@ -2251,6 +2251,11 @@ body {
   margin: 0;
 }
 
+.ast-page-builder-template.ast-woo-shop-archive .site-content > .ast-container {
+  max-width: 100%;
+  padding: 0;
+}
+
 .ast-page-builder-template .site-content > .ast-container {
   max-width: 100%;
   padding: 0;

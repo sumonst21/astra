@@ -127,6 +127,10 @@ body{
 	.hentry {
 		margin: 0;
 	}
+	&.ast-woo-shop-archive .site-content > .ast-container {
+		max-width: 100%;
+	    padding: 0;
+	}
 	.site-content > .ast-container {
 		max-width: 100%;
 	    padding: 0;
