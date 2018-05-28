@@ -955,15 +955,29 @@ var toggleClass = function ( el, className ) {
 
 				switch ( rel ) {
 					case 'main-menu':
-							toggleClass( __main_header_all[event_index], 'toggle-on' );
-							toggleClass( menu_toggle_all[event_index], 'toggled' );
-							if ( __main_header_all[event_index].classList.contains( 'toggle-on' ) ) {		
-								 slideDown(__main_header_all[event_index], this);
-								__main_header_all[event_index].style.display = 'block';		
-							} else {		
-								 slideUp(__main_header_all[event_index], this);
-								__main_header_all[event_index].style.display = '';		
-							}
+							// toggleClass( __main_header_all[event_index], 'toggle-on' );
+							// toggleClass( menu_toggle_all[event_index], 'toggled' );
+							// if ( __main_header_all[event_index].classList.contains( 'toggle-on' ) ) {		
+							// 	 slideDown(__main_header_all[event_index], this);
+							// 	__main_header_all[event_index].style.display = 'block';		
+							// } else {		
+							// 	 slideUp(__main_header_all[event_index], this);
+							// 	__main_header_all[event_index].style.display = '';		
+							// }
+
+							var element_classes = (" "+__main_header_all[event_index].className+" ").replace(/[\n\t\r]/g, " "),
+					            remove_class    = "slide-down",
+					            add_class       = "slide-up",
+					            is_showing      = element_classes.indexOf(" "+remove_class+" ") > -1;
+
+					        if ( ! is_showing) {
+					            // Switch variable values
+					            remove_class = [add_class, add_class = remove_class][0];
+					        }
+
+					        // Remove the previous class (if present) and add the new class
+					        __main_header_all[event_index].className = (element_classes.replace(" "+remove_class+" ", "") + " "+add_class+" ").trim();
+
 						break;
 				}
 		    }, false);

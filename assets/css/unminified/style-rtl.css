@@ -1353,7 +1353,8 @@ dd {
   margin: 0 1.5em 1.5em;
 }
 
-b, strong {
+b,
+strong {
   font-weight: bold;
 }
 
@@ -3542,6 +3543,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point .main-header-bar .main-header-bar-navigation {
   line-height: 3;
+  max-height: 0;
   overflow: hidden;
 }
 
@@ -3588,6 +3590,18 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 
 .ast-header-break-point .main-header-bar .main-header-bar-navigation .main-header-menu {
   border-top: 1px solid #eaeaea;
+}
+
+.ast-header-break-point .main-header-bar .main-header-bar-navigation.slide-up,
+.ast-header-break-point .main-header-bar .main-header-bar-navigation.slide-down {
+  max-height: 0;
+  overflow-y: hidden;
+  -webkit-transition: max-height 0.5s ease-in-out;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.ast-header-break-point .main-header-bar .slide-down {
+  max-height: 100%;
 }
 
 .ast-header-break-point .ast-search-menu-icon {
