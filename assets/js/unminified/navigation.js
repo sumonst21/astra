@@ -300,13 +300,13 @@ var toggleClass = function ( el, className ) {
 		    	}
 
 		    	var menuHasChildren = __main_header_all[event_index].querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
-				// for ( var i = 0; i < menuHasChildren.length; i++ ) {
-				// 	menuHasChildren[i].classList.remove( 'ast-submenu-expanded' );
-				// 	var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll( '.sub-menu, .children' );		
+				for ( var i = 0; i < menuHasChildren.length; i++ ) {
+					menuHasChildren[i].classList.remove( 'ast-submenu-expanded' );
+					var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll( '.sub-menu, .children' );		
 				// 	for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {		
 				// 		menuHasChildrenSubMenu[j].className += ' slide-up';		
 				// 	};
-				// }
+				}
 
 				var rel = this.getAttribute( 'rel' ) || '';
 
@@ -353,6 +353,8 @@ var toggleClass = function ( el, className ) {
 	}
 	
 	document.body.addEventListener("astra-header-responsive-enabled", function() {
+
+		console.log( 'svd' );
 
 		if ( __main_header_all.length > 0 ) {
 
