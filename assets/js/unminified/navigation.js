@@ -238,8 +238,13 @@ var toggleClass = function ( el, className ) {
 				for (var j = 0; j < parent_li_child.length; j++) {
 
 					parent_li_child[j].classList.remove( 'ast-submenu-expanded' );
-					var parent_li_child_sub_menu = parent_li_child[j].querySelector( '.sub-menu, .children' );		
-					parent_li_child_sub_menu.style.display = 'none';
+					var parent_li_child_sub_menu = parent_li_child[j].querySelector( '.sub-menu, .children' );
+
+					var element_classes = (" "+parent_li_child_sub_menu.className+" ").replace(/[\n\t\r]/g, " "),
+			            remove_class    = "slide-down",
+			            add_class       = "slide-up";
+
+					parent_li_child_sub_menu.className = (element_classes.replace(" "+remove_class+" ", "") + " "+add_class+" ").trim();
 				};
 
 				var parent_li_sibling = parent_li.parentNode.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
@@ -248,9 +253,15 @@ var toggleClass = function ( el, className ) {
 					if ( parent_li_sibling[j] != parent_li ) {
 
 						parent_li_sibling[j].classList.remove( 'ast-submenu-expanded' );
+
 						var all_sub_menu = parent_li_sibling[j].querySelectorAll( '.sub-menu, .children' );
-						for (var k = 0; k < all_sub_menu.length; k++) {		
-							all_sub_menu[k].style.display = 'none';		
+						for (var k = 0; k < all_sub_menu.length; k++) {
+
+							var element_classes = (" "+all_sub_menu[k].className+" ").replace(/[\n\t\r]/g, " "),
+					            remove_class    = "slide-down",
+					            add_class       = "slide-up";
+
+							all_sub_menu[k].className = (element_classes.replace(" "+remove_class+" ", "") + " "+add_class+" ").trim();		
 						};
 					}
 				};
@@ -258,9 +269,20 @@ var toggleClass = function ( el, className ) {
 				if ( parent_li.classList.contains( 'menu-item-has-children' ) || parent_li.classList.contains( 'page_item_has_children' ) ) {
 					toggleClass( parent_li, 'ast-submenu-expanded' );
 					if ( parent_li.classList.contains( 'ast-submenu-expanded' ) ) {
-						parent_li.querySelector( '.sub-menu, .children' ).style.display = 'block';
+
+						var element_classes = (" "+parent_li.querySelector( '.sub-menu, .children' ).className+" ").replace(/[\n\t\r]/g, " "),
+				            remove_class    = "slide-up",
+				            add_class       = "slide-down";
+
+						parent_li.querySelector( '.sub-menu, .children' ).className = (element_classes.replace(" "+remove_class+" ", "") + " "+add_class+" ").trim();	
+
 					} else {
-						parent_li.querySelector( '.sub-menu, .children' ).style.display = 'none';
+						
+						var element_classes = (" "+parent_li.querySelector( '.sub-menu, .children' ).className+" ").replace(/[\n\t\r]/g, " "),
+				            remove_class    = "slide-down",
+				            add_class       = "slide-up";
+
+						parent_li.querySelector( '.sub-menu, .children' ).className = (element_classes.replace(" "+remove_class+" ", "") + " "+add_class+" ").trim();	
 					}
 				}
 			}, false);
@@ -287,20 +309,18 @@ var toggleClass = function ( el, className ) {
 		    	}
 
 		    	var menuHasChildren = __main_header_all[event_index].querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
-				for ( var i = 0; i < menuHasChildren.length; i++ ) {
-					menuHasChildren[i].classList.remove( 'ast-submenu-expanded' );
-					var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll( '.sub-menu, .children' );		
-					for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {		
-						menuHasChildrenSubMenu[j].style.display = 'none';		
-					};
-				}
+				// for ( var i = 0; i < menuHasChildren.length; i++ ) {
+				// 	menuHasChildren[i].classList.remove( 'ast-submenu-expanded' );
+				// 	var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll( '.sub-menu, .children' );		
+				// 	for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {		
+				// 		menuHasChildrenSubMenu[j].className += ' slide-up';		
+				// 	};
+				// }
 
 				var rel = this.getAttribute( 'rel' ) || '';
 
 				switch ( rel ) {
 					case 'main-menu':
-							// toggleClass( __main_header_all[event_index], 'toggle-on' );
-							// toggleClass( menu_toggle_all[event_index], 'toggled' );
 							// if ( __main_header_all[event_index].classList.contains( 'toggle-on' ) ) {		
 							// 	 slideDown(__main_header_all[event_index], this);
 							// 	__main_header_all[event_index].style.display = 'block';		
@@ -318,6 +338,11 @@ var toggleClass = function ( el, className ) {
 					            // Switch variable values
 					            remove_class = [add_class, add_class = remove_class][0];
 					        }
+								
+							setTimeout(function() {
+								toggleClass( menu_toggle_all[event_index], 'toggled' );
+							}, 300 );
+
 
 					        // Remove the previous class (if present) and add the new class
 					        __main_header_all[event_index].className = (element_classes.replace(" "+remove_class+" ", "") + " "+add_class+" ").trim();
