@@ -3375,6 +3375,16 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: none;
 }
 
+.ast-header-break-point .ast-slide-up,
+.ast-header-break-point .ast-slide-down {
+  max-height: 0;
+  overflow-y: hidden;
+  -webkit-transition: max-height 0.3s ease-in-out;
+  -moz-transition: max-height 0.3s ease-in-out;
+  -o-transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.3s ease-in-out;
+}
+
 .ast-header-break-point .main-header-bar {
   display: block;
   padding: 1.5em 0 0;
@@ -3398,20 +3408,8 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   overflow-y: hidden;
 }
 
-.ast-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children .sub-menu.slide-up,
-.ast-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children .sub-menu.slide-down,
-.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children .sub-menu.slide-up,
-.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children .sub-menu.slide-down {
-  max-height: 0;
-  overflow-y: hidden;
-  -webkit-transition: max-height 0.4s ease-in-out;
-  -moz-transition: max-height 0.4s ease-in-out;
-  -o-transition: max-height 0.4s ease-in-out;
-  transition: max-height 0.4s ease-in-out;
-}
-
-.ast-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children .sub-menu.slide-down,
-.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children .sub-menu.slide-down {
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children .sub-menu.ast-slide-down,
+.ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children .sub-menu.ast-slide-down {
   max-height: 400px;
 }
 
@@ -3448,17 +3446,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   border-top: 1px solid #eaeaea;
 }
 
-.ast-header-break-point .main-header-bar .main-header-bar-navigation.slide-up,
-.ast-header-break-point .main-header-bar .main-header-bar-navigation.slide-down {
-  max-height: 0;
-  overflow-y: hidden;
-  -webkit-transition: max-height 0.7s ease-in-out;
-  -moz-transition: max-height 0.7s ease-in-out;
-  -o-transition: max-height 0.7s ease-in-out;
-  transition: max-height 0.7s ease-in-out;
-}
-
-.ast-header-break-point .main-header-bar .main-header-bar-navigation.slide-down {
+.ast-header-break-point .main-header-bar .main-header-bar-navigation.ast-slide-down {
   max-height: 700px;
 }
 

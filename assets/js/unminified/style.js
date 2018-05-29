@@ -897,8 +897,8 @@ var toggleClass = function ( el, className ) {
 					var parent_li_child_sub_menu = parent_li_child[j].querySelector( '.sub-menu, .children' );
 
 					var element_classes = (" "+parent_li_child_sub_menu.className+" ").replace(/[\n\t\r]/g, " "),
-			            remove_class    = "slide-down",
-			            add_class       = "slide-up";
+			            remove_class    = "ast-slide-down",
+			            add_class       = "ast-slide-up";
 
 					parent_li_child_sub_menu.className = (element_classes.replace(" "+remove_class+" ", "") + " "+add_class+" ").trim();
 				};
@@ -914,8 +914,8 @@ var toggleClass = function ( el, className ) {
 						for (var k = 0; k < all_sub_menu.length; k++) {
 
 							var element_classes = (" "+all_sub_menu[k].className+" ").replace(/[\n\t\r]/g, " "),
-					            remove_class    = "slide-down",
-					            add_class       = "slide-up";
+					            remove_class    = "ast-slide-down",
+					            add_class       = "ast-slide-up";
 
 							all_sub_menu[k].className = (element_classes.replace(" "+remove_class+" ", "") + " "+add_class+" ").trim();		
 						};
@@ -924,21 +924,12 @@ var toggleClass = function ( el, className ) {
 
 				if ( parent_li.classList.contains( 'menu-item-has-children' ) || parent_li.classList.contains( 'page_item_has_children' ) ) {
 					toggleClass( parent_li, 'ast-submenu-expanded' );
+					var element_classes = (" "+parent_li.querySelector( '.sub-menu, .children' ).className+" ").replace(/[\n\t\r]/g, " ");
+
 					if ( parent_li.classList.contains( 'ast-submenu-expanded' ) ) {
-
-						var element_classes = (" "+parent_li.querySelector( '.sub-menu, .children' ).className+" ").replace(/[\n\t\r]/g, " "),
-				            remove_class    = "slide-up",
-				            add_class       = "slide-down";
-
-						parent_li.querySelector( '.sub-menu, .children' ).className = (element_classes.replace(" "+remove_class+" ", "") + " "+add_class+" ").trim();	
-
+						parent_li.querySelector( '.sub-menu, .children' ).className = (element_classes.replace( " ast-slide-up ", "" ) + " ast-slide-down ").trim();
 					} else {
-						
-						var element_classes = (" "+parent_li.querySelector( '.sub-menu, .children' ).className+" ").replace(/[\n\t\r]/g, " "),
-				            remove_class    = "slide-down",
-				            add_class       = "slide-up";
-
-						parent_li.querySelector( '.sub-menu, .children' ).className = (element_classes.replace(" "+remove_class+" ", "") + " "+add_class+" ").trim();	
+						parent_li.querySelector( '.sub-menu, .children' ).className = (element_classes.replace(" ast-slide-down ", "") + " ast-slide-up ").trim();	
 					}
 				}
 			}, false);
@@ -986,8 +977,8 @@ var toggleClass = function ( el, className ) {
 							// }
 
 							var element_classes = (" "+__main_header_all[event_index].className+" ").replace(/[\n\t\r]/g, " "),
-					            remove_class    = "slide-down",
-					            add_class       = "slide-up",
+					            remove_class    = "ast-slide-down",
+					            add_class       = "ast-slide-up",
 					            is_showing      = element_classes.indexOf(" "+remove_class+" ") > -1;
 
 					        if ( ! is_showing) {
