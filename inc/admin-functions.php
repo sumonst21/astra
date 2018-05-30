@@ -48,3 +48,19 @@ if ( ! function_exists( 'astra_theme_customizer_mobile_header_section' ) ) :
 	}
 
 endif;
+
+if ( ! function_exists( 'astra_theme_customizer_mobile_breakpoint_section' ) ) :
+	/**
+	 * Returns the mobile header breakpoint section.
+	 *
+	 * Customizer Setting which added inside the Mobile Header breakpoint Section
+	 * which can be moved to the other section if needed.
+	 *
+	 * @since x.x.x
+	 * @return string
+	 */
+	function astra_theme_customizer_mobile_breakpoint_section() {
+		return apply_filters( 'astra_customizer_mobile_header_layout', 'section-mobile-header' );
+	}
+
+endif;
