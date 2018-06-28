@@ -1044,3 +1044,39 @@ if ( ! function_exists( 'astra_get_pro_url' ) ) :
 	}
 
 endif;
+
+/**
+ * Return Theme's Default options.
+ */
+if ( ! function_exists( 'astra_get_default_option' ) ) {
+
+	/**
+	 * Return Theme options.
+	 *
+	 * @param  string $option       Option key.
+	 * @param  string $default      Option default value.
+	 * @return Mixed               Return option value.
+	 */
+	function astra_get_default_option( $option, $default = '' ) {
+
+		$theme_defaults = Astra_Theme_Options::defaults();
+		/**
+		 * Filter the default options array for Astra Settings.
+		 *
+		 * @since  x.x.x
+		 * @var Array
+		 */
+		$theme_defaults = apply_filters( 'astra_get_default_option_array', $theme_defaults, $option, $default );
+
+		$value = ( isset( $theme_defaults[ $option ] ) && '' !== $theme_defaults[ $option ] ) ? $theme_defaults[ $option ] : $default;
+
+		/**
+		 * Dynamic filter astra_get_default_option_$option.
+		 * $option is the name of the Astra Setting, Refer Astra_Theme_Options::defaults() for option names from the theme.
+		 *
+		 * @since  x.x.x
+		 * @var Mixed.
+		 */
+		return apply_filters( "astra_get_default_option_{$option}", $value, $option, $default );
+	}
+}
