@@ -155,7 +155,8 @@ if ( ! function_exists( 'astra_logo' ) ) {
 
 		$display_site_tagline = astra_get_option( 'display-site-tagline' );
 		$display_site_title   = astra_get_option( 'display-site-title' );
-		$html                 = '';
+
+		$html = '';
 
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
 
@@ -524,7 +525,7 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 			$menu_bottons = false;
 		}
 		if ( apply_filters( 'astra_enable_mobile_menu_buttons', $menu_bottons ) ) {
-		?>
+			?>
 		<div class="ast-mobile-menu-buttons">
 
 			<?php astra_masthead_toggle_buttons_before(); ?>
@@ -534,7 +535,7 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 			<?php astra_masthead_toggle_buttons_after(); ?>
 
 		</div>
-		<?php
+			<?php
 		}
 	}
 }
@@ -561,9 +562,32 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			$display_outside = astra_get_option( 'header-display-outside-menu' );
 
 			if ( 'none' != $custom_header_section && ! $display_outside ) {
+
 				echo '<div class="main-header-bar-navigation ast-header-custom-item ast-flex ast-justify-content-flex-end">';
+				/**
+				 * Fires before the Primary Header Menu navigation.
+				 * Disable Primary Menu is checked
+				 * Custom menu item is not 'none'.
+				 * Take custom menu item outside is unchecked.
+				 *
+				 * @since x.x.x
+				 */
+				do_action( 'astra_main_header_custom_menu_item_before' );
+
 				echo astra_masthead_get_menu_items();
+
+				/**
+				 * Fires after the Primary Header Menu navigation.
+				 * Disable Primary Menu is checked
+				 * Custom menu item is not 'none'.
+				 * Take custom menu item outside is unchecked.
+				 *
+				 * @since x.x.x
+				 */
+				do_action( 'astra_main_header_custom_menu_item_after' );
+
 				echo '</div>';
+
 			}
 		} else {
 
@@ -653,11 +677,13 @@ if ( ! function_exists( 'astra_header_break_point' ) ) {
 	/**
 	 * Function to get Header Breakpoint
 	 *
+	 * @since x.x.x Added Mobile Header Breakpoint option from customizer.
 	 * @since 1.0.0
 	 * @return number
 	 */
 	function astra_header_break_point() {
-		return absint( apply_filters( 'astra_header_break_point', 921 ) );
+		$mobile_header_brakpoint = astra_get_option( 'mobile-header-breakpoint', 921 );
+		return absint( apply_filters( 'astra_header_break_point', $mobile_header_brakpoint ) );
 	}
 }
 
@@ -727,6 +753,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$primary_menu_disable     = astra_get_option( 'disable-primary-nav' );
 		$primary_menu_custom_item = astra_get_option( 'header-main-rt-section' );
 		$logo_title_inline        = astra_get_option( 'logo-title-inline' );
+		$mobile_header_logo       = astra_get_option( 'mobile-header-logo' );
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
@@ -739,7 +766,15 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 			if ( 'none' == $primary_menu_custom_item ) {
 				$classes[] = 'ast-no-menu-items';
 			}
+		} else {
+			$classes[] = 'ast-primary-menu-enabled';
 		}
+
+		// Add class if Mobile Header Logo is set.
+		if ( '' !== $mobile_header_logo ) {
+			$classes[] = 'ast-has-mobile-header-logo';
+		}
+
 		// Add class if Inline Logo & Site Title.
 		if ( $logo_title_inline ) {
 			$classes[] = 'ast-logo-title-inline';
@@ -1018,7 +1053,7 @@ if ( ! function_exists( 'astra_get_sidebar' ) ) {
 		if ( is_active_sidebar( $sidebar_id ) ) {
 			dynamic_sidebar( $sidebar_id );
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
-		?>
+			?>
 			<div class="widget ast-no-widget-row">
 				<p class='no-widget-text'>
 					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>

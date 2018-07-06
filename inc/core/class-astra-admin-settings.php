@@ -410,7 +410,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				</div>
 			</div>
 
-		<?php
+			<?php
 		}
 
 		/**
@@ -443,7 +443,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					?>
 				</div>
 			</div>
-		<?php
+			<?php
 		}
 
 		/**
@@ -489,7 +489,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					?>
 				</div>
 			</div>
-		<?php
+			<?php
 		}
 
 		/**
@@ -528,7 +528,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					?>
 				</div>
 			</div>
-		<?php
+			<?php
 		}
 
 		/**
@@ -570,7 +570,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						?>
 				</div>
 			</div>
-		<?php
+			<?php
 		}
 
 
@@ -678,6 +678,19 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							array(
 								'link_class'   => 'ast-learn-more',
 								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/blog-pro-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'astra' ),
+								'target_blank' => true,
+							),
+						),
+					),
+					'mobile-header'         => array(
+						'title'     => __( 'Mobile Header', 'astra' ),
+						'class'     => 'ast-addon',
+						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/mobile-header-with-astra/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'links'     => array(
+							array(
+								'link_class'   => 'ast-learn-more',
+								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/mobile-header-with-astra/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'astra' ),
 								'target_blank' => true,
 							),
@@ -907,7 +920,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</div>
 			</div>
 
-		<?php
+			<?php
 		}
 
 		/**

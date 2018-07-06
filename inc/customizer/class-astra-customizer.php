@@ -113,6 +113,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Astra_Control_Spacing' );
 			$wp_customize->register_control_type( 'Astra_Control_Responsive_Spacing' );
 			$wp_customize->register_control_type( 'Astra_Control_Divider' );
+			$wp_customize->register_control_type( 'Astra_Control_Heading' );
 			$wp_customize->register_control_type( 'Astra_Control_Color' );
 			$wp_customize->register_control_type( 'Astra_Control_Description' );
 			$wp_customize->register_control_type( 'Astra_Control_Background' );
@@ -265,7 +266,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$dir        = 'unminified';
 			}
 
-			wp_enqueue_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), null, ASTRA_THEME_VERSION );
+			wp_register_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), null, ASTRA_THEME_VERSION );
+
+			$localize_array = array(
+				'headerBreakpoint' => astra_header_break_point(),
+			);
+
+			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );
+			wp_enqueue_script( 'astra-customizer-preview-js' );
 		}
 
 		/**
