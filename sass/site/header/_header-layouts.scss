@@ -109,6 +109,14 @@
 /**
  *  3 - Header Layout 3
 */
+.ast-header-custom-item-outside .header-main-layout-3 {
+	.site-branding {
+	    flex: auto;
+	}
+	.ast-main-header-bar-alignment {
+	    flex: 1;
+	}
+}
 .header-main-layout-3 {
 	.main-header-container	{
 		  flex-direction: row-reverse;
