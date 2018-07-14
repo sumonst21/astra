@@ -208,6 +208,15 @@ li.ast-masthead-custom-menu-items {
 		align-self: center;
 	}
 
+	.header-main-layout-2{
+		.site-branding,
+		.ast-mobile-menu-buttons{
+			flex: 0 0 100%;
+			justify-content: center;
+			text-align: center; 
+		}
+	}
+
 	ul li.ast-masthead-custom-menu-items a {
 		padding: 0;
 		width: auto;
@@ -523,11 +532,6 @@ li.ast-masthead-custom-menu-items {
 					}
 				}
 			}
-			&.header-main-layout-2{
-				.site-branding{
-					flex: 1 1 auto;
-				}
-			}
 		}
 	}
 }
@@ -686,6 +690,14 @@ li.ast-masthead-custom-menu-items {
 					}
 				}
 			}	
+		}
+
+		.ast-mobile-header-inline{
+			&.header-main-layout-2{
+				.site-branding{
+					flex: 1 1 auto;
+				}
+			}
 		}
 	}
 }
