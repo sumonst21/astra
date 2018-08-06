@@ -157,6 +157,14 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		$display_site_tagline = astra_get_option( 'display-site-tagline' );
 		$display_site_title   = astra_get_option( 'display-site-title' );
 
+		if( true === $display_site_title ) {
+			add_filter( 'astra_site_identity_title_markup', '__return_true' );
+		}
+
+		if( true === $display_site_tagline ) {
+			add_filter( 'astra_site_identity_tagline_markup', '__return_true' );
+		}
+ 
 		$html = '';
 
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
@@ -198,18 +206,19 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			// Site Description.
 			$site_tagline_markup = '<p class="site-description" itemprop="description">' . get_bloginfo( 'description' ) . '</p>';
 
-			if ( $display_site_title || $display_site_tagline ) {
+			if ( apply_filters( 'astra_site_identity_title_markup', false ) || apply_filters( 'astra_site_identity_tagline_markup', false ) ) {
 				/* translators: 1: Site Title Markup, 2: Site Tagline Markup */
 				$html .= sprintf(
 					'<div class="ast-site-title-wrap">
 							%1$s
 							%2$s
 						</div>',
-					( $display_site_title ) ? $site_title_markup : '',
-					( $display_site_tagline ) ? $site_tagline_markup : ''
+					( apply_filters( 'astra_site_identity_title_markup', false ) ) ? $site_title_markup : '',
+					( apply_filters( 'astra_site_identity_tagline_markup', false ) ) ? $site_tagline_markup : ''
 				);
 			}
 		}
+
 		$html = apply_filters( 'astra_logo', $html, $display_site_title, $display_site_tagline );
 
 		/**
@@ -760,6 +769,8 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$different_mobile_header_order = astra_get_option( 'different-mobile-logo' );
 		$hide_custom_menu_mobile       = astra_get_option( 'hide-custom-menu-mobile', false );
 		$menu_mobile_target            = astra_get_option( 'mobile-header-toggle-target', 'icon' );
+		$display_site_tagline 		   = astra_get_option( 'display-site-tagline' );
+		$display_site_title   		   = astra_get_option( 'display-site-title' );
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
@@ -788,6 +799,14 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 
 		if ( '1' == $hide_custom_menu_mobile ) {
 			$classes[] = 'ast-hide-custom-menu-mobile';
+		}
+		
+		if ( true === $display_site_title ) {
+			$classes[] = 'ast-site-identity-title-enable';
+		}
+
+		if ( true === $display_site_tagline ) {
+			$classes[] = 'ast-site-identity-tagline-enable';
 		}
 
 		$classes[] = 'ast-menu-toggle-' . $menu_mobile_target;

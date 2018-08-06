@@ -3556,6 +3556,22 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: none;
 }
 
+.ast-site-identity .ast-site-title-wrap .site-title {
+  display: none;
+}
+
+.ast-site-identity .ast-site-title-wrap .site-description {
+  display: none;
+}
+
+.ast-site-identity-title-enable .ast-site-identity .ast-site-title-wrap .site-title {
+  display: block;
+}
+
+.ast-site-identity-tagline-enable .ast-site-identity .ast-site-title-wrap .site-description {
+  display: block;
+}
+
 .ast-header-break-point {
   /* Styling Nav */
   /* Main Header */
