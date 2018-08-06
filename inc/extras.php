@@ -157,14 +157,14 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		$display_site_tagline = astra_get_option( 'display-site-tagline' );
 		$display_site_title   = astra_get_option( 'display-site-title' );
 
-		if( true === $display_site_title ) {
+		if ( true === $display_site_title ) {
 			add_filter( 'astra_site_identity_title_markup', '__return_true' );
 		}
 
-		if( true === $display_site_tagline ) {
+		if ( true === $display_site_tagline ) {
 			add_filter( 'astra_site_identity_tagline_markup', '__return_true' );
 		}
- 
+
 		$html = '';
 
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
@@ -769,8 +769,8 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		$different_mobile_header_order = astra_get_option( 'different-mobile-logo' );
 		$hide_custom_menu_mobile       = astra_get_option( 'hide-custom-menu-mobile', false );
 		$menu_mobile_target            = astra_get_option( 'mobile-header-toggle-target', 'icon' );
-		$display_site_tagline 		   = astra_get_option( 'display-site-tagline' );
-		$display_site_title   		   = astra_get_option( 'display-site-title' );
+		$display_site_tagline          = astra_get_option( 'display-site-tagline' );
+		$display_site_title            = astra_get_option( 'display-site-title' );
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
@@ -800,7 +800,7 @@ if ( ! function_exists( 'astra_header_classes' ) ) {
 		if ( '1' == $hide_custom_menu_mobile ) {
 			$classes[] = 'ast-hide-custom-menu-mobile';
 		}
-		
+
 		if ( true === $display_site_title ) {
 			$classes[] = 'ast-site-identity-title-enable';
 		}
