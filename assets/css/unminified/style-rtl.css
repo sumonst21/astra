@@ -3564,11 +3564,11 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   display: none;
 }
 
-.ast-site-identity-title-enable .ast-site-identity .ast-site-title-wrap .site-title {
+.ast-site-identity-title-enable .ast-site-title-wrap .site-title {
   display: block;
 }
 
-.ast-site-identity-tagline-enable .ast-site-identity .ast-site-title-wrap .site-description {
+.ast-site-identity-tagline-enable .ast-site-title-wrap .site-description {
   display: block;
 }
 

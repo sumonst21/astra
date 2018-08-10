@@ -217,23 +217,19 @@ li.ast-masthead-custom-menu-items {
 }
 
 .ast-site-identity-title-enable {
-	.ast-site-identity {
-		.ast-site-title-wrap {
-			.site-title {
-				display: block;
-			}
-		}	
-	}
+	.ast-site-title-wrap {
+		.site-title {
+			display: block;
+		}
+	}	
 }
 
 .ast-site-identity-tagline-enable {
-	.ast-site-identity {	
-		.ast-site-title-wrap {
-			.site-description {
-				display: block;
-			}
-		}	
-	}
+	.ast-site-title-wrap {
+		.site-description {
+			display: block;
+		}
+	}	
 }
 
 .ast-header-break-point {
