@@ -185,38 +185,36 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			}
 		}
 
-		if ( ! apply_filters( 'astra_disable_site_identity', false ) ) {
 
-			// Site Title.
-			$tag = 'span';
-			if ( is_home() || is_front_page() ) {
-				$tag = 'h1';
-			}
+		// Site Title.
+		$tag = 'span';
+		if ( is_home() || is_front_page() ) {
+			$tag = 'h1';
+		}
 
-			/**
-			 * Filters the tags for site title.
-			 *
-			 * @since 1.3.1
-			 *
-			 * @param string $tags string containing the HTML tags for Site Title.
-			 */
-			$tag               = apply_filters( 'astra_site_title_tag', $tag );
-			$site_title_markup = '<' . $tag . ' itemprop="name" class="site-title"> <a href="' . esc_url( home_url( '/' ) ) . '" itemprop="url" rel="home">' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
+		/**
+		 * Filters the tags for site title.
+		 *
+		 * @since 1.3.1
+		 *
+		 * @param string $tags string containing the HTML tags for Site Title.
+		 */
+		$tag               = apply_filters( 'astra_site_title_tag', $tag );
+		$site_title_markup = '<' . $tag . ' itemprop="name" class="site-title"> <a href="' . esc_url( home_url( '/' ) ) . '" itemprop="url" rel="home">' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
 
-			// Site Description.
-			$site_tagline_markup = '<p class="site-description" itemprop="description">' . get_bloginfo( 'description' ) . '</p>';
+		// Site Description.
+		$site_tagline_markup = '<p class="site-description" itemprop="description">' . get_bloginfo( 'description' ) . '</p>';
 
-			if ( apply_filters( 'astra_site_identity_title_markup', false ) || apply_filters( 'astra_site_identity_tagline_markup', false ) ) {
-				/* translators: 1: Site Title Markup, 2: Site Tagline Markup */
-				$html .= sprintf(
-					'<div class="ast-site-title-wrap">
-							%1$s
-							%2$s
-						</div>',
-					( apply_filters( 'astra_site_identity_title_markup', false ) ) ? $site_title_markup : '',
-					( apply_filters( 'astra_site_identity_tagline_markup', false ) ) ? $site_tagline_markup : ''
-				);
-			}
+		if ( apply_filters( 'astra_site_identity_title_markup', false ) || apply_filters( 'astra_site_identity_tagline_markup', false ) ) {
+			/* translators: 1: Site Title Markup, 2: Site Tagline Markup */
+			$html .= sprintf(
+				'<div class="ast-site-title-wrap">
+						%1$s
+						%2$s
+					</div>',
+				( apply_filters( 'astra_site_identity_title_markup', false ) ) ? $site_title_markup : '',
+				( apply_filters( 'astra_site_identity_tagline_markup', false ) ) ? $site_tagline_markup : ''
+			);
 		}
 
 		$html = apply_filters( 'astra_logo', $html, $display_site_title, $display_site_tagline );
@@ -1224,11 +1222,13 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 
 			if ( $featured_image && ( ! ( $check_is_singular ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
 
-				$post_thumb = get_the_post_thumbnail(
-					get_the_ID(),
-					apply_filters( 'astra_post_thumbnail_default_size', 'large' ),
-					array(
-						'itemprop' => 'image',
+				$post_thumb = apply_filters(
+					'astra_featured_image_markup', get_the_post_thumbnail(
+						get_the_ID(),
+						apply_filters( 'astra_post_thumbnail_default_size', 'large' ),
+						array(
+							'itemprop' => 'image',
+						)
 					)
 				);
 
