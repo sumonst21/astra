@@ -185,7 +185,6 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			}
 		}
 
-
 		// Site Title.
 		$tag = 'span';
 		if ( is_home() || is_front_page() ) {
