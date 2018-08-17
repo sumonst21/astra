@@ -204,15 +204,18 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		// Site Description.
 		$site_tagline_markup = '<p class="site-description" itemprop="description">' . get_bloginfo( 'description' ) . '</p>';
 
-		if ( apply_filters( 'astra_site_identity_title_markup', false ) || apply_filters( 'astra_site_identity_tagline_markup', false ) ) {
+		$astra_site_title_markup   = apply_filters( 'astra_site_identity_title_markup', false );
+		$astra_site_tagline_markup = apply_filters( 'astra_site_identity_tagline_markup', false );
+
+		if ( $astra_site_title_markup || $astra_site_tagline_markup ) {
 			/* translators: 1: Site Title Markup, 2: Site Tagline Markup */
 			$html .= sprintf(
 				'<div class="ast-site-title-wrap">
 						%1$s
 						%2$s
 					</div>',
-				( apply_filters( 'astra_site_identity_title_markup', false ) ) ? $site_title_markup : '',
-				( apply_filters( 'astra_site_identity_tagline_markup', false ) ) ? $site_tagline_markup : ''
+				( $astra_site_title_markup ) ? $site_title_markup : '',
+				( $astra_site_tagline_markup ) ? $site_tagline_markup : ''
 			);
 		}
 
