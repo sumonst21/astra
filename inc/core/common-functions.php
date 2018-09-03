@@ -14,6 +14,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Apply CSS for the element
+ */
+if ( ! function_exists( 'astra_color_responsive_css' ) ) {
+	function astra_color_responsive_css( $setting, $css_property, $selector ) {
+		$css = '';
+		if( isset( $setting['desktop'] ) && ! empty( $setting['desktop'] ) ) {
+			$css .= $selector . '{'. $css_property .':'.esc_attr($setting['desktop']).';}';
+		}
+		if( isset( $setting['tablet'] ) && ! empty( $setting['tablet'] ) ) {
+			$css .= '@media (max-width:768px) {' . $selector . '{'. $css_property .':'.esc_attr($setting['tablet']).';} }';
+		}
+		if( isset( $setting['mobile'] ) && ! empty( $setting['mobile'] ) ) {
+			$css .= '@media (max-width:544px) {' . $selector . '{'. $css_property .':'.esc_attr($setting['mobile']).';} }';
+		}
+		return $css;
+	}
+}
+
+/**
  * Foreground Color
  */
 if ( ! function_exists( 'astra_get_foreground_color' ) ) {
