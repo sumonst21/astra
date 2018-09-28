@@ -25,7 +25,7 @@
 	}
 	.main-header-bar-navigation {
 		text-align: right;
-		.sub-menu {
+		.ast-sub-menu {
 			text-align: left;
 		}
 	}
@@ -50,17 +50,17 @@
 		justify-content: center;
 	}
 	.main-navigation {
-		.sub-menu,
+		.ast-sub-menu,
 		.main-header-menu{
 			justify-content: center;
-			.sub-menu{
+			.ast-sub-menu{
 				justify-content: center;
 			}
 		}
 	}
 	.main-header-bar-navigation {
 		text-align: center;
-		.sub-menu {
+		.ast-sub-menu {
 			text-align: left;
 		}
 	}
@@ -104,7 +104,7 @@
 		padding-right: 15px;
 		.main-header-menu {
 			justify-content: flex-start;
-			.sub-menu{
+			.ast-sub-menu{
 				justify-content: flex-start;
 			}
 		}

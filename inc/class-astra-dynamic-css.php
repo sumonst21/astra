@@ -836,21 +836,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Primary Submenu Border Width & Color.
 			$submenu_border_style = array(
-				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .sub-menu .ast-menu-item, .ast-desktop .main-header-menu.submenu-with-border .astra-full-megamenu-wrapper' => array(
+				'.ast-desktop .main-header-menu.submenu-with-border .ast-sub-menu, .ast-desktop .main-header-menu.submenu-with-border .ast-sub-menu .ast-menu-item, .ast-desktop .main-header-menu.submenu-with-border .astra-full-megamenu-wrapper' => array(
 					'border-color' => esc_attr( $primary_submenu_b_color ),
 				),
 
-				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu' => array(
+				'.ast-desktop .main-header-menu.submenu-with-border .ast-sub-menu' => array(
 					'border-top-width'    => astra_get_css_value( $submenu_border['top'], 'px' ),
 					'border-right-width'  => astra_get_css_value( $submenu_border['right'], 'px' ),
 					'border-left-width'   => astra_get_css_value( $submenu_border['left'], 'px' ),
 					'border-bottom-width' => astra_get_css_value( $submenu_border['bottom'], 'px' ),
 					'border-style'        => 'solid',
 				),
-				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu' => array(
+				'.ast-desktop .main-header-menu.submenu-with-border .ast-sub-menu .ast-sub-menu' => array(
 					'top' => ( isset( $submenu_border['top'] ) && '' != $submenu_border['top'] ) ? astra_get_css_value( '-' . $submenu_border['top'], 'px' ) : '',
 				),
-				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu .ast-menu-item' => array(
+				'.ast-desktop .main-header-menu.submenu-with-border .ast-sub-menu .ast-menu-item' => array(
 					'border-bottom-width' => ( true == $primary_submenu_item_border ) ? '1px' : '0px',
 					'border-style'        => 'solid',
 					'border-color'        => esc_attr( $primary_submenu_item_b_color ),
@@ -859,7 +859,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Submenu items goes outside?
 			$submenu_border_for_left_align_menu = array(
-				'.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul' => array(
+				'.main-header-menu .ast-sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .ast-sub-menu li.ast-left-align-sub-menu.focus > ul' => array(
 					'margin-left' => ( ( isset( $submenu_border['left'] ) && '' != $submenu_border['left'] ) || isset( $submenu_border['right'] ) && '' != $submenu_border['right'] ) ? astra_get_css_value( '-' . ( $submenu_border['left'] + $submenu_border['right'] ), 'px' ) : '',
 				),
 			);

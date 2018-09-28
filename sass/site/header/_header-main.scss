@@ -68,7 +68,7 @@
 		    padding: 0;
 		}
 		
-		.sub-menu {
+		.ast-sub-menu {
 			line-height: 1.45;
 		}
 
@@ -345,13 +345,13 @@ li.ast-masthead-custom-menu-items {
 			line-height: 3;
 			display: none;
 
-			.sub-menu {
+			.ast-sub-menu {
 				line-height: 3;
 			}
 
 			.menu-item-has-children {
 
-				.sub-menu {
+				.ast-sub-menu {
 					display:none;
 				}
 
@@ -411,7 +411,7 @@ li.ast-masthead-custom-menu-items {
 				border-top: 0;
 			}
 
-			.sub-menu {
+			.ast-sub-menu {
 				left: auto;
 				right: auto;
 			}
@@ -437,7 +437,7 @@ li.ast-masthead-custom-menu-items {
 		margin: 0 -20px;
 	}
 	.main-header-menu {
-		.sub-menu .sub-menu {
+		.ast-sub-menu .ast-sub-menu {
 			top: 0;
 		}
 	}

@@ -672,7 +672,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
 
-				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children';
+				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .ast-sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children';
 					dynamicStyle += '{';
 					dynamicStyle += 'border-top-width:'   + border.top + 'px;';
 					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
@@ -682,14 +682,14 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
 
-					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children';
+					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .ast-sub-menu .ast-sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children';
 					dynamicStyle += '{';
 					dynamicStyle += 'top:-'   + border.top + 'px;';
 					dynamicStyle += '}';
 
 					// Submenu items goes outside?
 					dynamicStyle += '@media (min-width: 769px){';
-					dynamicStyle += '.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul';
+					dynamicStyle += '.main-header-menu .ast-sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .ast-sub-menu li.ast-left-align-sub-menu.focus > ul';
 					dynamicStyle += '{';
 					dynamicStyle += 'margin-left:-'   + ( +border.left + +border.right ) + 'px;';
 					dynamicStyle += '}';
@@ -710,7 +710,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			if ( '' != color ) {
 				if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
 
-					var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children';
+					var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .ast-sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children';
 					dynamicStyle += '{';
 					dynamicStyle += 'border-top-width:'   + border.top + 'px;';
 					dynamicStyle += 'border-right-width:'  + border.right + 'px;';
@@ -720,14 +720,14 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
 
-					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children';
+					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .ast-sub-menu .ast-sub-menu, .ast-desktop .main-header-menu.submenu-with-border .children .children';
 					dynamicStyle += '{';
 					dynamicStyle += 'top:-'   + border.top + 'px;';
 					dynamicStyle += '}';
 
 					// Submenu items goes outside?
 					dynamicStyle += '@media (min-width: 769px){';
-					dynamicStyle += '.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul';
+					dynamicStyle += '.main-header-menu .ast-sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .ast-sub-menu li.ast-left-align-sub-menu.focus > ul';
 					dynamicStyle += '{';
 					dynamicStyle += 'margin-left:-'   + ( +border.left + +border.right ) + 'px;';
 					dynamicStyle += '}';
@@ -753,7 +753,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 					var dynamicStyle = '';
 
-					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
+					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .ast-sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
 					dynamicStyle += '{';
 					dynamicStyle += 'border-bottom-width:' + ( ( true === insideBorder ) ? '1px;' : '0px;' );
 					dynamicStyle += 'border-color:' + color + ';';
@@ -777,7 +777,7 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			var color = wp.customize( 'astra-settings[primary-submenu-item-b-color]' ).get();
 
 			if( true === border  ) {
-				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
+				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .ast-sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
 					dynamicStyle += '{';
 					dynamicStyle += 'border-bottom-width:' + ( ( true === border ) ? '1px;' : '0px;' );
 					dynamicStyle += 'border-color:'        + color + ';';

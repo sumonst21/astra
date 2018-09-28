@@ -5,8 +5,8 @@
     .astra-menu-animation-slide-up {
         > .menu-item {
             > .astra-full-megamenu-wrapper,
-            > .sub-menu,
-            > .sub-menu .sub-menu {
+            > .ast-sub-menu,
+            > .ast-sub-menu .ast-sub-menu {
                 opacity: 0;
                 visibility: hidden;
                 transform: translateY(0.5em);
@@ -14,10 +14,10 @@
             }
             &.focus > .astra-full-megamenu-wrapper,
             &:hover > .astra-full-megamenu-wrapper,
-            &.focus > .sub-menu,
-            &:hover > .sub-menu,
-            .menu-item.focus > .sub-menu,
-            .menu-item:hover > .sub-menu {
+            &.focus > .ast-sub-menu,
+            &:hover > .ast-sub-menu,
+            .menu-item.focus > .ast-sub-menu,
+            .menu-item:hover > .ast-sub-menu {
                 opacity: 1;
                 visibility: visible;
                 transform: translateY(0);
@@ -33,8 +33,8 @@
     .astra-menu-animation-slide-down {
         > .menu-item {
             > .astra-full-megamenu-wrapper,
-            > .sub-menu,
-            > .sub-menu .sub-menu {
+            > .ast-sub-menu,
+            > .ast-sub-menu .ast-sub-menu {
                 opacity: 0;
                 visibility: hidden;
                 transform: translateY(-0.5em);
@@ -42,10 +42,10 @@
             }
             &.focus > .astra-full-megamenu-wrapper,
             &:hover > .astra-full-megamenu-wrapper,
-            &.focus > .sub-menu,
-            &:hover > .sub-menu,
-            .menu-item.focus > .sub-menu,
-            .menu-item:hover > .sub-menu {
+            &.focus > .ast-sub-menu,
+            &:hover > .ast-sub-menu,
+            .menu-item.focus > .ast-sub-menu,
+            .menu-item:hover > .ast-sub-menu {
                 opacity: 1;
                 visibility: visible;
                 transform: translateY(0);
@@ -61,18 +61,18 @@
     .astra-menu-animation-fade {
         > .menu-item {
             > .astra-full-megamenu-wrapper,
-            > .sub-menu,
-            > .sub-menu .sub-menu {
+            > .ast-sub-menu,
+            > .ast-sub-menu .ast-sub-menu {
                 opacity: 0;
                 visibility: hidden;
                 transition: opacity ease-in-out .3s;
             }
             &.focus > .astra-full-megamenu-wrapper,
             &:hover > .astra-full-megamenu-wrapper,
-            &.focus > .sub-menu,
-            &:hover > .sub-menu,
-            .menu-item.focus > .sub-menu,
-            .menu-item:hover > .sub-menu {
+            &.focus > .ast-sub-menu,
+            &:hover > .ast-sub-menu,
+            .menu-item.focus > .ast-sub-menu,
+            .menu-item:hover > .ast-sub-menu {
                 opacity: 1;
                 visibility: visible;
                 transition: opacity ease-in-out .3s;
