@@ -302,13 +302,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					__main_header_all[i].style.display = '';
 				}
 
-				var sub_menu = __main_header_all[i].getElementsByClassName( 'sub-menu' );
+				var sub_menu = __main_header_all[i].getElementsByClassName( 'ast-sub-menu' );
 				for ( var j = 0; j < sub_menu.length; j++ ) {
 					sub_menu[j].style.display = '';
-				}
-				var child_menu = __main_header_all[i].getElementsByClassName( 'children' );
-				for ( var k = 0; k < child_menu.length; k++ ) {
-					child_menu[k].style.display = '';
 				}
 
 				var searchIcons = __main_header_all[i].getElementsByClassName( 'ast-search-menu-icon' );
