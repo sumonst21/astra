@@ -859,7 +859,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Submenu items goes outside?
 			$submenu_border_for_left_align_menu = array(
-				'.main-header-menu .ast-sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .ast-sub-menu li.ast-left-align-sub-menu.focus > ul' => array(
+				'.main-header-menu .ast-sub-menu li.ast-left-align-sub-menu:hover > .ast-sub-menu, .main-header-menu .ast-sub-menu li.ast-left-align-sub-menu.focus > .ast-sub-menu' => array(
 					'margin-left' => ( ( isset( $submenu_border['left'] ) && '' != $submenu_border['left'] ) || isset( $submenu_border['right'] ) && '' != $submenu_border['right'] ) ? astra_get_css_value( '-' . ( $submenu_border['left'] + $submenu_border['right'] ), 'px' ) : '',
 				),
 			);
