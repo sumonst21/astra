@@ -140,10 +140,9 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		wp_enqueue_style( 'astra-typography-style', $css_uri . 'typography.css', null, ASTRA_THEME_VERSION );
 		wp_enqueue_script( 'astra-select-woo-script', $js_uri . 'selectWoo.js', array( 'jquery' ), ASTRA_THEME_VERSION, true );
 
-		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		$astra_typo_localize = $this->ast_all_font_weight;
+		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );	
 
-		wp_localize_script( 'astra-typography', 'astraTypo', $astra_typo_localize );
+		wp_localize_script( 'astra-typography', 'astraTypo', $this->ast_all_font_weight );
 	}
 	/**
 	 * Renders the title and description for a control.
