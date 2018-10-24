@@ -127,43 +127,53 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 		 */
 		public static function get_google_fonts() {
 
-			if ( empty( self::$google_fonts ) ) {
+			$transient = get_transient( 'astra_google_fonts' );
 
-				$google_fonts_file = apply_filters( 'astra_google_fonts_json_file', ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' );
+			// If transient is not set, Proceed to build the static array of fonts.
+			if ( false === $transient ) {
 
-				if ( ! file_exists( ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' ) ) {
-					return array();
-				}
+				// If Fonts array is empty, read the google fonts from the file.
+				if ( empty( self::$google_fonts ) ) {
+					$google_fonts_file = apply_filters( 'astra_google_fonts_json_file', ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' );
 
-				global $wp_filesystem;
-				if ( empty( $wp_filesystem ) ) {
-					require_once ABSPATH . '/wp-admin/includes/file.php';
-					WP_Filesystem();
-				}
+					if ( ! file_exists( ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' ) ) {
+						return array();
+					}
 
-				$file_contants     = $wp_filesystem->get_contents( $google_fonts_file );
-				$google_fonts_json = json_decode( $file_contants, 1 );
+					global $wp_filesystem;
+					if ( empty( $wp_filesystem ) ) {
+						require_once ABSPATH . '/wp-admin/includes/file.php';
+						WP_Filesystem();
+					}
 
-				foreach ( $google_fonts_json as $key => $font ) {
-					$name = key( $font );
-					foreach ( $font[ $name ] as $font_key => $single_font ) {
+					$file_contants     = $wp_filesystem->get_contents( $google_fonts_file );
+					$google_fonts_json = json_decode( $file_contants, 1 );
 
-						if ( 'variants' === $font_key ) {
+					foreach ( $google_fonts_json as $key => $font ) {
+						$name = key( $font );
+						foreach ( $font[ $name ] as $font_key => $single_font ) {
 
-							foreach ( $single_font as $variant_key => $variant ) {
+							if ( 'variants' === $font_key ) {
 
-								if ( 'regular' == $variant ) {
-									$font[ $name ][ $font_key ][ $variant_key ] = '400';
+								foreach ( $single_font as $variant_key => $variant ) {
+
+									if ( 'regular' == $variant ) {
+										$font[ $name ][ $font_key ][ $variant_key ] = '400';
+									}
 								}
 							}
-						}
 
-						self::$google_fonts[ $name ] = array_values( $font[ $name ] );
+							self::$google_fonts[ $name ] = array_values( $font[ $name ] );
+						}
 					}
 				}
+
+				$transient = self::$google_fonts;
+
+				set_transient( 'astra_google_fonts', $transient );
 			}
 
-			return apply_filters( 'astra_google_fonts', self::$google_fonts );
+			return apply_filters( 'astra_google_fonts', $transient );
 		}
 
 	}

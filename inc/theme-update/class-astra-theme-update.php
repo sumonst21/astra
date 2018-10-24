@@ -218,6 +218,9 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			// Update variables.
 			Astra_Theme_Options::refresh();
 
+			// Refresh Google Fonts.
+			delete_transient( 'astra_google_fonts' );
+
 			do_action( 'astra_update_after' );
 
 		}
