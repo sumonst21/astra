@@ -49,7 +49,7 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';' . $file_prefix . '
+		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive-spacing/';
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive-spacing/';
 
