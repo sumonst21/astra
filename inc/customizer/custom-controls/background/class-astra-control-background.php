@@ -58,11 +58,12 @@ if ( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize
 		 * @access public
 		 */
 		public function enqueue() {
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/background/';
 			$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/background/';
 
-			wp_enqueue_style( 'astra-background', $css_uri . 'background.css', null, ASTRA_THEME_VERSION );
-			wp_enqueue_script( 'astra-background', $js_uri . 'background.js', array(), ASTRA_THEME_VERSION, true );
+			wp_enqueue_style( 'astra-background', $css_uri . 'background' . $file_prefix . '.css', null, ASTRA_THEME_VERSION );
+			wp_enqueue_script( 'astra-background', $js_uri . 'background' . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, true );
 			wp_localize_script(
 				'astra-background',
 				'astraCustomizerControlBackground',

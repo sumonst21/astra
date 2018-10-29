@@ -49,12 +49,12 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-
+		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';' . $file_prefix . '
 		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive-spacing/';
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/responsive-spacing/';
 
-		wp_enqueue_script( 'astra-responsive-spacing', $js_uri . 'responsive-spacing.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-responsive-spacing', $css_uri . 'responsive-spacing.css', null, ASTRA_THEME_VERSION );
+		wp_enqueue_script( 'astra-responsive-spacing', $js_uri . 'responsive-spacing' . $file_prefix . '.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
+		wp_enqueue_style( 'astra-responsive-spacing', $css_uri . 'responsive-spacing' . $file_prefix . '.css', null, ASTRA_THEME_VERSION );
 	}
 
 	/**

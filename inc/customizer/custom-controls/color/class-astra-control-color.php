@@ -67,11 +67,12 @@ class Astra_Control_Color extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
+		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/color/';
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/color/';
 
-		wp_enqueue_script( 'astra-color', $js_uri . 'color.js', array( 'astra-color-alpha' ), ASTRA_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-color', $css_uri . 'color.css', null, ASTRA_THEME_VERSION );
+		wp_enqueue_script( 'astra-color', $js_uri . 'color' . $file_prefix . '.js', array( 'astra-color-alpha' ), ASTRA_THEME_VERSION, true );
+		wp_enqueue_style( 'astra-color', $css_uri . 'color' . $file_prefix . '.css', null, ASTRA_THEME_VERSION );
 	}
 
 	/**

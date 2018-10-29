@@ -55,12 +55,12 @@ if ( ! class_exists( 'Astra_Control_Border' ) && class_exists( 'WP_Customize_Con
 		 * @access public
 		 */
 		public function enqueue() {
-
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/border/';
 			$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/border/';
 
-			wp_enqueue_script( 'astra-border', $js_uri . 'border.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-			wp_enqueue_style( 'astra-border', $css_uri . 'border.css', null, ASTRA_THEME_VERSION );
+			wp_enqueue_script( 'astra-border', $js_uri . 'border' . $file_prefix . '.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
+			wp_enqueue_style( 'astra-border', $css_uri . 'border' . $file_prefix . '.css', null, ASTRA_THEME_VERSION );
 		}
 
 		/**

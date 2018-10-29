@@ -133,12 +133,14 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
+		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+		
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/typography/';
-		wp_enqueue_style( 'astra-select-woo-style', $css_uri . 'selectWoo.css', null, ASTRA_THEME_VERSION );
-		wp_enqueue_style( 'astra-typography-style', $css_uri . 'typography.css', null, ASTRA_THEME_VERSION );
-		wp_enqueue_script( 'astra-select-woo-script', $js_uri . 'selectWoo.js', array( 'jquery' ), ASTRA_THEME_VERSION, true );
+		wp_enqueue_style( 'astra-select-woo-style', $css_uri . 'selectWoo' . $file_prefix . '.css', null, ASTRA_THEME_VERSION );
+		wp_enqueue_style( 'astra-typography-style', $css_uri . 'typography' . $file_prefix . '.css', null, ASTRA_THEME_VERSION );
+		wp_enqueue_script( 'astra-select-woo-script', $js_uri . 'selectWoo' . $file_prefix . '.js', array( 'jquery' ), ASTRA_THEME_VERSION, true );
 
 		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );	
 

@@ -41,9 +41,9 @@ class Astra_Control_Description extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-
+		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/description/';
-		wp_enqueue_style( 'astra-description-css', $css_uri . 'description.css', null, ASTRA_THEME_VERSION );
+		wp_enqueue_style( 'astra-description-css', $css_uri . 'description' . $file_prefix . '.css', null, ASTRA_THEME_VERSION );
 	}
 
 	/**

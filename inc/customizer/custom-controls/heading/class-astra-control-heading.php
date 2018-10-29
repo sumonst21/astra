@@ -41,9 +41,9 @@ class Astra_Control_Heading extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-
+		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/heading/';
-		wp_enqueue_style( 'astra-heading-css', $css_uri . 'heading.css', null, ASTRA_THEME_VERSION );
+		wp_enqueue_style( 'astra-heading-css', $css_uri . 'heading' . $file_prefix . '.css', null, ASTRA_THEME_VERSION );
 	}
 
 	/**

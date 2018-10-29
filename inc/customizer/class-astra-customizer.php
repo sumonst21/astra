@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/**
 			 * Customizer
 			 */
-			add_action( 'customize_preview_init', array( $this, 'preview_init' ) );
+			add_action( 'customize_preview_init', array( $this, 'preview_init' ), 100 );
 
 			if ( is_admin() || is_customize_preview() ) {
 				add_action( 'customize_register', array( $this, 'include_configurations' ), 2 );

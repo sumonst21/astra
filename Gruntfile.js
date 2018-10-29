@@ -70,7 +70,7 @@ module.exports = function (grunt) {
                             ext: '-rtl.css'
                         },
                     ]
-              	}
+                }
             },
 
             sass: {
@@ -168,24 +168,33 @@ module.exports = function (grunt) {
             uglify: {
                 js: {
                     files: [
-                    	{ // all .js to min.js
-	                        expand: true,
-	                        src: [
-	                            '**.js',
-	                        ],
-	                        dest: 'assets/js/minified',
-	                        cwd: 'assets/js/unminified',
-	                        ext: '.min.js'
-	                    },
-	                    {
-		                    src: [
-		                    	'assets/js/minified/navigation.min.js',
+                        { // all .js to min.js
+                            expand: true,
+                            src: [
+                                '**.js',
+                            ],
+                            dest: 'assets/js/minified',
+                            cwd: 'assets/js/unminified',
+                            ext: '.min.js'
+                        },
+                        { // all .js to min.js
+                            expand: true,
+                            src: [
+                                '**/*.js',
+                            ],
+                            dest: 'inc/customizer/custom-controls/',
+                            cwd: 'inc/customizer/custom-controls/',
+                            ext: '.min.js'
+                        },
+                        {
+                            src: [
+                                'assets/js/minified/navigation.min.js',
                                 'assets/js/minified/skip-link-focus-fix.min.js',
                                 'assets/js/minified/custom-events-polyfill.js'
-		                    ],
-		                    dest: 'assets/js/minified/style.min.js',
-		                },
-	               	]
+                            ],
+                            dest: 'assets/js/minified/style.min.js',
+                        },
+                    ]
                 }
             },
 
@@ -196,60 +205,82 @@ module.exports = function (grunt) {
                 css: {
                     files: [
 
-                    	// Generated '.min.css' files from '.css' files.
-                    	// NOTE: Avoided '-rtl.css' files.
-                    	{
-	                        expand: true,
-	                        src: [
-	                            '**/*.css',
-	                            '!**/*-rtl.css',
-	                        ],
-	                        dest: 'assets/css/minified',
-	                        cwd: 'assets/css/unminified',
-	                        ext: '.min.css'
-	                    },
+                        // Generated '.min.css' files from '.css' files.
+                        // NOTE: Avoided '-rtl.css' files.
+                        {
+                            expand: true,
+                            src: [
+                                '**/*.css',
+                                '!**/*-rtl.css',
+                            ],
+                            dest: 'assets/css/minified',
+                            cwd: 'assets/css/unminified',
+                            ext: '.min.css'
+                        },
+                        // Customizer control
+                        {
+                            expand: true,
+                            src: [
+                                '**/*.css',
+                                '!**/*-rtl.css',
+                            ],
+                            dest: 'inc/customizer/custom-controls/',
+                            cwd: 'inc/customizer/custom-controls/',
+                            ext: '.min.css'
+                        },
+                        // Customizer control.
+                        {
+                            expand: true,
+                            src: [
+                                '**/*.css',
+                                '!**/*-rtl.css',
+                            ],
+                            dest: 'inc/customizer/custom-controls/',
+                            cwd: 'inc/customizer/custom-controls/',
+                            ext: '.min.css'
+                        },
 
-	                    // Generating RTL files from '/unminified/' into '/minified/'
-                    	// NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
-                    	{
-                    		src: 'assets/css/unminified/editor-style-rtl.css',
-	                        dest: 'assets/css/minified/editor-style.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/style-rtl.css',
-	                        dest: 'assets/css/minified/style.min-rtl.css',
-	                    },
+                        // Generating RTL files from '/unminified/' into '/minified/'
+                        // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
+                        {
+                            src: 'assets/css/unminified/editor-style-rtl.css',
+                            dest: 'assets/css/minified/editor-style.min-rtl.css',
+                        },
+                        {
+                            src: 'assets/css/unminified/style-rtl.css',
+                            dest: 'assets/css/minified/style.min-rtl.css',
+                        },
 
-	                    // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
-	                    // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
-                    	{
-                    		src: 'assets/css/unminified/compatibility/bne-flyout-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/bne-flyout.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/compatibility/contact-form-7-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/contact-form-7.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/compatibility/gravity-forms-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/gravity-forms.min-rtl.css',
-	                    },
-                    	{
+                        // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
+                        // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
+                        {
+                            src: 'assets/css/unminified/compatibility/bne-flyout-rtl.css',
+                            dest: 'assets/css/minified/compatibility/bne-flyout.min-rtl.css',
+                        },
+                        {
+                            src: 'assets/css/unminified/compatibility/contact-form-7-rtl.css',
+                            dest: 'assets/css/minified/compatibility/contact-form-7.min-rtl.css',
+                        },
+                        {
+                            src: 'assets/css/unminified/compatibility/gravity-forms-rtl.css',
+                            dest: 'assets/css/minified/compatibility/gravity-forms.min-rtl.css',
+                        },
+                        {
                             src: 'assets/css/unminified/compatibility/lifterlms-rtl.css',
                             dest: 'assets/css/minified/compatibility/lifterlms.min-rtl.css',
                         },
                         {
-                    		src: 'assets/css/unminified/compatibility/learndash-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/learndash.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/compatibility/site-origin-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/site-origin.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce.min-rtl.css',
-	                    },
+                            src: 'assets/css/unminified/compatibility/learndash-rtl.css',
+                            dest: 'assets/css/minified/compatibility/learndash.min-rtl.css',
+                        },
+                        {
+                            src: 'assets/css/unminified/compatibility/site-origin-rtl.css',
+                            dest: 'assets/css/minified/compatibility/site-origin.min-rtl.css',
+                        },
+                        {
+                            src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css',
+                            dest: 'assets/css/minified/compatibility/woocommerce/woocommerce.min-rtl.css',
+                        },
                         {
                             src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-layout-rtl.css',
                             dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-layout.min-rtl.css',
@@ -346,12 +377,12 @@ module.exports = function (grunt) {
                 target: {
                     files: {
                         src: [
-                        	'*.php',
-                        	'**/*.php',
-                        	'!node_modules/**',
-                        	'!php-tests/**',
-                        	'!bin/**',
-                        	'!admin/bsf-core/**'
+                            '*.php',
+                            '**/*.php',
+                            '!node_modules/**',
+                            '!php-tests/**',
+                            '!bin/**',
+                            '!admin/bsf-core/**'
                         ]
                     }
                 }

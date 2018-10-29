@@ -67,11 +67,12 @@ class Astra_Control_Slider extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
+		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/slider/';
 		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/slider/';
 
-		wp_enqueue_script( 'astra-slider', $js_uri . 'slider.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-slider', $css_uri . 'slider.css', null, ASTRA_THEME_VERSION );
+		wp_enqueue_script( 'astra-slider', $js_uri . 'slider' . $file_prefix . '.js', array( 'jquery', 'customize-base' ), ASTRA_THEME_VERSION, true );
+		wp_enqueue_style( 'astra-slider', $css_uri . 'slider' . $file_prefix . '.css', null, ASTRA_THEME_VERSION );
 	}
 
 	/**
