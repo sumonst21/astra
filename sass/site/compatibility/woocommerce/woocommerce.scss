@@ -2149,7 +2149,7 @@ p.demo_store,
 	.woocommerce-order-details {
 		margin-bottom: 2em;
 
-		*:last-child {
+		> *:last-child {
 			margin-bottom: 0;
 		}
 	}

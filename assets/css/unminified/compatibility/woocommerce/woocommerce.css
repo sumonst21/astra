@@ -2431,9 +2431,9 @@ p.demo_store a,
   margin-bottom: 2em;
 }
 
-.woocommerce .woocommerce-order-downloads *:last-child,
-.woocommerce .woocommerce-customer-details *:last-child,
-.woocommerce .woocommerce-order-details *:last-child {
+.woocommerce .woocommerce-order-downloads > *:last-child,
+.woocommerce .woocommerce-customer-details > *:last-child,
+.woocommerce .woocommerce-order-details > *:last-child {
   margin-bottom: 0;
 }
 
