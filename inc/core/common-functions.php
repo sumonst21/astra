@@ -1086,3 +1086,18 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 
 endif;
 
+/**
+ * AMP
+ */
+if ( ! function_exists( 'astra_amp_support' ) ) :
+
+	/**
+	 * Check if we're delivering AMP
+	 *
+	 * @return bool
+	 */
+	function astra_amp_support() {
+		return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
+	}
+	
+endif;
