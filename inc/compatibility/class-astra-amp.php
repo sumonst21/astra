@@ -20,10 +20,9 @@ if ( ! astra_amp_support() ) {
 if ( ! class_exists( 'Astra_AMP' ) ) :
 
 	 /**
-	 * Class Astra_AMP
-	 *
-	 * @package Neve\Compatibility
-	 */
+	  * Class Astra_AMP
+	  *
+	  */
 	class Astra_AMP {
 
 		/**
@@ -55,22 +54,22 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			add_action( 'wp_head', array( $this, 'render_amp_states' ) );
 		}
 
-	 	/**
+		/**
 		 * Add amp states to the dom.
 		 */
 		public function render_amp_states() {
 			if ( ! astra_is_amp() ) {
 				return;
 			}
-	 		echo '<amp-state id="astraAmpMenuExpanded">';
+			echo '<amp-state id="astraAmpMenuExpanded">';
 			echo '<script type="application/json">false</script>';
 			echo '</amp-state>';
-	 		echo '<amp-state id="astraAmpWooSidebarExpanded">';
+			echo '<amp-state id="astraAmpWooSidebarExpanded">';
 			echo '<script type="application/json">false</script>';
 			echo '</amp-state>';
 		}
 
-	 	/**
+		/**
 		 * Add navigation data attributes.
 		 *
 		 * @param string $input the data attrs already existing in the nav.
@@ -83,10 +82,10 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			}
 			$input .= ' [class]="( astraAmpMenuExpanded ? \'astra-navbar responsive-opened\' : \'astra-navbar\' )" ';
 			$input .= ' aria-expanded="false" [aria-expanded]="astraAmpMenuExpanded ? \'true\' : \'false\'" ';
-	 		return $input;
+			return $input;
 		}
 
-	 	/**
+		/**
 		 * Add the nav toggle data attributes.
 		 *
 		 * @param string $input the data attrs already existing in nav toggle.
@@ -101,10 +100,10 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			$input .= ' [class]="\'navbar-toggle\' + ( astraAmpMenuExpanded ? \' active\' : \'\' )" ';
 			$input .= ' aria-expanded="false" ';
 			$input .= ' [aria-expanded]="astraAmpMenuExpanded ? \'true\' : \'false\'" ';
-	 		return $input;
+			return $input;
 		}
 
-	 	/**
+		/**
 		 * Add woo sidebar amp attrs.
 		 *
 		 * @param string $input input.
@@ -119,12 +118,12 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			if ( $slug !== 'shop-sidebar' ) {
 				return $input;
 			}
-	 		$input .= ' [class]="\'astra-sidebar-wrap col-sm-12 left shop-sidebar \' + ( astraAmpWooSidebarExpanded ? \'sidebar-open\' : \'\' )" ';
+			$input .= ' [class]="\'astra-sidebar-wrap col-sm-12 left shop-sidebar \' + ( astraAmpWooSidebarExpanded ? \'sidebar-open\' : \'\' )" ';
 			$input .= ' aria-expanded="false" [aria-expanded]="astraAmpWooSidebarExpanded ? \'true\' : \'false\'" ';
-	 		return $input;
+			return $input;
 		}
 
-	 	/**
+		/**
 		 * Implement AMP integration on drop-downs.
 		 *
 		 * @param string $output the output.
@@ -137,17 +136,17 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			if ( ! astra_is_amp() ) {
 				return $output;
 			}
-	 		// Generate a unique id for drop-down items.
-			$state = 'astraMenuItemExpanded' . $id;
-	 		$attrs = '';
-	 		$attrs .= ' class="caret-wrap"';
+			// Generate a unique id for drop-down items.
+			$state  = 'astraMenuItemExpanded' . $id;
+			$attrs  = '';
+			$attrs .= ' class="caret-wrap"';
 			$attrs .= ' [class]="\'caret-wrap\' + ( ' . $state . ' ? \' caret-dropdown-open\' : \'\')" ';
 			$attrs .= ' on="tap:AMP.setState( { ' . $state . ': ! ' . $state . ' } )"';
 			$attrs .= ' aria-expanded="false" ';
 			$attrs .= ' [aria-expanded]="' . $state . ' ? \'true\' : \'false\'" ';
-	 		$output = str_replace( 'class="caret-wrap ' . $id . '"', $attrs, $output );
+			$output = str_replace( 'class="caret-wrap ' . $id . '"', $attrs, $output );
 			$output = str_replace( '</li>', '<amp-state id="' . $state . '"><script type="application/json">false</script></amp-state></li>', $output );
-	 		return $output;
+			return $output;
 		}
 	}
 endif;
