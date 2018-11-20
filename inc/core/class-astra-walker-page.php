@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Walker_Page' ) ) {
 			}
 			$indent  = str_repeat( $t, $depth );
 			$output .= "{$n}{$indent}<ul class='children sub-menu'>{$n}";
-			$output  = apply_filters( 'astra_caret_wrap_filter', $output, $item->menu_order );
+			$output  = apply_filters( 'astra_caret_wrap_filter', $output, $args['sort_column'] );
 
 		}
 	}

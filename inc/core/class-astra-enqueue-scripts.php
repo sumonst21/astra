@@ -99,6 +99,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function enqueue_scripts() {
 
+
 			$astra_enqueue = apply_filters( 'astra_enqueue_theme_assets', true );
 
 			if ( ! $astra_enqueue ) {
@@ -146,18 +147,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				}
 			}
 
-			if ( is_array( $scripts ) && ! empty( $scripts ) ) {
-				// Register & Enqueue Scripts.
-				foreach ( $scripts as $key => $script ) {
-
-					// Register.
-					wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, true );
-
-					// Enqueue.
-					wp_enqueue_script( $key );
-				}
-			}
-
 			// Fonts - Render Fonts.
 			Astra_Fonts::render_fonts();
 
@@ -184,6 +173,22 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			wp_register_style( 'astra-menu-animation', $css_uri . 'menu-animation' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
 			if ( ! empty( $menu_animation ) ) {
 				wp_enqueue_style( 'astra-menu-animation' );
+			}
+
+			if ( astra_amp_support() ) {
+				return;
+			}
+			
+			if ( is_array( $scripts ) && ! empty( $scripts ) ) {
+				// Register & Enqueue Scripts.
+				foreach ( $scripts as $key => $script ) {
+
+					// Register.
+					wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, true );
+
+					// Enqueue.
+					wp_enqueue_script( $key );
+				}
 			}
 		}
 

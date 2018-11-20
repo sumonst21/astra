@@ -686,7 +686,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'walker'         => new Astra_Walker_Page(),
 			);
 
-			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" <?php echo apply_filters( "astra_nav_data_attrs", "" ); ?> role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" ' . apply_filters( "astra_nav_data_attrs", "" ) . ' role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
 			$items_wrap .= '<div class="main-navigation">';
 			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 			$items_wrap .= '</div>';
@@ -710,8 +710,8 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				echo '</div>';
 			} else {
 
-				echo '<div class="main-header-bar-navigation">';
-					echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" <?php echo apply_filters( "astra_nav_data_attrs", "" ); ?> role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
+				echo '<div class="main-header-bar-navigation" ' . apply_filters( "astra_nav_data_attrs", "" ) . '>';
+					echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'astra' ) . '">';
 						wp_page_menu( $fallback_menu_args );
 					echo '</nav>';
 				echo '</div>';

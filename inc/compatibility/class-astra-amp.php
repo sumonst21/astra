@@ -9,11 +9,6 @@
  * @since       Astra 1.0.0
  */
 
-// If plugin - 'BB Ultimate Addon' not exist then return.
-if ( ! astra_amp_support() ) {
-	return;
-}
-
 /**
  * Astra BB Ultimate Addon Compatibility
  */
@@ -58,7 +53,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * Add amp states to the dom.
 		 */
 		public function render_amp_states() {
-			if ( ! astra_is_amp() ) {
+			if ( ! astra_amp_support() ) {
 				return;
 			}
 			echo '<amp-state id="astraAmpMenuExpanded">';
@@ -77,10 +72,12 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return string
 		 */
 		public function add_nav_attrs( $input ) {
-			if ( ! astra_is_amp() ) {
+			
+			if ( ! astra_amp_support() ) {
 				return $input;
 			}
-			$input .= ' [class]="( astraAmpMenuExpanded ? \'astra-navbar responsive-opened\' : \'astra-navbar\' )" ';
+
+			$input .= ' [class]="( astraAmpMenuExpanded ? \'main-header-bar-navigation responsive-opened\' : \'astra-navbar\' )" ';
 			$input .= ' aria-expanded="false" [aria-expanded]="astraAmpMenuExpanded ? \'true\' : \'false\'" ';
 			return $input;
 		}
@@ -93,11 +90,11 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return string
 		 */
 		public function add_nav_toggle_attrs( $input ) {
-			if ( ! astra_is_amp() ) {
+			if ( ! astra_amp_support() ) {
 				return $input;
 			}
 			$input .= ' on="tap:AMP.setState( { astraAmpMenuExpanded: ! astraAmpMenuExpanded } )" ';
-			$input .= ' [class]="\'navbar-toggle\' + ( astraAmpMenuExpanded ? \' active\' : \'\' )" ';
+			$input .= ' [class]="\'menu-toggle main-header-menu-toggle  ast-mobile-menu-buttons-minimal\' + ( astraAmpMenuExpanded ? \' active\' : \'\' )" ';
 			$input .= ' aria-expanded="false" ';
 			$input .= ' [aria-expanded]="astraAmpMenuExpanded ? \'true\' : \'false\'" ';
 			return $input;
@@ -112,13 +109,13 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return string
 		 */
 		public function add_woo_sidebar_attrs( $input, $slug ) {
-			if ( ! astra_is_amp() ) {
+			if ( ! astra_amp_support() ) {
 				return $input;
 			}
 			if ( $slug !== 'shop-sidebar' ) {
 				return $input;
 			}
-			$input .= ' [class]="\'astra-sidebar-wrap col-sm-12 left shop-sidebar \' + ( astraAmpWooSidebarExpanded ? \'sidebar-open\' : \'\' )" ';
+			$input .= ' [class]="\'astra-sidebar-wrap ast-col-sm-12 left shop-sidebar \' + ( astraAmpWooSidebarExpanded ? \'sidebar-open\' : \'\' )" ';
 			$input .= ' aria-expanded="false" [aria-expanded]="astraAmpWooSidebarExpanded ? \'true\' : \'false\'" ';
 			return $input;
 		}
@@ -133,7 +130,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 */
 		public function amp_dropdowns( $output, $id ) {
 			// Bail if not AMP.
-			if ( ! astra_is_amp() ) {
+			if ( ! astra_amp_support() ) {
 				return $output;
 			}
 			// Generate a unique id for drop-down items.

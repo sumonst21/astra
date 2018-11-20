@@ -1089,15 +1089,17 @@ endif;
 /**
  * AMP
  */
+
 if ( ! function_exists( 'astra_amp_support' ) ) :
 
-	/**
-	 * Check if we're being delivered AMP
-	 *
-	 * @return bool
-	 */
+   /**
+    * Check if we're being delivered AMP
+    *
+    * @return bool
+    */
 	function astra_amp_support() {
 		return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
 	}
 
 endif;
+
