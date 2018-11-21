@@ -4259,10 +4259,6 @@ body .entry-content .wp-block-latest-posts li {
   transform: translate(0, -50%);
 }
 
-.widget_search .search-form > label {
-  position: relative;
-}
-
 .widget_search .search-form input[type="submit"],
 .widget_search .search-form input[type="submit"]:hover,
 .widget_search .search-form input[type="submit"]:focus {
