@@ -188,7 +188,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				wp_enqueue_style( 'astra-menu-animation' );
 			}
 
-			if ( astra_amp_support() ) {
+			if ( astra_is_emp_endpoint() ) {
 				return;
 			}
 

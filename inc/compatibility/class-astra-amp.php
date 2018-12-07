@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * Add amp states to the dom.
 		 */
 		public function render_amp_states() {
-			if ( ! astra_amp_support() ) {
+			if ( ! astra_is_emp_endpoint() ) {
 				return;
 			}
 			echo '<amp-state id="astraAmpMenuExpanded">';
@@ -67,8 +67,8 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return string
 		 */
 		public function add_nav_attrs( $input ) {
-
-			if ( ! astra_amp_support() ) {
+			
+			if ( ! astra_is_emp_endpoint() ) {
 				return $input;
 			}
 
@@ -85,7 +85,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return string
 		 */
 		public function add_nav_toggle_attrs( $input ) {
-			if ( ! astra_amp_support() ) {
+			if ( ! astra_is_emp_endpoint() ) {
 				return $input;
 			}
 			$input .= ' on="tap:AMP.setState( { astraAmpMenuExpanded: ! astraAmpMenuExpanded } )" ';
@@ -105,7 +105,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 */
 		public function amp_dropdowns( $output, $id ) {
 			// Bail if not AMP.
-			if ( ! astra_amp_support() ) {
+			if ( ! astra_is_emp_endpoint() ) {
 				return $output;
 			}
 			// Generate a unique id for drop-down items.
