@@ -58,9 +58,6 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			echo '<amp-state id="astraAmpMenuExpanded">';
 			echo '<script type="application/json">false</script>';
 			echo '</amp-state>';
-			echo '<amp-state id="astraAmpWooSidebarExpanded">';
-			echo '<script type="application/json">false</script>';
-			echo '</amp-state>';
 		}
 
 		/**
