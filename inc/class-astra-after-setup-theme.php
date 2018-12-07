@@ -154,10 +154,13 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			// WooCommerce.
 			add_theme_support( 'woocommerce' );
 
-			// AMP Support
-			add_theme_support( 'amp', array(
-				'paired' => true,
-			) );
+			// AMP Support.
+			add_theme_support(
+				'amp',
+				array(
+					'paired' => true,
+				)
+			);
 		}
 
 		/**

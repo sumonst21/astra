@@ -180,17 +180,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			wp_add_inline_style( 'astra-theme-css', Astra_Dynamic_CSS::return_output() );
 			wp_add_inline_style( 'astra-theme-css', Astra_Dynamic_CSS::return_meta_output( true ) );
 
-			$astra_localize = array(
-				'break_point' => astra_header_break_point(),    // Header Break Point.
-				'isRtl'       => is_rtl(),
-			);
-
-			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
-
-			// Comment assets.
-			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-				wp_enqueue_script( 'comment-reply' );
-			}
 
 			// Submenu Container Animation.
 			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
@@ -201,6 +190,12 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			if ( astra_amp_support() ) {
 				return;
+			}
+
+			
+			// Comment assets.
+			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+				wp_enqueue_script( 'comment-reply' );
 			}
 
 			if ( is_array( $scripts ) && ! empty( $scripts ) ) {
@@ -214,6 +209,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					wp_enqueue_script( $key );
 				}
 			}
+			
+			$astra_localize = array(
+				'break_point' => astra_header_break_point(),    // Header Break Point.
+				'isRtl'       => is_rtl(),
+			);
+			
+			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
 		}
 
 		/**

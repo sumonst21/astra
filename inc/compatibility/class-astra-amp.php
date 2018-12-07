@@ -14,9 +14,9 @@
  */
 if ( ! class_exists( 'Astra_AMP' ) ) :
 
-	 /**
-	  * Class Astra_AMP
-	  */
+	/**
+	 * Class Astra_AMP
+	 */
 	class Astra_AMP {
 
 		/**
