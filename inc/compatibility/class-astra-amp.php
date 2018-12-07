@@ -43,6 +43,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 
 			add_filter( 'astra_nav_data_attrs', array( $this, 'add_nav_attrs' ) );
 			add_filter( 'astra_nav_toggle_data_attrs', array( $this, 'add_nav_toggle_attrs' ) );
+			add_filter( 'astra_search_slide_toggle_data_attrs', array( $this, 'add_search_slide_toggle_attrs' ) );
 			add_filter( 'astra_caret_wrap_filter', array( $this, 'amp_dropdowns' ), 10, 2 );
 			add_action( 'wp_head', array( $this, 'render_amp_states' ) );
 		}
@@ -67,13 +68,32 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return string
 		 */
 		public function add_nav_attrs( $input ) {
-			
+
 			if ( ! astra_is_emp_endpoint() ) {
 				return $input;
 			}
 
 			$input .= ' [class]="( astraAmpMenuExpanded ? \'main-header-bar-navigation responsive-opened\' : \'astra-navbar\' )" ';
 			$input .= ' aria-expanded="false" [aria-expanded]="astraAmpMenuExpanded ? \'true\' : \'false\'" ';
+			return $input;
+		}
+
+		/**
+		 * Add search slide data attributes.
+		 *
+		 * @param string $input the data attrs already existing in the nav.
+		 *
+		 * @return string
+		 */
+		public function add_search_slide_toggle_attrs( $input ) {
+
+			if ( ! astra_is_emp_endpoint() ) {
+				return $input;
+			}
+
+			$input .= ' on="tap:AMP.setState( { astraAmpSlideSearchMenuExpanded: ! astraAmpSlideSearchMenuExpanded } )" ';
+			$input .= ' [class]="( astraAmpSlideSearchMenuExpanded ? \'ast-search-menu-icon slide-search \' : \'ast-search-menu-icon slide-search ast-dropdown-active\' )" ';
+			$input .= ' aria-expanded="false" [aria-expanded]="astraAmpSlideSearchMenuExpanded ? \'true\' : \'false\'" ';
 			return $input;
 		}
 
