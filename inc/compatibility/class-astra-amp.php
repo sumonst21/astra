@@ -16,7 +16,6 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 
 	 /**
 	  * Class Astra_AMP
-	  *
 	  */
 	class Astra_AMP {
 
@@ -68,7 +67,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return string
 		 */
 		public function add_nav_attrs( $input ) {
-			
+
 			if ( ! astra_amp_support() ) {
 				return $input;
 			}

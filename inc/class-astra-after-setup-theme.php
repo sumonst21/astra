@@ -156,7 +156,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 
 			// AMP Support
 			add_theme_support( 'amp', array(
-				'templates_supported' => 'all',
+				'paired' => true,
 			) );
 		}
 

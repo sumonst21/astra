@@ -124,7 +124,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function enqueue_scripts() {
 
-
 			$astra_enqueue = apply_filters( 'astra_enqueue_theme_assets', true );
 
 			if ( ! $astra_enqueue ) {
@@ -203,7 +202,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			if ( astra_amp_support() ) {
 				return;
 			}
-			
+
 			if ( is_array( $scripts ) && ! empty( $scripts ) ) {
 				// Register & Enqueue Scripts.
 				foreach ( $scripts as $key => $script ) {
