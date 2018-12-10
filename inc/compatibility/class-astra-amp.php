@@ -61,6 +61,103 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			add_filter( 'astra_search_slide_toggle_data_attrs', array( $this, 'add_search_slide_toggle_attrs' ) );
 			add_action( 'wp_head', array( $this, 'render_amp_states' ) );
 			add_filter( 'astra_attr_ast-main-header-bar-alignment', array( $this, 'nav_menu_wrapper' ) );
+			add_filter( 'astra_theme_dynamic_css', array( $this, 'dynamic_css' ) );
+		}
+
+		public function dynamic_css( $compiled_css ) {
+			$css = array(
+				'.ast-mobile-menu-buttons'                 => array(
+					'text-align'              => 'right',
+					'-js-display'             => 'flex',
+					'display'                 => '-webkit-box',
+					'display'                 => '-webkit-flex',
+					'display'                 => '-moz-box',
+					'display'                 => '-ms-flexbox',
+					'display'                 => 'flex',
+					'-webkit-box-pack'        => 'end',
+					'-webkit-justify-content' => 'flex-end',
+					'-moz-box-pack'           => 'end',
+					'-ms-flex-pack'           => 'end',
+					'justify-content'         => 'flex-end',
+					'-webkit-align-self'      => 'center',
+					'-ms-flex-item-align'     => 'center',
+					'align-self'              => 'center',
+				),
+
+				'.site-header .main-header-bar-wrap .site-branding' => array(
+					'display'             => '-webkit-box',
+					'display'             => '-webkit-flex',
+					'display'             => '-moz-box',
+					'display'             => '-ms-flexbox',
+					'display'             => 'flex',
+					'-webkit-box-flex'    => '1',
+					'-webkit-flex'        => '1',
+					'-moz-box-flex'       => '1',
+					'-ms-flex'            => '1',
+					'flex'                => '1',
+					'-webkit-align-self'  => 'center',
+					'-ms-flex-item-align' => 'center',
+					'align-self'          => 'center',
+				),
+
+				'.ast-main-header-bar-alignment.toggle-on .main-header-bar-navigation' => array(
+					'display' => 'block',
+				),
+
+				'.main-navigation'                         => array(
+					'display' => 'block',
+					'width'   => '100%',
+				),
+
+				'.main-header-menu > .menu-item > a'       => array(
+					'padding'             => '0 20px',
+					'display'             => 'inline-block',
+					'width'               => '100%',
+					'border-bottom-width' => '1px',
+					'border-style'        => 'solid',
+					'border-color'        => '#eaeaea',
+				),
+
+				'.ast-main-header-bar-alignment.toggle-on' => array(
+					'display'                   => 'block',
+					'width'                     => '100%',
+					'-webkit-box-flex'          => '1',
+					'-webkit-flex'              => 'auto',
+					'-moz-box-flex'             => '1',
+					'-ms-flex'                  => 'auto',
+					'flex'                      => 'auto',
+					'-webkit-box-ordinal-group' => '5',
+					'-webkit-order'             => '4',
+					'-moz-box-ordinal-group'    => '5',
+					'-ms-flex-order'            => '4',
+					'order'                     => '4',
+				),
+
+				'.main-header-menu .menu-item'             => array(
+					'width'      => '100%',
+					'text-align' => 'left',
+					'border-top' => '0',
+				),
+
+				'.header-main-layout-1 .main-navigation'   => array(
+					'padding' => '0',
+				),
+
+				'.main-header-bar-navigation'              => array(
+					'width'  => '-webkit-calc( 100% + 40px)',
+					'width'  => 'calc( 100% + 40px)',
+					'margin' => '0 -20px',
+				),
+
+				'.main-header-bar .main-header-bar-navigation .main-header-menu' => array(
+					'border-top-width' => '1px',
+					'border-style'     => 'solid',
+					'border-color'     => '#eaeaea',
+				),
+
+			);
+
+			return $compiled_css . astra_parse_css( $css, '', astra_header_break_point() );
 		}
 
 		/**
@@ -70,9 +167,9 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return void
 		 */
 		public function nav_menu_wrapper( $attr ) {
-			$attr['[class]']         = '( astraAmpMenuExpanded ? \'toggle-on\' : \'\' )';
+			$attr['[class]']         = '( astraAmpMenuExpanded ? \'ast-main-header-bar-alignment toggle-on\' : \'ast-main-header-bar-alignment\' )';
 			$attr['aria-expanded']   = 'false';
-			$attr['[aria-expanded]'] = "astraAmpMenuExpanded ? \'true\' : \'false\'";
+			$attr['[aria-expanded]'] = '(astraAmpMenuExpanded ? \'true\' : \'false\')';
 
 			return $attr;
 		}
