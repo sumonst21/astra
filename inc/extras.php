@@ -747,7 +747,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			if ( has_nav_menu( 'primary' ) ) {
 				// To add default alignment for navigation which can be added through any third party plugin.
 				// Do not add any CSS from theme except header alignment.
-				echo '<div class="ast-main-header-bar-alignment">';
+				echo '<div ' . astra_attr( 'ast-main-header-bar-alignment' ) . '>';
 					wp_nav_menu( $primary_menu_args );
 				echo '</div>';
 			} else {
