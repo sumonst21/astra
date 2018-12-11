@@ -61,6 +61,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			add_filter( 'astra_search_slide_toggle_data_attrs', array( $this, 'add_search_slide_toggle_attrs' ) );
 			add_action( 'wp_head', array( $this, 'render_amp_states' ) );
 			add_filter( 'astra_attr_ast-main-header-bar-alignment', array( $this, 'nav_menu_wrapper' ) );
+			add_filter( 'astra_attr_ast-menu-toggle', array( $this, 'menu_toggle_button' ), 20, 3 );
 			add_filter( 'astra_theme_dynamic_css', array( $this, 'dynamic_css' ) );
 		}
 
@@ -209,6 +210,22 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			$attr['[class]']         = '( astraAmpMenuExpanded ? \'ast-main-header-bar-alignment toggle-on\' : \'ast-main-header-bar-alignment\' )';
 			$attr['aria-expanded']   = 'false';
 			$attr['[aria-expanded]'] = '(astraAmpMenuExpanded ? \'true\' : \'false\')';
+
+			return $attr;
+		}
+
+		/**
+		 * Add AMP attribites to the toggle button to add `.ast-submenu-expanded` class to parent li.
+		 *
+		 * @since x.x.x
+		 * @param array  $attr Optional. Extra attributes to merge with defaults.
+		 * @param string $context    The context, to build filter name.
+		 * @param array  $args       Optional. Custom data to pass to filter.
+		 *
+		 * @return Array updated HTML attributes.
+		 */
+		public function menu_toggle_button( $attr, $context, $args ) {
+			$attr['on'] = "tap:menu-item-{$args->object_id}.toggleClass(class=ast-submenu-expanded)";
 
 			return $attr;
 		}

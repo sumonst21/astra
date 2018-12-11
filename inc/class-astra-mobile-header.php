@@ -67,12 +67,19 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		public function toggle_button( $item_output, $item, $depth, $args ) {
 
 			// Add toggle button if manu is from Astra.
-			if ( $args->theme_location === 'primary' ||
-			$args->theme_location === 'above_header_menu' ||
-			$args->theme_location === 'below_header_menu'
+			if ( 'primary' === $args->theme_location ||
+			'above_header_menu' === $args->theme_location ||
+			'below_header_menu' === $args->theme_location
 			) {
 				if ( isset( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
-					$item_output .= '<button role="button" class="ast-menu-toggle" aria-expanded="false"><span class="screen-reader-text">Menu Toggle</span></button>';
+					$item_output .= '<button ' . astra_attr(
+						'ast-menu-toggle',
+						array(
+							'role'          => 'button',
+							'aria-expanded' => 'false',
+						),
+						$item
+					) . '><span class="screen-reader-text">' . __( 'Menu Toggle', 'astra' ) . '</span></button>';
 				}
 			}
 
