@@ -64,6 +64,15 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			add_filter( 'astra_theme_dynamic_css', array( $this, 'dynamic_css' ) );
 		}
 
+		/**
+		 * Dynamic CSS used for AMP pages.
+		 * This should be changed to main CSS in next versions, replacing JavaScript based interactions with pure CSS alternatives.
+		 *
+		 * @since x.x.x
+		 * @param String $compiled_css Dynamic CSS received to  be enqueued on page.
+		 *
+		 * @return String Updated dynamic CSS with AMP specific changes.
+		 */
 		public function dynamic_css( $compiled_css ) {
 			$css = array(
 				'.ast-mobile-menu-buttons'                 => array(
@@ -155,6 +164,34 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'border-color'     => '#eaeaea',
 				),
 
+				'.main-header-bar .main-header-bar-navigation .page_item_has_children > .ast-menu-toggle, .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
+					'display'                 => 'inline-block',
+					'position'                => 'absolute',
+					'font-size'               => 'inherit',
+					'top'                     => '-1px',
+					'right'                   => '20px',
+					'cursor'                  => 'pointer',
+					'-webkit-font-smoothing'  => 'antialiased',
+					'-moz-osx-font-smoothing' => 'grayscale',
+					'padding'                 => '0 0.907em',
+					'font-weight'             => 'normal',
+					'line-height'             => 'inherit',
+					'-webkit-transition'      => 'all .2s',
+					'transition'              => 'all .2s',
+				),
+
+				'.main-header-bar-navigation .menu-item-has-children > a:after' => array(
+					'content' => 'none',
+				),
+
+				'.main-header-bar .main-header-bar-navigation .page_item_has_children > .ast-menu-toggle::before, .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before' => array(
+					'font-weight'     => 'bold',
+					'content'         => '"\e900"',
+					'font-family'     => 'Astra',
+					'text-decoration' => 'inherit',
+					'display'         => 'inline-block',
+				),
+
 			);
 
 			return $compiled_css . astra_parse_css( $css, '', astra_header_break_point() );
@@ -163,8 +200,10 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		/**
 		 * Add AMP attributes to the nav menu wrapper.
 		 *
-		 * @param [type] $attr
-		 * @return void
+		 * @since x.x.x
+		 * @param Array $attr HTML attributes to be added to the nav menu wrapper.
+		 *
+		 * @return Array updated HTML attributes.
 		 */
 		public function nav_menu_wrapper( $attr ) {
 			$attr['[class]']         = '( astraAmpMenuExpanded ? \'ast-main-header-bar-alignment toggle-on\' : \'ast-main-header-bar-alignment\' )';
