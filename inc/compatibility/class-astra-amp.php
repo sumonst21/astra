@@ -194,7 +194,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'display'         => 'inline-block',
 				),
 				'.ast-button-wrap .menu-toggle.toggled .menu-toggle-icon:before' => array(
-				  'content'=> "\e5cd",
+					'content' => "\e5cd",
 				),
 
 			);
@@ -875,7 +875,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'padding-bottom'          => '0',
 				),
 			);
-			$parse_css .= astra_parse_css( $astra_break_point_navigation, '', astra_header_break_point() );
+			$parse_css                   .= astra_parse_css( $astra_break_point_navigation, '', astra_header_break_point() );
 
 			// 768px
 			$astra_medium_break_point_navigation = array(
