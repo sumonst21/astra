@@ -40,7 +40,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'parse_query', array( $this, 'astra_amp_init' ) );
+			add_action( 'wp', array( $this, 'astra_amp_init' ) );
 		}
 
 		/**
