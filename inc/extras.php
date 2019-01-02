@@ -74,7 +74,7 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		}
 
 		if ( astra_is_emp_endpoint() ) {
-			$classes[] = 'ast-theme';
+			$classes[] = 'ast-amp';
 		}
 
 		// Apply separate container class to the body.
