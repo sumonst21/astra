@@ -64,6 +64,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			add_filter( 'astra_attr_ast-main-header-bar-alignment', array( $this, 'nav_menu_wrapper' ) );
 			add_filter( 'astra_attr_ast-menu-toggle', array( $this, 'menu_toggle_button' ), 20, 3 );
 			add_filter( 'astra_theme_dynamic_css', array( $this, 'dynamic_css' ) );
+			add_filter( 'astra_toggle_button_markup', array( $this, 'toggle_button_markup' ), 20, 2 );
 		}
 
 		/**
@@ -203,7 +204,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 
 			// Move all header-break-point css from class based css to media query based CSS.
 			$astra_break_point_navigation = array(
-				'.ast-amp .ast-mobile-menu-buttons'    => array(
+				'.ast-amp .ast-mobile-menu-buttons'        => array(
 					'text-align'              => 'right',
 					'-js-display'             => 'flex',
 					'display'                 => '-webkit-box',
@@ -244,11 +245,11 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'display'  => 'block',
 					'overflow' => 'hidden',
 				),
-				'.ast-amp .entry-content .alignwide'   => array(
+				'.ast-amp .entry-content .alignwide'       => array(
 					'margin-left'  => 'auto',
 					'margin-right' => 'auto',
 				),
-				'.ast-amp .main-navigation'            => array(
+				'.ast-amp .main-navigation'                => array(
 					'padding-left' => '0',
 				),
 				'.ast-amp .main-navigation ul li a, .ast-amp .main-navigation ul .button-custom-menu-item a' => array(
@@ -278,13 +279,13 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				'.ast-amp .main-navigation ul.children li li li li a, .ast-amp .main-navigation ul.sub-menu li li li li a' => array(
 					'padding-left' => '60px',
 				),
-				'.ast-amp .ast-header-custom-item'     => array(
+				'.ast-amp .ast-header-custom-item'         => array(
 					'background-color' => '#f9f9f9',
 				),
-				'.ast-amp .main-header-menu'           => array(
+				'.ast-amp .main-header-menu'               => array(
 					'background-color' => '#f9f9f9',
 				),
-				'.ast-amp .main-header-menu ul'        => array(
+				'.ast-amp .main-header-menu ul'            => array(
 					'background-color' => '#f9f9f9',
 					'position'         => 'static',
 					'opacity'          => '1',
@@ -298,26 +299,26 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				'.ast-amp .main-header-menu li.ast-sub-menu-goes-outside:hover > ul, .ast-amp .main-header-menu li.ast-sub-menu-goes-outside.focus > ul' => array(
 					'left' => '0',
 				),
-				'.ast-amp .submenu-with-border .sub-menu' => array(
+				'.ast-amp .submenu-with-border .sub-menu'  => array(
 					'border' => '0',
 				),
-				'.ast-amp .user-select'                => array(
+				'.ast-amp .user-select'                    => array(
 					'clear' => 'both',
 				),
-				'.ast-amp .ast-mobile-menu-buttons'    => array(
+				'.ast-amp .ast-mobile-menu-buttons'        => array(
 					'display'             => 'block',
 					'-webkit-align-self'  => 'center',
 					'-ms-flex-item-align' => 'center',
 					'align-self'          => 'center',
 				),
-				'.ast-amp .main-header-bar-navigation' => array(
+				'.ast-amp .main-header-bar-navigation'     => array(
 					'-webkit-box-flex' => '1',
 					'-webkit-flex'     => 'auto',
 					'-moz-box-flex'    => '1',
 					'-ms-flex'         => 'auto',
 					'flex'             => 'auto',
 				),
-				'.ast-amp .ast-main-header-bar-alignment' => array(
+				'.ast-amp .ast-main-header-bar-alignment'  => array(
 					'display'                   => 'block',
 					'width'                     => '100%',
 					'-webkit-box-flex'          => '1',
@@ -331,7 +332,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'-ms-flex-order'            => '4',
 					'order'                     => '4',
 				),
-				'.ast-amp .ast-mobile-menu-buttons'    => array(
+				'.ast-amp .ast-mobile-menu-buttons'        => array(
 					'text-align'              => 'right',
 					'display'                 => '-webkit-box',
 					'display'                 => '-webkit-flex',
@@ -393,13 +394,13 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'margin-bottom' => '1em',
 					'margin-top'    => '1em',
 				),
-				'.ast-amp .ast-site-identity'          => array(
+				'.ast-amp .ast-site-identity'              => array(
 					'width' => '100%',
 				),
 				'.ast-amp .main-header-bar-navigation .page_item_has_children > a:after, .ast-amp .main-header-bar-navigation .menu-item-has-children > a:after' => array(
 					'display' => 'none',
 				),
-				'.ast-amp .main-header-bar'            => array(
+				'.ast-amp .main-header-bar'                => array(
 					'display'     => 'block',
 					'line-height' => '3',
 				),
@@ -417,7 +418,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				'.ast-amp .main-header-bar .main-header-bar-navigation .page_item_has_children .sub-menu, .ast-amp .main-header-bar .main-header-bar-navigation .menu-item-has-children .sub-menu' => array(
 					'display' => 'none',
 				),
-				'.ast-amp .main-header-bar .main-header-bar-navigation .page_item_has_children.ast-submenu-expanded .sub-menu, .ast-amp .main-header-bar .main-header-bar-navigation .menu-item-has-children.ast-submenu-expanded .sub-menu' => array(
+				'.ast-amp .main-header-bar .main-header-bar-navigation .menu-item-has-children .dropdown-open+ul.sub-menu' => array(
 					'display' => 'block',
 				),
 				'.ast-amp .main-header-bar .main-header-bar-navigation .page_item_has_children > .ast-menu-toggle, .ast-amp .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle' => array(
@@ -460,35 +461,35 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'-ms-transform'     => 'none',
 					'transform'         => 'none',
 				),
-				'.ast-amp .main-navigation'            => array(
+				'.ast-amp .main-navigation'                => array(
 					'display' => 'block',
 					'width'   => '100%',
 				),
 				'.ast-amp .main-navigation ul > li:first-child' => array(
 					'border-top' => '0',
 				),
-				'.ast-amp .main-navigation ul ul'      => array(
+				'.ast-amp .main-navigation ul ul'          => array(
 					'left'  => 'auto',
 					'right' => 'auto',
 				),
-				'.ast-amp .main-navigation li'         => array(
+				'.ast-amp .main-navigation li'             => array(
 					'width' => '100%',
 				),
-				'.ast-amp .main-navigation .widget'    => array(
+				'.ast-amp .main-navigation .widget'        => array(
 					'margin-bottom' => '1em',
 				),
-				'.ast-amp .main-navigation .widget li' => array(
+				'.ast-amp .main-navigation .widget li'     => array(
 					'width' => 'auto',
 				),
 				'.ast-amp .main-navigation .widget:last-child' => array(
 					'margin-bottom' => '0',
 				),
-				'.ast-amp .main-header-bar-navigation' => array(
+				'.ast-amp .main-header-bar-navigation'     => array(
 					'width'  => '-webkit-calc( 100% + 40px)',
 					'width'  => 'calc(100% + 40px )',
 					'margin' => '0 -20px',
 				),
-				'.ast-amp .main-header-menu ul ul'     => array(
+				'.ast-amp .main-header-menu ul ul'         => array(
 					'top' => '0',
 				),
 				'.ast-amp .ast-has-mobile-header-logo .custom-logo, .ast-amp .ast-has-mobile-header-logo .astra-logo-svg' => array(
@@ -764,17 +765,17 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'margin'  => '0.5em 0',
 					'display' => 'block',
 				),
-				'.ast-amp .main-header-bar'            => array(
+				'.ast-amp .main-header-bar'                => array(
 					'border' => '0',
 				),
-				'.ast-amp .nav-fallback-text'          => array(
+				'.ast-amp .nav-fallback-text'              => array(
 					'float' => 'none',
 				),
-				'.ast-amp .site-header'                => array(
+				'.ast-amp .site-header'                    => array(
 					'border-bottom-color' => '#eaeaea',
 					'border-bottom-style' => 'solid',
 				),
-				'.ast-amp .ast-header-custom-item'     => array(
+				'.ast-amp .ast-header-custom-item'         => array(
 					'border-top' => '1px solid #eaeaea',
 				),
 				'.ast-amp .ast-header-custom-item .ast-masthead-custom-menu-items' => array(
@@ -876,6 +877,15 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'justify-content'         => 'center',
 					'text-align'              => 'center',
 					'padding-bottom'          => '0',
+				),
+				'.ast-amp .main-header-menu .sub-menu'     => array(
+					'box-shadow' => 'none',
+				),
+				'.ast-amp .submenu-with-border .sub-menu a' => array(
+					'border-width' => '1px',
+				),
+				'.ast-amp .submenu-with-border .sub-menu > li:last-child > a' => array(
+					'border-width' => '1px',
 				),
 			);
 			$parse_css                   .= astra_parse_css( $astra_break_point_navigation, '', astra_header_break_point() );
@@ -988,6 +998,21 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		}
 
 		/**
+		 * Set AMP State for eeach sub menu toggle.
+		 *
+		 * @since x.x.x
+		 * @param String  $item_output HTML markup for the menu item.
+		 * @param  WP_Post $item Post object for the navigation menu.
+		 *
+		 * @return String HTML MArkup for the menu including the AML State.
+		 */
+		public function toggle_button_markup( $item_output, $item ) {
+			$item_output .= '<amp-state id="neveMenuItemExpanded' . $item->ID . '" class="i-amphtml-element i-amphtml-layout-container" hidden="" aria-hidden="true"><script type="application/json">false</script></amp-state>';
+
+			return $item_output;
+		}
+
+		/**
 		 * Add AMP attribites to the toggle button to add `.ast-submenu-expanded` class to parent li.
 		 *
 		 * @since x.x.x
@@ -998,7 +1023,8 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return Array updated HTML attributes.
 		 */
 		public function menu_toggle_button( $attr, $context, $args ) {
-			$attr['on'] = "tap:menu-item-{$args->ID}.toggleClass(class=ast-submenu-expanded)";
+			$attr['[class]'] = '( neveMenuItemExpanded' . $args->ID . ' ? \' ast-menu-toggle dropdown-open\' : \'ast-menu-toggle\')';
+			$attr['on']      = 'tap:AMP.setState( { neveMenuItemExpanded' . $args->ID . ': ! neveMenuItemExpanded' . $args->ID . ' } )';
 
 			return $attr;
 		}

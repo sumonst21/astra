@@ -72,6 +72,9 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 			'below_header_menu' === $args->theme_location
 			) {
 				if ( isset( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
+
+					$item_output = apply_filters( 'astra_toggle_button_markup', $item_output, $item );
+
 					$item_output .= '<button ' . astra_attr(
 						'ast-menu-toggle',
 						array(
