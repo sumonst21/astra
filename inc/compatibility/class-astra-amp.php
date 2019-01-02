@@ -995,7 +995,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return Array updated HTML attributes.
 		 */
 		public function menu_toggle_button( $attr, $context, $args ) {
-			$attr['on'] = "tap:menu-item-{$args->object_id}.toggleClass(ast-submenu-expanded)";
+			$attr['on'] = "tap:menu-item-{$args->ID}.toggleClass(class=ast-submenu-expanded)";
 
 			return $attr;
 		}
