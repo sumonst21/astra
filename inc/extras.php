@@ -73,6 +73,10 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			$classes[] = 'ast-desktop';
 		}
 
+		if ( astra_is_emp_endpoint() ) {
+			$classes[] = 'ast-amp';
+		}
+
 		// Apply separate container class to the body.
 		$content_layout = astra_get_content_layout();
 		if ( 'content-boxed-container' == $content_layout ) {
