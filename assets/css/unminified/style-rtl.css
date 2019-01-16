@@ -5299,11 +5299,15 @@ input[type="color"]::-webkit-color-swatch {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -moz-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -moz-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .ast-comment-list .ast-edit-link {
@@ -5348,11 +5352,14 @@ input[type="color"]::-webkit-color-swatch {
 .ast-comment-meta-wrap {
   float: right;
   clear: left;
-  padding: 0 0 1.33333em;
+  padding: 0 0 1em;
 }
 
 .ast-comment-content {
   clear: both;
+  padding: 22px 20px;
+  margin: 25px 0 0;
+  border: 1px solid #ddd;
 }
 
 .ast-comment-cite-wrap {
