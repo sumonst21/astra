@@ -415,6 +415,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Single Post Meta.
 				'.ast-comment-meta'                       => array(
 					'line-height' => '1.666666667',
+					'font-size'   => astra_get_font_css_value( (int) $body_font_size_desktop * 0.9371428571 ),
+				),
+				'.timendate'                       => array(
 					'font-size'   => astra_get_font_css_value( (int) $body_font_size_desktop * 0.8571428571 ),
 				),
 				'.single .nav-links .nav-previous, .single .nav-links .nav-next, .single .ast-author-details .author-title, .ast-comment-meta' => array(
@@ -668,7 +671,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						),
 						// Single Post Meta.
 						'.ast-comment-meta'    => array(
-							'font-size' => astra_get_font_css_value( (int) $body_font_size['tablet'] * 0.8571428571, 'px', 'tablet' ),
+							'font-size' => astra_get_font_css_value( (int) $body_font_size['tablet'] * 0.9371428571, 'px', 'tablet' ),
+						),
+						'.timendate'                       => array(
+							'font-size'   => astra_get_font_css_value( (int) $body_font_size_desktop * 0.8571428571, 'px', 'tablet' ),
 						),
 						// Widget Title.
 						'.widget-title'        => array(
@@ -773,7 +779,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					// Single Post Meta.
 					'.ast-comment-meta'    => array(
-						'font-size' => astra_get_font_css_value( (int) $body_font_size['mobile'] * 0.8571428571, 'px', 'mobile' ),
+						'font-size' => astra_get_font_css_value( (int) $body_font_size['mobile'] * 0.9371428571, 'px', 'mobile' ),
+					),
+					'.timendate'                       => array(
+						'font-size'   => astra_get_font_css_value( (int) $body_font_size_desktop * 0.8571428571, 'px', 'mobile' ),
 					),
 					// Widget Title.
 					'.widget-title'        => array(

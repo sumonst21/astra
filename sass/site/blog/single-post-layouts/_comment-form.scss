@@ -58,7 +58,11 @@
 
     .ast-comment-edit-reply-wrap{
         display:flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
+        font-weight: 700;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px
     }
     .ast-edit-link{
         flex: 1;
@@ -90,11 +94,14 @@
 .ast-comment-meta-wrap{
     float: left;
     clear: right;
-    padding: 0 0 1.33333em;
+    padding: 0 0 1em;
 }
 
 .ast-comment-content{
     clear: both;
+    padding: 22px 20px;
+    margin: 25px 0 0;
+    border: 1px solid #ddd;
 }
 
 .ast-comment-cite-wrap {
