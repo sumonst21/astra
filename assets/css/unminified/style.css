@@ -5323,7 +5323,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment {
-  padding: 1em 0;
+  padding: 1.5em 0;
 }
 
 .ast-comment-avatar-wrap {
@@ -5441,7 +5441,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-separate-container .comments-count-wrapper {
   background-color: #fff;
-  padding: 2em 6.67em 0;
+  padding: 4em 4em 0;
 }
 
 @media (max-width: 1200px) {
@@ -5475,7 +5475,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-separate-container .ast-comment-list li.depth-1 {
-  padding: 4em 6.67em;
+  padding: 2.5em 4em;
   margin-bottom: 2em;
 }
 
