@@ -19,6 +19,7 @@ add_action( 'astra_entry_content_blog', 'astra_entry_content_blog_template' );
 add_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
 add_action( 'astra_footer_content', 'astra_advanced_footer_markup', 1 );
 add_action( 'astra_masthead_content', 'astra_header_custom_item_outside_menu', 10 );
+add_action( 'after_setup_theme', 'astra_breadcumb_template' );
 
 /**
  * Header Custom Menu Item
@@ -357,4 +358,43 @@ if ( ! function_exists( 'astra_header_custom_item_outside_menu' ) ) {
 			echo $markup;
 		}
 	}
+}
+
+/**
+ * Footer widgets markup
+ *
+ * Loads appropriate template file based on the style option selected in options panel.
+ *
+ * @since 1.6.15
+ */
+function astra_breadcumb_template() {
+
+	$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
+
+	if ( $breadcrumb_position && 'none' != $breadcrumb_position ) {
+		switch ( $breadcrumb_position ) {
+			case 'after-full-header':
+				add_action( 'astra_masthead_bottom', 'astra_below_header_breadcrumb', 15 );
+				break;
+			case 'before-main-content':
+				add_action( 'astra_masthead_bottom', 'astra_below_header_breadcrumb', 15 );
+				break;
+		}
+	}
+}
+
+/**
+ * Footer widgets markup
+ *
+ * Loads appropriate template file based on the style option selected in options panel.
+ *
+ * @since 1.6.15
+ */
+function astra_below_header_breadcrumb() {
+	echo '<div class="main-header-bar-wrap">
+			<div class="main-header-bar">
+				<div class="ast-container">
+					<div class="ast-flex main-header-container">';
+						astra_breadcrumb();
+	echo '</div></div></div></div>';
 }
