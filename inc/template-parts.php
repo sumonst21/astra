@@ -19,7 +19,6 @@ add_action( 'astra_entry_content_blog', 'astra_entry_content_blog_template' );
 add_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
 add_action( 'astra_footer_content', 'astra_advanced_footer_markup', 1 );
 add_action( 'astra_masthead_content', 'astra_header_custom_item_outside_menu', 10 );
-add_action( 'after_setup_theme', 'astra_breadcumb_template' );
 
 /**
  * Header Custom Menu Item
@@ -358,65 +357,4 @@ if ( ! function_exists( 'astra_header_custom_item_outside_menu' ) ) {
 			echo $markup;
 		}
 	}
-}
-
-/**
- * Astra Breadcrumb Template
- *
- * Loads template based on the style option selected in options panel for Breadcrumb.
- *
- * @since 1.6.15
- *
- * @return void
- */
-function astra_breadcumb_template() {
-
-	$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
-
-	if ( $breadcrumb_position && 'none' != $breadcrumb_position ) {
-		switch ( $breadcrumb_position ) {
-			case 'after-full-header':
-				add_action( 'astra_masthead_bottom', 'astra_after_header_breadcrumb_markup', 15 );
-				break;
-			case 'before-main-content':
-				add_action( 'astra_content_top', 'astra_before_content_breadcrumb_markup', 1 );
-				break;
-		}
-	}
-}
-
-/**
- * After Header Breadcrumb Markup
- *
- * Loads markup for After Full Header option in panel for breadcrumb.
- *
- * @since 1.6.15
- *
- * @return void
- */
-function astra_after_header_breadcrumb_markup() {
-	?>
-	<div class="main-header-bar-wrap">
-		<div class="main-header-bar">
-			<div class="ast-container">
-				<div class="ast-flex main-header-container">
-					<?php astra_breadcrumb(); ?>
-				</div>
-			</div>
-		</div>
-	</div>
-	<?php
-}
-
-/**
- * Before Content Breadcrumb Markup
- *
- * Loads markup for Before Main Content option in panel for breadcrumb.
- *
- * @since 1.6.15
- *
- * @return void
- */
-function astra_before_content_breadcrumb_markup() {
-	astra_breadcrumb();
 }
