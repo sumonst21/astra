@@ -91,11 +91,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 									// Check if breadcrumb is turned on from WPSEO option.
 									$wpseo_option = get_option( 'wpseo_internallinks' );
 
-									if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
-										yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
-									} else {
-										Astra_Breadcrumbs::astra_breadcrumb();
-									}
+								if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
+									yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
+								} else {
+									Astra_Breadcrumbs::astra_breadcrumb();
+								}
 								?>
 							</div>
 						</div>
@@ -125,11 +125,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 									// Check if breadcrumb is turned on from WPSEO option.
 									$wpseo_option = get_option( 'wpseo_internallinks' );
 
-									if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
-										yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
-									} else {
-										Astra_Breadcrumbs::astra_breadcrumb();
-									}
+								if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
+									yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
+								} else {
+									Astra_Breadcrumbs::astra_breadcrumb();
+								}
 								?>
 							</div>
 						</div>
