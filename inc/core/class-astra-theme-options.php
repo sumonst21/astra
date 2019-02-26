@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @copyright   Copyright (c) 2019, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -163,7 +163,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'header-display-outside-menu'         => false,
 					'header-main-rt-section-html'         => '<button>' . __( 'Contact Us', 'astra' ) . '</button>',
 					'header-main-rt-section-button-text'  => __( 'Button', 'astra' ),
-					'header-main-rt-section-button-link'  => 'https://www.wpastra.com',
+					'header-main-rt-section-button-link'  => apply_filters( 'astra_site_url', 'https://www.wpastra.com' ),
 					'header-main-rt-section-button-style' => 'theme-button',
 					'header-main-rt-section-button-text-color' => '',
 					'header-main-rt-section-button-back-color' => '',
@@ -348,6 +348,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					// Sidebar.
 					'footer-adv'                          => 'disabled',
+					'footer-adv-border-width'             => '',
+					'footer-adv-border-color'             => '#7a7a7a',
 
 					// toogle menu style.
 					'mobile-header-toggle-btn-style'      => 'minimal',

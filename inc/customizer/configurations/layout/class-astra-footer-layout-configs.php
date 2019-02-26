@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @copyright   Copyright (c) 2019, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -253,6 +253,53 @@ if ( ! class_exists( 'Astra_Footer_Layout_Configs' ) ) {
 							'path'  => ASTRA_THEME_URI . '/assets/images/layout-4-115x48.png',
 						),
 					),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[footer-adv-border-style]',
+					'control'  => 'ast-divider',
+					'type'     => 'control',
+					'section'  => 'section-footer-adv',
+					'required' => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'priority' => 35,
+					'settings' => array(),
+				),
+
+				/**
+				 * Option: Footer Top Border
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[footer-adv-border-width]',
+					'type'        => 'control',
+					'control'     => 'number',
+					'transport'   => 'postMessage',
+					'section'     => 'section-footer-adv',
+					'default'     => astra_get_option( 'footer-adv-border-width' ),
+					'priority'    => 40,
+					'required'    => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'title'       => __( 'Footer Widgets Top Border', 'astra' ),
+					'input_attrs' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 600,
+					),
+				),
+
+				/**
+				 * Option: Footer Top Border Color
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-adv-border-color]',
+					'section'   => 'section-footer-adv',
+					'type'      => 'control',
+					'transport' => 'postMessage',
+					'control'   => 'ast-color',
+					'default'   => astra_get_option( 'footer-adv-border-color' ),
+					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'priority'  => 45,
 				),
 			);
 

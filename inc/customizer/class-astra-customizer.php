@@ -4,7 +4,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @copyright   Copyright (c) 2019, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
@@ -639,7 +639,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$dir        = 'unminified';
 			}
 
-			wp_enqueue_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), null, ASTRA_THEME_VERSION );
+			wp_enqueue_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), ASTRA_THEME_VERSION, null );
 
 			$localize_array = array(
 				'headerBreakpoint'            => astra_header_break_point(),
@@ -661,14 +661,23 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			// Update variables.
 			Astra_Theme_Options::refresh();
 
-			/* Generate Header Logo */
-			$custom_logo_id = get_theme_mod( 'custom_logo' );
+			if ( apply_filters( 'astra_resize_logo', true ) ) {
 
-			add_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10, 2 );
-			Astra_Customizer::generate_logo_by_width( $custom_logo_id );
-			remove_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10 );
+				/* Generate Header Logo */
+				$custom_logo_id = get_theme_mod( 'custom_logo' );
+
+				add_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10, 2 );
+				Astra_Customizer::generate_logo_by_width( $custom_logo_id );
+				remove_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10 );
+
+			} else {
+				// Regenerate the logo without custom image sizes.
+				$custom_logo_id = get_theme_mod( 'custom_logo' );
+				Astra_Customizer::generate_logo_by_width( $custom_logo_id );
+			}
 
 			do_action( 'astra_customizer_save' );
+
 		}
 
 		/**

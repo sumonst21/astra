@@ -6,7 +6,7 @@
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @copyright   Copyright (c) 2019, Astra
  * @link        https://wpastra.com/
  * @since       Astra 1.0
  */
@@ -21,14 +21,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 	 * Astra Admin Settings
 	 */
 	class Astra_Admin_Settings {
-
-		/**
-		 * View all actions
-		 *
-		 * @since 1.0
-		 * @var array $view_actions
-		 */
-		static public $view_actions = array();
 
 		/**
 		 * Menu page title
@@ -93,9 +85,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Admin settings init
 		 */
-		static public function init_admin_settings() {
+		public static function init_admin_settings() {
 			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra Options', 'astra' ) );
 			self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
+			self::$plugin_slug     = apply_filters( 'astra_theme_page_slug', self::$plugin_slug );
+
+			add_action( 'admin_enqueue_scripts', __class__ . '::register_scripts' );
 
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
 
@@ -117,17 +112,17 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'astra_header_right_section', __CLASS__ . '::top_header_right_section' );
 
-			add_filter( 'admin_title', __CLASS__ . '::astra_admin_title', 10, 2 );
-
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_starter_sites_section', 10 );
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_knowledge_base_scetion', 11 );
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_community_scetion', 12 );
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_five_star_scetion', 13 );
 
 			add_action( 'astra_welcome_page_content', __CLASS__ . '::astra_welcome_page_content' );
+			add_action( 'astra_welcome_page_content', __class__ . '::astra_available_plugins', 30 );
 
 			// AJAX.
 			add_action( 'wp_ajax_astra-sites-plugin-activate', __CLASS__ . '::required_plugin_activate' );
+			add_action( 'wp_ajax_astra-sites-plugin-deactivate', __CLASS__ . '::required_plugin_deactivate' );
 
 			add_action( 'admin_notices', __CLASS__ . '::register_notices' );
 		}
@@ -191,31 +186,110 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					)
 				);
 			}
+
+			// Force Astra welcome notice on theme activation.
+			if ( current_user_can( 'install_plugins' ) && ! defined( 'ASTRA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) ) {
+
+				wp_enqueue_script( 'astra-admin-settings' );
+				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
+				$ast_sites_notice_btn = Astra_Admin_Settings::astra_sites_notice_button();
+
+				if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+					$ast_sites_notice_btn['button_text'] = __( 'Get Started', 'astra' );
+					$ast_sites_notice_btn['class']      .= ' button button-primary button-hero';
+				} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+					$ast_sites_notice_btn['button_text'] = __( 'Get Started', 'astra' );
+					$ast_sites_notice_btn['class']      .= ' button button-primary button-hero';
+					// Astra Premium Sites - Active.
+				} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+					$ast_sites_notice_btn['class'] = ' button button-primary button-hero astra-notice-close';
+				} else {
+					$ast_sites_notice_btn['class'] = ' button button-primary button-hero astra-notice-close';
+				}
+
+				Astra_Notices::add_notice(
+					array(
+						'id'                         => 'astra-sites-on-active',
+						'type'                       => '',
+						'message'                    => sprintf(
+							'<div class="notice-image">
+								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
+								<div class="notice-content">
+									<h2 class="notice-heading">
+										%2$s
+									</h2>
+									<p>%3$s</p>
+									<div class="astra-review-notice-container">
+										<a class="%4$s" %5$s %6$s %7$s %8$s %9$s %10$s> %11$s </a>
+									</div>
+								</div>',
+							$image_path,
+							__( 'Thank you for installing Astra!', 'astra' ),
+							__( 'Did you know Astra comes with dozens of ready-to-use <a href="https://wpastra.com/ready-websites/?utm_source=install-notice">starter site templates</a>? Install the Astra Starter Sites plugin to get started.', 'astra' ),
+							esc_attr( $ast_sites_notice_btn['class'] ),
+							'href="' . astra_get_prop( $ast_sites_notice_btn, 'link', '' ) . '"',
+							'data-slug="' . astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) . '"',
+							'data-init="' . astra_get_prop( $ast_sites_notice_btn, 'data_init', '' ) . '"',
+							'data-settings-link-text="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link_text', '' ) . '"',
+							'data-settings-link="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ) . '"',
+							'data-activating-text="' . astra_get_prop( $ast_sites_notice_btn, 'activating_text', '' ) . '"',
+							esc_html( $ast_sites_notice_btn['button_text'] )
+						),
+						'priority'                   => 5,
+						'display-with-other-notices' => false,
+					)
+				);
+			}
 		}
 
 		/**
-		 * View actions
+		 * Render button for Astra Site notices
 		 */
-		static public function get_view_actions() {
+		static public function astra_sites_notice_button() {
+			$ast_sites_notice_btn = array();
+			// Astra Sites - Installed but Inactive.
+			// Astra Premium Sites - Inactive.
+			if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
-			if ( empty( self::$view_actions ) ) {
+				$ast_sites_notice_btn['class']                   = 'astra-activate-recommended-plugin';
+				$ast_sites_notice_btn['button_text']             = __( 'Activate Importer Plugin', 'astra' );
+				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
+				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
+				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=astra-sites' );
+				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library »', 'astra' );
+				$ast_sites_notice_btn['activating_text']         = __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;';
 
-				$actions            = array(
-					'general' => array(
-						'label' => __( 'Welcome', 'astra' ),
-						'show'  => ! is_network_admin(),
-					),
-				);
-				self::$view_actions = apply_filters( 'astra_menu_options', $actions );
+				// Astra Sites - Not Installed.
+				// Astra Premium Sites - Inactive.
+			} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+
+				$ast_sites_notice_btn['class']                   = 'astra-install-recommended-plugin';
+				$ast_sites_notice_btn['button_text']             = __( 'Install Importer Plugin', 'astra' );
+				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
+				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
+				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=astra-sites' );
+				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library »', 'astra' );
+				$ast_sites_notice_btn['detail_link_class']       = 'plugin-detail thickbox open-plugin-details-modal astra-starter-sites-detail-link';
+				$ast_sites_notice_btn['detail_link']             = admin_url( 'plugin-install.php?tab=plugin-information&plugin=astra-sites&TB_iframe=true&width=772&height=400' );
+				$ast_sites_notice_btn['detail_link_text']        = __( 'Details »', 'astra' );
+
+				// Astra Premium Sites - Active.
+			} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+				$ast_sites_notice_btn['class']       = 'active';
+				$ast_sites_notice_btn['button_text'] = __( 'See Library »', 'astra' );
+				$ast_sites_notice_btn['link']        = admin_url( 'themes.php?page=astra-sites' );
+			} else {
+				$ast_sites_notice_btn['class']       = 'active';
+				$ast_sites_notice_btn['button_text'] = __( 'See Library »', 'astra' );
+				$ast_sites_notice_btn['link']        = admin_url( 'themes.php?page=astra-sites' );
 			}
-
-			return self::$view_actions;
+			return $ast_sites_notice_btn;
 		}
 
 		/**
 		 * Save All admin settings here
 		 */
-		static public function save_settings() {
+		public static function save_settings() {
 
 			// Only admins can save settings.
 			if ( ! current_user_can( 'manage_options' ) ) {
@@ -231,7 +305,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.1
 		 */
-		static public function customizer_scripts() {
+		public static function customizer_scripts() {
 			$color_palettes = json_encode( astra_color_palette() );
 			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
 		}
@@ -241,7 +315,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		static public function admin_scripts() {
+		public static function admin_scripts() {
 
 			// Styles.
 			if ( is_rtl() ) {
@@ -270,6 +344,34 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 
 			wp_enqueue_script( 'astra-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', $js_handle, ASTRA_THEME_VERSION, true );
+
+			// For popup starter site plugin detail.
+			wp_enqueue_script( 'plugin-install' );
+			wp_enqueue_script( 'thickbox' );
+			wp_enqueue_style( 'thickbox' );
+		}
+
+		/**
+		 * Reegister Scripts and styles for Astra Admin.
+		 *
+		 * @since 1.6.9
+		 * @return void
+		 */
+		public static function register_scripts() {
+			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION );
+
+			$localize = array(
+				'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
+				'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
+				'astraSitesLink'                     => admin_url( 'themes.php?page=astra-sites' ),
+				'astraSitesLinkTitle'                => __( 'See Library »', 'astra' ),
+				'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
+				'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
+				'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
+				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
+				'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
+			);
+			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
 		}
 
 		/**
@@ -277,7 +379,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		static public function styles_scripts() {
+		public static function styles_scripts() {
 
 			// Styles.
 			if ( is_rtl() ) {
@@ -287,42 +389,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 
 			// Script.
-			wp_enqueue_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION );
-
-			$localize = array(
-				'ajaxUrl'             => admin_url( 'admin-ajax.php' ),
-				'btnActivating'       => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-				'astraSitesLink'      => admin_url( 'themes.php?page=astra-sites' ),
-				'astraSitesLinkTitle' => __( 'See Library »', 'astra' ),
-			);
-			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
-		}
-
-		/**
-		 * Update Admin Title.
-		 *
-		 * @since 1.0.19
-		 *
-		 * @param string $admin_title Admin Title.
-		 * @param string $title Title.
-		 * @return string
-		 */
-		static public function astra_admin_title( $admin_title, $title ) {
-
-			$screen = get_current_screen();
-			if ( 'appearance_page_astra' == $screen->id ) {
-
-				$view_actions = self::get_view_actions();
-
-				$current_slug = isset( $_GET['action'] ) ? esc_attr( $_GET['action'] ) : self::$current_slug;
-				$active_tab   = str_replace( '_', '-', $current_slug );
-
-				if ( 'general' != $active_tab && isset( $view_actions[ $active_tab ]['label'] ) ) {
-					$admin_title = str_replace( $title, $view_actions[ $active_tab ]['label'], $admin_title );
-				}
-			}
-
-			return $admin_title;
+			wp_enqueue_script( 'astra-admin-settings' );
 		}
 
 
@@ -333,7 +400,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @return  string page url
 		 */
-		static public function get_page_url( $menu_slug ) {
+		public static function get_page_url( $menu_slug ) {
 
 			$parent_page = self::$default_menu_position;
 
@@ -355,7 +422,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		static public function add_admin_menu() {
+		public static function add_admin_menu() {
 
 			$parent_page    = self::$default_menu_position;
 			$page_title     = self::$menu_page_title;
@@ -375,7 +442,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		static public function menu_callback() {
+		public static function menu_callback() {
 
 			$current_slug = isset( $_GET['action'] ) ? esc_attr( $_GET['action'] ) : self::$current_slug;
 
@@ -415,7 +482,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.0
 		 */
-		static public function general_page() {
+		public static function general_page() {
 			require_once ASTRA_THEME_DIR . 'inc/core/view-general.php';
 		}
 
@@ -424,7 +491,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_starter_sites_section() {
+		public static function astra_welcome_page_starter_sites_section() {
+
+			if ( astra_is_white_labelled() ) {
+				return;
+			}
 			?>
 
 			<div class="postbox">
@@ -453,42 +524,24 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						?>
 					</p>
 						<?php
-						// Astra Sites - Installed but Inactive.
-						// Astra Premium Sites - Inactive.
-						if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-
-							$class       = 'button ast-sites-inactive';
-							$button_text = __( 'Activate Importer Plugin', 'astra' );
-							$data_slug   = 'astra-sites';
-							$data_init   = '/astra-sites/astra-sites.php';
-
-							// Astra Sites - Not Installed.
-							// Astra Premium Sites - Inactive.
-						} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-
-							$class       = 'button ast-sites-notinstalled';
-							$button_text = __( 'Install Importer Plugin', 'astra' );
-							$data_slug   = 'astra-sites';
-							$data_init   = '/astra-sites/astra-sites.php';
-
-							// Astra Premium Sites - Active.
-						} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-							$class       = 'active';
-							$button_text = __( 'See Library »', 'astra' );
-							$link        = admin_url( 'themes.php?page=astra-sites' );
-						} else {
-							$class       = 'active';
-							$button_text = __( 'See Library »', 'astra' );
-							$link        = admin_url( 'themes.php?page=astra-sites' );
-						}
+						$ast_sites_notice_btn = Astra_Admin_Settings::astra_sites_notice_button();
 
 						printf(
-							'<a class="%1$s" %2$s %3$s %4$s> %5$s </a>',
-							esc_attr( $class ),
-							isset( $link ) ? 'href="' . esc_url( $link ) . '"' : '',
-							isset( $data_slug ) ? 'data-slug="' . esc_attr( $data_slug ) . '"' : '',
-							isset( $data_init ) ? 'data-init="' . esc_attr( $data_init ) . '"' : '',
-							esc_html( $button_text )
+							'<a class="%1$s" %2$s %3$s %4$s %5$s %6$s %7$s> %8$s </a>',
+							esc_attr( $ast_sites_notice_btn['class'] ),
+							'href="' . astra_get_prop( $ast_sites_notice_btn, 'link', '' ) . '"',
+							'data-slug="' . astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) . '"',
+							'data-init="' . astra_get_prop( $ast_sites_notice_btn, 'data_init', '' ) . '"',
+							'data-settings-link-text="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link_text', '' ) . '"',
+							'data-settings-link="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ) . '"',
+							'data-activating-text="' . astra_get_prop( $ast_sites_notice_btn, 'activating_text', '' ) . '"',
+							esc_html( $ast_sites_notice_btn['button_text'] )
+						);
+						printf(
+							'<a class="%1$s" %2$s target="_blank" rel="noopener"> %3$s </a>',
+							isset( $ast_sites_notice_btn['detail_link_class'] ) ? esc_attr( $ast_sites_notice_btn['detail_link_class'] ) : '',
+							isset( $ast_sites_notice_btn['detail_link'] ) ? 'href="' . esc_url( $ast_sites_notice_btn['detail_link'] ) . '"' : '',
+							isset( $ast_sites_notice_btn['detail_link_class'] ) ? esc_html( $ast_sites_notice_btn['detail_link_text'] ) : ''
 						);
 						?>
 					<div>
@@ -504,7 +557,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_knowledge_base_scetion() {
+		public static function astra_welcome_page_knowledge_base_scetion() {
+
+			if ( astra_is_white_labelled() ) {
+				return;
+			}
+
 			?>
 
 			<div class="postbox">
@@ -537,7 +595,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_community_scetion() {
+		public static function astra_welcome_page_community_scetion() {
+
+			if ( astra_is_white_labelled() ) {
+				return;
+			}
+
 			?>
 
 			<div class="postbox">
@@ -583,7 +646,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_five_star_scetion() {
+		public static function astra_welcome_page_five_star_scetion() {
+
+			if ( astra_is_white_labelled() ) {
+				return;
+			}
+
 			?>
 
 			<div class="postbox">
@@ -622,7 +690,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_content() {
+		public static function astra_welcome_page_content() {
 
 			$astra_addon_tagline = apply_filters( 'astra_addon_list_tagline', __( 'More Options Available with Astra Pro!', 'astra' ) );
 
@@ -980,11 +1048,237 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 
 		/**
+		 * Include Welcome page content
+		 *
+		 * @since 1.2.4
+		 */
+		public static function astra_available_plugins() {
+
+			if ( astra_is_white_labelled() ) {
+				return;
+			}
+
+			$astra_addon_tagline = apply_filters(
+				'astra_available_plugins',
+				sprintf(
+					/* translators: %1s Astra Theme */
+					__( 'Extend %1s with free plugins!', 'astra' ),
+					astra_get_theme_name()
+				)
+			);
+
+			$recommended_plugins = apply_filters(
+				'astra_recommended_plugins',
+				array(
+					'reset-astra-customizer'        =>
+						array(
+							'plugin-name'        => 'Astra Customizer Reset',
+							'plugin-init'        => 'reset-astra-customizer/class-astra-theme-customizer-reset.php',
+							'settings-link'      => admin_url( 'customize.php' ),
+							'settings-link-text' => 'Settings',
+						),
+
+					'customizer-search'             =>
+					array(
+						'plugin-name'        => 'Customizer Search',
+						'plugin-init'        => 'customizer-search/customizer-search.php',
+						'settings-link'      => admin_url( 'customize.php' ),
+						'settings-link-text' => 'Settings',
+					),
+
+					'astra-bulk-edit'               =>
+					array(
+						'plugin-name'        => 'Astra Bulk Edit',
+						'plugin-init'        => 'astra-bulk-edit/astra-bulk-edit.php',
+						'settings-link'      => '',
+						'settings-link-text' => 'Settings',
+					),
+
+					'astra-widgets'                 =>
+					array(
+						'plugin-name'        => 'Asra Widgets',
+						'plugin-init'        => 'astra-widgets/astra-widgets.php',
+						'settings-link'      => admin_url( 'widgets.php' ),
+						'settings-link-text' => 'Settings',
+					),
+
+					'custom-fonts'                  =>
+					array(
+						'plugin-name'        => 'Custom Fonts',
+						'plugin-init'        => 'custom-fonts/custom-fonts.php',
+						'settings-link'      => admin_url( 'edit-tags.php?taxonomy=bsf_custom_fonts' ),
+						'settings-link-text' => 'Settings',
+					),
+
+					'custom-typekit-fonts'          =>
+						array(
+							'plugin-name'        => 'Custom Typekit Fonts',
+							'plugin-init'        => 'custom-typekit-fonts/custom-typekit-fonts.php',
+							'settings-link'      => admin_url( 'themes.php?page=custom-typekit-fonts' ),
+							'settings-link-text' => 'Settings',
+						),
+
+					'sidebar-manager'               =>
+					array(
+						'plugin-name'        => 'Sidebar Manager',
+						'plugin-init'        => 'sidebar-manager/sidebar-manager.php',
+						'settings-link'      => admin_url( 'edit.php?post_type=bsf-sidebar' ),
+						'settings-link-text' => 'Settings',
+					),
+
+					'ultimate-addons-for-gutenberg' =>
+						array(
+							'plugin-name'        => 'Ultimate Addons for Gutenberg',
+							'plugin-init'        => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
+							'settings-link'      => admin_url( 'options-general.php?page=uag' ),
+							'settings-link-text' => 'Settings',
+							'display'            => function_exists( 'register_block_type' ),
+						),
+				)
+			);
+
+			if ( apply_filters( 'astra_show_free_extend_plugins', true ) ) {
+				?>
+
+				<div class="postbox">
+					<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
+					</h2>
+						<div class="ast-addon-list-section">
+							<?php
+							if ( ! empty( $recommended_plugins ) ) :
+								?>
+								<div>
+									<ul class="ast-addon-list">
+										<?php
+										foreach ( $recommended_plugins as $slug => $plugin ) {
+
+											// If display condition for the plugin does not meet, skip the plugin from displaying.
+											if ( isset( $plugin['display'] ) && false === $plugin['display'] ) {
+												continue;
+											}
+
+											$plugin_active_status = '';
+											if ( is_plugin_active( $plugin['plugin-init'] ) ) {
+												$plugin_active_status = ' active';
+											}
+
+											echo '<li ' . astra_attr(
+												'astra-recommended-plugin-' . esc_attr( $slug ),
+												array(
+													'id' => esc_attr( $slug ),
+													'class' => 'astra-recommended-plugin' . $plugin_active_status,
+													'data-slug' => $slug,
+												)
+											) . '>';
+
+												echo '<a href="' . self::build_worg_plugin_link( $slug ) . '" target="_blank">';
+													echo esc_html( $plugin['plugin-name'] );
+												echo '</a>';
+
+												echo '<div class="ast-addon-link-wrapper">';
+
+											if ( ! is_plugin_active( $plugin['plugin-init'] ) ) {
+
+												if ( file_exists( WP_CONTENT_DIR . '/plugins/' . $plugin['plugin-init'] ) ) {
+													echo '<a ' . astra_attr(
+														'astra-activate-recommended-plugin',
+														array(
+															'data-slug' => $slug,
+															'href' => '#',
+															'data-init' => $plugin['plugin-init'],
+															'data-settings-link' => esc_url( $plugin['settings-link'] ),
+															'data-settings-link-text' => $plugin['settings-link-text'],
+														)
+													) . '>';
+
+													_e( 'Activate', 'astra' );
+
+													echo '</a>';
+
+												} else {
+
+													echo '<a ' . astra_attr(
+														'astra-install-recommended-plugin',
+														array(
+															'data-slug' => $slug,
+															'href' => '#',
+															'data-init' => $plugin['plugin-init'],
+															'data-settings-link' => esc_url( $plugin['settings-link'] ),
+															'data-settings-link-text' => $plugin['settings-link-text'],
+														)
+													) . '>';
+
+													_e( 'Activate', 'astra' );
+
+													echo '</a>';
+												}
+											} else {
+
+												echo '<a ' . astra_attr(
+													'astra-deactivate-recommended-plugin',
+													array(
+														'data-slug' => $slug,
+														'href' => '#',
+														'data-init' => $plugin['plugin-init'],
+														'data-settings-link' => esc_url( $plugin['settings-link'] ),
+														'data-settings-link-text' => $plugin['settings-link-text'],
+													)
+												) . '>';
+
+												_e( 'Deactivate', 'astra' );
+
+												echo '</a>';
+
+												if ( '' !== $plugin['settings-link'] ) {
+
+													echo '<a ' . astra_attr(
+														'astra-recommended-plugin-links',
+														array(
+															'data-slug' => $slug,
+															'href' => $plugin['settings-link'],
+														)
+													) . '>';
+
+													echo $plugin['settings-link-text'];
+
+													echo '</a>';
+												}
+											}
+
+												echo '</div>';
+
+											echo '</li>';
+										}
+										?>
+									</ul>
+								</div>
+								<?php endif; ?>
+						</div>
+				</div>
+
+				<?php
+			}
+
+		}
+
+		/**
+		 * Build plugin's page URL on WordPress.org
+		 * https://wordpress.org/plugins/{plugin-slug}
+		 *
+		 * @since 1.6.9
+		 * @param String $slug plugin slug.
+		 * @return String Plugin URL on WordPress.org
+		 */
+		private static function build_worg_plugin_link( $slug ) {
+			return esc_url( trailingslashit( 'https://wordpress.org/plugins/' . $slug ) );
+		}
+
+		/**
 		 * Required Plugin Activate
 		 *
 		 * @since 1.2.4
 		 */
-		static public function required_plugin_activate() {
+		public static function required_plugin_activate() {
 
 			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {
 				wp_send_json_error(
@@ -1018,11 +1312,49 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 
 		/**
+		 * Required Plugin Activate
+		 *
+		 * @since 1.2.4
+		 */
+		public static function required_plugin_deactivate() {
+
+			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {
+				wp_send_json_error(
+					array(
+						'success' => false,
+						'message' => __( 'No plugin specified', 'astra' ),
+					)
+				);
+			}
+
+			$plugin_init = ( isset( $_POST['init'] ) ) ? esc_attr( $_POST['init'] ) : '';
+
+			$deactivate = deactivate_plugins( $plugin_init, '', false );
+
+			if ( is_wp_error( $deactivate ) ) {
+				wp_send_json_error(
+					array(
+						'success' => false,
+						'message' => $deactivate->get_error_message(),
+					)
+				);
+			}
+
+			wp_send_json_success(
+				array(
+					'success' => true,
+					'message' => __( 'Plugin Successfully Deactivated', 'astra' ),
+				)
+			);
+
+		}
+
+		/**
 		 * Check compatible theme version.
 		 *
 		 * @since 1.2.4
 		 */
-		static public function min_addon_version_message() {
+		public static function min_addon_version_message() {
 
 			$astra_global_options = get_option( 'astra-settings' );
 
@@ -1057,7 +1389,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function top_header_right_section() {
+		public static function top_header_right_section() {
 
 			$top_links = apply_filters(
 				'astra_header_top_links',
@@ -1091,5 +1423,5 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 	}
 
-	new Astra_Admin_Settings;
+	new Astra_Admin_Settings();
 }

@@ -4,7 +4,7 @@
  *
  * @package     Astra Addon
  * @author      Brainstorm Force
- * @copyright   Copyright (c) 2018, Brainstorm Force
+ * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
  * @since       Astra 1.4.3
  */
@@ -54,18 +54,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'title'    => __( 'Enable on Complete Website', 'astra' ),
 					'priority' => 20,
 					'control'  => 'checkbox',
-				),
-
-				/**
-				 * Option: Transparent Header Styling
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-transparent-display]',
-					'type'     => 'control',
-					'control'  => 'ast-divider',
-					'section'  => 'section-transparent-header',
-					'priority' => 22,
-					'settings' => array(),
 				),
 
 				/**
@@ -126,6 +114,18 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Transparent Header Styling
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-transparent-display]',
+					'type'     => 'control',
+					'control'  => 'ast-divider',
+					'section'  => 'section-transparent-header',
+					'priority' => 26,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Sticky Header Display On
 				 */
 				array(
@@ -152,7 +152,6 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'control'  => 'ast-divider',
 					'section'  => 'section-transparent-header',
 					'priority' => 28,
-					'title'    => __( 'Styling', 'astra' ),
 					'settings' => array(),
 				),
 

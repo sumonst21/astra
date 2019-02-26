@@ -1,3 +1,47 @@
+v1.6.9
+- New: Filter to disable automatic logo resizing. (https://wpastra.com/docs/disable-logo-cropping/)
+- New: CSS class `ast-left-align-sub-menu` will change the direction navigation menu opens for all submenus. (https://wpastra.com/docs/change-the-direction-for-submenu-opening/)
+- Improvement: Gutenberg - Body color not applied in the block editor when boxed layout or contained boxed layout.
+- Improvement: Correctly move hook `astra_head_bottom` to the very bottom of the <head> tag.
+- Fix: Transparent header logo not displayed on tablet screen sizes.
+- Fix: After changing a font in typography param it would stop previewing next fonts due to a JS error.
+
+v1.6.8
+- Fix: JS error appearing in FireFox browser which blocks opening navigation menus.
+- Fix: JS errors from Astra Pro for header-sections addon due to missing JS functions.
+
+v1.6.7
+- Fix: JS Error - Uncaught TypeError: Cannot read property 'addEventListener' of undefined at AstraToggleSetup
+
+v1.6.6
+- Fix: JS infinite loop causing frontend to not load when the sticky header is enabled and navigation menu does not have any sub-menu items.
+
+v1.6.5
+- Fix: Menu toggle not working when the window is resized.
+- Fix: Block editor content width not exactly same as the frontend.
+- Fix: LearnDash sortable elements working incorrectly.
+- Fix: Submenu does not open incorrect sides when using RTL mode, You can manually choose to openn the submenu on the opposite side by adding a custom class - https://wpastra.com/docs/change-the-direction-for-submenu-opening/
+
+v1.6.4
+- Fix: Gutenberg columns not stacking correctly on mobile devices.
+
+v1.6.3
+- Fix: Block Editor - Background color from content does not work.
+- Fix: Block Editor - Columns block having incorrect margin when on tablet/mobile devices.
+- Fix: Removed padding to column element of Gutenberg for responsive devices.
+- Fix: Menu not correctly centers aligned when no menu is set to the primary location, i.e. wp_page_menu().
+- Fix: Search is not visible on screen sizes 768px to 920px.
+- Fix: Background color does not work for Below Header.
+- Fix: Removed top border for custom menu item on mobile devices.
+- Fix: LifterLMS - add LifterLMS lesson page builder support (props - @thomasplevy)
+
+v1.6.2
+- New: Need option to add a top border to the footer widget area.
+- Fix: LifterLMS: Don't add lesson navigation hook back in on lessons migrated to the WP core 5.0 block editor. (Props @thomasplevy)
+- Fix: Apply Coupon input and button not correctly aligned.
+- Fix: Quick view trying to add an external product in the cart.
+- Fix: Transparent header border not working when the transparent header is enabled for desktop or mobile.
+
 v1.6.1
 - Improvement: Updated default font-sizes for H1, H2, H3 and Post archive titles for new installations.
 - Improvement: Change the default value for option `Inline Logo & Site Title` to be `on` for the new sites.
