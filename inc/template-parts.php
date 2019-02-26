@@ -361,11 +361,13 @@ if ( ! function_exists( 'astra_header_custom_item_outside_menu' ) ) {
 }
 
 /**
- * Footer widgets markup
+ * Astra Breadcrumb Template
  *
- * Loads appropriate template file based on the style option selected in options panel.
+ * Loads template based on the style option selected in options panel for Breadcrumb.
  *
  * @since 1.6.15
+ *
+ * @return void
  */
 function astra_breadcumb_template() {
 
@@ -374,27 +376,47 @@ function astra_breadcumb_template() {
 	if ( $breadcrumb_position && 'none' != $breadcrumb_position ) {
 		switch ( $breadcrumb_position ) {
 			case 'after-full-header':
-				add_action( 'astra_masthead_bottom', 'astra_below_header_breadcrumb', 15 );
+				add_action( 'astra_masthead_bottom', 'astra_after_header_breadcrumb_markup', 15 );
 				break;
 			case 'before-main-content':
-				add_action( 'astra_masthead_bottom', 'astra_below_header_breadcrumb', 15 );
+				add_action( 'astra_content_top', 'astra_before_content_breadcrumb_markup', 1 );
 				break;
 		}
 	}
 }
 
 /**
- * Footer widgets markup
+ * After Header Breadcrumb Markup
  *
- * Loads appropriate template file based on the style option selected in options panel.
+ * Loads markup for After Full Header option in panel for breadcrumb.
  *
  * @since 1.6.15
+ *
+ * @return void
  */
-function astra_below_header_breadcrumb() {
-	echo '<div class="main-header-bar-wrap">
-			<div class="main-header-bar">
-				<div class="ast-container">
-					<div class="ast-flex main-header-container">';
-						astra_breadcrumb();
-	echo '</div></div></div></div>';
+function astra_after_header_breadcrumb_markup() {
+	?>
+	<div class="main-header-bar-wrap">
+		<div class="main-header-bar">
+			<div class="ast-container">
+				<div class="ast-flex main-header-container">
+					<?php astra_breadcrumb(); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php
+}
+
+/**
+ * Before Content Breadcrumb Markup
+ *
+ * Loads markup for Before Main Content option in panel for breadcrumb.
+ *
+ * @since 1.6.15
+ *
+ * @return void
+ */
+function astra_before_content_breadcrumb_markup() {
+	astra_breadcrumb();
 }
