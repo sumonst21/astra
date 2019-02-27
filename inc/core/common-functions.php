@@ -1087,22 +1087,13 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 endif;
 
 /**
- * AMP
+ * Check if we're being delivered AMP
+ *
+ * @return bool
  */
-
-if ( ! function_exists( 'astra_is_emp_endpoint' ) ) :
-
-
-	/**
-	 * Check if we're being delivered AMP
-	 *
-	 * @return bool
-	 */
-	function astra_is_emp_endpoint() {
-		return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
-	}
-
-endif;
+function astra_is_emp_endpoint() {
+	return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
+}
 
 /*
  * Get Responsive Spacing
