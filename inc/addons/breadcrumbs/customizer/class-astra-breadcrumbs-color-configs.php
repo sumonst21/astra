@@ -1,6 +1,6 @@
 <?php
 /**
- * Colors and Background - Breadcrumbs Options for theme.
+ * Colors - Breadcrumbs Options for theme.
  *
  * @package     Astra
  * @author      Brainstorm Force
@@ -87,6 +87,18 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Colors_Configs' ) ) {
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
 					'title'      => __( 'Hover Text Color', 'astra' ),
+					'section'    => 'section-breadcrumb-color',
+					'responsive' => true,
+					'rgba'       => true,
+				),
+
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-separator-color]',
+					'default'    => $defaults['breadcrumb-separator-color'],
+					'type'       => 'control',
+					'transport'  => 'postMessage',
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Separator Color', 'astra' ),
 					'section'    => 'section-breadcrumb-color',
 					'responsive' => true,
 					'rgba'       => true,

@@ -45,6 +45,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 
 			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-astra-breadcrumbs-loader.php';
 			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-astra-breadcrumbs-markup.php';
+
+			// Include front end files.
+			// if ( ! is_admin() ) {
+				require_once ASTRA_THEME_BREADCRUMBS_DIR . 'dynamic-css/dynamic.css.php';
+			// }
 		}
 
 		/**
@@ -109,7 +114,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 			$show_on_front = get_option( 'show_on_front' );
 			/* Link to front page. */
 			if ( ! is_front_page() ) {
-				$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" rel="v:url" property="v:title" href="' . esc_url( home_url( '/' ) ) . '">' . $args['home'] . '</a></span>';
+				$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a class="ast-breadcrumbs-item" itemprop="item" rel="v:url" property="v:title" href="' . esc_url( home_url( '/' ) ) . '">' . $args['home'] . '</a></span>';
 			}
 
 			/* If woocommerce is installed and we're on a woocommerce page. */
@@ -125,7 +130,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 				$id           = astra_get_post_id();
 				$home_page    = get_page( $wp_query->get_queried_object_id() );
 				$item         = array_merge( $item, Astra_Breadcrumbs::astra_breadcrumb_get_parents( $home_page->post_parent ) );
-				$item['last'] = '<span itemprop="name">' . get_the_title( $id ) . '</span>';
+				$item['last'] = '<span class="ast-breadcrumbs-name" itemprop="name">' . get_the_title( $id ) . '</span>';
 			} elseif ( function_exists( 'is_bbpress' ) && is_bbpress() ) {
 				$item = array_merge( $item, Astra_Breadcrumbs::astra_breadcrumb_get_bbpress_items() );
 				// If viewing a singular post.
@@ -135,12 +140,12 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 				$post_type        = $post->post_type;
 				$post_type_object = get_post_type_object( $post_type );
 				if ( 'post' === $post_type && $args['show_blog'] ) {
-					$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" rel="v:url" property="v:title" href="' . get_permalink( get_option( 'page_for_posts' ) ) . '"><span itemprop="name">' . get_the_title( get_option( 'page_for_posts' ) ) . '</span></a></span>';
+					$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a class="ast-breadcrumbs-item" itemprop="item" rel="v:url" property="v:title" href="' . get_permalink( get_option( 'page_for_posts' ) ) . '"><span class="ast-breadcrumbs-name" itemprop="name">' . get_the_title( get_option( 'page_for_posts' ) ) . '</span></a></span>';
 				}
 				if ( 'page' !== $post_type ) {
 					/* If there's an archive page, add it. */
 					if ( function_exists( 'get_post_type_archive_link' ) && ! empty( $post_type_object->has_archive ) ) {
-						$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" rel="v:url" property="v:title" href="' . get_post_type_archive_link( $post_type ) . '" title="' . esc_attr( $post_type_object->labels->name ) . '"><span itemprop="name">' . $post_type_object->labels->name . '</span></a></span>';
+						$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a class="ast-breadcrumbs-item" itemprop="item" rel="v:url" property="v:title" href="' . get_post_type_archive_link( $post_type ) . '" title="' . esc_attr( $post_type_object->labels->name ) . '"><span class="ast-breadcrumbs-name" itemprop="name">' . $post_type_object->labels->name . '</span></a></span>';
 					}
 					if ( isset( $args[ "singular_{$post_type}_taxonomy" ] ) && is_taxonomy_hierarchical( $args[ "singular_{$post_type}_taxonomy" ] ) ) {
 						$terms = wp_get_object_terms( $post_id, $args[ "singular_{$post_type}_taxonomy" ] );
@@ -156,7 +161,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 				if ( ( is_post_type_hierarchical( $wp_query->post->post_type ) || 'attachment' === $wp_query->post->post_type ) && $parents ) {
 					$item = array_merge( $item, $parents );
 				}
-				$item['last'] = '<span itemprop="name">' . get_the_title() . '</span>';
+				$item['last'] = '<span class="ast-breadcrumbs-name" itemprop="name">' . get_the_title() . '</span>';
 				// If viewing any type of archive.
 			} elseif ( is_archive() ) {
 				if ( is_category() || is_tag() || is_tax() ) {
@@ -166,27 +171,27 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 					if ( ( is_taxonomy_hierarchical( $term->taxonomy ) && $term->parent ) && $parents ) {
 						$item = array_merge( $item, $parents );
 					}
-					$item['last'] = '<span itemprop="name">' . $term->name . '</span>';
+					$item['last'] = '<span class="ast-breadcrumbs-name" itemprop="name">' . $term->name . '</span>';
 				} elseif ( function_exists( 'is_post_type_archive' ) && is_post_type_archive() ) {
 					$post_type_object = get_post_type_object( get_query_var( 'post_type' ) );
-					$item['last']     = '<span itemprop="name">' . $post_type_object->labels->name . '</span>';
+					$item['last']     = '<span class="ast-breadcrumbs-name" itemprop="name">' . $post_type_object->labels->name . '</span>';
 				} elseif ( is_date() ) {
 					if ( is_day() ) {
-						$item['last'] = '<span itemprop="name">' . $args['archive-prefix'] . get_the_time( 'F j, Y' ) . '</span>';
+						$item['last'] = '<span class="ast-breadcrumbs-name" itemprop="name">' . $args['archive-prefix'] . get_the_time( 'F j, Y' ) . '</span>';
 					} elseif ( is_month() ) {
-						$item['last'] = '<span itemprop="name">' . $args['archive-prefix'] . single_month_title( ' ', false ) . '</span>';
+						$item['last'] = '<span class="ast-breadcrumbs-name" itemprop="name">' . $args['archive-prefix'] . single_month_title( ' ', false ) . '</span>';
 					} elseif ( is_year() ) {
-						$item['last'] = '<span itemprop="name">' . $args['archive-prefix'] . get_the_time( 'Y' ) . '</span>';
+						$item['last'] = '<span class="ast-breadcrumbs-name" itemprop="name">' . $args['archive-prefix'] . get_the_time( 'Y' ) . '</span>';
 					}
 				} elseif ( is_author() ) {
-					$item['last'] = '<span itemprop="name">' . $args['author-prefix'] . get_the_author_meta( 'display_name', ( isset( $wp_query->post->post_author ) ) ? $wp_query->post->post_author : '' ) . '</span>';
+					$item['last'] = '<span class="ast-breadcrumbs-name" itemprop="name">' . $args['author-prefix'] . get_the_author_meta( 'display_name', ( isset( $wp_query->post->post_author ) ) ? $wp_query->post->post_author : '' ) . '</span>';
 				}
 				// If viewing search results.
 			} elseif ( is_search() ) {
-				$item['last'] = '<span itemprop="name">' . $args['search-prefix'] . stripslashes( strip_tags( get_search_query() ) ) . '</span>';
+				$item['last'] = '<span class="ast-breadcrumbs-name" itemprop="name">' . $args['search-prefix'] . stripslashes( strip_tags( get_search_query() ) ) . '</span>';
 				// If viewing a 404 error page.
 			} elseif ( is_404() ) {
-				$item['last'] = '<span itemprop="name">' . $args['404-title'] . '</span>';
+				$item['last'] = '<span class="ast-breadcrumbs-name" itemprop="name">' . $args['404-title'] . '</span>';
 			}
 
 			return apply_filters( 'astra_breadcrumb_items', $item );
@@ -205,7 +210,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 			$item             = array();
 			$post_type_object = get_post_type_object( bbp_get_forum_post_type() );
 			if ( ! empty( $post_type_object->has_archive ) && ! bbp_is_forum_archive() ) {
-				$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" rel="v:url" property="v:title" href="' . get_post_type_archive_link( bbp_get_forum_post_type() ) . '"><span itemprop="name">' . bbp_get_forum_archive_title() . '</span></a></span>';
+				$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a class="ast-breadcrumbs-item" itemprop="item" rel="v:url" property="v:title" href="' . get_post_type_archive_link( bbp_get_forum_post_type() ) . '"><span class="ast-breadcrumbs-name" itemprop="name">' . bbp_get_forum_archive_title() . '</span></a></span>';
 			}
 			if ( bbp_is_forum_archive() ) {
 				$item[] = bbp_get_forum_archive_title();
@@ -217,7 +222,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 				$topic_id = get_queried_object_id();
 				$item     = array_merge( $item, Astra_Breadcrumbs::astra_breadcrumb_get_parents( bbp_get_topic_forum_id( $topic_id ) ) );
 				if ( bbp_is_topic_split() || bbp_is_topic_merge() || bbp_is_topic_edit() ) {
-					$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" rel="v:url" property="v:title" href="' . bbp_get_topic_permalink( $topic_id ) . '"><span itemprop="name">' . bbp_get_topic_title( $topic_id ) . '</span></a></span>';
+					$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a class="ast-breadcrumbs-item" itemprop="item" rel="v:url" property="v:title" href="' . bbp_get_topic_permalink( $topic_id ) . '"><span class="ast-breadcrumbs-name" itemprop="name">' . bbp_get_topic_title( $topic_id ) . '</span></a></span>';
 				}
 				if ( bbp_is_topic_split() ) {
 					$item[] = __( 'Split', 'astra-addon' );
@@ -232,7 +237,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 				if ( ! bbp_is_reply_edit() ) {
 					$item[] = bbp_get_reply_title( $reply_id );
 				} else {
-					$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" rel="v:url" property="v:title" href="' . esc_url( bbp_get_reply_url( $reply_id ) ) . '"><span itemprop="name">' . bbp_get_reply_title( $reply_id ) . '</span></a></span>';
+					$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a class="ast-breadcrumbs-item" itemprop="item" rel="v:url" property="v:title" href="' . esc_url( bbp_get_reply_url( $reply_id ) ) . '"><span class="ast-breadcrumbs-name" itemprop="name">' . bbp_get_reply_title( $reply_id ) . '</span></a></span>';
 					$item[] = __( 'Edit', 'astra-addon' );
 				}
 			} elseif ( bbp_is_single_forum() ) {
@@ -244,7 +249,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 				$item[] = bbp_get_forum_title( $forum_id );
 			} elseif ( bbp_is_single_user() || bbp_is_single_user_edit() ) {
 				if ( bbp_is_single_user_edit() ) {
-					$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" rel="v:url" property="v:title" href="' . esc_url( bbp_get_user_profile_url() ) . '"><span itemprop="name">' . bbp_get_displayed_user_field( 'display_name' ) . '</span></a></span>';
+					$item[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a class="ast-breadcrumbs-item" itemprop="item" rel="v:url" property="v:title" href="' . esc_url( bbp_get_user_profile_url() ) . '"><span class="ast-breadcrumbs-name" itemprop="name">' . bbp_get_displayed_user_field( 'display_name' ) . '</span></a></span>';
 					$item[] = __( 'Edit', 'astra-addon' );
 				} else {
 					$item[] = bbp_get_displayed_user_field( 'display_name' );
@@ -271,7 +276,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 			}
 			while ( $post_id ) {
 				$page      = get_page( $post_id );
-				$parents[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" rel="v:url" property="v:title" href="' . esc_url( get_permalink( $post_id ) ) . '" title="' . esc_attr( get_the_title( $post_id ) ) . '"><span itemprop="name">' . get_the_title( $post_id ) . '</span></a></span>';
+				$parents[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a class="ast-breadcrumbs-item" itemprop="item" rel="v:url" property="v:title" href="' . esc_url( get_permalink( $post_id ) ) . '" title="' . esc_attr( get_the_title( $post_id ) ) . '"><span class="ast-breadcrumbs-name" itemprop="name">' . get_the_title( $post_id ) . '</span></a></span>';
 				$post_id   = $page->post_parent;
 			}
 			if ( $parents ) {
@@ -300,7 +305,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 			}
 			while ( $parent_id ) {
 				$parent    = get_term( $parent_id, $taxonomy );
-				$parents[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" rel="v:url" property="v:title" href="' . esc_url( get_term_link( $parent, $taxonomy ) ) . '" title="' . esc_attr( $parent->name ) . '">' . $parent->name . '</a></span>';
+				$parents[] = '<span class="ast-breadcrumbs-link-wrap" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a class="ast-breadcrumbs-item" itemprop="item" rel="v:url" property="v:title" href="' . esc_url( get_term_link( $parent, $taxonomy ) ) . '" title="' . esc_attr( $parent->name ) . '">' . $parent->name . '</a></span>';
 				$parent_id = $parent->parent;
 			}
 			if ( $parents ) {
