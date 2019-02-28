@@ -63,6 +63,20 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Add to Cart button text
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
+					'type'     => 'control',
+					'control'  => 'text',
+					'section'  => 'section-breadcrumb',
+					'default'  => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '»',
+					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+					'priority' => 15,
+					'title'    => __( 'Enter Separator', 'astra' ),
+				),
+
+				/**
 				 * Option: Disable Breadcrumb on Home Page
 				 */
 				array(
@@ -72,7 +86,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Disable on Home Page?', 'astra' ),
-					'priority' => 15,
+					'priority' => 20,
 					'control'  => 'checkbox',
 				),
 
@@ -86,7 +100,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Disable on Categories?', 'astra' ),
-					'priority' => 20,
+					'priority' => 25,
 					'control'  => 'checkbox',
 				),
 
@@ -100,7 +114,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Disable on Search?', 'astra' ),
-					'priority' => 25,
+					'priority' => 30,
 					'control'  => 'checkbox',
 				),
 
@@ -114,7 +128,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Disable on Archive?', 'astra' ),
-					'priority' => 30,
+					'priority' => 35,
 					'control'  => 'checkbox',
 				),
 
@@ -128,7 +142,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Disable on Single Page?', 'astra' ),
-					'priority' => 35,
+					'priority' => 40,
 					'control'  => 'checkbox',
 				),
 
@@ -142,7 +156,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Disable on Single Post?', 'astra' ),
-					'priority' => 40,
+					'priority' => 45,
 					'control'  => 'checkbox',
 				),
 
@@ -156,7 +170,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Disable on Singular?', 'astra' ),
-					'priority' => 45,
+					'priority' => 50,
 					'control'  => 'checkbox',
 				),
 
@@ -170,7 +184,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Disable on 404 Page?', 'astra' ),
-					'priority' => 50,
+					'priority' => 55,
 					'control'  => 'checkbox',
 				),
 

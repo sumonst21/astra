@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 						add_action( 'astra_header_after', array( $this, 'astra_after_header_markup' ), 1 );
 						break;
 					case 'inside-content-top':
-						add_action( 'astra_content_top', array( $this, 'astra_inside_content_top_markup' ), 1 );
+						add_action( 'astra_entry_top', array( $this, 'astra_inside_content_top_markup' ), 1 );
 						break;
 				}
 			}
@@ -82,7 +82,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 */
 		public function astra_inside_header_bottom_markup() {
 			?>
-			<div class="ast-breadcrumbs">
+			<div class="ast-breadcrumbs-wrapper">
 				<div class="main-header-bar-wrap">
 					<div class="main-header-bar">
 						<div class="ast-container">
@@ -116,7 +116,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 */
 		public function astra_after_header_markup() {
 			?>
-			<div class="ast-breadcrumbs">
+			<div class="ast-breadcrumbs-wrapper">
 				<div class="main-header-bar-wrap">
 					<div class="main-header-bar">
 						<div class="ast-container">
@@ -150,7 +150,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 */
 		public function astra_inside_content_top_markup() {
 			?>
-			<div class="ast-breadcrumbs">
+			<div class="ast-breadcrumbs-wrapper">
 				<?php
 				// Check if breadcrumb is turned on from WPSEO option.
 				$wpseo_option = get_option( 'wpseo_internallinks' );

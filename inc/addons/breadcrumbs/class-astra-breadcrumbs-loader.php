@@ -174,9 +174,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 			/**
 			 * Sections
 			 */
-			// require_once ASTRA_THEME_BREADCRUMBS_DIR . 'classes/sections/class-astra-customizer-colors-transparent-header-configs.php';
 			// Check Transparent Header is activated.
 			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-astra-breadcrumbs-configs.php';
+			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-astra-breadcrumbs-color-configs.php';
 
 		}
 

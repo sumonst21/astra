@@ -62,7 +62,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 					'suffix'         => null,
 					'title'          => null,
 					'home'           => __( 'Home', 'astra-addon' ),
-					'delimiter'      => null,
+					'delimiter'      => ( '' != astra_get_option( 'breadcrumb-separator' ) ) ? astra_get_option( 'breadcrumb-separator' ) : '»',
 					'front_page'     => false,
 					'show_blog'      => false,
 					'echo'           => true,
