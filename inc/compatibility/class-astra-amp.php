@@ -345,9 +345,6 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'-ms-flex-pack'           => 'end',
 					'justify-content'         => 'flex-end',
 				),
-				'.ast-amp .ast-mobile-menu-buttons .ast-button-wrap .ast-mobile-menu-buttons-minimal' => array(
-					'font-size' => '1.7em',
-				),
 				'.ast-amp .ast-mobile-header-stack .site-description' => array(
 					'text-align' => 'center',
 				),
@@ -809,9 +806,6 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'line-height'    => '2',
 					'vertical-align' => 'middle',
 					'text-align'     => 'right',
-				),
-				'.ast-amp .ast-button-wrap .main-header-menu-toggle' => array(
-					'font-size' => '1.4em',
 				),
 				'.ast-amp .main-header-menu .woocommerce-custom-menu-item .ast-cart-menu-wrap' => array(
 					'height'      => '3em',
