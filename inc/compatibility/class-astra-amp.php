@@ -65,6 +65,18 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			add_filter( 'astra_attr_ast-menu-toggle', array( $this, 'menu_toggle_button' ), 20, 3 );
 			add_filter( 'astra_theme_dynamic_css', array( $this, 'dynamic_css' ) );
 			add_filter( 'astra_toggle_button_markup', array( $this, 'toggle_button_markup' ), 20, 2 );
+			add_filter( 'astra_schema_body', array( $this, 'body_id' ) );
+		}
+
+		/**
+		 * Add ID to body to toggleClasses on AMP actions.
+		 *
+		 * @since x.x.x
+		 * @param String $schema markup returned from theme.
+		 * @return String
+		 */
+		public function body_id( $schema ) {
+			return $schema . 'id="astra-body"';
 		}
 
 		/**
@@ -1068,7 +1080,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return string
 		 */
 		public function add_nav_toggle_attrs( $input ) {
-			$input .= ' on="tap:AMP.setState( { astraAmpMenuExpanded: ! astraAmpMenuExpanded } )" ';
+			$input .= ' on="tap:AMP.setState( { astraAmpMenuExpanded: ! astraAmpMenuExpanded } ),astra-body.toggleClass(class=ast-main-header-nav-open)" ';
 			$input .= ' [class]="\'menu-toggle main-header-menu-toggle  ast-mobile-menu-buttons-minimal\' + ( astraAmpMenuExpanded ? \' toggled\' : \'\' )" ';
 			$input .= ' aria-expanded="false" ';
 			$input .= ' [aria-expanded]="astraAmpMenuExpanded ? \'true\' : \'false\'" ';
