@@ -16,6 +16,8 @@ add_filter( 'wp_enqueue_scripts', 'astra_breadcrumb_section_dynamic_css' );
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Breadcrumb.
+ *
+ * @since 1.7.0
  */
 function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 

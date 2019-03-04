@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.4.3
+ * @since       Astra 1.7.0
  */
 
 // Block direct access to the file.
@@ -22,7 +22,7 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 /**
  * Customizer Sanitizes
  *
- * @since 1.4.3
+ * @since 1.7.0
  */
 if ( ! class_exists( 'Astra_Breadcrumbs_Colors_Configs' ) ) {
 
@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Colors_Configs' ) ) {
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-		 * @since 1.4.3
+		 * @since 1.7.0
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {

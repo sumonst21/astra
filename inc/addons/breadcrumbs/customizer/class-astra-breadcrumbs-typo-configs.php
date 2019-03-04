@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.4.3
+ * @since       Astra 1.7.0
  */
 
 // Block direct access to the file.
@@ -22,7 +22,7 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 /**
  * Customizer Sanitizes
  *
- * @since 1.4.3
+ * @since 1.7.0
  */
 if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 
@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-		 * @since 1.4.3
+		 * @since 1.7.0
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
@@ -71,24 +71,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					'priority'    => 5,
 					'title'       => __( 'Font Family', 'astra' ),
 					'connect'     => ASTRA_THEME_SETTINGS . '[breadcrumb-font-weight]',
-					'variant'     => ASTRA_THEME_SETTINGS . '[breadcrumb-font-variant]',
-				),
-				
-				/**
-				 * Option: Font Variant
-				 */
-				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[breadcrumb-font-variant]',
-					'type'              => 'control',
-					'control'           => 'ast-font',
-					'font-type'         => 'ast-font-variant',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_variant' ),
-					'default'           => astra_get_option( 'breadcrumb-font-variant' ),
-					'ast_inherit'       => __( 'Default', 'astra' ),
-					'section'           => 'section-breadcrumb-typo',
-					'priority'          => 10,
-					'title'             => __( 'Font Variant', 'astra' ),
-					'variant'           => ASTRA_THEME_SETTINGS . '[breadcrumb-font-family]',
 				),
 
 				/**

@@ -25,7 +25,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-		 * @since 1.6.15
+		 * @since 1.7.0
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {

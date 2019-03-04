@@ -47,9 +47,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-astra-breadcrumbs-markup.php';
 
 			// Include front end files.
-			// if ( ! is_admin() ) {
+			if ( ! is_admin() ) {
 				require_once ASTRA_THEME_BREADCRUMBS_DIR . 'dynamic-css/dynamic.css.php';
-			// }
+			}
 		}
 
 		/**
