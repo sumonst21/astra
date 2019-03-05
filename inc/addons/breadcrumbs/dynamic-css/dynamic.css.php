@@ -53,20 +53,20 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	 */
 
 	$breadcrumbs_desktop = array(
-		'.ast-breadcrumbs-item, .ast-breadcrumbs-item .ast-breadcrumbs-name' => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item .ast-breadcrumbs-name' => array(
 			'color' => esc_attr( $breadcrumb_text_color['desktop'] ),
 		),
-		'.ast-breadcrumbs-name'       => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name'       => array(
 			'color' => esc_attr( $breadcrumb_active_color['desktop'] ),
 		),
-		'.ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item, .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item > .ast-breadcrumbs-name' => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item > .ast-breadcrumbs-name' => array(
 			'color' => esc_attr( $breadcrumb_hover_color['desktop'] ),
 		),
-		'.ast-breadcrumbs .separator' => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs .separator' => array(
 			'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
 		),
 
-		'.ast-breadcrumbs-name, .ast-breadcrumbs-item, .ast-breadcrumbs .separator' => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs .separator' => array(
 			'font-family'    => astra_get_font_family( $breadcrumb_font_family ),
 			'font-weight'    => esc_attr( $breadcrumb_font_weight ),
 			'font-size'      => astra_responsive_font( $breadcrumb_font_size, 'desktop' ),
@@ -79,20 +79,20 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 	// Tablet Breadcrumb Colors & Typography.
 	$breadcrumbs_tablet = array(
-		'.ast-breadcrumbs-item, .ast-breadcrumbs-item .ast-breadcrumbs-name' => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item .ast-breadcrumbs-name' => array(
 			'color' => esc_attr( $breadcrumb_text_color['tablet'] ),
 		),
-		'.ast-breadcrumbs-name'       => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name'       => array(
 			'color' => esc_attr( $breadcrumb_active_color['tablet'] ),
 		),
-		'.ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item, .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item > .ast-breadcrumbs-name' => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item > .ast-breadcrumbs-name' => array(
 			'color' => esc_attr( $breadcrumb_hover_color['tablet'] ),
 		),
-		'.ast-breadcrumbs .separator' => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs .separator' => array(
 			'color' => esc_attr( $breadcrumb_separator_color['tablet'] ),
 		),
 
-		'.ast-breadcrumbs-name, .ast-breadcrumbs-item, .ast-breadcrumbs .separator' => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs .separator' => array(
 			'font-size' => astra_responsive_font( $breadcrumb_font_size, 'tablet' ),
 		),
 	);
@@ -101,20 +101,20 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 	// Mobile Breadcrumb Colors & Typography.
 	$breadcrumbs_mobile = array(
-		'.ast-breadcrumbs-item, .ast-breadcrumbs-item .ast-breadcrumbs-name' => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item .ast-breadcrumbs-name' => array(
 			'color' => esc_attr( $breadcrumb_text_color['mobile'] ),
 		),
-		'.ast-breadcrumbs-name'       => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name'       => array(
 			'color' => esc_attr( $breadcrumb_active_color['mobile'] ),
 		),
-		'.ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item, .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item > .ast-breadcrumbs-name' => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item > .ast-breadcrumbs-name' => array(
 			'color' => esc_attr( $breadcrumb_hover_color['mobile'] ),
 		),
-		'.ast-breadcrumbs .separator' => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs .separator' => array(
 			'color' => esc_attr( $breadcrumb_separator_color['mobile'] ),
 		),
 
-		'.ast-breadcrumbs-name, .ast-breadcrumbs-item, .ast-breadcrumbs .separator' => array(
+		'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs .separator' => array(
 			'font-size' => astra_responsive_font( $breadcrumb_font_size, 'mobile' ),
 		),
 	);
