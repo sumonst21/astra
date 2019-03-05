@@ -77,20 +77,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Disable Breadcrumb on Home Page
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-home]',
-					'default'  => astra_get_option( 'breadcrumb-disable-home' ),
-					'type'     => 'control',
-					'section'  => 'section-breadcrumb',
-					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'    => __( 'Disable on Home Page?', 'astra' ),
-					'priority' => 20,
-					'control'  => 'checkbox',
-				),
-
-				/**
 				 * Option: Disable Breadcrumb on Categories
 				 */
 				array(
