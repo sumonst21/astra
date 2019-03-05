@@ -150,7 +150,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					),
 				),
 
-
 			);
 
 			return array_merge( $configurations, $_configs );

@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 */
 		public function astra_breadcumb_template() {
 
-			$breadcrumb_position  = astra_get_option( 'breadcrumb-position' );
+			$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
 
 			if ( $breadcrumb_position && 'none' != $breadcrumb_position ) {
 				if ( self::astra_breadcrumb_rules() ) {
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 *
 		 * @since 1.7.0
 		 *
-		 * @return void
+		 * @return boolean
 		 */
 		public static function astra_breadcrumb_rules() {
 
@@ -138,11 +138,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 									// Check if breadcrumb is turned on from WPSEO option.
 									$wpseo_option = get_option( 'wpseo_internallinks' );
 
-									if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
-										yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
-									} else {
-										Astra_Breadcrumbs::astra_breadcrumb();
-									}
+								if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
+									yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
+								} else {
+									Astra_Breadcrumbs::astra_breadcrumb();
+								}
 								?>
 							</div>
 						</div>
@@ -172,11 +172,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 									// Check if breadcrumb is turned on from WPSEO option.
 									$wpseo_option = get_option( 'wpseo_internallinks' );
 
-									if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
-										yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
-									} else {
-										Astra_Breadcrumbs::astra_breadcrumb();
-									}
+								if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
+									yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
+								} else {
+									Astra_Breadcrumbs::astra_breadcrumb();
+								}
 								?>
 							</div>
 						</div>

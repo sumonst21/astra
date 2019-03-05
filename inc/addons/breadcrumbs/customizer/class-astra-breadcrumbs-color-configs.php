@@ -24,12 +24,12 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
  *
  * @since 1.7.0
  */
-if ( ! class_exists( 'Astra_Breadcrumbs_Colors_Configs' ) ) {
+if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 
 	/**
 	 * Register Colors and Background - Breadcrumbs Options Customizer Configurations.
 	 */
-	class Astra_Breadcrumbs_Colors_Configs extends Astra_Customizer_Config_Base {
+	class Astra_Breadcrumbs_Color_Configs extends Astra_Customizer_Config_Base {
 
 		/**
 		 * Register Colors and Background - Breadcrumbs Options Customizer Configurations.
@@ -114,4 +114,4 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Colors_Configs' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Breadcrumbs_Colors_Configs;
+new Astra_Breadcrumbs_Color_Configs;
