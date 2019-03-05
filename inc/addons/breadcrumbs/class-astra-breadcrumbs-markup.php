@@ -134,16 +134,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 					<div class="main-header-bar">
 						<div class="ast-container">
 							<div class="ast-flex main-header-container">
-								<?php
-									// Check if breadcrumb is turned on from WPSEO option.
-									$wpseo_option = get_option( 'wpseo_internallinks' );
-
-								if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
-									yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
-								} else {
-									Astra_Breadcrumbs::astra_breadcrumb();
-								}
-								?>
+								<?php $this->astra_load_selected_breadcrumb(); ?>
 							</div>
 						</div>
 					</div>
@@ -168,16 +159,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 					<div class="main-header-bar">
 						<div class="ast-container">
 							<div class="ast-flex main-header-container">
-								<?php
-									// Check if breadcrumb is turned on from WPSEO option.
-									$wpseo_option = get_option( 'wpseo_internallinks' );
-
-								if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
-									yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
-								} else {
-									Astra_Breadcrumbs::astra_breadcrumb();
-								}
-								?>
+								<?php $this->astra_load_selected_breadcrumb(); ?>
 							</div>
 						</div>
 					</div>
@@ -198,18 +180,42 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		public function astra_inside_content_top_markup() {
 			?>
 			<div class="ast-breadcrumbs-wrapper">
-				<?php
+				<?php $this->astra_load_selected_breadcrumb(); ?>
+			</div>
+			<?php
+		}
+
+		/**
+		 * Get  Markup
+		 *
+		 * Loads markup for Inside Content Top option in panel for breadcrumbs.
+		 *
+		 * @since 1.7.0
+		 *
+		 * @return void
+		 */
+		public function astra_load_selected_breadcrumb() {
+
+			$breadcrumb_source = astra_get_option( 'select-breadcrumb-source' );
+
+			if ( $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source ) {
 				// Check if breadcrumb is turned on from WPSEO option.
 				$wpseo_option = get_option( 'wpseo_internallinks' );
 
 				if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
 					yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
-				} else {
-					Astra_Breadcrumbs::astra_breadcrumb();
 				}
-				?>
-			</div>
-			<?php
+			} elseif ( $breadcrumb_source && 'breadcrumb-navxt' == $breadcrumb_source ) {
+			 	// Check if breadcrumb is turned on from Breadcrumb NavXT plugin.
+			 	if( function_exists( 'bcn_display' ) ) { ?>
+				    <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+				        <?php bcn_display();?>
+				 	</div><?php
+			 	}
+			} else {
+			 	// Load default Astra breadcrumb if none selected.
+				Astra_Breadcrumbs::astra_breadcrumb();
+			}
 		}
 	}
 }

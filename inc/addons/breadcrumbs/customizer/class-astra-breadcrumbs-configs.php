@@ -30,6 +30,14 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
+			$breadcrumb_source_list = apply_filters(
+				'astra_breadcrumb_source_list',
+				array(
+					'default' 				=> __( 'Default', 'astra' ),
+				),
+				'breadcrumb-list'
+			);
+
 			$_configs = array(
 
 				/*
@@ -41,6 +49,21 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'title'    => __( 'Breadcrumb', 'astra' ),
 					'panel'    => 'panel-layout',
 					'priority' => 70,
+				),
+
+				/**
+				 * Option: Breadcrumb Position
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[select-breadcrumb-source]',
+					'default'  => 'default',
+					'section'  => 'section-breadcrumb',
+					'title'    => __( 'Breadcrumb Source', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'select',
+					'priority' => 5,
+					'choices'  => $breadcrumb_source_list,
+					'active_callback' => array( $this, 'is_third_party_breadcrumb_active' ),
 				),
 
 				/**
@@ -178,6 +201,27 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 
 			return array_merge( $configurations, $_configs );
 
+		}
+
+		/**
+		 * Decide if Notice for Header Built using Custom Layout should be displayed.
+		 * This runs teh target rules to check if the page neing previewed has a header built using Custom Layout.
+		 *
+		 * @return boolean  True - If the notice should be displayed, False - If the notice should be hidden.
+		 */
+		public function is_third_party_breadcrumb_active() {
+
+			// Check if breadcrumb is turned on from WPSEO option.
+			$wpseo_option = get_option( 'wpseo_internallinks' );
+
+			if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
+				return true;
+			} elseif( function_exists( 'bcn_display' ) ) {
+				// Check if breadcrumb is turned on from Breadcrumb NavXT plugin.
+				return true;
+			} else {
+				return false;
+			}
 		}
 	}
 }

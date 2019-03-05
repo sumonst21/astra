@@ -45,6 +45,8 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 
 			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-astra-breadcrumbs-loader.php';
 			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-astra-breadcrumbs-markup.php';
+			// Third Party plugins in the breadcrumb options.
+			add_filter( 'astra_breadcrumb_source_list', array( $this, 'astra_breadcrumb_source_list_items' ) );
 
 			// Include front end files.
 			if ( ! is_admin() ) {
@@ -313,6 +315,29 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 			}
 
 			return $parents;
+		}
+
+		/**
+		 * Third Party Breadcrumb option
+		 *
+		 * @param Array $options breadcrumb options array.
+		 *
+		 * @return Array breadcrumb options array.
+		 * @since 1.0.0
+		 */
+		function astra_breadcrumb_source_list_items( $options ) {
+
+			$wpseo_option = get_option( 'wpseo_internallinks' );
+			
+			if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
+				$options['yoast-seo-breadcrumbs'] 	= 'Yoast SEO Breadcrumbs';
+			} 
+
+			if( function_exists( 'bcn_display' ) ) {
+				$options['breadcrumb-navxt'] 		= 'Breadcrumb NavXT';
+			}
+
+			return $options;
 		}
 	}
 
