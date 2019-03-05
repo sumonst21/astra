@@ -206,14 +206,16 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 					yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
 				}
 			} elseif ( $breadcrumb_source && 'breadcrumb-navxt' == $breadcrumb_source ) {
-			 	// Check if breadcrumb is turned on from Breadcrumb NavXT plugin.
-			 	if( function_exists( 'bcn_display' ) ) { ?>
-				    <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-				        <?php bcn_display();?>
-				 	</div><?php
-			 	}
+				// Check if breadcrumb is turned on from Breadcrumb NavXT plugin.
+				if ( function_exists( 'bcn_display' ) ) {
+					?>
+					<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+						<?php bcn_display(); ?>
+					</div>
+					<?php
+				}
 			} else {
-			 	// Load default Astra breadcrumb if none selected.
+				// Load default Astra breadcrumb if none selected.
 				Astra_Breadcrumbs::astra_breadcrumb();
 			}
 		}

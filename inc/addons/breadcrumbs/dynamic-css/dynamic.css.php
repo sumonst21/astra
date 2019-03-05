@@ -36,17 +36,17 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	$breadcrumb_hover_color     = astra_get_option( 'breadcrumb-hover-color-responsive' );
 	$breadcrumb_separator_color = astra_get_option( 'breadcrumb-separator-color' );
 
-	$breadcrumb_font_family    	= astra_get_option( 'breadcrumb-font-family' );
-	$breadcrumb_font_weight    	= astra_get_option( 'breadcrumb-font-weight' );
-	$breadcrumb_font_size      	= astra_get_option( 'breadcrumb-font-size' );
-	$breadcrumb_line_height    	= astra_get_option( 'breadcrumb-line-height' );
-	$breadcrumb_text_transform 	= astra_get_option( 'breadcrumb-text-transform' );
-	
+	$breadcrumb_font_family    = astra_get_option( 'breadcrumb-font-family' );
+	$breadcrumb_font_weight    = astra_get_option( 'breadcrumb-font-weight' );
+	$breadcrumb_font_size      = astra_get_option( 'breadcrumb-font-size' );
+	$breadcrumb_line_height    = astra_get_option( 'breadcrumb-line-height' );
+	$breadcrumb_text_transform = astra_get_option( 'breadcrumb-text-transform' );
+
 	/**
 	 * Generate dynamic CSS based on the Breadcrumb Source option selected from the customizer.
 	 */
-	$breadcrumb_source 			= astra_get_option( 'select-breadcrumb-source' );
-	
+	$breadcrumb_source = astra_get_option( 'select-breadcrumb-source' );
+
 	/**
 	 * Generate Dynamic CSS
 	 */
@@ -58,7 +58,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	 */
 
 	if ( $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source ) {
-		
+
 		/* Yoast SEO Breadcrumb CSS - Desktop */
 		$breadcrumbs_desktop = array(
 			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a' => array(
@@ -123,13 +123,13 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 			),
 		);
 	} elseif ( $breadcrumb_source && 'breadcrumb-navxt' == $breadcrumb_source ) {
-		
+
 		/* Breadcrumb NavXT CSS - Desktop */
 		$breadcrumbs_desktop = array(
 			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page, .ast-breadcrumbs-wrapper .breadcrumbs .home' => array(
 				'color' => esc_attr( $breadcrumb_text_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page.current-item'       => array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page.current-item' => array(
 				'color' => esc_attr( $breadcrumb_active_color['desktop'] ),
 			),
 			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page:hover, .ast-breadcrumbs-wrapper .breadcrumbs .home:hover' => array(
@@ -153,7 +153,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page, .ast-breadcrumbs-wrapper .breadcrumbs .home' => array(
 				'color' => esc_attr( $breadcrumb_text_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page.current-item'       => array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page.current-item' => array(
 				'color' => esc_attr( $breadcrumb_active_color['tablet'] ),
 			),
 			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page:hover, .ast-breadcrumbs-wrapper .breadcrumbs .home:hover' => array(
@@ -173,7 +173,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page, .ast-breadcrumbs-wrapper .breadcrumbs .home' => array(
 				'color' => esc_attr( $breadcrumb_text_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page.current-item'       => array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page.current-item' => array(
 				'color' => esc_attr( $breadcrumb_active_color['mobile'] ),
 			),
 			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page:hover, .ast-breadcrumbs-wrapper .breadcrumbs .home:hover' => array(
@@ -253,8 +253,6 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 			),
 		);
 	}
-
-	
 
 	$css .= astra_parse_css( $breadcrumbs_desktop );
 	$css .= astra_parse_css( $breadcrumbs_tablet, '', '768' );

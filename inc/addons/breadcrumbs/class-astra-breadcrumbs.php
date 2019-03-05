@@ -328,13 +328,13 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 		function astra_breadcrumb_source_list_items( $options ) {
 
 			$wpseo_option = get_option( 'wpseo_internallinks' );
-			
-			if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
-				$options['yoast-seo-breadcrumbs'] 	= 'Yoast SEO Breadcrumbs';
-			} 
 
-			if( function_exists( 'bcn_display' ) ) {
-				$options['breadcrumb-navxt'] 		= 'Breadcrumb NavXT';
+			if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
+				$options['yoast-seo-breadcrumbs'] = 'Yoast SEO Breadcrumbs';
+			}
+
+			if ( function_exists( 'bcn_display' ) ) {
+				$options['breadcrumb-navxt'] = 'Breadcrumb NavXT';
 			}
 
 			return $options;

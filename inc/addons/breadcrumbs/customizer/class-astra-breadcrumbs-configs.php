@@ -33,7 +33,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 			$breadcrumb_source_list = apply_filters(
 				'astra_breadcrumb_source_list',
 				array(
-					'default' 				=> __( 'Default', 'astra' ),
+					'default' => __( 'Default', 'astra' ),
 				),
 				'breadcrumb-list'
 			);
@@ -55,14 +55,14 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 * Option: Breadcrumb Position
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[select-breadcrumb-source]',
-					'default'  => 'default',
-					'section'  => 'section-breadcrumb',
-					'title'    => __( 'Breadcrumb Source', 'astra' ),
-					'type'     => 'control',
-					'control'  => 'select',
-					'priority' => 5,
-					'choices'  => $breadcrumb_source_list,
+					'name'            => ASTRA_THEME_SETTINGS . '[select-breadcrumb-source]',
+					'default'         => 'default',
+					'section'         => 'section-breadcrumb',
+					'title'           => __( 'Breadcrumb Source', 'astra' ),
+					'type'            => 'control',
+					'control'         => 'select',
+					'priority'        => 5,
+					'choices'         => $breadcrumb_source_list,
 					'active_callback' => array( $this, 'is_third_party_breadcrumb_active' ),
 				),
 
@@ -216,7 +216,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 
 			if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
 				return true;
-			} elseif( function_exists( 'bcn_display' ) ) {
+			} elseif ( function_exists( 'bcn_display' ) ) {
 				// Check if breadcrumb is turned on from Breadcrumb NavXT plugin.
 				return true;
 			} else {
