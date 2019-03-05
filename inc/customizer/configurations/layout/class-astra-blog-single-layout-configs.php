@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'title'       => __( 'Enter Width', 'astra' ),
 					'suffix'      => '',
 					'input_attrs' => array(
-						'min'  => 768,
+						'min'  => 100,
 						'step' => 1,
 						'max'  => 1920,
 					),
