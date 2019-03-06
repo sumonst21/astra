@@ -31,10 +31,10 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	 * Set CSS Params
 	 */
 
-	$default_color_array = array( 
+	$default_color_array = array(
 		'desktop' => '',
 		'tablet'  => '',
-		'mobile'  => '', 
+		'mobile'  => '',
 	);
 
 	$breadcrumb_text_color      = astra_get_option( 'breadcrumb-text-color-responsive', $default_color_array );

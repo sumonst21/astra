@@ -40,9 +40,49 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 		 */
 		public function __construct() {
 
+			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
+		}
+
+		/**
+		 * Set Options Default Values
+		 *
+		 * @param  array $defaults  Astra options default value array.
+		 * @return array
+		 */
+		function theme_defaults( $defaults ) {
+
+			/**
+			 * Breadcrumb Responsive Colors
+			 */
+			$defaults['breadcrumb-text-color-responsive'] = array(
+				'desktop' => '',
+				'tablet'  => '',
+				'mobile'  => '',
+			);
+
+			$defaults['breadcrumb-active-color-responsive'] = array(
+				'desktop' => '',
+				'tablet'  => '',
+				'mobile'  => '',
+			);
+
+			$defaults['breadcrumb-hover-color-responsive'] = array(
+				'desktop' => '',
+				'tablet'  => '',
+				'mobile'  => '',
+			);
+
+			$defaults['breadcrumb-separator-color'] = array(
+				'desktop' => '',
+				'tablet'  => '',
+				'mobile'  => '',
+			);
+
+			
+			return $defaults;
 		}
 
 		/**

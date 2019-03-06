@@ -216,7 +216,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 				}
 			} else {
 				// Load default Astra breadcrumb if none selected.
-				Astra_Breadcrumbs::astra_breadcrumb();
+				(new Astra_Breadcrumbs)->astra_breadcrumb();
 			}
 		}
 	}
