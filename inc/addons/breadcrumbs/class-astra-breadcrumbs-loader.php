@@ -81,7 +81,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 				'mobile'  => '',
 			);
 
-			
 			return $defaults;
 		}
 
