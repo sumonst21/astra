@@ -258,6 +258,16 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	$css .= astra_parse_css( $breadcrumbs_tablet, '', '768' );
 	$css .= astra_parse_css( $breadcrumbs_mobile, '', '543' );
 
+	$css .= astra_parse_css(
+		array(
+			'.ast-breadcrumbs-wrapper .main-header-bar-wrap' => array(
+				'z-index' => '2',
+			),
+		),
+		'',
+		''
+	);
+
 	$dynamic_css .= $css;
 
 	wp_add_inline_style( 'astra-theme-css', $dynamic_css );
