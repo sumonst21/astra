@@ -31,10 +31,16 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	 * Set CSS Params
 	 */
 
-	$breadcrumb_text_color      = astra_get_option( 'breadcrumb-text-color-responsive' );
-	$breadcrumb_active_color    = astra_get_option( 'breadcrumb-active-color-responsive' );
-	$breadcrumb_hover_color     = astra_get_option( 'breadcrumb-hover-color-responsive' );
-	$breadcrumb_separator_color = astra_get_option( 'breadcrumb-separator-color' );
+	$default_color_array = array( 
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '', 
+	);
+
+	$breadcrumb_text_color      = astra_get_option( 'breadcrumb-text-color-responsive', $default_color_array );
+	$breadcrumb_active_color    = astra_get_option( 'breadcrumb-active-color-responsive', $default_color_array );
+	$breadcrumb_hover_color     = astra_get_option( 'breadcrumb-hover-color-responsive', $default_color_array );
+	$breadcrumb_separator_color = astra_get_option( 'breadcrumb-separator-color', $default_color_array );
 
 	$breadcrumb_font_family    = astra_get_option( 'breadcrumb-font-family' );
 	$breadcrumb_font_weight    = astra_get_option( 'breadcrumb-font-weight' );
