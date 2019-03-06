@@ -21,7 +21,7 @@ add_filter( 'wp_enqueue_scripts', 'astra_breadcrumb_section_dynamic_css' );
  */
 function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
+	$breadcrumb_position = astra_get_option( 'breadcrumb-position', 'none' );
 
 	if ( 'none' === $breadcrumb_position ) {
 		return $dynamic_css;
