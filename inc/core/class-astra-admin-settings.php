@@ -145,7 +145,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				update_option( 'astra-theme-old-setup', true );
 			} elseif ( false === get_transient( 'astra-theme-first-rating' ) ) {
 				$image_path = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
-				Astra_Notices::add_notice(
+				Astra\AstraNotices\Astra_Notices::add_notice(
 					array(
 						'id'                         => 'astra-theme-rating',
 						'type'                       => '',
@@ -240,7 +240,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'show_if'                    => class_exists( 'Astra_Ext_White_Label_Markup' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
 				);
 
-				Astra_Notices::add_notice(
+				Astra\AstraNotices\Astra_Notices::add_notice(
 					$astra_sites_notice_args
 				);
 			}
