@@ -132,7 +132,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Ask Theme Rating
 		 *
-		 * @since 1.4.0
+		 * @since 1.7.2
 		 */
 		public static function register_notices() {
 
