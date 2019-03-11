@@ -83,7 +83,10 @@ if ( is_admin() ) {
 	 * Admin Menu Settings
 	 */
 	require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-settings.php';
-	require_once ASTRA_THEME_DIR . 'inc/lib/notices/class-astra-notices.php';
+	// Astra Notices Compatibility requires PHP 5.3 for namespaces.
+	if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
+		require_once ASTRA_THEME_DIR . 'inc/lib/notices/class-astra-notices.php';
+	}
 
 	/**
 	 * Metabox additions.
