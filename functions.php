@@ -85,7 +85,7 @@ if ( is_admin() ) {
 	require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-settings.php';
 	// Astra Notices Compatibility requires PHP 5.3 for namespaces.
 	if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
-		require_once ASTRA_THEME_DIR . 'inc/lib/notices/class-astra-notices.php';
+		require_once ASTRA_THEME_DIR . 'inc/core/class-astra-notices-helper.php';
 	}
 
 	/**
