@@ -15,6 +15,8 @@
  * @since 1.4.0
  */
 
+namespace Astra\Notices;
+
 /**
  * Astra_Notices
  *

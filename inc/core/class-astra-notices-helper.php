@@ -1,45 +1,22 @@
 <?php
 /**
- * Astra Sites Notices
+ * Admin notices helper
  *
- * Closing notice on click on `astra-notice-close` class.
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * If notice has the data attribute `data-repeat-notice-after="%2$s"` then notice close for that SPECIFIC TIME.
- * If notice has NO data attribute `data-repeat-notice-after="%2$s"` then notice close for the CURRENT USER FOREVER.
- *
- * > Create custom close notice link in the notice markup. E.g.
- * `<a href="#" data-repeat-notice-after="<?php echo MONTH_IN_SECONDS; ?>" class="astra-notice-close">`
- * It close the notice for 30 days.
- *
- * @package Astra Sites
- * @since 1.4.0
+ * @package     Astra
+ * @author      Astra
+ * @copyright   Copyright (c) 2019, Astra
+ * @link        https://wpastra.com/
+ * @since       Astra 1.7.2
  */
-
 
 /**
- * Astra_Notices
+ * Astra_Notices_Helper
  *
- * @since 1.4.0
+ * @since 1.7.2
  */
 class Astra_Notices_Helper {
-
-	/**
-	 * Notices
-	 *
-	 * @access private
-	 * @var array Notices.
-	 * @since 1.4.0
-	 */
-	private static $version = '1.1.2';
-
-	/**
-	 * Notices
-	 *
-	 * @access private
-	 * @var array Notices.
-	 * @since 1.4.0
-	 */
-	private static $notices = array();
 
 	/**
 	 * Instance
@@ -69,9 +46,7 @@ class Astra_Notices_Helper {
 	 * @since 1.4.0
 	 */
 	public function __construct() {
-		namespace Astra\AstraNotices {
-			require_once ASTRA_THEME_DIR . 'inc/lib/notices/class-astra-notices.php';
-		}
+		require_once ASTRA_THEME_DIR . 'inc/lib/notices/class-astra-notices.php';
 		add_action( 'admin_notices', __CLASS__ . '::register_notices' );
 	}
 
@@ -93,7 +68,7 @@ class Astra_Notices_Helper {
 			update_option( 'astra-theme-old-setup', true );
 		} elseif ( false === get_transient( 'astra-theme-first-rating' ) ) {
 			$image_path = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
-			Astra\AstraNotices\Astra_Notices::add_notice(
+			Astra\Notices\Astra_Notices::add_notice(
 				array(
 					'id'                         => 'astra-theme-rating',
 					'type'                       => '',
@@ -188,12 +163,12 @@ class Astra_Notices_Helper {
 				'show_if'                    => class_exists( 'Astra_Ext_White_Label_Markup' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
 			);
 
-			Astra\AstraNotices\Astra_Notices::add_notice(
+			Astra\Notices\Astra_Notices::add_notice(
 				$astra_sites_notice_args
 			);
 
 			// Enqueue Plugin Install script only if the notice with plugin installation is not expired.
-			if ( ! Astra\AstraNotices\Astra_Notices::is_notice_expired( $astra_sites_notice_args ) ) {
+			if ( ! Astra\Notices\Astra_Notices::is_notice_expired( $astra_sites_notice_args ) ) {
 				wp_enqueue_script( 'plugin-install' );
 			}
 		}
@@ -203,4 +178,4 @@ class Astra_Notices_Helper {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Notices::get_instance();
+Astra_Notices_Helper::get_instance();
