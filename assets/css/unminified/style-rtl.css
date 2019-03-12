@@ -3325,6 +3325,7 @@ body {
   z-index: 4;
   position: relative;
   line-height: 4;
+  transition: all 0.3s;
 }
 
 .main-header-bar .main-header-bar-navigation {
