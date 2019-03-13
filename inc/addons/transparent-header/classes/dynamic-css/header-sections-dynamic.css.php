@@ -35,6 +35,7 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 	$transparent_menu_bg_color      = astra_get_option( 'transparent-menu-bg-color-responsive' );
 	$transparent_menu_color         = astra_get_option( 'transparent-menu-color-responsive' );
 	$transparent_menu_h_color       = astra_get_option( 'transparent-menu-h-color-responsive' );
+	$transparent_hamburger_color    = astra_get_option( 'transparent-hamburger-menu-color-responsive' );
 	$transparent_sub_menu_color     = astra_get_option( 'transparent-submenu-color-responsive' );
 	$transparent_sub_menu_h_color   = astra_get_option( 'transparent-submenu-h-color-responsive' );
 	$transparent_sub_menu_bg_color  = astra_get_option( 'transparent-submenu-bg-color-responsive' );
@@ -69,6 +70,10 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 		),
 		'.ast-theme-transparent-header .ast-above-header-navigation li:hover > a'     => array(
 			'color' => esc_attr( $transparent_menu_h_color['desktop'] ),
+		),
+
+		'.ast-theme-transparent-header.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle'     => array(
+			'color' => esc_attr( $transparent_hamburger_color['desktop'] ),
 		),
 
 		'.ast-theme-transparent-header .ast-above-header-navigation a'                => array(
@@ -127,6 +132,10 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 			'color' => esc_attr( $transparent_menu_h_color['tablet'] ),
 		),
 
+		'.ast-theme-transparent-header.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle'     => array(
+			'color' => esc_attr( $transparent_hamburger_color['tablet'] ),
+		),
+
 		'.ast-theme-transparent-header .ast-above-header-navigation a'                => array(
 			'color' => esc_attr( $transparent_menu_color['tablet'] ),
 		),
@@ -180,6 +189,10 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 		),
 		'.ast-theme-transparent-header .ast-above-header-navigation li:hover > a'     => array(
 			'color' => esc_attr( $transparent_menu_h_color['mobile'] ),
+		),
+
+		'.ast-theme-transparent-header.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle'     => array(
+			'color' => esc_attr( $transparent_hamburger_color['mobile'] ),
 		),
 
 		'.ast-theme-transparent-header .ast-above-header-navigation a'                => array(

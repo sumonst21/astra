@@ -155,6 +155,21 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Hamburger Menu Icon Color
+				 */
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[transparent-hamburger-menu-color-responsive]',
+					'default'    => $defaults['transparent-hamburger-menu-color-responsive'],
+					'type'       => 'control',
+					'control'    => 'ast-responsive-color',
+					'transport'  => 'postMessage',
+					'title'      => __( 'Hamburger Menu Icon Color', 'astra' ),
+					'section'    => 'section-colors-transparent-header',
+					'responsive' => true,
+					'rgba'       => true,
+				),
+
+				/**
 				 * Option: Divider
 				 */
 				array(

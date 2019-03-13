@@ -80,6 +80,7 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 			$defaults['transparent-submenu-bg-color']          = '';
 			$defaults['transparent-submenu-color']             = '';
 			$defaults['transparent-submenu-h-color']           = '';
+			$defaults['transparent-hamburger-menu-color']      = '';
 
 			/**
 			* Transparent Header Responsive Colors
@@ -133,6 +134,12 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 			);
 
 			$defaults['transparent-submenu-h-color-responsive'] = array(
+				'desktop' => '',
+				'tablet'  => '',
+				'mobile'  => '',
+			);
+
+			$defaults['transparent-hamburger-menu-color-responsive'] = array(
 				'desktop' => '',
 				'tablet'  => '',
 				'mobile'  => '',
