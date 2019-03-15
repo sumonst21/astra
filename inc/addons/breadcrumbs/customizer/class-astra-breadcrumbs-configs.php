@@ -80,7 +80,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'choices'  => array(
 						'none'                 => __( 'None', 'astra' ),
 						'inside-header-bottom' => __( 'Inside Header', 'astra' ),
-						'after-header'         => __( 'Before Content', 'astra' ),
+						'after-header'         => __( 'After Header', 'astra' ),
 						'inside-content-top'   => __( 'Inside Content', 'astra' ),
 					),
 				),
