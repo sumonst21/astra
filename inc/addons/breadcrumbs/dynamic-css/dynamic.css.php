@@ -274,6 +274,17 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		''
 	);
 
+	$css .= astra_parse_css(
+		array(
+			'.ast-breadcrumbs-wrapper .separator' => array(
+				'display' => 'inline-flex',
+				'align-items' => 'center',
+			),
+		),
+		'',
+		''
+	);
+
 	$dynamic_css .= $css;
 
 	wp_add_inline_style( 'astra-theme-css', $dynamic_css );
