@@ -79,9 +79,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'priority' => 10,
 					'choices'  => array(
 						'none'                 => __( 'None', 'astra' ),
-						'inside-header-bottom' => __( 'Inside Header Bottom', 'astra' ),
-						'after-header'         => __( 'After Header', 'astra' ),
-						'inside-content-top'   => __( 'Inside Content Top', 'astra' ),
+						'inside-header-bottom' => __( 'Inside Header', 'astra' ),
+						'after-header'         => __( 'Before Content', 'astra' ),
+						'inside-content-top'   => __( 'Inside Content', 'astra' ),
 					),
 				),
 
