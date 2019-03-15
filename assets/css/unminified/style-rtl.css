@@ -5024,13 +5024,22 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment {
-  padding: 1em 0;
+  padding: 2.250em 0 0 0;
+  border-top: 1px solid #eaeaea;
+  position: relative;
+}
+
+.ast-reply-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 32px;
 }
 
 .ast-comment-avatar-wrap {
   float: right;
   clear: left;
-  margin-left: 1.33333em;
+  margin-left: 2.33333em;
 }
 
 @media (max-width: 768px) {
@@ -5057,6 +5066,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-comment-content {
   clear: both;
+  margin-right: 7.33333em;
 }
 
 .ast-comment-cite-wrap {
@@ -5171,8 +5181,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-separate-container .ast-comment-list li.depth-1 {
-  padding: 4em 6.67em;
-  margin-bottom: 2em;
+  padding: 1.125em 6.67em;
 }
 
 @media (max-width: 1200px) {
@@ -5228,7 +5237,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-separate-container .ast-comment-list .bypostauthor {
   padding: 2em;
-  margin-bottom: 1em;
 }
 
 @media (max-width: 544px) {
@@ -5248,7 +5256,7 @@ input[type="color"]::-webkit-color-swatch {
 .ast-separate-container .ast-comment-list .bypostauthor li {
   background: transparent;
   margin-bottom: 0;
-  padding: 0 2em 0 0;
+  padding: 0 2.7em 0 0;
 }
 
 @media (max-width: 544px) {
@@ -5257,9 +5265,13 @@ input[type="color"]::-webkit-color-swatch {
   }
 }
 
+.ast-separate-container .ast-comment-list .bypostauthor .children .ast-comment {
+  margin: 2.250em 0 0 0;
+}
+
 .ast-separate-container .comment-respond {
   background-color: #fff;
-  padding: 4em 6.67em;
+  padding: 4.5em 6.67em;
   border-bottom: 0;
 }
 
