@@ -96,7 +96,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'default'  => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '»',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'priority' => 15,
-					'title'    => __( 'Enter Separator', 'astra' ),
+					'title'    => __( 'Breadcrumb Separator', 'astra' ),
 				),
 
 				/**
