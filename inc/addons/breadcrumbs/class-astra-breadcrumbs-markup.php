@@ -225,8 +225,8 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 */
 		public function astra_load_selected_breadcrumb() {
 
-			$breadcrumb_source  = astra_get_option( 'select-breadcrumb-source' );
-			$wpseo_option       = get_option( 'wpseo_internallinks' );
+			$breadcrumb_source = astra_get_option( 'select-breadcrumb-source' );
+			$wpseo_option      = get_option( 'wpseo_internallinks' );
 
 			if ( $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source && function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
 				// Check if breadcrumb is turned on from WPSEO option.
