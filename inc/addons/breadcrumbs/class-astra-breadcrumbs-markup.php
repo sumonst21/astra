@@ -225,24 +225,19 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 */
 		public function astra_load_selected_breadcrumb() {
 
-			$breadcrumb_source = astra_get_option( 'select-breadcrumb-source' );
+			$breadcrumb_source  = astra_get_option( 'select-breadcrumb-source' );
+			$wpseo_option       = get_option( 'wpseo_internallinks' );
 
-			if ( $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source ) {
+			if ( $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source && function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
 				// Check if breadcrumb is turned on from WPSEO option.
-				$wpseo_option = get_option( 'wpseo_internallinks' );
-
-				if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
-					yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
-				}
-			} elseif ( $breadcrumb_source && 'breadcrumb-navxt' == $breadcrumb_source ) {
+				yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
+			} elseif ( $breadcrumb_source && 'breadcrumb-navxt' == $breadcrumb_source && function_exists( 'bcn_display' ) ) {
 				// Check if breadcrumb is turned on from Breadcrumb NavXT plugin.
-				if ( function_exists( 'bcn_display' ) ) {
-					?>
-					<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-						<?php bcn_display(); ?>
-					</div>
-					<?php
-				}
+				?>
+				<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+					<?php bcn_display(); ?>
+				</div>
+				<?php
 			} else {
 				// Load default Astra breadcrumb if none selected.
 				$get_markup = new Astra_Breadcrumbs;
