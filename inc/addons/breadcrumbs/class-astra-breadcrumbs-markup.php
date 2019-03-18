@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2019, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.7.0
+ * @since       Astra 1.7.3
  */
 
 if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
@@ -14,7 +14,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 	/**
 	 * Breadcrumbs Markup Initial Setup
 	 *
-	 * @since 1.7.0
+	 * @since 1.7.3
 	 */
 	class Astra_Breadcrumbs_Markup {
 
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 *
 		 * Loads template based on the style option selected in options panel for Breadcrumbs.
 		 *
-		 * @since 1.7.0
+		 * @since 1.7.3
 		 *
 		 * @return void
 		 */
@@ -74,11 +74,40 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		}
 
 		/**
+		 * Inside Header Bottom Breadcrumbs Markup
+		 *
+		 * Loads markup for Inside Header Bottom option in panel for breadcrumbs.
+		 *
+		 * @since 1.7.3
+		 *
+		 * @return void
+		 */
+		public function astra_get_breadcrumb() {
+			$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
+
+			if ( $breadcrumb_position && 'none' != $breadcrumb_position ) {
+				if ( self::astra_breadcrumb_rules() ) {
+					switch ( $breadcrumb_position ) {
+						case 'inside-header-bottom':
+							$this->astra_inside_header_bottom_markup();
+							break;
+						case 'after-header':
+							$this->astra_after_header_markup();
+							break;
+						case 'inside-content-top':
+							$this->astra_inside_content_top_markup();
+							break;
+					}
+				}
+			}
+		}
+
+		/**
 		 * Astra Breadcrumbs Rules
 		 *
 		 * Checks the rules defined for displaying Breadcrumb on different pages.
 		 *
-		 * @since 1.7.0
+		 * @since 1.7.3
 		 *
 		 * @return boolean
 		 */
@@ -123,7 +152,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 *
 		 * Loads markup for Inside Header Bottom option in panel for breadcrumbs.
 		 *
-		 * @since 1.7.0
+		 * @since 1.7.3
 		 *
 		 * @return void
 		 */
@@ -148,7 +177,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 *
 		 * Loads markup for After Header option in panel for breadcrumbs.
 		 *
-		 * @since 1.7.0
+		 * @since 1.7.3
 		 *
 		 * @return void
 		 */
@@ -173,7 +202,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 *
 		 * Loads markup for Inside Content Top option in panel for breadcrumbs.
 		 *
-		 * @since 1.7.0
+		 * @since 1.7.3
 		 *
 		 * @return void
 		 */
@@ -190,7 +219,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 *
 		 * Loads markup for Inside Content Top option in panel for breadcrumbs.
 		 *
-		 * @since 1.7.0
+		 * @since 1.7.3
 		 *
 		 * @return void
 		 */
