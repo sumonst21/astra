@@ -219,6 +219,8 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 			} elseif ( function_exists( 'bcn_display' ) ) {
 				// Check if breadcrumb is turned on from Breadcrumb NavXT plugin.
 				return true;
+			} elseif ( function_exists( 'rank_math_the_breadcrumbs' ) ) {
+				return true;
 			} else {
 				return false;
 			}

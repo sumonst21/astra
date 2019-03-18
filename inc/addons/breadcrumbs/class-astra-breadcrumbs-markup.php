@@ -238,6 +238,8 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 					<?php bcn_display(); ?>
 				</div>
 				<?php
+			} elseif ( $breadcrumb_source && 'rank-math' == $breadcrumb_source && function_exists( 'rank_math_the_breadcrumbs' ) ) {
+				rank_math_the_breadcrumbs();
 			} else {
 				// Load default Astra breadcrumb if none selected.
 				$get_markup = new Astra_Breadcrumbs;

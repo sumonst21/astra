@@ -193,6 +193,71 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'mobile' ),
 			),
 		);
+	} elseif ( $breadcrumb_source && 'rank-math' == $breadcrumb_source ) {
+
+		/* Rank Math CSS - Desktop */
+		$breadcrumbs_desktop = array(
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a' => array(
+				'color' => esc_attr( $breadcrumb_text_color['desktop'] ),
+			),
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb .last' => array(
+				'color' => esc_attr( $breadcrumb_active_color['desktop'] ),
+			),
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a:hover' => array(
+				'color' => esc_attr( $breadcrumb_hover_color['desktop'] ),
+			),
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator' => array(
+				'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
+			),
+
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .last, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator' => array(
+				'font-family'    => astra_get_font_family( $breadcrumb_font_family ),
+				'font-weight'    => esc_attr( $breadcrumb_font_weight ),
+				'font-size'      => astra_responsive_font( $breadcrumb_font_size, 'desktop' ),
+				'line-height'    => esc_attr( $breadcrumb_line_height ),
+				'text-transform' => esc_attr( $breadcrumb_text_transform ),
+			),
+		);
+
+		/* Rank Math CSS - Tablet */
+		$breadcrumbs_tablet = array(
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a' => array(
+				'color' => esc_attr( $breadcrumb_text_color['tablet'] ),
+			),
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb .last' => array(
+				'color' => esc_attr( $breadcrumb_active_color['tablet'] ),
+			),
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a:hover' => array(
+				'color' => esc_attr( $breadcrumb_hover_color['tablet'] ),
+			),
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator' => array(
+				'color' => esc_attr( $breadcrumb_separator_color['tablet'] ),
+			),
+
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .last, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator' => array(
+				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'tablet' ),
+			),
+		);
+
+		/* Rank Math CSS - Mobile */
+		$breadcrumbs_mobile = array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page, .ast-breadcrumbs-wrapper .breadcrumbs .home' => array(
+				'color' => esc_attr( $breadcrumb_text_color['mobile'] ),
+			),
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb .last' => array(
+				'color' => esc_attr( $breadcrumb_active_color['mobile'] ),
+			),
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a:hover' => array(
+				'color' => esc_attr( $breadcrumb_hover_color['mobile'] ),
+			),
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator' => array(
+				'color' => esc_attr( $breadcrumb_separator_color['mobile'] ),
+			),
+
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .last, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator' => array(
+				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'mobile' ),
+			),
+		);
 	} else {
 
 		/* Default Breadcrumb CSS - Desktop */
@@ -277,7 +342,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	$css .= astra_parse_css(
 		array(
 			'.ast-breadcrumbs-wrapper .separator' => array(
-				'display' => 'inline-flex',
+				'display'     => 'inline-flex',
 				'align-items' => 'center',
 			),
 		),
@@ -289,6 +354,16 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		array(
 			'.ast-breadcrumbs-wrapper .main-header-bar' => array(
 				'line-height' => '1.4',
+			),
+		),
+		'',
+		''
+	);
+
+	$css .= astra_parse_css(
+		array(
+			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb p' => array(
+				'margin-bottom' => '0px',
 			),
 		),
 		'',

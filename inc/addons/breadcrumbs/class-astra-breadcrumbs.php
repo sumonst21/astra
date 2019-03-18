@@ -337,6 +337,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 				$options['breadcrumb-navxt'] = 'Breadcrumb NavXT';
 			}
 
+			if ( function_exists( 'rank_math_the_breadcrumbs' ) ) {
+				$options['rank-math'] = 'Rank Math';
+			}
+
 			return $options;
 		}
 	}
