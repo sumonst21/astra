@@ -104,6 +104,18 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'rgba'       => true,
 				),
 
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[breadcrumb-bg-color]',
+					'default'    => $defaults['breadcrumb-bg-color'],
+					'type'       => 'control',
+					'transport'  => 'postMessage',
+					'control'    => 'ast-responsive-color',
+					'title'      => __( 'Background Color', 'astra' ),
+					'section'    => 'section-breadcrumb-color',
+					'responsive' => true,
+					'rgba'       => true,
+				),
+
 			);
 
 			return array_merge( $configurations, $_configs );

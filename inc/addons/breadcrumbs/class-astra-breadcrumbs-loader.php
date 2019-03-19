@@ -81,6 +81,12 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 				'mobile'  => '',
 			);
 
+			$defaults['breadcrumb-bg-color'] = array(
+				'desktop' => '',
+				'tablet'  => '',
+				'mobile'  => '',
+			);
+
 			return $defaults;
 		}
 

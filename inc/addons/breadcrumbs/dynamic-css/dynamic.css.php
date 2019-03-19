@@ -41,6 +41,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	$breadcrumb_active_color    = astra_get_option( 'breadcrumb-active-color-responsive', $default_color_array );
 	$breadcrumb_hover_color     = astra_get_option( 'breadcrumb-hover-color-responsive', $default_color_array );
 	$breadcrumb_separator_color = astra_get_option( 'breadcrumb-separator-color', $default_color_array );
+	$breadcrumb_bg_color        = astra_get_option( 'breadcrumb-bg-color', $default_color_array );
 
 	$breadcrumb_font_family    = astra_get_option( 'breadcrumb-font-family' );
 	$breadcrumb_font_weight    = astra_get_option( 'breadcrumb-font-weight' );
@@ -67,20 +68,20 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* Yoast SEO Breadcrumb CSS - Desktop */
 		$breadcrumbs_desktop = array(
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a' => array(
+			'.ast-breadcrumbs-wrapper a'                => array(
 				'color' => esc_attr( $breadcrumb_text_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast .breadcrumb_last'       => array(
+			'.ast-breadcrumbs-wrapper .breadcrumb_last' => array(
 				'color' => esc_attr( $breadcrumb_active_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a:hover' => array(
+			'.ast-breadcrumbs-wrapper a:hover'          => array(
 				'color' => esc_attr( $breadcrumb_hover_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast span' => array(
+			'.ast-breadcrumbs-wrapper span'             => array(
 				'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast .breadcrumb_last, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast span' => array(
+			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span' => array(
 				'font-family'    => astra_get_font_family( $breadcrumb_font_family ),
 				'font-weight'    => esc_attr( $breadcrumb_font_weight ),
 				'font-size'      => astra_responsive_font( $breadcrumb_font_size, 'desktop' ),
@@ -91,40 +92,40 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* Yoast SEO Breadcrumb CSS - Tablet */
 		$breadcrumbs_tablet = array(
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a' => array(
+			'.ast-breadcrumbs-wrapper a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast .breadcrumb_last'       => array(
+			'.ast-breadcrumbs-wrapper .breadcrumb_last'       => array(
 				'color' => esc_attr( $breadcrumb_active_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a:hover' => array(
+			'.ast-breadcrumbs-wrapper a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast span' => array(
+			'.ast-breadcrumbs-wrapper span' => array(
 				'color' => esc_attr( $breadcrumb_separator_color['tablet'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast .breadcrumb_last, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast span' => array(
+			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span' => array(
 				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'tablet' ),
 			),
 		);
 
 		/* Yoast SEO Breadcrumb CSS - Mobile */
 		$breadcrumbs_mobile = array(
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a' => array(
+			'.ast-breadcrumbs-wrapper a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast .breadcrumb_last'       => array(
+			'.ast-breadcrumbs-wrapper .breadcrumb_last'       => array(
 				'color' => esc_attr( $breadcrumb_active_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a:hover' => array(
+			'.ast-breadcrumbs-wrapper a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast span' => array(
+			'.ast-breadcrumbs-wrapper span' => array(
 				'color' => esc_attr( $breadcrumb_separator_color['mobile'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast a, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast .breadcrumb_last, .ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast span' => array(
+			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span' => array(
 				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'mobile' ),
 			),
 		);
@@ -132,20 +133,20 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* Breadcrumb NavXT CSS - Desktop */
 		$breadcrumbs_desktop = array(
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page, .ast-breadcrumbs-wrapper .breadcrumbs .home' => array(
+			'.ast-breadcrumbs-wrapper a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page.current-item' => array(
+			'.ast-breadcrumbs-wrapper .current-item' => array(
 				'color' => esc_attr( $breadcrumb_active_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page:hover, .ast-breadcrumbs-wrapper .breadcrumbs .home:hover' => array(
+			'.ast-breadcrumbs-wrapper a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['desktop'] ),
 			),
 			'.ast-breadcrumbs-wrapper .breadcrumbs' => array(
 				'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page, .ast-breadcrumbs-wrapper .breadcrumbs .home, .ast-breadcrumbs-wrapper .breadcrumbs' => array(
+			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item' => array(
 				'font-family'    => astra_get_font_family( $breadcrumb_font_family ),
 				'font-weight'    => esc_attr( $breadcrumb_font_weight ),
 				'font-size'      => astra_responsive_font( $breadcrumb_font_size, 'desktop' ),
@@ -156,40 +157,40 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* Breadcrumb NavXT CSS - Tablet */
 		$breadcrumbs_tablet = array(
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page, .ast-breadcrumbs-wrapper .breadcrumbs .home' => array(
+			'.ast-breadcrumbs-wrapper a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page.current-item' => array(
+			'.ast-breadcrumbs-wrapper .current-item' => array(
 				'color' => esc_attr( $breadcrumb_active_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page:hover, .ast-breadcrumbs-wrapper .breadcrumbs .home:hover' => array(
+			'.ast-breadcrumbs-wrapper a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['tablet'] ),
 			),
 			'.ast-breadcrumbs-wrapper .breadcrumbs' => array(
 				'color' => esc_attr( $breadcrumb_separator_color['tablet'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page, .ast-breadcrumbs-wrapper .breadcrumbs .home, .ast-breadcrumbs-wrapper .breadcrumbs' => array(
+			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item' => array(
 				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'tablet' ),
 			),
 		);
 
 		/* Breadcrumb NavXT CSS - Mobile */
 		$breadcrumbs_mobile = array(
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page, .ast-breadcrumbs-wrapper .breadcrumbs .home' => array(
+			'.ast-breadcrumbs-wrapper a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page.current-item' => array(
+			'.ast-breadcrumbs-wrapper .current-item' => array(
 				'color' => esc_attr( $breadcrumb_active_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page:hover, .ast-breadcrumbs-wrapper .breadcrumbs .home:hover' => array(
+			'.ast-breadcrumbs-wrapper a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['mobile'] ),
 			),
 			'.ast-breadcrumbs-wrapper .breadcrumbs' => array(
 				'color' => esc_attr( $breadcrumb_separator_color['mobile'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page, .ast-breadcrumbs-wrapper .breadcrumbs .home, .ast-breadcrumbs-wrapper .breadcrumbs' => array(
+			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item' => array(
 				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'mobile' ),
 			),
 		);
@@ -197,20 +198,20 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* Rank Math CSS - Desktop */
 		$breadcrumbs_desktop = array(
-			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a' => array(
+			'.ast-breadcrumbs-wrapper a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb .last' => array(
+			'.ast-breadcrumbs-wrapper .last' => array(
 				'color' => esc_attr( $breadcrumb_active_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a:hover' => array(
+			'.ast-breadcrumbs-wrapper a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator' => array(
+			'.ast-breadcrumbs-wrapper .separator' => array(
 				'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .last, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator' => array(
+			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator' => array(
 				'font-family'    => astra_get_font_family( $breadcrumb_font_family ),
 				'font-weight'    => esc_attr( $breadcrumb_font_weight ),
 				'font-size'      => astra_responsive_font( $breadcrumb_font_size, 'desktop' ),
@@ -221,40 +222,40 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* Rank Math CSS - Tablet */
 		$breadcrumbs_tablet = array(
-			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a' => array(
+			'.ast-breadcrumbs-wrapper a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb .last' => array(
+			'.ast-breadcrumbs-wrapper .last' => array(
 				'color' => esc_attr( $breadcrumb_active_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a:hover' => array(
+			'.ast-breadcrumbs-wrapper a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator' => array(
+			'.ast-breadcrumbs-wrapper .separator' => array(
 				'color' => esc_attr( $breadcrumb_separator_color['tablet'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .last, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator' => array(
+			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator' => array(
 				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'tablet' ),
 			),
 		);
 
 		/* Rank Math CSS - Mobile */
 		$breadcrumbs_mobile = array(
-			'.ast-breadcrumbs-wrapper .breadcrumbs .post-page, .ast-breadcrumbs-wrapper .breadcrumbs .home' => array(
+			'.ast-breadcrumbs-wrapper a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb .last' => array(
+			'.ast-breadcrumbs-wrapper .last' => array(
 				'color' => esc_attr( $breadcrumb_active_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a:hover' => array(
+			'.ast-breadcrumbs-wrapper a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator' => array(
+			'.ast-breadcrumbs-wrapper .separator' => array(
 				'color' => esc_attr( $breadcrumb_separator_color['mobile'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb a, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .last, .ast-breadcrumbs-wrapper .rank-math-breadcrumb .separator' => array(
+			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator' => array(
 				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'mobile' ),
 			),
 		);
@@ -325,19 +326,13 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		);
 	}
 
+	$breadcrumbs_desktop['.ast-breadcrumbs-wrapper'] = array( 'background-color' => esc_attr( $breadcrumb_bg_color['desktop'] ) );
+	$breadcrumbs_tablet['.ast-breadcrumbs-wrapper']  = array( 'background-color' => esc_attr( $breadcrumb_bg_color['tablet'] ) );
+	$breadcrumbs_mobile['.ast-breadcrumbs-wrapper']  = array( 'background-color' => esc_attr( $breadcrumb_bg_color['mobile'] ) );
+
 	$css .= astra_parse_css( $breadcrumbs_desktop );
 	$css .= astra_parse_css( $breadcrumbs_tablet, '', '768' );
 	$css .= astra_parse_css( $breadcrumbs_mobile, '', '543' );
-
-	$css .= astra_parse_css(
-		array(
-			'.ast-breadcrumbs-wrapper .main-header-bar-wrap' => array(
-				'z-index' => '2',
-			),
-		),
-		'',
-		''
-	);
 
 	$css .= astra_parse_css(
 		array(
@@ -352,7 +347,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 	$css .= astra_parse_css(
 		array(
-			'.ast-breadcrumbs-wrapper .main-header-bar' => array(
+			'.ast-breadcrumbs-wrapper' => array(
 				'line-height' => '1.4',
 			),
 		),
@@ -364,6 +359,17 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		array(
 			'.ast-breadcrumbs-wrapper .rank-math-breadcrumb p' => array(
 				'margin-bottom' => '0px',
+			),
+		),
+		'',
+		''
+	);
+
+	$css .= astra_parse_css(
+		array(
+			'.ast-breadcrumbs-wrapper' => array(
+				'display' => 'block',
+				'width'   => '100%',
 			),
 		),
 		'',
