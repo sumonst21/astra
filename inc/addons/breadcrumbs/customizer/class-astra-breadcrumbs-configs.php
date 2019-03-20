@@ -216,6 +216,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
+					'required'       => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'section'        => 'section-breadcrumb',
 				),
 
