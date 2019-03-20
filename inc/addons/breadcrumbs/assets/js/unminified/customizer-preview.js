@@ -81,5 +81,26 @@
 		'.ast-breadcrumbs-wrapper'
 	);
 
+	/**
+	 * Breadcrumb Spacing
+	 */
+	astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs', 'margin',  ['top', 'bottom' ] );
+	astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs', 'padding',  ['left', 'right' ] );
+	// Remove padding top to container if padding top is given to Container Outer Spacing.
+	wp.customize( 'astra-settings[breadcrumb-spacing]', function( value ) {
+		value.bind( function( padding ) {
+
+			var dynamicStyle = '';
+			if( padding.desktop.top != '' || padding.tablet.top != '' || padding.mobile.top != '' ) {
+				dynamicStyle += '.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs { padding-top: 0px;} ';
+			}
+			if( padding.desktop.bottom != '' || padding.tablet.bottom != '' || padding.mobile.bottom != '' ) {
+				dynamicStyle += '.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs { padding-bottom: 0px;} ';
+			}
+			astra_add_dynamic_css( 'remove-breadcrumb-spacing', dynamicStyle );
+
+		} );
+	} );
+
 } )( jQuery );
 		
