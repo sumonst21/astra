@@ -329,13 +329,13 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	}
 
 	/* Breadcrumb CSS for Background Color & Spacing */
-	$breadcrumbs_desktop['.ast-breadcrumbs-wrapper'] = array(
+	$breadcrumbs_desktop['.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb'] = array(
 		'background-color' => esc_attr( $breadcrumb_bg_color['desktop'] ),
 	);
-	$breadcrumbs_tablet['.ast-breadcrumbs-wrapper']  = array(
+	$breadcrumbs_tablet['.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb']  = array(
 		'background-color' => esc_attr( $breadcrumb_bg_color['tablet'] ),
 	);
-	$breadcrumbs_mobile['.ast-breadcrumbs-wrapper']  = array(
+	$breadcrumbs_mobile['.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb']  = array(
 		'background-color' => esc_attr( $breadcrumb_bg_color['mobile'] ),
 	);
 

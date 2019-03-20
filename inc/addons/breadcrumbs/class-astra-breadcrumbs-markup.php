@@ -81,7 +81,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 
 			if ( $breadcrumb_position && 'astra_header_after' === $breadcrumb_position ) {
 				echo '<div class="main-header-bar-wrap">
-						<div class="main-header-bar">
+						<div class="main-header-bar ast-header-breadcrumb">
 							<div class="ast-container">';
 			}
 			$this->astra_get_breadcrumb();

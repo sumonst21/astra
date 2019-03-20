@@ -73,12 +73,12 @@
 		'.ast-breadcrumbs-wrapper .ast-breadcrumbs .separator, .ast-breadcrumbs-wrapper span, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .separator'
 	);
 
-	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Separator Color */
+	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Background Color */
 	astra_color_responsive_css(
 		'breadcrumb',
 		'astra-settings[breadcrumb-bg-color]',
 		'background-color',
-		'.ast-breadcrumbs-wrapper'
+		'.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb'
 	);
 
 	/**
@@ -86,7 +86,7 @@
 	 */
 	astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs', 'margin',  ['top', 'bottom' ] );
 	astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs', 'padding',  ['left', 'right' ] );
-	// Remove padding top to container if padding top is given to Container Outer Spacing.
+	// Remove padding top to container if padding top is given to breadcrumb Spacing.
 	wp.customize( 'astra-settings[breadcrumb-spacing]', function( value ) {
 		value.bind( function( padding ) {
 

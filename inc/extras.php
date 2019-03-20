@@ -1018,14 +1018,14 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 		/* Width for Header */
 		if ( 'content' != $astra_header_width ) {
 			$genral_global_responsive = array(
-				'#masthead .ast-container' => array(
+				'#masthead .ast-container, .ast-header-breadcrumb .ast-container' => array(
 					'max-width'     => '100%',
 					'padding-left'  => '35px',
 					'padding-right' => '35px',
 				),
 			);
 			$padding_below_breakpoint = array(
-				'#masthead .ast-container' => array(
+				'#masthead .ast-container, .ast-header-breadcrumb .ast-container' => array(
 					'padding-left'  => '20px',
 					'padding-right' => '20px',
 				),
