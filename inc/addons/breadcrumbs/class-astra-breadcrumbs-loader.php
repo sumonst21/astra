@@ -87,6 +87,30 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 				'mobile'  => '',
 			);
 
+			$defaults['breadcrumb-spacing'] = array(
+				'desktop'      => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'tablet'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'mobile'       => array(
+					'top'    => '',
+					'right'  => '',
+					'bottom' => '',
+					'left'   => '',
+				),
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
+
 			return $defaults;
 		}
 
