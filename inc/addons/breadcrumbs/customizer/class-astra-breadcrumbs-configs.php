@@ -81,7 +81,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						'none'                   => __( 'None', 'astra' ),
 						'astra_masthead_content' => __( 'Inside Header', 'astra' ),
 						'astra_header_after'     => __( 'After Header', 'astra' ),
-						'astra_content_top'      => __( 'Inside Container', 'astra' ),
 						'astra_entry_top'        => __( 'Before Title', 'astra' ),
 					),
 				),

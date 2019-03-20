@@ -64,9 +64,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		}
 
 		/**
-		 * Inside Header Bottom Breadcrumbs Markup
+		 * Astra Hook Breadcrumb Position
 		 *
-		 * Loads markup for Inside Header Bottom option in panel for breadcrumbs.
+		 * Hook breadcrumb to position of selected option
 		 *
 		 * @since 1.7.3
 		 *
@@ -89,9 +89,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		}
 
 		/**
-		 * Inside Header Bottom Breadcrumbs Markup
+		 * Astra Get Breadcrumb
 		 *
-		 * Loads markup for Inside Header Bottom option in panel for breadcrumbs.
+		 * Gets the basic Breadcrumb wrapper div & content
 		 *
 		 * @since 1.7.3
 		 *
