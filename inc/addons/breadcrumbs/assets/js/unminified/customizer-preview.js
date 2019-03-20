@@ -81,6 +81,14 @@
 		'.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb'
 	);
 
+	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Alignment */
+	astra_color_responsive_css(
+		'breadcrumb',
+		'astra-settings[breadcrumb-alignment]',
+		'text-align',
+		'.ast-breadcrumbs-wrapper'
+	);
+
 	/**
 	 * Breadcrumb Spacing
 	 */

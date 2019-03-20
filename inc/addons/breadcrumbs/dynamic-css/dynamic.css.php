@@ -51,6 +51,8 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 	$breadcrumb_spacing = astra_get_option( 'breadcrumb-spacing' );
 
+	$breadcrumb_alignment = astra_get_option( 'breadcrumb-alignment' );
+
 	/**
 	 * Generate dynamic CSS based on the Breadcrumb Source option selected from the customizer.
 	 */
@@ -328,7 +330,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		);
 	}
 
-	/* Breadcrumb CSS for Background Color & Spacing */
+	/* Breadcrumb CSS for Background Color */
 	$breadcrumbs_desktop['.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb'] = array(
 		'background-color' => esc_attr( $breadcrumb_bg_color['desktop'] ),
 	);
@@ -339,6 +341,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		'background-color' => esc_attr( $breadcrumb_bg_color['mobile'] ),
 	);
 
+	/* Breadcrumb CSS for Spacing */
 	$breadcrumbs_desktop['.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs'] = array(
 		'padding-top'    => astra_responsive_spacing( $breadcrumb_spacing, 'top', 'desktop' ),
 		'padding-right'  => astra_responsive_spacing( $breadcrumb_spacing, 'right', 'desktop' ),
@@ -356,6 +359,11 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		'padding-right'  => astra_responsive_spacing( $breadcrumb_spacing, 'right', 'mobile' ),
 		'padding-bottom' => astra_responsive_spacing( $breadcrumb_spacing, 'bottom', 'mobile' ),
 		'padding-left'   => astra_responsive_spacing( $breadcrumb_spacing, 'left', 'mobile' ),
+	);
+
+	/* Breadcrumb CSS for Alignment */
+	$breadcrumbs_desktop['.ast-breadcrumbs-wrapper'] = array(
+		'text-align' => esc_attr( $breadcrumb_alignment ),
 	);
 
 	$css .= astra_parse_css( $breadcrumbs_desktop );

@@ -198,6 +198,24 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Breadcrumb Alignment
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-alignment]',
+					'default'  => 'left',
+					'section'  => 'section-breadcrumb',
+					'title'    => __( 'Breadcrumb Position', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'select',
+					'priority' => 60,
+					'choices'  => array(
+						'left'   => __( 'Left', 'astra' ),
+						'center' => __( 'Center', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+					),
+				),
+
+				/**
 				 * Option: Breadcrumb Spacing
 				 */
 				array(
@@ -206,7 +224,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'type'           => 'control',
 					'transport'      => 'postMessage',
 					'control'        => 'ast-responsive-spacing',
-					'priority'       => 60,
+					'priority'       => 65,
 					'title'          => __( 'Breadcrumb Spacing', 'astra' ),
 					'linked_choices' => true,
 					'unit_choices'   => array( 'px', 'em', '%' ),
