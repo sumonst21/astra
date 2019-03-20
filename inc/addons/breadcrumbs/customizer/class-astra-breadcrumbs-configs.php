@@ -48,7 +48,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'type'     => 'section',
 					'title'    => __( 'Breadcrumb', 'astra' ),
 					'panel'    => 'panel-layout',
-					'priority' => 70,
+					'priority' => 20,
 				),
 
 				/**

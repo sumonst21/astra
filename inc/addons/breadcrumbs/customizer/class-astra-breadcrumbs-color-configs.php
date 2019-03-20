@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Color_Configs' ) ) {
 					'type'     => 'section',
 					'title'    => __( 'Breadcrumb', 'astra' ),
 					'panel'    => 'panel-colors-background',
-					'priority' => 70,
+					'priority' => 10,
 				),
 
 				array(
