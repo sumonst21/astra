@@ -58,8 +58,33 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 
 			if ( $breadcrumb_position && 'none' != $breadcrumb_position ) {
 				if ( self::astra_breadcrumb_rules() ) {
-					add_action( $breadcrumb_position, array( $this, 'astra_get_breadcrumb' ), 15 );
+					add_action( $breadcrumb_position, array( $this, 'astra_hook_breadcrumb_position' ), 15 );
 				}
+			}
+		}
+
+		/**
+		 * Inside Header Bottom Breadcrumbs Markup
+		 *
+		 * Loads markup for Inside Header Bottom option in panel for breadcrumbs.
+		 *
+		 * @since 1.7.3
+		 *
+		 * @return void
+		 */
+		public function astra_hook_breadcrumb_position() {
+			$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
+
+			if ( $breadcrumb_position && 'astra_header_after' === $breadcrumb_position ) {
+				echo '<div class="main-header-bar-wrap">
+						<div class="main-header-bar">
+							<div class="ast-container">';
+			}
+			$this->astra_get_breadcrumb();
+			if ( $breadcrumb_position && 'astra_header_after' === $breadcrumb_position ) {
+				echo '		</div>
+						</div>
+					</div>';
 			}
 		}
 
@@ -123,74 +148,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 			}
 
 			return apply_filters( 'astra_is_breadcrumb', $display_breadcrumb );
-		}
-
-		/**
-		 * Inside Header Bottom Breadcrumbs Markup
-		 *
-		 * Loads markup for Inside Header Bottom option in panel for breadcrumbs.
-		 *
-		 * @since 1.7.3
-		 *
-		 * @return void
-		 */
-		public function astra_inside_header_bottom_markup() {
-			?>
-			<div class="ast-breadcrumbs-wrapper">
-				<?php $this->astra_load_selected_breadcrumb(); ?>
-			</div>
-			<?php
-		}
-
-		/**
-		 * After Header Breadcrumbs Markup
-		 *
-		 * Loads markup for After Header option in panel for breadcrumbs.
-		 *
-		 * @since 1.7.3
-		 *
-		 * @return void
-		 */
-		public function astra_after_header_markup() {
-			?>
-			<div class="ast-breadcrumbs-wrapper">
-				<?php $this->astra_load_selected_breadcrumb(); ?>
-			</div>
-			<?php
-		}
-
-		/**
-		 * After Header Breadcrumbs Markup
-		 *
-		 * Loads markup for After Header option in panel for breadcrumbs.
-		 *
-		 * @since 1.7.3
-		 *
-		 * @return void
-		 */
-		public function astra_content_top_markup() {
-			?>
-			<div class="ast-breadcrumbs-wrapper">
-				<?php $this->astra_load_selected_breadcrumb(); ?>
-			</div>
-			<?php
-		}
-
-		/**
-		 * Inside Content Top Breadcrumbs Markup
-		 *
-		 * Loads markup for Inside Content Top option in panel for breadcrumbs.
-		 *
-		 * @since 1.7.3
-		 *
-		 * @return void
-		 */
-		public function astra_inside_content_top_markup() {
-			?>
-			<div class="ast-breadcrumbs-wrapper">
-				<?php $this->astra_load_selected_breadcrumb(); ?>
-			</div>
-			<?php
 		}
 
 		/**
