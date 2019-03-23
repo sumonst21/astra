@@ -373,6 +373,16 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	/* Breadcrumb default CSS */
 	$css .= astra_parse_css(
 		array(
+			'.ast-default-menu-enable.ast-main-header-nav-open.ast-header-break-point .main-header-bar.ast-header-breadcrumb, .ast-main-header-nav-open .main-header-bar.ast-header-breadcrumb' => array(
+				'padding-top' => '1em',
+				'padding-bottom' => '1em'
+			),
+		),
+		'',
+		''
+	);
+	$css .= astra_parse_css(
+		array(
 			'.ast-breadcrumbs-wrapper .separator' => array(
 				'display'     => 'inline-flex',
 				'align-items' => 'center',
@@ -381,6 +391,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		'',
 		''
 	);
+
 
 	$css .= astra_parse_css(
 		array(
