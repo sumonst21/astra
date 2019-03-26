@@ -52,12 +52,13 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Breadcrumb Position
+				 * Option: Breadcrumb Source
 				 */
 				array(
 					'name'            => ASTRA_THEME_SETTINGS . '[select-breadcrumb-source]',
 					'default'         => 'default',
 					'section'         => 'section-breadcrumb',
+					'required'        => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'           => __( 'Breadcrumb Source', 'astra' ),
 					'type'            => 'control',
 					'control'         => 'select',
@@ -86,7 +87,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Add to Cart button text
+				 * Option: Breadcrumb Separator
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
@@ -94,7 +95,12 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'control'  => 'text',
 					'section'  => 'section-breadcrumb',
 					'default'  => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '»',
-					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+					'required'  => array(
+						'conditions' => array(
+							array( ASTRA_THEME_SETTINGS . '[select-breadcrumb-source]', '==', 'default' ),
+							array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+						),
+					),
 					'priority' => 15,
 					'title'    => __( 'Breadcrumb Separator', 'astra' ),
 				),
@@ -204,6 +210,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-alignment]',
 					'default'  => 'left',
 					'section'  => 'section-breadcrumb',
+					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'    => __( 'Breadcrumb Alignment', 'astra' ),
 					'type'     => 'control',
 					'control'  => 'select',
