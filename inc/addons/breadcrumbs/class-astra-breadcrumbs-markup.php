@@ -211,7 +211,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 				rank_math_the_breadcrumbs();
 			} else {
 				// Load default Astra breadcrumb if none selected.
-				breadcrumb_trail(
+				astra_breadcrumb_trail(
 					array(
 						'before'      => '<div class="ast-breadcrumbs">',
 						'after'       => '</div>',
