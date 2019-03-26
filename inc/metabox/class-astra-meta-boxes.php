@@ -306,7 +306,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						<?php
 					}
 					$ast_breadcrumbs_content = astra_get_option( 'ast-breadcrumbs-content' );
-					if ( 'disabled' != $ast_breadcrumbs_content ) {
+					if ( 'disabled' != $ast_breadcrumbs_content && 'none' !== astra_get_option( 'breadcrumb-position' ) ) {
 						?>
 					<div class="ast-breadcrumbs-content-option-wrap">
 						<label for="ast-breadcrumbs-content">
