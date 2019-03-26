@@ -267,20 +267,20 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* Default Breadcrumb CSS - Desktop */
 		$breadcrumbs_desktop = array(
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item .ast-breadcrumbs-name' => array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name'       => array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items .trail-end'       => array(
 				'color' => esc_attr( $breadcrumb_active_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item > .ast-breadcrumbs-name' => array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs .separator' => array(
+			'.ast-breadcrumbs-wrapper .trail-items li::after' => array(
 				'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs .separator' => array(
+			'.ast-breadcrumbs-wrapper' => array(
 				'font-family'    => astra_get_font_family( $breadcrumb_font_family ),
 				'font-weight'    => esc_attr( $breadcrumb_font_weight ),
 				'font-size'      => astra_responsive_font( $breadcrumb_font_size, 'desktop' ),
@@ -291,40 +291,41 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* Default Breadcrumb CSS - Tablet */
 		$breadcrumbs_tablet = array(
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item .ast-breadcrumbs-name' => array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name'       => array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items .trail-end'       => array(
 				'color' => esc_attr( $breadcrumb_active_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item > .ast-breadcrumbs-name' => array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs .separator' => array(
+			'.ast-breadcrumbs-wrapper .trail-items li::after' => array(
 				'color' => esc_attr( $breadcrumb_separator_color['tablet'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs .separator' => array(
+			'.ast-breadcrumbs-wrapper' => array(
 				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'tablet' ),
 			),
 		);
 
 		/* Default Breadcrumb CSS - Mobile */
 		$breadcrumbs_mobile = array(
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item .ast-breadcrumbs-name' => array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name'       => array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items .trail-end'       => array(
 				'color' => esc_attr( $breadcrumb_active_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs-link-wrap:hover > .ast-breadcrumbs-item > .ast-breadcrumbs-name' => array(
+			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs .separator' => array(
+
+			'.ast-breadcrumbs-wrapper .trail-items li::after' => array(
 				'color' => esc_attr( $breadcrumb_separator_color['mobile'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs .separator' => array(
+			'.ast-breadcrumbs-wrapper' => array(
 				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'mobile' ),
 			),
 		);

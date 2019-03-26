@@ -41,6 +41,39 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		public function __construct() {
 
 			add_action( 'wp', array( $this, 'astra_breadcumb_template' ) );
+			add_filter( 'astra_theme_dynamic_css', array( $this, 'dynamic_css' ) );
+		}
+
+		public function dynamic_css( $css ) {
+			$css .= '
+			.breadcrumbs .trail-browse,
+			.breadcrumbs .trail-items,
+			.breadcrumbs .trail-items li {
+				display:     inline-block;
+				margin:      0;
+				padding:     0;
+				border:      none;
+				background:  transparent;
+				text-indent: 0;
+			}
+			.breadcrumbs .trail-browse {
+				font-size:   inherit;
+				font-style:  inherit;
+				font-weight: inherit;
+				color:       inherit;
+			}
+			.breadcrumbs .trail-items {
+				list-style: none;
+			}
+			.trail-items li::after {
+				content: "»";
+				padding: 0 0.3em;
+			}
+			.trail-items li:last-of-type::after {
+				display: none;
+			}';
+
+			return $css;
 		}
 
 		/**
@@ -179,8 +212,17 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 				rank_math_the_breadcrumbs();
 			} else {
 				// Load default Astra breadcrumb if none selected.
-				$get_markup = new Astra_Breadcrumbs;
+				$get_markup = new Astra_Breadcrumbs();
 				$get_markup->astra_breadcrumb();
+
+				breadcrumb_trail(
+					array(
+						'before'      => '<div class="ast-breadcrumbs">',
+						'after'       => '</div>',
+						'show_browse' => false,
+						'echo'        => true,
+					)
+				);
 			}
 		}
 	}
