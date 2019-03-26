@@ -44,20 +44,35 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 * Breadcrumb
 				 */
 				array(
-					'name'     => 'section-breadcrumb',
-					'type'     => 'section',
-					'title'    => __( 'Breadcrumb', 'astra' ),
-					'panel'    => 'panel-layout',
-					'priority' => 20,
+					'name'               => 'section-breadcrumb',
+					'type'               => 'section',
+					'priority'           => 20,
+					'title'              => __( 'Breadcrumb', 'astra' ),
+					'panel'              => 'panel-layout',
+					'description_hidden' => true,
+					'description'        => $this->section_get_description(
+						array(
+							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
+							'links'       => array(
+								array(
+									'text'  => __( 'Breadcrumb Overview', 'astra' ) . ' »',
+									'attrs' => array(
+										'href' => astra_get_pro_url( 'https://wpastra.com/docs/sidebar-free/', 'customizer', 'sidebar', 'helpful-information' ),
+									),
+								),
+							),
+						)
+					),
 				),
 
 				/**
-				 * Option: Breadcrumb Position
+				 * Option: Breadcrumb Source
 				 */
 				array(
 					'name'            => ASTRA_THEME_SETTINGS . '[select-breadcrumb-source]',
 					'default'         => 'default',
 					'section'         => 'section-breadcrumb',
+					'required'        => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'title'           => __( 'Breadcrumb Source', 'astra' ),
 					'type'            => 'control',
 					'control'         => 'select',
@@ -86,7 +101,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Add to Cart button text
+				 * Option: Breadcrumb Separator
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
@@ -94,7 +109,12 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'control'  => 'text',
 					'section'  => 'section-breadcrumb',
 					'default'  => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '»',
-					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+					'required'  => array(
+						'conditions' => array(
+							array( ASTRA_THEME_SETTINGS . '[select-breadcrumb-source]', '==', 'default' ),
+							array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+						),
+					),
 					'priority' => 15,
 					'title'    => __( 'Breadcrumb Separator', 'astra' ),
 				),
@@ -204,7 +224,8 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-alignment]',
 					'default'  => 'left',
 					'section'  => 'section-breadcrumb',
-					'title'    => __( 'Breadcrumb Position', 'astra' ),
+					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
+					'title'    => __( 'Breadcrumb Alignment', 'astra' ),
 					'type'     => 'control',
 					'control'  => 'select',
 					'priority' => 60,
@@ -237,7 +258,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'required'       => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'section'        => 'section-breadcrumb',
 				),
-
 			);
 
 			return array_merge( $configurations, $_configs );
