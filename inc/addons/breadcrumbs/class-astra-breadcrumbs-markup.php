@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 			$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
 
 			if ( $breadcrumb_position && 'none' != $breadcrumb_position ) {
-				if ( self::astra_breadcrumb_rules() ) {
+				if ( self::astra_breadcrumb_rules() && ! is_home() ) {
 					add_action( $breadcrumb_position, array( $this, 'astra_hook_breadcrumb_position' ), 15 );
 				}
 			}
@@ -86,10 +86,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 				echo '		</div>
 						</div>
 					</div>';
-			}
-
-			if ( ( is_archive() || ( is_front_page() && is_home() ) ) && 'astra_entry_top' === $breadcrumb_position ) {
-				remove_action( $breadcrumb_position, array( $this, 'astra_hook_breadcrumb_position' ), 15 );
 			}
 		}
 
