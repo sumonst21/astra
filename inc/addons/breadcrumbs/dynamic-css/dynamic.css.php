@@ -64,6 +64,16 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 	$css = '';
 
+	$css .= astra_parse_css(
+		array(
+			'.trail-items li::after' => array(
+				'content' => '"'. astra_get_option( 'breadcrumb-separator' ) .'"'
+			),
+		),
+		'',
+		''
+	);
+
 	/**
 	 * Breadcrumb Colors & Typography
 	 */
@@ -280,7 +290,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 				'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper' => array(
+			'.ast-breadcrumbs-wrapper, .ast-breadcrumbs-wrapper a' => array(
 				'font-family'    => astra_get_font_family( $breadcrumb_font_family ),
 				'font-weight'    => esc_attr( $breadcrumb_font_weight ),
 				'font-size'      => astra_responsive_font( $breadcrumb_font_size, 'desktop' ),
@@ -304,7 +314,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 				'color' => esc_attr( $breadcrumb_separator_color['tablet'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper' => array(
+			'.ast-breadcrumbs-wrapper, .ast-breadcrumbs-wrapper a' => array(
 				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'tablet' ),
 			),
 		);
@@ -325,7 +335,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 				'color' => esc_attr( $breadcrumb_separator_color['mobile'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper' => array(
+			'.ast-breadcrumbs-wrapper, .ast-breadcrumbs-wrapper a' => array(
 				'font-size' => astra_responsive_font( $breadcrumb_font_size, 'mobile' ),
 			),
 		);

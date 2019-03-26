@@ -66,7 +66,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 				list-style: none;
 			}
 			.trail-items li::after {
-				content: "»";
 				padding: 0 0.3em;
 			}
 			.trail-items li:last-of-type::after {
@@ -212,9 +211,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 				rank_math_the_breadcrumbs();
 			} else {
 				// Load default Astra breadcrumb if none selected.
-				$get_markup = new Astra_Breadcrumbs();
-				$get_markup->astra_breadcrumb();
-
 				breadcrumb_trail(
 					array(
 						'before'      => '<div class="ast-breadcrumbs">',
