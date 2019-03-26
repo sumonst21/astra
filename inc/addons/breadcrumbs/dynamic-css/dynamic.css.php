@@ -331,13 +331,13 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	}
 
 	/* Breadcrumb CSS for Background Color */
-	$breadcrumbs_desktop['.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb'] = array(
+	$breadcrumbs_desktop['.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb, .ast-primary-sticky-header-active .main-header-bar.ast-header-breadcrumb'] = array(
 		'background-color' => esc_attr( $breadcrumb_bg_color['desktop'] ),
 	);
-	$breadcrumbs_tablet['.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb']  = array(
+	$breadcrumbs_tablet['.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb, .ast-primary-sticky-header-active .main-header-bar.ast-header-breadcrumb']  = array(
 		'background-color' => esc_attr( $breadcrumb_bg_color['tablet'] ),
 	);
-	$breadcrumbs_mobile['.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb']  = array(
+	$breadcrumbs_mobile['.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb, .ast-primary-sticky-header-active .main-header-bar.ast-header-breadcrumb']  = array(
 		'background-color' => esc_attr( $breadcrumb_bg_color['mobile'] ),
 	);
 
