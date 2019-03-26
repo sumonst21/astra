@@ -55,9 +55,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		public function astra_breadcumb_template() {
 
 			$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
+			$breadcrumb_source   = astra_get_option( 'select-breadcrumb-source' );
 
 			if ( $breadcrumb_position && 'none' != $breadcrumb_position ) {
-				if ( self::astra_breadcrumb_rules() && ! is_home() ) {
+				if ( self::astra_breadcrumb_rules() && ! ( is_home() || is_front_page() ) ) {
 					add_action( $breadcrumb_position, array( $this, 'astra_hook_breadcrumb_position' ), 15 );
 				}
 			}
@@ -76,13 +77,13 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 			$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
 			$breadcrumb_source   = astra_get_option( 'select-breadcrumb-source' );
 
-			if ( $breadcrumb_position && 'astra_header_after' === $breadcrumb_position && ! ( is_front_page() && is_home() && 'default' === $breadcrumb_source ) ) {
+			if ( $breadcrumb_position && 'astra_header_after' === $breadcrumb_position ) {
 				echo '<div class="main-header-bar-wrap">
 						<div class="main-header-bar ast-header-breadcrumb">
 							<div class="ast-container">';
 			}
 			$this->astra_get_breadcrumb();
-			if ( $breadcrumb_position && 'astra_header_after' === $breadcrumb_position && ! ( is_front_page() && is_home() && 'default' === $breadcrumb_source ) ) {
+			if ( $breadcrumb_position && 'astra_header_after' === $breadcrumb_position ) {
 				echo '		</div>
 						</div>
 					</div>';
