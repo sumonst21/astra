@@ -342,24 +342,46 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	);
 
 	/* Breadcrumb CSS for Spacing */
-	$breadcrumbs_desktop['.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs'] = array(
-		'padding-top'    => astra_responsive_spacing( $breadcrumb_spacing, 'top', 'desktop' ),
-		'padding-right'  => astra_responsive_spacing( $breadcrumb_spacing, 'right', 'desktop' ),
-		'padding-bottom' => astra_responsive_spacing( $breadcrumb_spacing, 'bottom', 'desktop' ),
-		'padding-left'   => astra_responsive_spacing( $breadcrumb_spacing, 'left', 'desktop' ),
-	);
-	$breadcrumbs_tablet['.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs']  = array(
-		'padding-top'    => astra_responsive_spacing( $breadcrumb_spacing, 'top', 'tablet' ),
-		'padding-right'  => astra_responsive_spacing( $breadcrumb_spacing, 'right', 'tablet' ),
-		'padding-bottom' => astra_responsive_spacing( $breadcrumb_spacing, 'bottom', 'tablet' ),
-		'padding-left'   => astra_responsive_spacing( $breadcrumb_spacing, 'left', 'tablet' ),
-	);
-	$breadcrumbs_mobile['.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs']  = array(
-		'padding-top'    => astra_responsive_spacing( $breadcrumb_spacing, 'top', 'mobile' ),
-		'padding-right'  => astra_responsive_spacing( $breadcrumb_spacing, 'right', 'mobile' ),
-		'padding-bottom' => astra_responsive_spacing( $breadcrumb_spacing, 'bottom', 'mobile' ),
-		'padding-left'   => astra_responsive_spacing( $breadcrumb_spacing, 'left', 'mobile' ),
-	);
+	/* Breadcrumb CSS for Spacing */
+	if ( 'astra_header_after' === $breadcrumb_position ) {
+		$breadcrumbs_desktop['.main-header-bar.ast-header-breadcrumb, .ast-header-break-point .main-header-bar.ast-header-breadcrumb, .ast-header-break-point .header-main-layout-2 .main-header-bar.ast-header-breadcrumb, .ast-header-break-point .ast-mobile-header-stack .main-header-bar.ast-header-breadcrumb, .ast-default-menu-enable.ast-main-header-nav-open.ast-header-break-point .main-header-bar-wrap .main-header-bar.ast-header-breadcrumb, .ast-main-header-nav-open .main-header-bar-wrap .main-header-bar.ast-header-breadcrumb'] = array(
+			'padding-top'    => astra_responsive_spacing( $breadcrumb_spacing, 'top', 'desktop' ),
+			'padding-right'  => astra_responsive_spacing( $breadcrumb_spacing, 'right', 'desktop' ),
+			'padding-bottom' => astra_responsive_spacing( $breadcrumb_spacing, 'bottom', 'desktop' ),
+			'padding-left'   => astra_responsive_spacing( $breadcrumb_spacing, 'left', 'desktop' ),
+		);
+		$breadcrumbs_tablet['.main-header-bar.ast-header-breadcrumb, .ast-header-break-point .main-header-bar.ast-header-breadcrumb, .ast-header-break-point .header-main-layout-2 .main-header-bar.ast-header-breadcrumb, .ast-header-break-point .ast-mobile-header-stack .main-header-bar.ast-header-breadcrumb, .ast-default-menu-enable.ast-main-header-nav-open.ast-header-break-point .main-header-bar-wrap .main-header-bar.ast-header-breadcrumb, .ast-main-header-nav-open .main-header-bar-wrap .main-header-bar.ast-header-breadcrumb']  = array(
+			'padding-top'    => astra_responsive_spacing( $breadcrumb_spacing, 'top', 'tablet' ),
+			'padding-right'  => astra_responsive_spacing( $breadcrumb_spacing, 'right', 'tablet' ),
+			'padding-bottom' => astra_responsive_spacing( $breadcrumb_spacing, 'bottom', 'tablet' ),
+			'padding-left'   => astra_responsive_spacing( $breadcrumb_spacing, 'left', 'tablet' ),
+		);
+		$breadcrumbs_mobile['.main-header-bar.ast-header-breadcrumb, .ast-header-break-point .main-header-bar.ast-header-breadcrumb, .ast-header-break-point .header-main-layout-2 .main-header-bar.ast-header-breadcrumb, .ast-header-break-point .ast-mobile-header-stack .main-header-bar.ast-header-breadcrumb, .ast-default-menu-enable.ast-main-header-nav-open.ast-header-break-point .main-header-bar-wrap .main-header-bar.ast-header-breadcrumb, .ast-main-header-nav-open .main-header-bar-wrap .main-header-bar.ast-header-breadcrumb']  = array(
+			'padding-top'    => astra_responsive_spacing( $breadcrumb_spacing, 'top', 'mobile' ),
+			'padding-right'  => astra_responsive_spacing( $breadcrumb_spacing, 'right', 'mobile' ),
+			'padding-bottom' => astra_responsive_spacing( $breadcrumb_spacing, 'bottom', 'mobile' ),
+			'padding-left'   => astra_responsive_spacing( $breadcrumb_spacing, 'left', 'mobile' ),
+		);
+	} else {
+		$breadcrumbs_desktop['.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs'] = array(
+			'padding-top'    => astra_responsive_spacing( $breadcrumb_spacing, 'top', 'desktop' ),
+			'padding-right'  => astra_responsive_spacing( $breadcrumb_spacing, 'right', 'desktop' ),
+			'padding-bottom' => astra_responsive_spacing( $breadcrumb_spacing, 'bottom', 'desktop' ),
+			'padding-left'   => astra_responsive_spacing( $breadcrumb_spacing, 'left', 'desktop' ),
+		);
+		$breadcrumbs_tablet['.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs']  = array(
+			'padding-top'    => astra_responsive_spacing( $breadcrumb_spacing, 'top', 'tablet' ),
+			'padding-right'  => astra_responsive_spacing( $breadcrumb_spacing, 'right', 'tablet' ),
+			'padding-bottom' => astra_responsive_spacing( $breadcrumb_spacing, 'bottom', 'tablet' ),
+			'padding-left'   => astra_responsive_spacing( $breadcrumb_spacing, 'left', 'tablet' ),
+		);
+		$breadcrumbs_mobile['.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs']  = array(
+			'padding-top'    => astra_responsive_spacing( $breadcrumb_spacing, 'top', 'mobile' ),
+			'padding-right'  => astra_responsive_spacing( $breadcrumb_spacing, 'right', 'mobile' ),
+			'padding-bottom' => astra_responsive_spacing( $breadcrumb_spacing, 'bottom', 'mobile' ),
+			'padding-left'   => astra_responsive_spacing( $breadcrumb_spacing, 'left', 'mobile' ),
+		);
+	}
 
 	/* Breadcrumb CSS for Alignment */
 	$breadcrumbs_desktop['.ast-breadcrumbs-wrapper'] = array(
@@ -368,7 +390,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 	$css .= astra_parse_css( $breadcrumbs_desktop );
 	$css .= astra_parse_css( $breadcrumbs_tablet, '', '768' );
-	$css .= astra_parse_css( $breadcrumbs_mobile, '', '543' );
+	$css .= astra_parse_css( $breadcrumbs_mobile, '', '544' );
 
 	/* Breadcrumb default CSS */
 	$css .= astra_parse_css(
@@ -381,6 +403,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		'',
 		''
 	);
+
 	$css .= astra_parse_css(
 		array(
 			'.ast-breadcrumbs-wrapper .separator' => array(
@@ -391,7 +414,6 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		'',
 		''
 	);
-
 
 	$css .= astra_parse_css(
 		array(
