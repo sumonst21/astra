@@ -128,7 +128,7 @@ function breadcrumb_trail( $args = array() ) {
 	if ( ! is_object( $breadcrumb ) )
 		$breadcrumb = new Breadcrumb_Trail( $args );
 
-	return $breadcrumb->trail() . '</div>';
+	return $breadcrumb->trail();
 }
 
 /**
