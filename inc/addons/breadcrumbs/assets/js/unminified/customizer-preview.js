@@ -78,7 +78,7 @@
 		'breadcrumb',
 		'astra-settings[breadcrumb-bg-color]',
 		'background-color',
-		'.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb'
+		'.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb, .ast-primary-sticky-header-active .main-header-bar.ast-header-breadcrumb'
 	);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Alignment */
