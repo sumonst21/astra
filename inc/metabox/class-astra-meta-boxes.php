@@ -311,7 +311,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					<div class="ast-breadcrumbs-content-option-wrap">
 						<label for="ast-breadcrumbs-content">
 							<input type="checkbox" id="ast-breadcrumbs-content" name="ast-breadcrumbs-content" value="disabled" <?php checked( $breadcrumbs_content, 'disabled' ); ?> />
-							<?php esc_html_e( 'Disable breadcrumbs', 'astra' ); ?>
+							<?php esc_html_e( 'Disable Breadcrumb', 'astra' ); ?>
 						</label>
 					</div>
 					<?php } ?>
