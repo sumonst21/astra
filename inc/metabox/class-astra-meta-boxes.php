@@ -129,7 +129,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'ast-featured-img'        => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-breadcrumbs-content'        => array(
+					'ast-breadcrumbs-content' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 				)
@@ -208,7 +208,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
 			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
 			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
-			$breadcrumbs_content          = ( isset( $meta['ast-breadcrumbs-content']['default'] ) ) ? $meta['ast-breadcrumbs-content']['default'] : '';
+			$breadcrumbs_content = ( isset( $meta['ast-breadcrumbs-content']['default'] ) ) ? $meta['ast-breadcrumbs-content']['default'] : '';
 
 			$show_meta_field = ! self::is_bb_themer_layout();
 			do_action( 'astra_meta_box_markup_before', $meta );
