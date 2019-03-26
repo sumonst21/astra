@@ -57,8 +57,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 			$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
 			$breadcrumb_source   = astra_get_option( 'select-breadcrumb-source' );
 
-			if ( $breadcrumb_position && 'none' != $breadcrumb_position ) {
-				if ( self::astra_breadcrumb_rules() && ! ( is_home() || is_front_page() ) ) {
+			$breadcrumb_enabled = get_post_meta( get_the_ID(), 'ast-breadcrumbs-content', true );
+
+			if ( 'disabled' !== $breadcrumb_enabled && $breadcrumb_position && 'none' !== $breadcrumb_position && ! ( is_home() || is_front_page() ) ) {
+				if ( self::astra_breadcrumb_rules() ) {
 					add_action( $breadcrumb_position, array( $this, 'astra_hook_breadcrumb_position' ), 15 );
 				}
 			}
