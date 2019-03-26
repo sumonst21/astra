@@ -78,7 +78,7 @@
 		'breadcrumb',
 		'astra-settings[breadcrumb-bg-color]',
 		'background-color',
-		'.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb'
+		'.ast-breadcrumbs-wrapper, .main-header-bar.ast-header-breadcrumb, .ast-primary-sticky-header-active .main-header-bar.ast-header-breadcrumb'
 	);
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb - Alignment */
@@ -92,21 +92,13 @@
 	/**
 	 * Breadcrumb Spacing
 	 */
-	astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs', 'margin',  ['top', 'bottom' ] );
-	astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs', 'padding',  ['left', 'right' ] );
-	// Remove padding top to container if padding top is given to breadcrumb Spacing.
 	wp.customize( 'astra-settings[breadcrumb-spacing]', function( value ) {
 		value.bind( function( padding ) {
-
-			var dynamicStyle = '';
-			if( padding.desktop.top != '' || padding.tablet.top != '' || padding.mobile.top != '' ) {
-				dynamicStyle += '.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs { padding-top: 0px;} ';
+			if( 'astra_header_after' == wp.customize( 'astra-settings[breadcrumb-position]' ).get() ) {
+				astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.main-header-bar.ast-header-breadcrumb', 'padding',  ['top', 'right', 'bottom', 'left' ] );
+			} else {
+				astra_responsive_spacing( 'astra-settings[breadcrumb-spacing]','.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs', 'padding',  ['top', 'right', 'bottom', 'left' ] );
 			}
-			if( padding.desktop.bottom != '' || padding.tablet.bottom != '' || padding.mobile.bottom != '' ) {
-				dynamicStyle += '.ast-breadcrumbs-wrapper #ast-breadcrumbs-yoast, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .rank-math-breadcrumb, .ast-breadcrumbs-wrapper .ast-breadcrumbs { padding-bottom: 0px;} ';
-			}
-			astra_add_dynamic_css( 'remove-breadcrumb-spacing', dynamicStyle );
-
 		} );
 	} );
 

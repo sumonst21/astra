@@ -55,14 +55,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		public function astra_breadcumb_template() {
 
 			$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
+			$breadcrumb_source   = astra_get_option( 'select-breadcrumb-source' );
 
 			if ( $breadcrumb_position && 'none' != $breadcrumb_position ) {
-				if ( self::astra_breadcrumb_rules() ) {
-					if ( is_archive() && 'astra_entry_top' === $breadcrumb_position ) {
-						add_action( 'astra_content_top', array( $this, 'astra_hook_breadcrumb_position' ), 15 );
-					} else {
-						add_action( $breadcrumb_position, array( $this, 'astra_hook_breadcrumb_position' ), 15 );
-					}
+				if ( self::astra_breadcrumb_rules() && ! ( is_home() || is_front_page() ) ) {
+					add_action( $breadcrumb_position, array( $this, 'astra_hook_breadcrumb_position' ), 15 );
 				}
 			}
 		}
@@ -78,6 +75,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 */
 		public function astra_hook_breadcrumb_position() {
 			$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
+			$breadcrumb_source   = astra_get_option( 'select-breadcrumb-source' );
 
 			if ( $breadcrumb_position && 'astra_header_after' === $breadcrumb_position ) {
 				echo '<div class="main-header-bar-wrap">
