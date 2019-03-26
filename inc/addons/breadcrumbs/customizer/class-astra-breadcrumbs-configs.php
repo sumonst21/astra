@@ -204,7 +204,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-alignment]',
 					'default'  => 'left',
 					'section'  => 'section-breadcrumb',
-					'title'    => __( 'Breadcrumb Position', 'astra' ),
+					'title'    => __( 'Breadcrumb Alignment', 'astra' ),
 					'type'     => 'control',
 					'control'  => 'select',
 					'priority' => 60,
