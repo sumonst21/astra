@@ -30,7 +30,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -43,7 +43,19 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
+			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ) );
+		}
 
+		/**
+		 * Enqueue google fonts from breadcrumb.
+		 *
+		 * @return void
+		 */
+		public function add_fonts() {
+			$font_family = astra_get_option( 'breadcrumb-font-family' );
+			$font_weight = astra_get_option( 'breadcrumb-font-weight' );
+
+			Astra_Fonts::add_font( $font_family, $font_weight );
 		}
 
 		/**
