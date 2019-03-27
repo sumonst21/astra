@@ -59,7 +59,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 
 			$breadcrumb_enabled = false;
 
-			if ( ! is_archive() ) {
+			if ( is_singular() ) {
 				$breadcrumb_enabled = get_post_meta( get_the_ID(), 'ast-breadcrumbs-content', true );
 			}
 
