@@ -277,13 +277,13 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* Default Breadcrumb CSS - Desktop */
 		$breadcrumbs_desktop = array(
-			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items a' => array(
+			'.ast-breadcrumbs-wrapper .trail-items a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items .trail-end'       => array(
+			'.ast-breadcrumbs-wrapper .trail-items .trail-end'       => array(
 				'color' => esc_attr( $breadcrumb_active_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items a:hover' => array(
+			'.ast-breadcrumbs-wrapper .trail-items a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['desktop'] ),
 			),
 			'.ast-breadcrumbs-wrapper .trail-items li::after' => array(
@@ -301,13 +301,13 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* Default Breadcrumb CSS - Tablet */
 		$breadcrumbs_tablet = array(
-			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items a' => array(
+			'.ast-breadcrumbs-wrapper .trail-items a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items .trail-end'       => array(
+			'.ast-breadcrumbs-wrapper .trail-items .trail-end'       => array(
 				'color' => esc_attr( $breadcrumb_active_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items a:hover' => array(
+			'.ast-breadcrumbs-wrapper .trail-items a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['tablet'] ),
 			),
 			'.ast-breadcrumbs-wrapper .trail-items li::after' => array(
@@ -321,13 +321,13 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* Default Breadcrumb CSS - Mobile */
 		$breadcrumbs_mobile = array(
-			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items a' => array(
+			'.ast-breadcrumbs-wrapper .trail-items a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items .trail-end'       => array(
+			'.ast-breadcrumbs-wrapper .trail-items .trail-end'       => array(
 				'color' => esc_attr( $breadcrumb_active_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper .breadcrumbs .trail-items a:hover' => array(
+			'.ast-breadcrumbs-wrapper .trail-items a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['mobile'] ),
 			),
 

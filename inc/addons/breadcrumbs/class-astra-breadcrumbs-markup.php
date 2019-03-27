@@ -83,15 +83,13 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 			$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
 			$breadcrumb_source   = astra_get_option( 'select-breadcrumb-source' );
 
-			if ( $breadcrumb_position && 'astra_masthead' === $breadcrumb_position ) {
-				echo '<div class="main-header-bar-wrap">
-						<div class="main-header-bar ast-header-breadcrumb">
+			if ( $breadcrumb_position && 'astra_header_after' === $breadcrumb_position ) {
+				echo '<div class="main-header-bar ast-header-breadcrumb">
 							<div class="ast-container">';
 			}
 			$this->astra_get_breadcrumb();
-			if ( $breadcrumb_position && 'astra_masthead' === $breadcrumb_position ) {
-				echo '		</div>
-						</div>
+			if ( $breadcrumb_position && 'astra_header_after' === $breadcrumb_position ) {
+				echo '	</div>
 					</div>';
 			}
 		}
@@ -172,17 +170,17 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 			$breadcrumb_source = astra_get_option( 'select-breadcrumb-source' );
 			$wpseo_option      = get_option( 'wpseo_internallinks' );
 
-			if ( $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source && function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] ) {
+			if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_option && true === $wpseo_option['breadcrumbs-enable'] && $breadcrumb_source && 'yoast-seo-breadcrumbs' == $breadcrumb_source ) {
 				// Check if breadcrumb is turned on from WPSEO option.
 				yoast_breadcrumb( '<div id="ast-breadcrumbs-yoast" >', '</div>' );
-			} elseif ( $breadcrumb_source && 'breadcrumb-navxt' == $breadcrumb_source && function_exists( 'bcn_display' ) ) {
+			} elseif ( function_exists( 'bcn_display' ) && $breadcrumb_source && 'breadcrumb-navxt' == $breadcrumb_source ) {
 				// Check if breadcrumb is turned on from Breadcrumb NavXT plugin.
 				?>
 				<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 					<?php bcn_display(); ?>
 				</div>
 				<?php
-			} elseif ( $breadcrumb_source && 'rank-math' == $breadcrumb_source && function_exists( 'rank_math_the_breadcrumbs' ) ) {
+			} elseif ( function_exists( 'rank_math_the_breadcrumbs' ) && $breadcrumb_source && 'rank-math' == $breadcrumb_source ) {
 				rank_math_the_breadcrumbs();
 			} else {
 				// Load default Astra breadcrumb if none selected.
