@@ -194,6 +194,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 		 */
 		public function astra_load_selected_breadcrumb() {
 
+			// Bail if breadcrumb is disabled.
+			if ( false === apply_filters( 'astra_breadcrumb_enabled', true ) ) {
+				return;
+			}
+
 			$breadcrumb_source = astra_get_option( 'select-breadcrumb-source' );
 			$wpseo_option      = get_option( 'wpseo_internallinks' );
 
@@ -211,14 +216,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Markup' ) ) {
 				rank_math_the_breadcrumbs();
 			} else {
 				// Load default Astra breadcrumb if none selected.
-				astra_breadcrumb_trail(
-					array(
-						'before'      => '<div class="ast-breadcrumbs">',
-						'after'       => '</div>',
-						'show_browse' => false,
-						'echo'        => true,
-					)
-				);
+				astra_breadcrumb_trail();
 			}
 		}
 	}

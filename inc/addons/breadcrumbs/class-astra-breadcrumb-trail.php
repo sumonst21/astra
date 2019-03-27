@@ -33,6 +33,15 @@
  */
 function astra_breadcrumb_trail( $args = array() ) {
 
+	$defaults = array(
+		'before'      => '<div class="ast-breadcrumbs">',
+		'after'       => '</div>',
+		'show_browse' => false,
+		'echo'        => true,
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
 	$breadcrumb = apply_filters( 'astra_breadcrumb_trail_object', null, $args );
 
 	if ( ! is_object( $breadcrumb ) )
