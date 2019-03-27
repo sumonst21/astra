@@ -445,6 +445,36 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 		''
 	);
 
+	$css .= astra_parse_css(
+		array(
+			'.breadcrumbs .trail-browse, .breadcrumbs .trail-items, .breadcrumbs .trail-items li' => array(
+				'display'     => 'inline-block',
+				'margin'      => '0',
+				'padding'     => '0',
+				'border'      => 'none',
+				'background'  => 'inherit',
+				'text-indent' => '0',
+			),
+			'.breadcrumbs .trail-browse'          => array(
+				'font-size'   => 'inherit',
+				'font-style'  => 'inherit',
+				'font-weight' => 'inherit',
+				'color'       => 'inherit',
+			),
+			'.breadcrumbs .trail-items'           => array(
+				'list-style' => 'none',
+			),
+			'.trail-items li::after'              => array(
+				'padding' => '0 0.3em',
+			),
+			'.trail-items li:last-of-type::after' => array(
+				'display' => 'none',
+			),
+		),
+		'',
+		''
+	);
+
 	$dynamic_css .= $css;
 
 	wp_add_inline_style( 'astra-theme-css', $dynamic_css );
