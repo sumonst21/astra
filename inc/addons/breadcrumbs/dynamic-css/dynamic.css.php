@@ -280,7 +280,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 			'.ast-breadcrumbs-wrapper .trail-items a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-wrapper .trail-items .trail-end'       => array(
+			'.ast-breadcrumbs-wrapper .trail-items .trail-end' => array(
 				'color' => esc_attr( $breadcrumb_active_color['desktop'] ),
 			),
 			'.ast-breadcrumbs-wrapper .trail-items a:hover' => array(
@@ -304,7 +304,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 			'.ast-breadcrumbs-wrapper .trail-items a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-wrapper .trail-items .trail-end'       => array(
+			'.ast-breadcrumbs-wrapper .trail-items .trail-end' => array(
 				'color' => esc_attr( $breadcrumb_active_color['tablet'] ),
 			),
 			'.ast-breadcrumbs-wrapper .trail-items a:hover' => array(
@@ -324,7 +324,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 			'.ast-breadcrumbs-wrapper .trail-items a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-wrapper .trail-items .trail-end'       => array(
+			'.ast-breadcrumbs-wrapper .trail-items .trail-end' => array(
 				'color' => esc_attr( $breadcrumb_active_color['mobile'] ),
 			),
 			'.ast-breadcrumbs-wrapper .trail-items a:hover' => array(
