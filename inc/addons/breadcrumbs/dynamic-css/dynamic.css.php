@@ -353,7 +353,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	);
 
 	/* Breadcrumb CSS for Spacing */
-	if ( 'astra_header_after' === $breadcrumb_position ) {
+	if ( 'astra_masthead' === $breadcrumb_position ) {
 		$breadcrumbs_desktop['.main-header-bar.ast-header-breadcrumb'] = array(
 			'padding-top'    => astra_responsive_spacing( $breadcrumb_spacing, 'top', 'desktop' ),
 			'padding-right'  => astra_responsive_spacing( $breadcrumb_spacing, 'right', 'desktop' ),
