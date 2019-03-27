@@ -110,7 +110,7 @@ class Astra_Breadcrumb_Trail {
 
 	/**
 	 * Sets up the breadcrumb trail properties.  Calls the `Breadcrumb_Trail::add_items()` method
-	 * to creat the array of breadcrumb items.
+	 * to create the array of breadcrumb items.
 	 *
 	 * @since  0.6.0
 	 * @access public
