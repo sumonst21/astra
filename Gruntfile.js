@@ -144,13 +144,16 @@ module.exports = function (grunt) {
                         flexibility,
                         autoprefixer({
                             browsers: [
-                                'Android >= 2.1',
-                                'Chrome >= 21',
-                                'Edge >= 12',
-                                'Explorer >= 7',
-                                'Firefox >= 17',
-                                'Opera >= 12.1',
-                                'Safari >= 6.0'
+                                '> 1%',
+                                'ie >= 11',
+                                'last 1 Android versions',
+                                'last 1 ChromeAndroid versions',
+                                'last 2 Chrome versions',
+                                'last 2 Firefox versions',
+                                'last 2 Safari versions',
+                                'last 2 iOS versions',
+                                'last 2 Edge versions',
+                                'last 2 Opera versions'
                             ],
                             cascade: false
                         })
@@ -181,11 +184,22 @@ module.exports = function (grunt) {
 	                    {
 		                    src: [
 		                    	'assets/js/minified/navigation.min.js',
-                                'assets/js/minified/skip-link-focus-fix.min.js',
                                 'assets/js/minified/custom-events-polyfill.js'
 		                    ],
 		                    dest: 'assets/js/minified/style.min.js',
 		                },
+                        {
+                            src: [
+                                'inc/addons/breadcrumbs/assets/js/unminified/*.js',
+                            ],
+                            dest: 'inc/addons/breadcrumbs/assets/js/minified/customizer-preview.min.js',
+                        },
+                        {
+                            src: [
+                                'inc/addons/transparent-header/assets/js/unminified/*.js',
+                            ],
+                            dest: 'inc/addons/transparent-header/assets/js/minified/customizer-preview.min.js',
+                        },
 	               	]
                 }
             },
@@ -369,7 +383,6 @@ module.exports = function (grunt) {
                 dist: {
                     src: [
                         'assets/js/unminified/navigation.js',
-                        'assets/js/unminified/skip-link-focus-fix.js',
                     ],
                     dest: 'assets/js/unminified/style.js',
                 }
@@ -403,6 +416,24 @@ module.exports = function (grunt) {
                         {
                             from: /ASTRA_THEME_VERSION', '.*?'/g,
                             to: 'ASTRA_THEME_VERSION\', \'<%= pkg.version %>\''
+                        }
+                    ]
+                },
+
+                theme_function_comment: {
+                    src: [
+                        '*.php',
+                        '**/*.php',
+                        '!node_modules/**',
+                        '!php-tests/**',
+                        '!bin/**',
+                        '!admin/bsf-core/**'
+                    ],
+                    overwrite: true,
+                    replacements: [
+                        {
+                            from: 'x.x.x',
+                            to: '<%=pkg.version %>'
                         }
                     ]
                 }

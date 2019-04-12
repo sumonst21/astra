@@ -99,6 +99,24 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
 			add_filter( 'woocommerce_get_stock_html', 'astra_woo_product_in_stock', 10, 2 );
+
+			add_filter( 'astra_schema_body', array( $this, 'remove_body_schema' ) );
+		}
+
+		/**
+		 * Remove body schema when using WooCommerce template.
+		 * WooCommerce adds it's own product schema hence schema data from Astra should be disabled here.
+		 *
+		 * @since 1.8.0
+		 * @param String $schema Schema markup.
+		 * @return String
+		 */
+		public function remove_body_schema( $schema ) {
+			if ( is_woocommerce() ) {
+				$schema = '';
+			}
+
+			return $schema;
 		}
 
 		/**
@@ -281,7 +299,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return int
 		 */
 		function shop_no_of_products() {
-			$products = astra_get_option( 'shop-no-of-products' );
+			$taxonomy_page_display = get_option( 'woocommerce_category_archive_display', false );
+			if ( is_product_taxonomy() && 'subcategories' === $taxonomy_page_display ) {
+				$products = wp_count_posts( 'product' )->publish;
+			} else {
+				$products = astra_get_option( 'shop-no-of-products' );
+			}
 			return $products;
 		}
 
