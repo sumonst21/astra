@@ -4975,7 +4975,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment-list .children {
-  margin-left: 2em;
+  margin-left: 7.33333em;
 }
 
 @media (max-width: 992px) {
@@ -5029,6 +5029,10 @@ input[type="color"]::-webkit-color-swatch {
   padding: 2.250em 0 0 0;
   border-top: 1px solid #eaeaea;
   position: relative;
+}
+
+.ast-comment p {
+  margin-bottom: 0em;
 }
 
 .ast-reply-link {
@@ -5213,6 +5217,7 @@ input[type="color"]::-webkit-color-swatch {
   padding-bottom: 0;
   padding-top: 0;
   margin-bottom: 0;
+  margin-top: 36px;
 }
 
 .ast-separate-container .ast-comment-list li.depth-1 .ast-comment,
@@ -5222,7 +5227,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-separate-container .ast-comment-list .comment-respond {
   padding-top: 0;
-  padding-bottom: 1em;
+  padding-bottom: 0em;
   background-color: transparent;
 }
 
@@ -5230,6 +5235,7 @@ input[type="color"]::-webkit-color-swatch {
   .ast-separate-container .ast-comment-list .comment-respond {
     padding-left: 2.66666em;
     padding-right: 2.66666em;
+    margin-left: 4.6666em;
   }
 }
 
