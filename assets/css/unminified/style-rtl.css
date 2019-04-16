@@ -5042,6 +5042,13 @@ input[type="color"]::-webkit-color-swatch {
   margin-top: 32px;
 }
 
+.ast-edit-link {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  margin-top: 32px;
+}
+
 .ast-comment-avatar-wrap {
   float: right;
   clear: left;
