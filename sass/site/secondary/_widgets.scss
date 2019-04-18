@@ -206,7 +206,7 @@
 			.widget{
 				background-color: $color-background-content;
 				padding: 2em;
-				margin-bottom: 2em;
+				margin-bottom: 20px;
 				@media (min-width: $col-md) {
 					&:last-child{
 						margin-bottom: 0;

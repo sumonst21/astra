@@ -9,7 +9,7 @@
 */
 
 .comments-count-wrapper{
-    padding: 2em 0;
+    padding: 4em 4em;
     .comments-title {
         font-weight: normal;
         word-wrap: break-word;
@@ -30,7 +30,7 @@
         }
     }
     .children {
-        margin-left: 7.33333em;
+        margin-left: 35px;
         @media (max-width: $mx-col-lg) {
             margin-left: 1em;
         }
@@ -84,6 +84,13 @@
     margin-top: 32px;
 }
 
+.ast-comment-edit-reply-wrap {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
 .ast-edit-link {
     position: absolute;
     top: 0;
@@ -119,8 +126,13 @@
 
 .ast-comment-cite-wrap {
     text-align: left;
+    font-size: 1.3em;
     cite {
         font-style: normal;
+
+    }
+    b {
+        font-weight: 600;
     }
 }
 
@@ -137,7 +149,11 @@
 
 .ast-comment-time {
 
-    .timendate,
+    .timendate {
+        text-transform: initial;
+        font-size: 1.1em;
+        margin-right: 0.5em;
+    }
     .reply {
         margin-right: 0.5em;
     }
@@ -198,7 +214,7 @@
 .ast-separate-container{
     .comments-count-wrapper{
         background-color: $color-background-content;
-        padding: 2em 6.67em 0;
+        padding: 4em 4em;
         @media (max-width: $mx-col-xl) {
             padding: 2em 3.34em;
         }
@@ -218,7 +234,7 @@
             background-color: $color-background-content;
             &.depth-1{
 
-                padding: 1.125em 6.67em;
+                padding: 1.125em 4em;
 
                 @media (max-width: $mx-col-xl) {
                     padding: 3em 3.34em;
@@ -277,7 +293,6 @@
             li{
                 background: transparent;
                 margin-bottom: 0;
-                padding: 0 0 0 2.7em;
                 @media (max-width: $mx-col-sm) {
                     padding: 0 0 0 .5em;
                 }
@@ -291,7 +306,7 @@
     }
     .comment-respond{
         background-color: $color-background-content;
-        padding: 4.5em 6.67em;
+        padding: 4em 4em;
         border-bottom: 0;
         @media (max-width: $mx-col-xl) {
             padding: 3em 2.34em;
@@ -316,4 +331,8 @@
     margin-top: 2em;
     margin-bottom: 2em;
   }
+}
+
+.ast-comment-author {
+    text-transform: capitalize;
 }

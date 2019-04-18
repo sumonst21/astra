@@ -2161,9 +2161,8 @@ body {
 .ast-separate-container .ast-article-post,
 .ast-separate-container .ast-article-single {
   background-color: #fff;
-  border-bottom: 1px solid #eeeeee;
   margin: 0;
-  padding: 5.34em 6.67em;
+  padding: 4em;
 }
 
 .ast-separate-container .blog-layout-1 {
@@ -2315,16 +2314,16 @@ body {
     padding: 0;
   }
   .ast-right-sidebar #primary {
-    padding-right: 60px;
+    padding-right: 40px;
   }
   .ast-right-sidebar #secondary {
-    padding-left: 60px;
+    padding-left: 40px;
   }
   .ast-left-sidebar #primary {
-    padding-left: 60px;
+    padding-left: 40px;
   }
   .ast-left-sidebar #secondary {
-    padding-right: 60px;
+    padding-right: 40px;
   }
 }
 
@@ -2336,16 +2335,16 @@ body {
     padding-right: 0;
   }
   .ast-right-sidebar #primary {
-    padding-right: 30px;
+    padding-right: 20px;
   }
   .ast-right-sidebar #secondary {
-    padding-left: 30px;
+    padding-left: 20px;
   }
   .ast-left-sidebar #primary {
-    padding-left: 30px;
+    padding-left: 20px;
   }
   .ast-left-sidebar #secondary {
-    padding-right: 30px;
+    padding-right: 20px;
   }
 }
 
@@ -2399,11 +2398,11 @@ body {
     margin-right: auto;
   }
   .ast-separate-container.ast-two-container.ast-right-sidebar #secondary {
-    padding-left: 30px;
+    padding-left: 20px;
     padding-right: 0;
   }
   .ast-separate-container.ast-two-container.ast-left-sidebar #secondary {
-    padding-right: 30px;
+    padding-right: 20px;
     padding-left: 0;
   }
 }
@@ -4215,7 +4214,7 @@ body .entry-content .wp-block-latest-posts li {
 .ast-separate-container.ast-two-container #secondary .widget {
   background-color: #fff;
   padding: 2em;
-  margin-bottom: 2em;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 769px) {
@@ -4950,7 +4949,7 @@ input[type="color"]::-webkit-color-swatch {
  *  4 - Comment List Styles
 */
 .comments-count-wrapper {
-  padding: 2em 0;
+  padding: 4em 4em;
 }
 
 .comments-count-wrapper .comments-title {
@@ -4975,7 +4974,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment-list .children {
-  margin-left: 7.33333em;
+  margin-left: 35px;
 }
 
 @media (max-width: 992px) {
@@ -5042,6 +5041,13 @@ input[type="color"]::-webkit-color-swatch {
   margin-top: 32px;
 }
 
+.ast-comment-edit-reply-wrap {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .ast-edit-link {
   position: absolute;
   top: 0;
@@ -5084,10 +5090,15 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-comment-cite-wrap {
   text-align: left;
+  font-size: 1.3em;
 }
 
 .ast-comment-cite-wrap cite {
   font-style: normal;
+}
+
+.ast-comment-cite-wrap b {
+  font-weight: 600;
 }
 
 .comment-reply-title {
@@ -5100,7 +5111,12 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 0.5em;
 }
 
-.ast-comment-time .timendate,
+.ast-comment-time .timendate {
+  text-transform: initial;
+  font-size: 1.1em;
+  margin-right: 0.5em;
+}
+
 .ast-comment-time .reply {
   margin-right: 0.5em;
 }
@@ -5160,7 +5176,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-separate-container .comments-count-wrapper {
   background-color: #fff;
-  padding: 2em 6.67em 0;
+  padding: 4em 4em;
 }
 
 @media (max-width: 1200px) {
@@ -5194,7 +5210,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-separate-container .ast-comment-list li.depth-1 {
-  padding: 1.125em 6.67em;
+  padding: 1.125em 4em;
 }
 
 @media (max-width: 1200px) {
@@ -5271,7 +5287,6 @@ input[type="color"]::-webkit-color-swatch {
 .ast-separate-container .ast-comment-list .bypostauthor li {
   background: transparent;
   margin-bottom: 0;
-  padding: 0 0 0 2.7em;
 }
 
 @media (max-width: 544px) {
@@ -5286,7 +5301,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-separate-container .comment-respond {
   background-color: #fff;
-  padding: 4.5em 6.67em;
+  padding: 4em 4em;
   border-bottom: 0;
 }
 
@@ -5317,6 +5332,10 @@ input[type="color"]::-webkit-color-swatch {
   padding-right: 20px;
   margin-top: 2em;
   margin-bottom: 2em;
+}
+
+.ast-comment-author {
+  text-transform: capitalize;
 }
 
 /*--------------------------------------------------------------
