@@ -94,14 +94,14 @@
 .ast-edit-link {
     position: absolute;
     top: 0;
-    right: 50px;
+    right: 65px;
     margin-top: 32px;
 }
 
 .ast-comment-avatar-wrap {
     float: left;
     clear: right;
-    margin-right: 2.33333em;
+    margin-right: 1.7em;
     @media (max-width: $mx-col-md) {
         margin-right: 0.5em;
     }
@@ -121,7 +121,7 @@
 
 .ast-comment-content{
     clear: both;
-    margin-left: 7.33333em;
+    margin-left: 6.5em;
 }
 
 .ast-comment-cite-wrap {

@@ -5051,14 +5051,14 @@ input[type="color"]::-webkit-color-swatch {
 .ast-edit-link {
   position: absolute;
   top: 0;
-  right: 50px;
+  right: 65px;
   margin-top: 32px;
 }
 
 .ast-comment-avatar-wrap {
   float: left;
   clear: right;
-  margin-right: 2.33333em;
+  margin-right: 1.7em;
 }
 
 @media (max-width: 768px) {
@@ -5085,7 +5085,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-comment-content {
   clear: both;
-  margin-left: 7.33333em;
+  margin-left: 6.5em;
 }
 
 .ast-comment-cite-wrap {
