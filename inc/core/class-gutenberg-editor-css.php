@@ -87,7 +87,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 
 				'.ast-separate-container .edit-post-visual-editor, .ast-page-builder-template .edit-post-visual-editor, .ast-plain-container .edit-post-visual-editor, .ast-separate-container #wpwrap #editor .edit-post-visual-editor' => astra_get_background_obj( $box_bg_obj ),
-				'.ast-page-builder-template .edit-post-visual-editor .editor-writing-flow, .ast-plain-container .edit-post-visual-editor .editor-writing-flow' => astra_get_background_obj( $box_bg_obj ),
+				'.ast-full-width-layout.ast-page-builder-template .edit-post-visual-editor .editor-writing-flow, .ast-full-width-layout.ast-plain-container .edit-post-visual-editor .editor-writing-flow' => astra_get_background_obj( $box_bg_obj ),
 				'.editor-post-title__block,.editor-default-block-appender,.editor-block-list__block' => array(
 					'max-width' => astra_get_css_value( $site_content_width, 'px' ),
 				),
