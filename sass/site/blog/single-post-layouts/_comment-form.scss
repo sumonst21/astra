@@ -13,6 +13,7 @@
     .comments-title {
         font-weight: normal;
         word-wrap: break-word;
+        font-size: 21px;
     }
 }
 
@@ -39,8 +40,8 @@
         }
     }
     .comment-respond{
-        padding: 1em 0;
         border-bottom: 1px solid $color-border-content;
+        margin-top: 20px;
         .comment-reply-title{
             margin-top:0;
             padding-top:0;
@@ -140,6 +141,10 @@
     padding-top: 1em;
     font-weight: normal;
     line-height: 1.65;
+    #cancel-comment-reply-link {
+        float: right;
+        text-transform: uppercase;
+    }
 }
 
 .ast-comment-meta {
@@ -261,17 +266,14 @@
             &.depth-2 .ast-comment{
                 border-bottom: 0;
             }
+            &.depth-1:last-child {
+                padding-bottom: 2.125em;
+            }
         }
         
         .comment-respond{
-            padding-top: 0;
-            padding-bottom: 0em;
+            padding: 0;
             background-color: transparent;
-            @media (min-width: $col-md) {
-                padding-left: 2.66666em;
-                padding-right: 2.66666em;
-                margin-left: 4.6666em;
-            }
         }
 
         .pingback p{
@@ -306,7 +308,6 @@
     }
     .comment-respond{
         background-color: $color-background-content;
-        padding: 4em 4em;
         border-bottom: 0;
         @media (max-width: $mx-col-xl) {
             padding: 3em 2.34em;
@@ -322,6 +323,10 @@
     .comment-reply-title{
         padding-top:0;
     }
+}
+
+.comment-respond {
+    padding: 0 4em 2.250em 4em;
 }
 
 .ast-page-builder-template{

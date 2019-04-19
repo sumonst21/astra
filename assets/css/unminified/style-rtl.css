@@ -4955,6 +4955,7 @@ input[type="color"]::-webkit-color-swatch {
 .comments-count-wrapper .comments-title {
   font-weight: normal;
   word-wrap: break-word;
+  font-size: 21px;
 }
 
 .ast-comment-list {
@@ -4990,8 +4991,8 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment-list .comment-respond {
-  padding: 1em 0;
   border-bottom: 1px solid #eeeeee;
+  margin-top: 20px;
 }
 
 .ast-comment-list .comment-respond .comment-reply-title {
@@ -5105,6 +5106,11 @@ input[type="color"]::-webkit-color-swatch {
   padding-top: 1em;
   font-weight: normal;
   line-height: 1.65;
+}
+
+.comment-reply-title #cancel-comment-reply-link {
+  float: left;
+  text-transform: uppercase;
 }
 
 .ast-comment-meta {
@@ -5248,18 +5254,13 @@ input[type="color"]::-webkit-color-swatch {
   border-bottom: 0;
 }
 
-.ast-separate-container .ast-comment-list .comment-respond {
-  padding-top: 0;
-  padding-bottom: 0em;
-  background-color: transparent;
+.ast-separate-container .ast-comment-list li.depth-1:last-child {
+  padding-bottom: 2.125em;
 }
 
-@media (min-width: 769px) {
-  .ast-separate-container .ast-comment-list .comment-respond {
-    padding-right: 2.66666em;
-    padding-left: 2.66666em;
-    margin-right: 4.6666em;
-  }
+.ast-separate-container .ast-comment-list .comment-respond {
+  padding: 0;
+  background-color: transparent;
 }
 
 .ast-separate-container .ast-comment-list .pingback p {
@@ -5301,7 +5302,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-separate-container .comment-respond {
   background-color: #fff;
-  padding: 4em 4em;
   border-bottom: 0;
 }
 
@@ -5325,6 +5325,10 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-separate-container .comment-reply-title {
   padding-top: 0;
+}
+
+.comment-respond {
+  padding: 0 4em 2.250em 4em;
 }
 
 .ast-page-builder-template .comments-area {

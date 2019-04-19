@@ -259,7 +259,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_responsive_font( $archive_post_title_font_size, 'desktop' ),
 				),
 				'.comment-reply-title'                    => array(
-					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.66666 ),
+					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.4 ),
 				),
 				'.ast-comment-list #cancel-comment-reply-link' => array(
 					'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
