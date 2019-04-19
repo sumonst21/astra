@@ -18,10 +18,20 @@
 
 
 .ast-comment-list {
-    margin: 0;
+    margin: 0 60px;
     word-wrap: break-word;
     padding-bottom: 0.5em;
     list-style: none;
+    .thread-even,
+    .thread-odd {
+        border: 1px solid #eaeaea;
+        margin: 0 0 35px;
+        border-radius: 5px;
+    }
+    .thread-even:hover,
+    .thread-odd:hover {
+        box-shadow: 0 0 8px 0 rgba(0,0,0,0.1);
+    }
     li {
         list-style: none;
         &.depth-1 .ast-comment,
@@ -30,7 +40,9 @@
         }
     }
     .children {
-        margin-left: 35px;
+        margin-left: 0px;
+        padding-left: 30px;
+        border-left: 1px solid #eaeaea;
         @media (max-width: $mx-col-lg) {
             margin-left: 1em;
         }
@@ -69,8 +81,6 @@
 }
 
 .ast-comment {
-    padding: 2.250em 0 0 0;
-    border-top: 1px solid #eaeaea;
     position: relative;
     p {
         margin-bottom: 0em;
@@ -162,6 +172,7 @@
 .comments-area {
     border-top: 1px solid $color-border-content;
     margin-top: 2em;
+    background-color: $color-background-content;
     @media(max-width: $mx-col-md) {
         margin-top: 1.5em;
     }
@@ -213,7 +224,6 @@
 
 .ast-separate-container{
     .comments-count-wrapper{
-        background-color: $color-background-content;
         padding: 4em 4em;
         @media (max-width: $mx-col-xl) {
             padding: 2em 3.34em;
@@ -231,10 +241,9 @@
     .ast-comment-list{
         padding-bottom: 0;
         li{
-            background-color: $color-background-content;
             &.depth-1{
 
-                padding: 1.125em 4em;
+                padding: 30px;
 
                 @media (max-width: $mx-col-xl) {
                     padding: 3em 3.34em;
@@ -305,7 +314,6 @@
         }
     }
     .comment-respond{
-        background-color: $color-background-content;
         padding: 4em 4em;
         border-bottom: 0;
         @media (max-width: $mx-col-xl) {
