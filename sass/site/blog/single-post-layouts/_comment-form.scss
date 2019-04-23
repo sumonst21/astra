@@ -52,9 +52,11 @@
     }
     #cancel-comment-reply-link{
         white-space: nowrap;
-        font-size: 15px;
-        font-size: 1rem;
         margin-left: 1em;
+        font-size: 11px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
 
     .ast-comment-edit-reply-wrap{
@@ -139,7 +141,6 @@
 
 .comment-reply-title {
     padding-top: 1em;
-    font-weight: normal;
     line-height: 1.65;
     #cancel-comment-reply-link {
         float: right;

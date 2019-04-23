@@ -261,9 +261,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.comment-reply-title'                    => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.4 ),
 				),
-				'.ast-comment-list #cancel-comment-reply-link' => array(
-					'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
-				),
 
 				// Conditionally select the css selectors with or without achors.
 				self::conditional_headings_css_selectors(
@@ -682,9 +679,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'body, button, input, select, textarea' => array(
 					'font-size' => astra_responsive_font( $body_font_size, 'tablet' ),
 				),
-				'.ast-comment-list #cancel-comment-reply-link' => array(
-					'font-size' => astra_responsive_font( $body_font_size, 'tablet' ),
-				),
 				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
 					'font-size' => astra_responsive_font( $body_font_size, 'tablet' ),
 				),
@@ -785,9 +779,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Mobile Typography */
 			$mobile_typography = array(
 				'body, button, input, select, textarea' => array(
-					'font-size' => astra_responsive_font( $body_font_size, 'mobile' ),
-				),
-				'.ast-comment-list #cancel-comment-reply-link' => array(
 					'font-size' => astra_responsive_font( $body_font_size, 'mobile' ),
 				),
 				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
