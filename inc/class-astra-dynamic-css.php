@@ -449,7 +449,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				// Blockquote Text Color.
-				'blockquote, blockquote a'                => array(
+				'blockquote'                              => array(
 					'color' => astra_adjust_brightness( $text_color, 75, 'darken' ),
 				),
 
