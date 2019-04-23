@@ -4825,7 +4825,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .single .post-navigation {
   margin: 0;
-  padding: 2em 0 0;
+  padding: 20px 0 0;
   border-top: 1px solid #eeeeee;
 }
 
@@ -5131,7 +5131,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .comments-area {
   border-top: 1px solid #eeeeee;
-  margin-top: 2em;
+  margin-top: 20px;
   /*  1 - Textarea Styles */
   /*  2 - Input Fields Styles */
   /*  4 - Comment List Styles  */
