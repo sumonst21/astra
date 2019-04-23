@@ -4991,7 +4991,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment-list .comment-respond {
-  margin-top: 40px;
+  margin: 40px 0px 0px 0px;
 }
 
 .ast-comment-list .comment-respond .comment-reply-title {
@@ -5130,6 +5130,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .comments-area {
   border-top: 1px solid #eeeeee;
+  background-color: #fff;
   margin-top: 20px;
   /*  1 - Textarea Styles */
   /*  2 - Input Fields Styles */
@@ -5328,8 +5329,9 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .comment-respond {
-  padding: 2.25em 4em 4em 4em;
+  padding: 2.25em 0em 4em 0em;
   border-top: 1px solid #eaeaea;
+  margin: 0em 4em 0em 4em;
 }
 
 .ast-page-builder-template .comments-area {
