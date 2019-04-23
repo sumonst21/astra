@@ -5166,7 +5166,7 @@ input[type="color"]::-webkit-color-swatch {
   width: 100%;
   border-radius: 0;
   vertical-align: middle;
-  margin-bottom: 10px;
+  margin-bottom: 1em;
 }
 
 .comments-area .no-comments {
@@ -5330,7 +5330,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .comment-respond {
-  padding: 0 4em 4em 4em;
+  padding: 2.5em 4em 4em 4em;
 }
 
 .ast-page-builder-template .comments-area {
