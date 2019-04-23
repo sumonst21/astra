@@ -5329,7 +5329,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .comment-respond {
-  padding: 0 4em 2.250em 4em;
+  padding: 0 4em 4em 4em;
 }
 
 .ast-page-builder-template .comments-area {
