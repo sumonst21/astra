@@ -4992,7 +4992,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-comment-list .comment-respond {
   border-bottom: 1px solid #eeeeee;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .ast-comment-list .comment-respond .comment-reply-title {
@@ -5154,7 +5154,7 @@ input[type="color"]::-webkit-color-swatch {
 .comments-area .comment-notes,
 .comments-area .comment-textarea,
 .comments-area .form-allowed-tags {
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 
 .comments-area .form-submit {
@@ -5166,7 +5166,6 @@ input[type="color"]::-webkit-color-swatch {
   width: 100%;
   border-radius: 0;
   vertical-align: middle;
-  margin-bottom: 1em;
 }
 
 .comments-area .no-comments {
@@ -5257,7 +5256,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-separate-container .ast-comment-list li.depth-1:last-child {
-  padding-bottom: 2.125em;
+  padding-bottom: 4em;
 }
 
 .ast-separate-container .ast-comment-list .comment-respond {
@@ -5330,7 +5329,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .comment-respond {
-  padding: 2.5em 4em 4em 4em;
+  padding: 0 4em 4em 4em;
 }
 
 .ast-page-builder-template .comments-area {
