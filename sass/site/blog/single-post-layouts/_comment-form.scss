@@ -40,7 +40,7 @@
         }
     }
     .comment-respond{
-        margin: 40px 0px 0px 0px;
+        margin: 36px 0px 0px 0px;
         .comment-reply-title{
             margin-top:0;
             padding-top:0;
@@ -125,7 +125,8 @@
 
 .ast-comment-cite-wrap {
     text-align: left;
-    font-size: 1.3em;
+    font-size: 1.1em;
+    margin-bottom: 4px;
     cite {
         font-style: normal;
 
@@ -153,8 +154,7 @@
 .ast-comment-time {
 
     .timendate {
-        text-transform: initial;
-        font-size: 1.1em;
+        font-size: 1em;
         margin-right: 0.5em;
     }
     .reply {
@@ -344,8 +344,4 @@
     margin-top: 2em;
     margin-bottom: 2em;
   }
-}
-
-.ast-comment-author {
-    text-transform: capitalize;
 }

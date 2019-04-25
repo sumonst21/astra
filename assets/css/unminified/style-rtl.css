@@ -4991,7 +4991,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment-list .comment-respond {
-  margin: 40px 0px 0px 0px;
+  margin: 36px 0px 0px 0px;
 }
 
 .ast-comment-list .comment-respond .comment-reply-title {
@@ -5088,7 +5088,8 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-comment-cite-wrap {
   text-align: right;
-  font-size: 1.3em;
+  font-size: 1.1em;
+  margin-bottom: 4px;
 }
 
 .ast-comment-cite-wrap cite {
@@ -5115,8 +5116,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment-time .timendate {
-  text-transform: initial;
-  font-size: 1.1em;
+  font-size: 1em;
   margin-left: 0.5em;
 }
 
@@ -5343,10 +5343,6 @@ input[type="color"]::-webkit-color-swatch {
   padding-left: 20px;
   margin-top: 2em;
   margin-bottom: 2em;
-}
-
-.ast-comment-author {
-  text-transform: capitalize;
 }
 
 /*--------------------------------------------------------------
