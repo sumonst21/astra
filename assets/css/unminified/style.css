@@ -5334,6 +5334,11 @@ input[type="color"]::-webkit-color-swatch {
   margin: 0em 4em 0em 4em;
 }
 
+.comment-form-textarea {
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
 .ast-page-builder-template .comments-area {
   padding-left: 20px;
   padding-right: 20px;
