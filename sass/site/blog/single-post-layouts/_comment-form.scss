@@ -332,7 +332,10 @@
     margin: 0em 4em 0em 4em;
 }
 
-.comment-form-textarea {
+.comment-form-textarea,
+.comment-form-author,
+.comment-form-email,
+.comment-form-url {
     padding-right: 12px;
     padding-left: 12px;
 }
