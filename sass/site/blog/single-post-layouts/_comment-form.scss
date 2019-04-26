@@ -9,7 +9,7 @@
 */
 
 .comments-count-wrapper{
-    padding: 4em 4em;
+    padding: 4em 4em 1em 4em;
     .comments-title {
         font-weight: normal;
         word-wrap: break-word;
@@ -25,10 +25,6 @@
     list-style: none;
     li {
         list-style: none;
-        &.depth-1 .ast-comment,
-        &.depth-2 .ast-comment{
-            border-bottom: 1px solid $color-border-content;
-        }
     }
     .children {
         margin-left: 35px;
@@ -317,6 +313,20 @@
         @media (max-width: $mx-col-sm) {
             padding: 1.5em 1em;
         }
+    }
+    .comment-reply-title{
+        padding-top:0;
+    }
+}
+
+.ast-plain-container {
+    .children {
+        .ast-comment {
+            margin: 2.250em 0 0 0;
+        }
+    }
+    .depth-1 {
+        padding: 1.125em 4em;
     }
     .comment-reply-title{
         padding-top:0;

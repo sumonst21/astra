@@ -4949,7 +4949,7 @@ input[type="color"]::-webkit-color-swatch {
  *  4 - Comment List Styles
 */
 .comments-count-wrapper {
-  padding: 4em 4em;
+  padding: 4em 4em 1em 4em;
 }
 
 .comments-count-wrapper .comments-title {
@@ -4967,11 +4967,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-comment-list li {
   list-style: none;
-}
-
-.ast-comment-list li.depth-1 .ast-comment,
-.ast-comment-list li.depth-2 .ast-comment {
-  border-bottom: 1px solid #eeeeee;
 }
 
 .ast-comment-list .children {
@@ -5321,6 +5316,18 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-separate-container .comment-reply-title {
+  padding-top: 0;
+}
+
+.ast-plain-container .children .ast-comment {
+  margin: 2.250em 0 0 0;
+}
+
+.ast-plain-container .depth-1 {
+  padding: 1.125em 4em;
+}
+
+.ast-plain-container .comment-reply-title {
   padding-top: 0;
 }
 
