@@ -4961,7 +4961,6 @@ input[type="color"]::-webkit-color-swatch {
 .ast-comment-list {
   margin: 0;
   word-wrap: break-word;
-  padding-bottom: 0.5em;
   list-style: none;
 }
 
@@ -5199,10 +5198,6 @@ input[type="color"]::-webkit-color-swatch {
   border-top: 0;
 }
 
-.ast-separate-container .ast-comment-list {
-  padding-bottom: 0;
-}
-
 .ast-separate-container .ast-comment-list li {
   background-color: #fff;
 }
@@ -5329,6 +5324,14 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-plain-container .comment-reply-title {
   padding-top: 0;
+}
+
+.ast-plain-container .depth-1:last-child {
+  padding-bottom: 4em;
+}
+
+.ast-plain-container .ast-comment-list .comment-respond {
+  padding: 2.25em 0 0 0;
 }
 
 .comment-respond {
