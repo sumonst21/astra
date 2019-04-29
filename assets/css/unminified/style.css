@@ -2143,6 +2143,11 @@ body {
   margin-bottom: 0;
 }
 
+.ast-article-post,
+.ast-article-single {
+  padding: 4em;
+}
+
 .ast-separate-container {
   background-color: #f5f5f5;
 }
@@ -2162,7 +2167,6 @@ body {
 .ast-separate-container .ast-article-single {
   background-color: #fff;
   margin: 0;
-  padding: 4em;
 }
 
 .ast-separate-container .blog-layout-1 {
@@ -4825,7 +4829,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .single .post-navigation {
   margin: 0;
-  padding: 20px 0 0;
+  padding: 1.25em 3.33333em 0 3.33333em;
   border-top: 1px solid #eeeeee;
 }
 

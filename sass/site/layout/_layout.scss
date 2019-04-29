@@ -41,6 +41,11 @@ body{
 	}
 }
 
+.ast-article-post,
+.ast-article-single{
+	padding: 4em;
+}
+
 //separate container content layout
 .ast-separate-container{
 	background-color: $color-background-sep-content-body;
@@ -57,7 +62,6 @@ body{
 	.ast-article-single{
 		background-color: $color-background-content;
 		margin: 0;
-		padding: 4em;
 	}
 	.blog-layout-1{
         padding: 0;
