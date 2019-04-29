@@ -5156,6 +5156,7 @@ input[type="color"]::-webkit-color-swatch {
   width: 100%;
   border-radius: 0;
   vertical-align: middle;
+  background-color: #ffffff;
 }
 
 .comments-area .no-comments {
