@@ -4953,7 +4953,7 @@ input[type="color"]::-webkit-color-swatch {
  *  4 - Comment List Styles
 */
 .comments-count-wrapper {
-  padding: 4em 4em 1em 4em;
+  padding: 0 0 1em 0;
 }
 
 .comments-count-wrapper .comments-title {
@@ -5129,6 +5129,7 @@ input[type="color"]::-webkit-color-swatch {
 .comments-area {
   border-top: 1px solid #eeeeee;
   margin-top: 20px;
+  padding: 4em;
   /*  1 - Textarea Styles */
   /*  2 - Input Fields Styles */
   /*  4 - Comment List Styles  */
@@ -5181,7 +5182,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-separate-container .comments-count-wrapper {
   background-color: #fff;
-  padding: 4em 4em 1em 4em;
 }
 
 @media (max-width: 1200px) {
@@ -5211,7 +5211,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-separate-container .ast-comment-list li.depth-1 {
-  padding: 1.125em 4em;
+  padding: 1.125em 0em;
 }
 
 @media (max-width: 1200px) {
@@ -5250,7 +5250,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-separate-container .ast-comment-list li.depth-1:last-child {
-  padding-bottom: 4em;
+  padding-bottom: 0em;
 }
 
 .ast-separate-container .ast-comment-list .comment-respond {
@@ -5327,7 +5327,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-plain-container .depth-1 {
-  padding: 1.125em 4em;
+  padding: 1.125em 0em;
 }
 
 .ast-plain-container .comment-reply-title {
@@ -5343,9 +5343,9 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .comment-respond {
-  padding: 2.25em 0em 4em 0em;
+  padding: 2.25em 0em 0em 0em;
   border-top: 1px solid #eaeaea;
-  margin: 0em 4em 0em 4em;
+  margin-top: 2.25em;
 }
 
 .comment-form-textarea,
