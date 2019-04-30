@@ -336,12 +336,15 @@
         padding-top:0;
     }
     .depth-1:last-child {
-        padding-bottom: 4em;
+        padding-bottom: 0em;
     }
     .ast-comment-list {
         .comment-respond {
             padding: 2.25em 0 0 0;
         }
+    }
+    .comments-area {
+        padding: 4em 0em 0em 0em;
     }
 }
 

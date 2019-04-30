@@ -2145,7 +2145,7 @@ body {
 
 .ast-article-post,
 .ast-article-single {
-  padding: 4em;
+  padding-bottom: 4em;
 }
 
 .ast-separate-container {
@@ -2167,6 +2167,7 @@ body {
 .ast-separate-container .ast-article-single {
   background-color: #fff;
   margin: 0;
+  padding: 4em;
 }
 
 .ast-separate-container .blog-layout-1 {
@@ -5335,11 +5336,15 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-plain-container .depth-1:last-child {
-  padding-bottom: 4em;
+  padding-bottom: 0em;
 }
 
 .ast-plain-container .ast-comment-list .comment-respond {
   padding: 2.25em 0 0 0;
+}
+
+.ast-plain-container .comments-area {
+  padding: 4em 0em 0em 0em;
 }
 
 .comment-respond {
