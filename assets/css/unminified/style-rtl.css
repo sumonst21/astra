@@ -4834,6 +4834,12 @@ input[type="color"]::-webkit-color-swatch {
   border-top: 1px solid #eeeeee;
 }
 
+@media (max-width: 1200px) {
+  .single .post-navigation {
+    padding: 1.25em 0 0 0;
+  }
+}
+
 @media (max-width: 768px) {
   .single .post-navigation {
     padding-top: 1.5em;
