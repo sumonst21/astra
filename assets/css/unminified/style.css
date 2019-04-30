@@ -4926,6 +4926,13 @@ input[type="color"]::-webkit-color-swatch {
   padding-right: 3.33333em;
 }
 
+@media (max-width: 1200px) {
+  .ast-separate-container .post-navigation {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 @media (max-width: 420px) {
   .ast-separate-container .post-navigation {
     padding-left: 0;
@@ -5137,6 +5144,12 @@ input[type="color"]::-webkit-color-swatch {
   /* Comment Cookie concent field aignment */
 }
 
+@media (max-width: 1200px) {
+  .comments-area {
+    padding: 3.34em 2.4em;
+  }
+}
+
 @media (max-width: 768px) {
   .comments-area {
     margin-top: 1.5em;
@@ -5187,7 +5200,7 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 1200px) {
   .ast-separate-container .comments-count-wrapper {
-    padding: 2em 3.34em;
+    padding: 0 0 1em 0;
   }
 }
 
@@ -5217,7 +5230,7 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 1200px) {
   .ast-separate-container .ast-comment-list li.depth-1 {
-    padding: 3em 3.34em;
+    padding: 1.125em 0em;
   }
 }
 
@@ -5299,12 +5312,6 @@ input[type="color"]::-webkit-color-swatch {
 .ast-separate-container .comment-respond {
   background-color: #fff;
   border-bottom: 0;
-}
-
-@media (max-width: 1200px) {
-  .ast-separate-container .comment-respond {
-    padding: 3em 2.34em;
-  }
 }
 
 @media (max-width: 768px) {

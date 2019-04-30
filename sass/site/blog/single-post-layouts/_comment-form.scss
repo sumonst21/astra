@@ -167,6 +167,9 @@
     border-top: 1px solid $color-border-content;
     margin-top: 20px;
     padding: 4em;
+    @media(max-width: $mx-col-xl) {
+        padding: 3.34em 2.4em;
+    }
     @media(max-width: $mx-col-md) {
         margin-top: 1.5em;
     }
@@ -220,7 +223,7 @@
     .comments-count-wrapper{
         background-color: $color-background-content;
         @media (max-width: $mx-col-xl) {
-            padding: 2em 3.34em;
+            padding: 0 0 1em 0;
         }
         @media (max-width: $mx-col-md) {
             padding: 2em 2.14em;
@@ -240,7 +243,7 @@
                 padding: 1.125em 0em;
 
                 @media (max-width: $mx-col-xl) {
-                    padding: 3em 3.34em;
+                    padding: 1.125em 0em;
                 }
                 @media (max-width: $mx-col-md) {
                     padding: 1.5em 2.14em;
@@ -307,9 +310,6 @@
     .comment-respond{
         background-color: $color-background-content;
         border-bottom: 0;
-        @media (max-width: $mx-col-xl) {
-            padding: 3em 2.34em;
-        }
         @media (max-width: $mx-col-md) {
             padding: 2em 2.14em;
         }
