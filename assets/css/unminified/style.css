@@ -5092,6 +5092,12 @@ input[type="color"]::-webkit-color-swatch {
   margin-left: 6.5em;
 }
 
+@media (max-width: 768px) {
+  .ast-comment-content {
+    margin-left: 3em;
+  }
+}
+
 .ast-comment-cite-wrap {
   text-align: left;
   font-size: 1.1em;
@@ -5152,7 +5158,13 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 768px) {
   .comments-area {
-    margin-top: 1.5em;
+    padding: 1.5em 2.14em;
+  }
+}
+
+@media (max-width: 544px) {
+  .comments-area {
+    padding: 1.5em 1em;
   }
 }
 
@@ -5198,24 +5210,6 @@ input[type="color"]::-webkit-color-swatch {
   background-color: #fff;
 }
 
-@media (max-width: 1200px) {
-  .ast-separate-container .comments-count-wrapper {
-    padding: 0 0 1em 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .ast-separate-container .comments-count-wrapper {
-    padding: 2em 2.14em;
-  }
-}
-
-@media (max-width: 544px) {
-  .ast-separate-container .comments-count-wrapper {
-    padding: 1.5em 1em;
-  }
-}
-
 .ast-separate-container .comments-area {
   border-top: 0;
 }
@@ -5226,25 +5220,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-separate-container .ast-comment-list li.depth-1 {
   padding: 1.125em 0em;
-}
-
-@media (max-width: 1200px) {
-  .ast-separate-container .ast-comment-list li.depth-1 {
-    padding: 1.125em 0em;
-  }
-}
-
-@media (max-width: 768px) {
-  .ast-separate-container .ast-comment-list li.depth-1 {
-    padding: 1.5em 2.14em;
-  }
-}
-
-@media (max-width: 544px) {
-  .ast-separate-container .ast-comment-list li.depth-1 {
-    padding: 1.5em 1em;
-    margin-bottom: 1.5em;
-  }
 }
 
 .ast-separate-container .ast-comment-list li.depth-1 .ast-comment {
@@ -5312,18 +5287,6 @@ input[type="color"]::-webkit-color-swatch {
 .ast-separate-container .comment-respond {
   background-color: #fff;
   border-bottom: 0;
-}
-
-@media (max-width: 768px) {
-  .ast-separate-container .comment-respond {
-    padding: 2em 2.14em;
-  }
-}
-
-@media (max-width: 544px) {
-  .ast-separate-container .comment-respond {
-    padding: 1.5em 1em;
-  }
 }
 
 .ast-separate-container .comment-reply-title {

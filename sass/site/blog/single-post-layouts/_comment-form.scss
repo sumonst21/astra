@@ -116,6 +116,9 @@
 .ast-comment-content{
     clear: both;
     margin-left: 6.5em;
+    @media (max-width: $mx-col-md) {
+        margin-left: 3em;
+    }
 }
 
 .ast-comment-cite-wrap {
@@ -171,7 +174,10 @@
         padding: 3.34em 2.4em;
     }
     @media(max-width: $mx-col-md) {
-        margin-top: 1.5em;
+        padding: 1.5em 2.14em;
+    }
+    @media(max-width: $mx-col-sm) {
+        padding: 1.5em 1em;
     }
     
     /*  1 - Textarea Styles */
@@ -222,15 +228,6 @@
 .ast-separate-container{
     .comments-count-wrapper{
         background-color: $color-background-content;
-        @media (max-width: $mx-col-xl) {
-            padding: 0 0 1em 0;
-        }
-        @media (max-width: $mx-col-md) {
-            padding: 2em 2.14em;
-        }
-        @media (max-width: $mx-col-sm) {
-            padding: 1.5em 1em;
-        }
     }
     .comments-area {
         border-top: 0;
@@ -241,18 +238,6 @@
             &.depth-1{
 
                 padding: 1.125em 0em;
-
-                @media (max-width: $mx-col-xl) {
-                    padding: 1.125em 0em;
-                }
-                @media (max-width: $mx-col-md) {
-                    padding: 1.5em 2.14em;
-                }
-
-                @media (max-width: $mx-col-sm) {
-                    padding: 1.5em 1em;
-                    margin-bottom: 1.5em;
-                }
                 .ast-comment{
                     border-bottom: 0;
                 }
@@ -310,13 +295,6 @@
     .comment-respond{
         background-color: $color-background-content;
         border-bottom: 0;
-        @media (max-width: $mx-col-md) {
-            padding: 2em 2.14em;
-        }
-
-        @media (max-width: $mx-col-sm) {
-            padding: 1.5em 1em;
-        }
     }
     .comment-reply-title{
         padding-top:0;
