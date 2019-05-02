@@ -1242,9 +1242,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'box-shadow'   => 'none',
 						'border-color' => '#eaeaea',
 					),
+					'.comments-area .comment-form-textarea textarea:focus, .comments-area .comment-form-author input[type="text"]:focus, .comments-area .comment-form-email input[type="text"]:focus, .comments-area .comment-form-url input[type="text"]:focus' => array(
+						'outline-width' => 'initial',
+					),
 				);
 
 				$parse_css .= astra_parse_css( $old_blog_design );
+
+				$old_blog_design_responsive = array(
+					'.ast-right-sidebar .ast-container #secondary' => array(
+						'padding-left' => '60px',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $old_blog_design_responsive, '993' );
 
 			} else {
 
