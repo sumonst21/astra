@@ -1235,10 +1235,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-bottom' => '0',
 					),
 					'.ast-container .comments-area textarea#comment, .ast-container .comments-area .ast-comment-formwrap input[type="text"]' => array(
-						'margin-bottom' => '10px',
+						'margin-bottom'    => '10px',
+						'background-color' => '#fafafa',
 					),
-					'.comments-area input[type="text"], .comments-area input[type="number"], .comments-area input[type="email"], .comments-area input[type="url"], .comments-area input[type="password"], .comments-area input[type="search"], .comments-area input[type=reset], .comments-area input[type=tel], .comments-area select, .comments-area textarea' => array(
-						'background-color' => '#fff',
+					'.comments-area .comment-form-textarea textarea, .comments-area .comment-form-author input[type="text"], .comments-area .comment-form-email input[type="text"], .comments-area .comment-form-url input[type="text"]' => array (
+						'box-shadow'   => 'none',
+						'border-color' => '#eaeaea',
 					),
 				);
 
