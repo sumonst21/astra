@@ -4973,7 +4973,6 @@ input[type="color"]::-webkit-color-swatch {
 .comments-count-wrapper .comments-title {
   font-weight: normal;
   word-wrap: break-word;
-  font-size: 21px;
 }
 
 .ast-comment-list {
