@@ -1174,7 +1174,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.single .ast-container .post-navigation' => array(
 						'padding' => '2em 3.33333em 0 3.33333em',
 					),
-					'.ast-container .comments-area' => array(
+					'.ast-separate-container .ast-container .comments-area' => array(
 						'margin-top' => '2em',
 						'padding'    => '0',
 					),
@@ -1284,6 +1284,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-plain-container.single .ast-container .post-navigation' => array(
 						'padding' => '2em 0 0',
+					),
+					'.ast-plain-container .ast-container .comments-area' => array(
+						'padding'    => '2em 0',
+						'margin-top' => '2em',
 					),
 				);
 
