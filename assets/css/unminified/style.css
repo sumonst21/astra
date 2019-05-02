@@ -5040,10 +5040,6 @@ input[type="color"]::-webkit-color-swatch {
   position: relative;
 }
 
-.ast-comment p {
-  margin-bottom: 0em;
-}
-
 .ast-reply-link {
   position: absolute;
   top: 0;

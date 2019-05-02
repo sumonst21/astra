@@ -62,6 +62,12 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
+			// echo $saved_version;
+			if ( version_compare( $saved_version, '1.8.0', '>' ) ) {
+				// echo 'working';
+				self::v_2_0_0();
+				return;
+			}
 
 			if ( false === $saved_version ) {
 
@@ -193,6 +199,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			if ( version_compare( $saved_version, '1.6.1-alpha.3', '<' ) ) {
 				self::v_1_6_1();
+			}
+
+			if ( version_compare( $saved_version, '1.8.0', '<' ) ) {
+				self::v_2_0_0();
 			}
 
 			// Not have stored?
@@ -850,6 +860,23 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			// Set flag to use anchors CSS selectors in the CSS for headings.
 			if ( ! isset( $theme_options['submenu-below-header'] ) ) {
 				$theme_options['submenu-below-header'] = false;
+				update_option( 'astra-settings', $theme_options );
+			}
+		}
+
+		/**
+		 * Set flag 'new-blog-design' to false to load fallback CSS to force menu load right after the container cropping logo and header.
+		 *
+		 * @see https://github.com/brainstormforce/astra/pull/820/
+		 *
+		 * @return void
+		 */
+		public static function v_2_0_0() {
+			$theme_options = get_option( 'astra-settings' );
+
+			// Set flag to use anchors CSS selectors in the CSS for headings.
+			if ( ! isset( $theme_options['new-blog-design'] ) ) {
+				$theme_options['new-blog-design'] = false;
 				update_option( 'astra-settings', $theme_options );
 			}
 		}

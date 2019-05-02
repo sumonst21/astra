@@ -1158,6 +1158,96 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			endif;
 
+			if ( false === self::astra_single_blog_new_design() ) {
+				// Loading the below CSS to override the new design of Single Blog and keeping the design of old blog using backwards compatibility.
+				$old_blog_design = array(
+					'.ast-separate-container .ast-container .comments-area' => array(
+						'background-color' => 'transparent',
+					),
+					'.ast-separate-container .ast-container .ast-article-post, .ast-separate-container .ast-container .ast-article-single' => array(
+						'padding' => '5.34em 6.67em',
+					),
+					'.single .ast-container .post-navigation' => array(
+						'padding' => '2em 3.33333em 0 3.33333em',
+					),
+					'.ast-container .comments-area' => array(
+						'margin-top' => '2em',
+						'padding'    => '0',
+					),
+					'.ast-separate-container .comments-count-wrapper' => array(
+						'padding' => '2em 6.67em 0',
+					),
+					'.ast-separate-container .ast-container .ast-comment-list li.depth-1' => array(
+						'padding'       => '4em 6.67em',
+						'margin-bottom' => '2em',
+					),
+					'.ast-container .ast-comment-content' => array(
+						'margin-left' => '0',
+					),
+					'.ast-container .ast-comment' => array(
+						'padding'    => '1em 0',
+						'border-top' => 'none',
+					),
+					'.ast-container .ast-comment-list .children' => array(
+						'margin-left' => '2em',
+					),
+					'.ast-separate-container .ast-container .ast-comment-list li.depth-1 .children li' => array(
+						'margin-top' => '0',
+						'padding'    => '0 0 0 2em',
+					),
+					'.ast-separate-container .ast-container .ast-comment-list .bypostauthor .children .ast-comment' => array(
+						'margin' => '0',
+					),
+					'.ast-comment-list .ast-comment-avatar-wrap' => array(
+						'margin-right' => '1.33333em',
+					),
+					'.ast-container .ast-comment-list .ast-edit-link, .ast-comment-list .ast-reply-link' => array(
+						'position'   => 'unset',
+						'margin-top' => '0',
+					),
+					'.ast-comment-cite-wrap cite b' => array(
+						'font-weight' => 'bold',
+					),
+					'.ast-comment-list .ast-comment-cite-wrap' => array(
+						'font-size' => 'inherit',
+					),
+					'.ast-comment-list .ast-comment-cite-wrap' => array(
+						'font-size'     => 'inherit',
+						'margin-bottom' => '0',
+					),
+					'.ast-comment-list .ast-comment-time .timendate, .ast-comment-list .ast-comment-time .reply' => array(
+						'font-size'    => 'inherit',
+						'margin-right' => '0.5em',
+					),
+					'.ast-comment-list .ast-comment-edit-reply-wrap' => array(
+						'font-size'      => 'inherit',
+						'font-weight'    => 'inherit',
+						'text-transform' => 'inherit',
+						'letter-spacing' => 'inherit',
+					),
+					'.ast-container .comment-respond' => array(
+						'padding'    => '4em 6.67em',
+						'border-top' => 'none',
+						'margin-top' => '0',
+					),
+					'.ast-container .comment-reply-title' => array(
+						'font-size'     => '24px',
+						'margin-bottom' => '0',
+					),
+					'.ast-container .comments-area textarea#comment, .ast-container .comments-area .ast-comment-formwrap input[type="text"]' => array(
+						'margin-bottom' => '10px',
+					),
+					'.comments-area input[type="text"], .comments-area input[type="number"], .comments-area input[type="email"], .comments-area input[type="url"], .comments-area input[type="password"], .comments-area input[type="search"], .comments-area input[type=reset], .comments-area input[type=tel], .comments-area select, .comments-area textarea' => array(
+						'background-color' => '#fff',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $old_blog_design );
+
+			} else {
+
+			}
+
 			$dynamic_css = $parse_css;
 			if ( false != $return_css ) {
 				return $dynamic_css;
@@ -1225,6 +1315,28 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( false == astra_get_option( 'submenu-below-header', true ) &&
 				false === apply_filters(
 					'astra_submenu_below_header_fix',
+					false
+				) ) {
+
+					return false;
+			} else {
+
+				return true;
+			}
+
+		}
+
+		/**
+		 * Check backwards compatibility CSS for loading new single blog design.
+		 *
+		 * @since x.x.x
+		 * @return boolean true if CSS should be included, False if not.
+		 */
+		public static function astra_single_blog_new_design() {
+
+			if ( false == astra_get_option( 'new-blog-design', true ) &&
+				false === apply_filters(
+					'astra_single_blog_new_design',
 					false
 				) ) {
 
