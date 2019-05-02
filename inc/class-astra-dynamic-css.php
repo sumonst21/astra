@@ -1160,6 +1160,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( false === self::astra_single_blog_new_design() ) {
 				// Loading the below CSS to override the new design of Single Blog and keeping the design of old blog using backwards compatibility.
+
+				/**
+				 * Boxed & Content Boxed CSS.
+				 */
 				$old_blog_design = array(
 					'.ast-separate-container .ast-container .comments-area' => array(
 						'background-color' => 'transparent',
@@ -1268,10 +1272,38 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$parse_css .= astra_parse_css( $sidebar_boxed, '769' );
 
+				/**
+				 * Full Width / Contained & Full Width Stretched CSS.
+				 */
+				$full_width_css = array(
+					'.ast-separate-container.ast-two-container.ast-right-sidebar .ast-container #secondary' => array(
+						'padding-left' => '30px',
+					),
+					'.ast-separate-container.ast-two-container .ast-container #secondary .widget' => array(
+						'margin-bottom' => '2em',
+					),
+					'.ast-plain-container.single .ast-container .post-navigation' => array(
+						'padding' => '2em 0 0',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $full_width_css );
+
+				$sidebar_full_width = array(
+					'.ast-right-sidebar .ast-container #primary' => array(
+						'padding-right' => '60px',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $sidebar_full_width, '993' );
+
 			} else {
 				$old_blog_design = array(
 					'.comments-title' => array(
 						'font-size' => '21px',
+					),
+					'.ast-article-post, .ast-article-single' => array(
+						'padding-bottom' => '4em',
 					),
 				);
 
