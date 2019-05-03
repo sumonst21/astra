@@ -647,10 +647,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-right' => 'auto',
 					),
 				);
+				/* Parse CSS from array()*/
+				$parse_css .= astra_parse_css( $page_builder_comment, '545' );
 			}
 
-			/* Parse CSS from array()*/
-			$parse_css .= astra_parse_css( $page_builder_comment, '545' );
 
 			$separate_container_css = array(
 				'body, .ast-separate-container' => astra_get_background_obj( $box_bg_obj ),
