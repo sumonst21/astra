@@ -1286,8 +1286,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'padding' => '2em 0 0',
 					),
 					'.ast-plain-container .ast-container .comments-area' => array(
-						'padding'    => '2em 0',
 						'margin-top' => '2em',
+						'padding'    => '0',
+					),
+					'.ast-plain-container .comments-count-wrapper' => array(
+						'padding' => '2em 0',
+					),
+					'.ast-plain-container .ast-container .depth-1' => array(
+						'padding' => '0',
 					),
 				);
 
