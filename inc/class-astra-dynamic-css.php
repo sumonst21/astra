@@ -638,9 +638,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $genral_global_responsive, '769' );
 			}
 
-			/* Parse CSS from array()*/
-			// $parse_css .= astra_parse_css( $page_builder_comment, '545' );
-
 			$separate_container_css = array(
 				'body, .ast-separate-container' => astra_get_background_obj( $box_bg_obj ),
 			);
