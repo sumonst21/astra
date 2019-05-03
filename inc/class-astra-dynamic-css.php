@@ -1326,14 +1326,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 * Full Width / Stretched CSS.
 				 */
 				$full_width_stretched_css = array(
-					'.single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation' => array(
+					'.single.ast-page-builder-template .post-navigation' => array(
 						'padding' => '2em 0',
 					),
 					'.ast-page-builder-template .comments-area' => array(
 						'margin-top'    => '2em',
 						'margin-bottom' => '2em',
 					),
-					'.ast-page-builder-template .ast-container .comments-area' => array(
+					'.ast-page-builder-template .ast-container .comments-area, .single.ast-page-builder-template .entry-header' => array(
 						'padding' => '0 20px 0 20px',
 					),
 					'.ast-page-builder-template .comments-count-wrapper' => array(
@@ -1358,6 +1358,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 
 				$parse_css .= astra_parse_css( $full_width_stretched_css );
+
+				$post_navigation = array(
+					'.ast-page-builder-template.single .post-navigation' => array(
+						'padding-top' => '1.5em',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $post_navigation, '768' );
 
 			} else {
 				$old_blog_design = array(
