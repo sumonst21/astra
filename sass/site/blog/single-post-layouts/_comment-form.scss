@@ -301,7 +301,8 @@
     }
 }
 
-.ast-plain-container {
+.ast-plain-container,
+.ast-page-builder-template {
     .children {
         .ast-comment {
             margin: 2.250em 0 0 0;
@@ -338,15 +339,6 @@
 .comment-form-url {
     padding-right: 20px;
     padding-left: 20px;
-}
-
-.ast-page-builder-template{
-  .comments-area{
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 2em;
-    margin-bottom: 2em;
-  }
 }
 
 .comment-form-textarea textarea,
