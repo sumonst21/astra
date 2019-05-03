@@ -1295,6 +1295,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-plain-container .ast-container .depth-1' => array(
 						'padding' => '0',
 					),
+					'.ast-plain-container .ast-container .ast-comment' => array(
+						'border-bottom' => '1px solid rgb(238, 238, 238)',
+					),
+					'.ast-plain-container .ast-container .children .ast-comment' => array(
+						'margin' => '0',
+					),
+					'.ast-plain-container .ast-container .comment-respond' => array(
+						'padding' => '0',
+					),
+					'.ast-plain-container .ast-comment-list' => array(
+						'padding-bottom' => '0.5em',
+					),
+					'.ast-plain-container .comment-reply-title' => array(
+						'padding-top' => '1em',
+					),
 				);
 
 				$parse_css .= astra_parse_css( $full_width_css );
