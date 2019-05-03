@@ -62,9 +62,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			// Get auto saved version number.
 			$saved_version = astra_get_option( 'theme-auto-version', false );
-			// echo $saved_version;
+
 			if ( version_compare( $saved_version, '1.8.0', '>' ) ) {
-				// echo 'working';
 				self::v_2_0_0();
 				return;
 			}

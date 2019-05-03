@@ -651,7 +651,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $page_builder_comment, '545' );
 			}
 
-
 			$separate_container_css = array(
 				'body, .ast-separate-container' => astra_get_background_obj( $box_bg_obj ),
 			);
@@ -1188,7 +1187,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-container .ast-comment-content' => array(
 						'margin-left' => '0',
 					),
-					'.ast-container .ast-comment' => array(
+					'.ast-container .ast-comment'         => array(
 						'padding'    => '1em 0',
 						'border-top' => 'none',
 					),
@@ -1209,7 +1208,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'position'   => 'unset',
 						'margin-top' => '0',
 					),
-					'.ast-comment-cite-wrap cite b' => array(
+					'.ast-comment-cite-wrap cite b'       => array(
 						'font-weight' => 'bold',
 					),
 					'.ast-comment-list .ast-comment-cite-wrap' => array(
@@ -1229,7 +1228,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'text-transform' => 'inherit',
 						'letter-spacing' => 'inherit',
 					),
-					'.ast-container .comment-respond' => array(
+					'.ast-container .comment-respond'     => array(
 						'padding'    => '4em 6.67em',
 						'border-top' => 'none',
 						'margin-top' => '0',
@@ -1242,7 +1241,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-bottom'    => '10px',
 						'background-color' => '#fafafa',
 					),
-					'.comments-area .comment-form-textarea textarea, .comments-area .comment-form-author input[type="text"], .comments-area .comment-form-email input[type="text"], .comments-area .comment-form-url input[type="text"]' => array (
+					'.comments-area .comment-form-textarea textarea, .comments-area .comment-form-author input[type="text"], .comments-area .comment-form-email input[type="text"], .comments-area .comment-form-url input[type="text"]' => array(
 						'box-shadow'   => 'none',
 						'border-color' => '#eaeaea',
 					),
