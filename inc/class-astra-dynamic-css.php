@@ -1359,14 +1359,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$parse_css .= astra_parse_css( $full_width_stretched_css );
 
-				$post_navigation = array(
-					'.ast-page-builder-template.single .post-navigation' => array(
-						'padding-top' => '1.5em',
-					),
-				);
-
-				$parse_css .= astra_parse_css( $post_navigation, '768' );
-
 			} else {
 				$old_blog_design = array(
 					'.comments-title' => array(
