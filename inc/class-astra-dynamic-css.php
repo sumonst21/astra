@@ -1167,16 +1167,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$old_blog_design = array(
 					'.ast-separate-container .ast-container .comments-area' => array(
 						'background-color' => 'transparent',
+						'margin-top'       => '2em',
+						'padding'          => '0',
 					),
 					'.ast-separate-container .ast-container .ast-article-post, .ast-separate-container .ast-container .ast-article-single' => array(
 						'padding' => '5.34em 6.67em',
 					),
 					'.single .ast-container .post-navigation' => array(
 						'padding' => '2em 3.33333em 0 3.33333em',
-					),
-					'.ast-separate-container .ast-container .comments-area' => array(
-						'margin-top' => '2em',
-						'padding'    => '0',
 					),
 					'.ast-separate-container .comments-count-wrapper' => array(
 						'padding' => '2em 6.67em 0',
@@ -1315,7 +1313,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $full_width_css );
 
 				$sidebar_full_width = array(
-					'.ast-right-sidebar .ast-container #primary' => array(
+					'.ast-plain-container.ast-right-sidebar .ast-container #primary' => array(
 						'padding-right' => '60px',
 					),
 				);
