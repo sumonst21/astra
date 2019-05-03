@@ -1327,9 +1327,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 */
 				$full_width_stretched_css = array(
 					'.ast-page-builder-template .comments-area, .single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation' => array(
-						'padding-left' => '20px',
-						'padding-right' => '20px',
+						'padding' => '2em 0',
 					),
+					'.ast-page-builder-template .comments-area' => array(
+						'margin-top' => '2em',
+					),
+					// '.ast-page-builder-template.single .ast-container .post-navigation' => array()
 				);
 
 				$parse_css .= astra_parse_css( $full_width_stretched_css );
