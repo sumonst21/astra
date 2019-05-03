@@ -1235,7 +1235,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-top' => '0',
 					),
 					'.ast-container .comment-reply-title' => array(
-						'font-size'     => '24px',
+						'font-size'     => '1.6rem',
 						'margin-bottom' => '0',
 					),
 					'.ast-container .comments-area textarea#comment, .ast-container .comments-area .ast-comment-formwrap input[type="text"]' => array(
@@ -1358,6 +1358,31 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 
 				$parse_css .= astra_parse_css( $full_width_stretched_css );
+
+				$tablet_full_width = array(
+					'.single.ast-page-builder-template .post-navigation' => array(
+						'padding-top' => '1.5em',
+					),
+					'.single.ast-page-builder-template .ast-comment-list .ast-comment-avatar-wrap' => array(
+						'margin-right' => '0.5em',
+					),
+					'.single.ast-page-builder-template .ast-container .ast-comment-list .children' => array(
+						'margin-left' => '1em',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $tablet_full_width, '', '768' );
+
+				$mobile_full_width = array(
+					'.ast-page-builder-template .ast-comment-list .children' => array(
+						'margin-left' => '1.5em',
+					),
+					'.single.ast-page-builder-template .ast-container .ast-comment-list .children' => array(
+						'margin-left' => '0.66666em',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $mobile_full_width, '', '544' );
 
 			} else {
 				$old_blog_design = array(
