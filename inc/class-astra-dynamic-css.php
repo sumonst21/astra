@@ -639,7 +639,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			/* Width for Comments for Full Width / Stretched Template */
-			if ( ! Astra_Dynamic_CSS::astra_single_blog_new_design() ) {
+			if ( ! self::astra_single_blog_new_design() ) {
 				$page_builder_comment = array(
 					'.ast-page-builder-template .comments-area, .single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation' => array(
 						'max-width'    => astra_get_css_value( $site_content_width + 40, 'px' ),
