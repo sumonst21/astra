@@ -1482,7 +1482,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function astra_single_blog_new_design() {
 
-			if ( false == astra_get_option( 'new-blog-design', true ) &&
+			$theme_options = get_option( ASTRA_THEME_SETTINGS );
+			$option        = 'new-blog-design';
+			$default       = true;
+
+			$value = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
+
+			if ( false == $value &&
 				false === apply_filters(
 					'astra_single_blog_new_design',
 					false

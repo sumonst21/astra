@@ -1730,8 +1730,8 @@ add_filter( 'wpforms_upgrade_link', 'astra_wpforms_upgrade_link' );
  * @return array Width of the Sidebar.
  */
 function astra_change_sidebar_width( $defaults ) {
-	if ( Astra_Dynamic_CSS::astra_single_blog_new_design() ) {
-		$defaults['site-sidebar-width'] = '29';
+	if ( false === Astra_Dynamic_CSS::astra_single_blog_new_design() ) {
+		$defaults['site-sidebar-width'] = '30';
 	}
 	return $defaults;
 }
