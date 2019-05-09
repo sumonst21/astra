@@ -1251,6 +1251,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.comments-area .comment-form-textarea textarea:focus, .comments-area .comment-form-author input[type="text"]:focus, .comments-area .comment-form-email input[type="text"]:focus, .comments-area .comment-form-url input[type="text"]:focus' => array(
 						'outline-width' => 'initial',
 					),
+					'.ast-comment-list .comment-reply-title #cancel-comment-reply-link' => array(
+						'float'          => 'none',
+						'text-transform' => 'capitalize',
+						'font-size'      => '1rem',
+						'font-weight'    => 'inherit',
+						'letter-spacing' => 'inherit',
+					),
+					'.comments-area .ast-comment-list .comment-notes, .comments-area .ast-comment-list .comment-textarea, .comments-area .ast-comment-list .form-allowed-tags' => array(
+						'margin-bottom' => '.5em',
+					),
 				);
 
 				$parse_css .= astra_parse_css( $old_blog_design );
@@ -1269,6 +1279,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-separate-container.ast-two-container .ast-container #secondary .widget' => array(
 						'margin-bottom' => '2em',
+					),
+					'.ast-separate-container .ast-container .ast-comment-list .comment-respond' => array(
+						'padding-left'  => '2.66666em',
+						'padding-right' => '2.66666em',
+						'padding-top'   => '0',
 					),
 				);
 
