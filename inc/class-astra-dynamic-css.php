@@ -1258,7 +1258,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'font-weight'    => 'inherit',
 						'letter-spacing' => 'inherit',
 					),
-					'.comments-area .ast-comment-list .comment-notes, .comments-area .ast-comment-list .comment-textarea, .comments-area .ast-comment-list .form-allowed-tags' => array(
+					'.comments-area .ast-comment-list .comment-respond p' => array(
 						'margin-bottom' => '.5em',
 					),
 				);
@@ -1281,9 +1281,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-bottom' => '2em',
 					),
 					'.ast-separate-container .ast-container .ast-comment-list .comment-respond' => array(
-						'padding-left'  => '2.66666em',
-						'padding-right' => '2.66666em',
-						'padding-top'   => '0',
+						'padding' => '0 2.66666em 1em 2.66666em',
 					),
 				);
 
