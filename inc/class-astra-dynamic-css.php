@@ -1171,6 +1171,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-top'       => '2em',
 						'padding'          => '0',
 					),
+					'.ast-comment-list .ast-comment p' => array(
+						'margin-bottom' => '1.75em',
+					),
 					'.ast-separate-container .ast-container .ast-article-post, .ast-separate-container .ast-container .ast-article-single' => array(
 						'padding' => '5.34em 6.67em',
 					),
