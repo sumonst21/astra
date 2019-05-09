@@ -200,7 +200,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_6_1();
 			}
 
-			if ( version_compare( $saved_version, '1.8.0', '<' ) ) {
+			if ( version_compare( $saved_version, 'x.x.x', '<' ) ) {
 				self::v_2_0_0();
 			}
 
