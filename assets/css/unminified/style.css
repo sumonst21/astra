@@ -3953,6 +3953,14 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin: 0;
 }
 
+.wp-block-separator {
+  max-width: 100px;
+}
+
+.wp-block-separator.is-style-wide {
+  max-width: none;
+}
+
 .entry-content .has-2-columns .wp-block-column:first-child {
   padding-right: 10px;
 }
@@ -4727,7 +4735,7 @@ input[type="color"]::-webkit-color-swatch {
 ============================================================ */
 .ast-author-box img.avatar {
   border-radius: 50%;
-  margin: 0 0 0 20px;
+  margin: 0 20px 0 0;
 }
 
 .ast-archive-description {
@@ -4737,16 +4745,14 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-archive-description .ast-archive-title {
-  margin-bottom: 4px;
-  font-size: 40px;
-  font-size: 2.85714rem;
+  margin-bottom: 12px;
+  font-size: 26px;
   font-weight: 300;
 }
 
 .ast-archive-description p {
   margin-bottom: 0;
-  font-size: 20px;
-  font-size: 1.42857rem;
+  font-size: 18px;
   line-height: 1.65;
   font-weight: 300;
 }
@@ -4797,7 +4803,7 @@ input[type="color"]::-webkit-color-swatch {
   .ast-separate-container .ast-author-box,
   .ast-separate-container .ast-archive-description {
     margin: 0;
-    padding: 5em 6.67em 3.33333em;
+    padding: 4em;
   }
 }
 
