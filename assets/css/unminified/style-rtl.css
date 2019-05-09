@@ -4732,7 +4732,7 @@ input[type="color"]::-webkit-color-swatch {
 ============================================================ */
 .ast-author-box img.avatar {
   border-radius: 50%;
-  margin: 0 20px 0 0;
+  margin: 0 0 0 20px;
 }
 
 .ast-archive-description {
@@ -4742,16 +4742,14 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-archive-description .ast-archive-title {
-  margin-bottom: 4px;
-  font-size: 40px;
-  font-size: 2.85714rem;
+  margin-bottom: 12px;
+  font-size: 26px;
   font-weight: 300;
 }
 
 .ast-archive-description p {
   margin-bottom: 0;
-  font-size: 20px;
-  font-size: 1.42857rem;
+  font-size: 18px;
   line-height: 1.65;
   font-weight: 300;
 }
