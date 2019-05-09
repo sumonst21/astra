@@ -1720,20 +1720,3 @@ function astra_wpforms_upgrade_link() {
 }
 
 add_filter( 'wpforms_upgrade_link', 'astra_wpforms_upgrade_link' );
-
-/**
- * Check backwards compatibility for Sidebar Width.
- *
- * @param array $defaults Theme default values.
- *
- * @since x.x.x
- * @return array Width of the Sidebar.
- */
-function astra_change_sidebar_width( $defaults ) {
-	if ( false === Astra_Dynamic_CSS::astra_single_blog_new_design() ) {
-		$defaults['site-sidebar-width'] = '30';
-	}
-	return $defaults;
-}
-
-add_filter( 'astra_theme_defaults', 'astra_change_sidebar_width' );
