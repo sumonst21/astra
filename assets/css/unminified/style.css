@@ -4808,7 +4808,7 @@ input[type="color"]::-webkit-color-swatch {
   .ast-separate-container .ast-author-box,
   .ast-separate-container .ast-archive-description {
     margin: 0;
-    padding: 5em 6.67em 3.33333em;
+    padding: 4em;
   }
 }
 
