@@ -1172,7 +1172,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-top'       => '2em',
 						'padding'          => '0',
 					),
-					'.ast-comment-list .ast-comment p' => array(
+					'.ast-comment-list .ast-comment p'    => array(
 						'margin-bottom' => '1.75em',
 					),
 					'.ast-separate-container .ast-container .ast-article-post, .ast-separate-container .ast-container .ast-article-single' => array(
@@ -1399,7 +1399,32 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 
 				$parse_css .= astra_parse_css( $mobile_full_width, '', '544' );
+				/**
+				 * Author Archive CSS.
+				 */
+				$author_archive_responsive = array(
+					'.ast-separate-container .ast-container .ast-author-box, .ast-separate-container .ast-container .ast-archive-description' => array(
+						'padding' => '5em 6.67em 3.33333em',
+					),
+				);
 
+				$parse_css .= astra_parse_css( $author_archive_responsive, '1201', '' );
+
+				$author_archive = array(
+					'.ast-archive-description .ast-author-bio .ast-archive-title' => array(
+						'font-size'     => '40px',
+						'margin-bottom' => '4px',
+					),
+					'.ast-container .ast-author-box img.avatar' => array(
+						'margin' => '0 0 0 20px',
+					),
+					'.ast-container .ast-archive-description p' => array(
+						'font-size' => '20px',
+						'font-size' => '1.42857rem',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $author_archive );
 			} else {
 				$old_blog_design = array(
 					'.comments-title' => array(
