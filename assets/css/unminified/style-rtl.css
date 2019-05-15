@@ -5038,10 +5038,6 @@ input[type="color"]::-webkit-color-swatch {
   position: relative;
 }
 
-.ast-comment p {
-  margin-bottom: 0em;
-}
-
 .ast-reply-link {
   position: absolute;
   top: 0;
@@ -5100,6 +5096,10 @@ input[type="color"]::-webkit-color-swatch {
   .ast-comment-content {
     margin-right: 3em;
   }
+}
+
+.ast-comment-content p {
+  margin-bottom: 0em;
 }
 
 .ast-comment-cite-wrap {

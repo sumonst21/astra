@@ -66,9 +66,6 @@
     padding: 2.250em 0 0 0;
     border-top: 1px solid #eaeaea;
     position: relative;
-    p {
-        margin-bottom: 0em;
-    }
 }
 
 .ast-reply-link {
@@ -118,6 +115,9 @@
     margin-left: 6.5em;
     @media (max-width: $mx-col-md) {
         margin-left: 3em;
+    }
+    p {
+        margin-bottom: 0em;
     }
 }
 
