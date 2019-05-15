@@ -1265,6 +1265,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.comments-area .ast-comment-list p.logged-in-as' => array(
 						'margin-bottom' => '1em',
 					),
+					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single' => array(
+						'border-bottom' => '1px solid rgb(238, 238, 238)',
+					),
 				);
 
 				$parse_css .= astra_parse_css( $old_blog_design );
