@@ -2170,6 +2170,10 @@ body {
   padding: 4em;
 }
 
+.ast-separate-container .ast-article-post {
+  border-bottom: 1px solid #eeeeee;
+}
+
 .ast-separate-container .blog-layout-1 {
   padding: 0;
   /*background-color: $color-background-content;*/
