@@ -1238,7 +1238,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-top' => '0',
 					),
 					'.ast-container .comment-reply-title' => array(
-						'font-size'     => '1.6rem',
+						'font-size'     => '36px',
 						'margin-bottom' => '0',
 					),
 					'.ast-container .comments-area textarea#comment, .ast-container .comments-area .ast-comment-formwrap input[type="text"]' => array(
@@ -1254,13 +1254,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-comment-list .comment-reply-title #cancel-comment-reply-link' => array(
 						'float'          => 'none',
-						'text-transform' => 'capitalize',
+						'text-transform' => 'uppercase',
 						'font-size'      => '1rem',
 						'font-weight'    => 'inherit',
 						'letter-spacing' => 'inherit',
 					),
 					'.comments-area .ast-comment-list .comment-respond p' => array(
 						'margin-bottom' => '.5em',
+					),
+					'.comments-area .ast-comment-list p.logged-in-as' => array(
+						'margin-bottom' => '1em',
 					),
 				);
 
