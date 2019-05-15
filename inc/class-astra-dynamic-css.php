@@ -1268,6 +1268,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single' => array(
 						'border-bottom' => '1px solid rgb(238, 238, 238)',
 					),
+					'.ast-separate-container .ast-article-single' => array(
+						'border-bottom' => '0',
+					),
 				);
 
 				$parse_css .= astra_parse_css( $old_blog_design );
