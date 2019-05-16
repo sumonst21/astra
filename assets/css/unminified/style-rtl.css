@@ -5264,10 +5264,6 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 0;
 }
 
-.ast-separate-container .ast-comment-list .bypostauthor {
-  padding: 2em;
-}
-
 @media (max-width: 544px) {
   .ast-separate-container .ast-comment-list .bypostauthor {
     padding: .5em;
