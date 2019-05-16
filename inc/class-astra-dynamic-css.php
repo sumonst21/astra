@@ -1238,7 +1238,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-top' => '0',
 					),
 					'.ast-container .comment-reply-title' => array(
-						'font-size'     => '36px',
+						'font-size'     => '24px',
 						'margin-bottom' => '0',
 					),
 					'.ast-container .comments-area textarea#comment, .ast-container .comments-area .ast-comment-formwrap input[type="text"]' => array(
@@ -1254,7 +1254,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-comment-list .comment-reply-title #cancel-comment-reply-link' => array(
 						'float'          => 'none',
-						'text-transform' => 'uppercase',
+						'text-transform' => 'capitalize',
 						'font-size'      => '1rem',
 						'font-weight'    => 'inherit',
 						'letter-spacing' => 'inherit',
@@ -1375,6 +1375,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'padding-bottom' => '0.5em',
 					),
 					'.ast-page-builder-template .comments-area .comment-reply-title' => array(
+						'padding-top' => '1em',
+					),
+					'.ast-page-builder-template .comments-area .ast-comment-list .comment-reply-title' => array(
+						'padding-top' => '0',
+					),
+					'.ast-page-builder-template .comments-area .ast-comment-list .comment-respond' => array(
 						'padding-top' => '1em',
 					),
 					'.ast-page-builder-template .ast-container .comment-respond' => array(
