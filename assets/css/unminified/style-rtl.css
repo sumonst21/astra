@@ -5188,7 +5188,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .comments-area .comment-notes,
-.comments-area .comment-textarea,
+.comments-area .comment-form-comment,
 .comments-area .form-allowed-tags {
   margin-bottom: 1.5em;
 }
