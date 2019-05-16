@@ -2227,6 +2227,10 @@ body {
   }
 }
 
+.ast-plain-container .hentry {
+  margin: 0;
+}
+
 .ast-page-builder-template .hentry {
   margin: 0;
 }
