@@ -5003,7 +5003,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment-list .comment-respond {
-  margin: 36px 0px 0px 0px;
+  margin: 2.25em 0 0 0;
 }
 
 .ast-comment-list .comment-respond .comment-reply-title {
@@ -5254,6 +5254,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-separate-container .ast-comment-list .comment-respond {
   padding: 2.25em 0 0 0;
+  margin: 2.35em 0 0 0;
   background-color: transparent;
 }
 
