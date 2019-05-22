@@ -5041,6 +5041,8 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment {
+  -js-display: inline-flex;
+  display: inline-flex;
   padding: 2.250em 0 0 0;
   border-top: 1px solid #eaeaea;
   position: relative;
@@ -5068,8 +5070,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment-avatar-wrap {
-  float: right;
-  clear: left;
   margin-left: 1.7em;
 }
 
@@ -5081,6 +5081,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-comment-avatar-wrap img {
   border-radius: 50%;
+  max-width: none;
 }
 
 @media (max-width: 768px) {
@@ -5092,12 +5093,10 @@ input[type="color"]::-webkit-color-swatch {
 .ast-comment-meta-wrap {
   float: right;
   clear: left;
-  padding: 0 0 1.33333em;
 }
 
 .ast-comment-content {
   clear: both;
-  margin-right: 6.5em;
 }
 
 @media (max-width: 768px) {
@@ -5136,7 +5135,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment-meta {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.2em;
 }
 
 .ast-comment-time .timendate {
