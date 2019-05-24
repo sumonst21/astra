@@ -44,10 +44,8 @@
     #cancel-comment-reply-link{
         white-space: nowrap;
         margin-left: 1em;
-        font-size: 11px;
+        font-size: 13px;
         font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
     }
 
     .ast-comment-edit-reply-wrap{
@@ -77,10 +75,8 @@
 }
 
 .ast-comment-edit-reply-wrap {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .ast-edit-link {
@@ -121,7 +117,7 @@
 
 .ast-comment-cite-wrap {
     text-align: left;
-    font-size: 1.1em;
+    font-size: 1.2em;
     margin-bottom: 4px;
     text-transform: capitalize;
     cite {
@@ -139,7 +135,6 @@
     margin-bottom: 10px;
     #cancel-comment-reply-link {
         float: right;
-        text-transform: uppercase;
     }
 }
 
@@ -151,7 +146,7 @@
 .ast-comment-time {
 
     .timendate {
-        font-size: 1em;
+        font-size: 1.1em;
         margin-right: 0.5em;
     }
     .reply {
@@ -244,7 +239,6 @@
                     padding-bottom: 0;
                     padding-top: 0;
                     margin-bottom: 0;
-                    margin-top: 36px;
                 }
             }
             &.depth-1 .ast-comment,
@@ -258,7 +252,7 @@
         
         .comment-respond{
             padding: 2.25em 0 0 0;
-            margin: 2.35em 0 0 0;
+            margin: 2.25em 0 0 0;
             background-color: transparent;
         }
 
