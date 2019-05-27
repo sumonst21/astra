@@ -5038,10 +5038,15 @@ input[type="color"]::-webkit-color-swatch {
 .ast-comment {
   -js-display: inline-flex;
   display: inline-flex;
-  flex-direction: column;
   padding: 2.250em 0 0 0;
   border-top: 1px solid #eaeaea;
   position: relative;
+}
+
+@media (max-width: 544px) {
+  .ast-comment {
+    flex-direction: column;
+  }
 }
 
 .ast-reply-link {
