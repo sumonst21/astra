@@ -107,9 +107,6 @@
 
 .ast-comment-content{
     clear: both;
-    @media (max-width: $mx-col-md) {
-        margin-left: 3em;
-    }
     p {
         margin-bottom: 0em;
     }
