@@ -2216,7 +2216,7 @@ body {
 @media (max-width: 544px) {
   .ast-separate-container .ast-article-post,
   .ast-separate-container .ast-article-single {
-    padding: 1.5em 1em;
+    padding: 1.5em 2em;
   }
   .ast-separate-container #secondary {
     padding-top: 0;
@@ -5000,7 +5000,7 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 544px) {
   .ast-comment-list .children {
-    margin-left: 0.66666em;
+    margin-left: 0;
   }
 }
 
@@ -5161,7 +5161,7 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 544px) {
   .comments-area {
-    padding: 1.5em 1em;
+    padding: 1.5em 2em;
   }
 }
 
@@ -5269,7 +5269,7 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 544px) {
   .ast-separate-container .ast-comment-list .bypostauthor li {
-    padding: 0 0 0 .5em;
+    padding: 0;
   }
 }
 
