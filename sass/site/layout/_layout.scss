@@ -124,6 +124,12 @@ body{
 	.hentry {
 		margin: 0;
 	}
+	@media (max-width: $mx-col-sm) {
+		.ast-container {
+			padding-left: 2em;
+			padding-right: 2em;
+		}
+	}
 }
 
 //page builder content layout
@@ -135,6 +141,16 @@ body{
 	.site-content > .ast-container {
 		max-width: 100%;
 	    padding: 0;
+	}
+	@media (max-width: $mx-col-sm) {
+		.ast-container {
+			padding-left: 2em;
+			padding-right: 2em;
+		}
+		.site-content > .ast-container {
+			padding-left: 2em;
+			padding-right: 2em;
+		}
 	}
 	.site-content #primary{
 		padding:0;
