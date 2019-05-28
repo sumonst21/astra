@@ -5164,7 +5164,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment-data-wrap {
-  width: 86.5%;
+  overflow: hidden;
 }
 
 .comments-area {
