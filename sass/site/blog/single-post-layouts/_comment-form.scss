@@ -66,6 +66,7 @@
     padding: 2.250em 0 0 0;
     border-top: 1px solid #eaeaea;
     position: relative;
+    width: 100%;
     @media(max-width: $mx-col-sm) {
         flex-direction: column;
     }
@@ -159,6 +160,10 @@
     .comments-area {
         background-color: $color-background-content;
     }    
+}
+
+.ast-comment-data-wrap {
+    width: 86.5%;
 }
 
 .comments-area {

@@ -5059,6 +5059,7 @@ input[type="color"]::-webkit-color-swatch {
   padding: 2.250em 0 0 0;
   border-top: 1px solid #eaeaea;
   position: relative;
+  width: 100%;
 }
 
 @media (max-width: 544px) {
@@ -5160,6 +5161,10 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-separate-container .comments-area {
   background-color: #fff;
+}
+
+.ast-comment-data-wrap {
+  width: 86.5%;
 }
 
 .comments-area {
