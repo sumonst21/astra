@@ -21,7 +21,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments-area <?php echo esc_attr( have_comments() ? '' : 'ast-no-comments' ); ?>">
 
 	<?php astra_comments_before(); ?>
 
