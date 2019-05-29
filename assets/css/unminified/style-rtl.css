@@ -2211,11 +2211,7 @@ body {
 @media (max-width: 544px) {
   .ast-separate-container .ast-article-post,
   .ast-separate-container .ast-article-single {
-    padding: 1.5em 1em;
-  }
-  .ast-separate-container #content .ast-container {
-    padding-right: 0.54em;
-    padding-left: 0.54em;
+    padding: 1.5em 2em;
   }
   .ast-separate-container #secondary {
     padding-top: 0;
@@ -2226,6 +2222,13 @@ body {
   margin: 0;
 }
 
+@media (max-width: 544px) {
+  .ast-plain-container .ast-container {
+    padding-right: 2em;
+    padding-left: 2em;
+  }
+}
+
 .ast-page-builder-template .hentry {
   margin: 0;
 }
@@ -2233,6 +2236,17 @@ body {
 .ast-page-builder-template .site-content > .ast-container {
   max-width: 100%;
   padding: 0;
+}
+
+@media (max-width: 544px) {
+  .ast-page-builder-template .ast-container {
+    padding-right: 2em;
+    padding-left: 2em;
+  }
+  .ast-page-builder-template .site-content > .ast-container {
+    padding-right: 2em;
+    padding-left: 2em;
+  }
 }
 
 .ast-page-builder-template .site-content #primary {
@@ -4998,7 +5012,7 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 544px) {
   .ast-comment-list .children {
-    margin-right: 0.66666em;
+    margin-right: 0;
   }
 }
 
@@ -5014,10 +5028,9 @@ input[type="color"]::-webkit-color-swatch {
 .ast-comment-list #cancel-comment-reply-link {
   white-space: nowrap;
   margin-right: 1em;
-  font-size: 11px;
+  margin-top: 0.46em;
+  font-size: 13px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .ast-comment-list .ast-comment-edit-reply-wrap {
@@ -5035,13 +5048,18 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment {
+  -js-display: inline-flex;
+  display: inline-flex;
   padding: 2.250em 0 0 0;
   border-top: 1px solid #eaeaea;
   position: relative;
+  width: 100%;
 }
 
-.ast-comment p {
-  margin-bottom: 0;
+@media (max-width: 544px) {
+  .ast-comment {
+    flex-direction: column;
+  }
 }
 
 .ast-reply-link {
@@ -5052,10 +5070,8 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment-edit-reply-wrap {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .ast-edit-link {
@@ -5066,8 +5082,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-comment-avatar-wrap {
-  float: right;
-  clear: left;
   margin-left: 1.7em;
 }
 
@@ -5079,6 +5093,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-comment-avatar-wrap img {
   border-radius: 50%;
+  max-width: none;
 }
 
 @media (max-width: 768px) {
@@ -5090,18 +5105,10 @@ input[type="color"]::-webkit-color-swatch {
 .ast-comment-meta-wrap {
   float: right;
   clear: left;
-  padding: 0 0 1.33333em;
 }
 
 .ast-comment-content {
   clear: both;
-  margin-right: 6.5em;
-}
-
-@media (max-width: 768px) {
-  .ast-comment-content {
-    margin-right: 3em;
-  }
 }
 
 .ast-comment-content p {
@@ -5110,8 +5117,9 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-comment-cite-wrap {
   text-align: right;
-  font-size: 1.1em;
+  font-size: 1.2em;
   margin-bottom: 4px;
+  text-transform: capitalize;
 }
 
 .ast-comment-cite-wrap cite {
@@ -5130,15 +5138,14 @@ input[type="color"]::-webkit-color-swatch {
 
 .comment-reply-title #cancel-comment-reply-link {
   float: left;
-  text-transform: uppercase;
 }
 
 .ast-comment-meta {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.2em;
 }
 
 .ast-comment-time .timendate {
-  font-size: 1em;
+  font-size: 1.1em;
   margin-left: 0.5em;
 }
 
@@ -5148,6 +5155,10 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-separate-container .comments-area {
   background-color: #fff;
+}
+
+.ast-comment-data-wrap {
+  overflow: hidden;
 }
 
 .comments-area {
@@ -5174,7 +5185,7 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 544px) {
   .comments-area {
-    padding: 1.5em 1em;
+    padding: 1.5em 2em;
   }
 }
 
@@ -5186,7 +5197,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .comments-area .comment-notes,
-.comments-area .comment-textarea,
+.comments-area .comment-form-comment,
 .comments-area .form-allowed-tags {
   margin-bottom: 1.5em;
 }
@@ -5240,7 +5251,6 @@ input[type="color"]::-webkit-color-swatch {
   padding-bottom: 0;
   padding-top: 0;
   margin-bottom: 0;
-  margin-top: 36px;
 }
 
 .ast-separate-container .ast-comment-list li.depth-1 .ast-comment,
@@ -5254,16 +5264,12 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-separate-container .ast-comment-list .comment-respond {
   padding: 2.25em 0 0 0;
-  margin: 2.35em 0 0 0;
+  margin: 2.25em 0 0 0;
   background-color: transparent;
 }
 
 .ast-separate-container .ast-comment-list .pingback p {
   margin-bottom: 0;
-}
-
-.ast-separate-container .ast-comment-list .bypostauthor {
-  padding: 2em;
 }
 
 @media (max-width: 544px) {
@@ -5287,11 +5293,11 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 544px) {
   .ast-separate-container .ast-comment-list .bypostauthor li {
-    padding: 0 .5em 0 0;
+    padding: 0;
   }
 }
 
-.ast-separate-container .ast-comment-list .bypostauthor .children .ast-comment {
+.ast-separate-container .ast-comment-list .children .ast-comment {
   margin: 2.250em 0 0 0;
 }
 
@@ -5336,6 +5342,12 @@ input[type="color"]::-webkit-color-swatch {
 
 .ast-page-builder-template .comments-area {
   padding: 4em 1.3em 0em 1.3em;
+}
+
+@media (max-width: 544px) {
+  .ast-page-builder-template .comments-area {
+    padding: 4em 0em;
+  }
 }
 
 .comment-respond {
@@ -5701,13 +5713,6 @@ input[type="color"]::-webkit-color-swatch {
 .ast-right-sidebar .elementor-section.elementor-section-stretched {
   max-width: 100%;
   right: 0 !important;
-}
-
-.elementor-element .elementor-wc-products .woocommerce[class*='columns-'] ul.products li.product {
-  width: auto;
-  padding: 0;
-  margin: 0;
-  float: none;
 }
 
 .elementor-post.elementor-grid-item.hentry {

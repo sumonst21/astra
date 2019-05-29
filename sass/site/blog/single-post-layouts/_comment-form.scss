@@ -30,7 +30,7 @@
             margin-left: 1em;
         }
         @media (max-width: $mx-col-sm) {
-            margin-left: 0.66666em;
+            margin-left: 0;
         }
     }
     .comment-respond{
@@ -43,10 +43,9 @@
     #cancel-comment-reply-link{
         white-space: nowrap;
         margin-left: 1em;
-        font-size: 11px;
+        margin-top: 0.46em;
+        font-size: 13px;
         font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
     }
 
     .ast-comment-edit-reply-wrap{
@@ -62,11 +61,13 @@
 }
 
 .ast-comment {
+    display: inline-flex;
     padding: 2.250em 0 0 0;
     border-top: 1px solid #eaeaea;
     position: relative;
-    p {
-        margin-bottom: 0;
+    width: 100%;
+    @media(max-width: $mx-col-sm) {
+        flex-direction: column;
     }
 }
 
@@ -78,10 +79,8 @@
 }
 
 .ast-comment-edit-reply-wrap {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .ast-edit-link {
@@ -92,8 +91,6 @@
 }
 
 .ast-comment-avatar-wrap {
-    float: left;
-    clear: right;
     margin-right: 1.7em;
     @media (max-width: $mx-col-md) {
         margin-right: 0.5em;
@@ -101,6 +98,7 @@
 
     img {
         border-radius: 50%;
+        max-width: none;
         @media (max-width: $mx-col-md) {
             max-width: 2.5em;
         }
@@ -109,15 +107,10 @@
 .ast-comment-meta-wrap{
     float: left;
     clear: right;
-    padding: 0 0 1.33333em;
 }
 
 .ast-comment-content{
     clear: both;
-    margin-left: 6.5em;
-    @media (max-width: $mx-col-md) {
-        margin-left: 3em;
-    }
     p {
         margin-bottom: 0em;
     }
@@ -125,8 +118,9 @@
 
 .ast-comment-cite-wrap {
     text-align: left;
-    font-size: 1.1em;
+    font-size: 1.2em;
     margin-bottom: 4px;
+    text-transform: capitalize;
     cite {
         font-style: normal;
 
@@ -142,19 +136,18 @@
     margin-bottom: 10px;
     #cancel-comment-reply-link {
         float: right;
-        text-transform: uppercase;
     }
 }
 
 .ast-comment-meta {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
 
 }
 
 .ast-comment-time {
 
     .timendate {
-        font-size: 1em;
+        font-size: 1.1em;
         margin-right: 0.5em;
     }
     .reply {
@@ -168,6 +161,10 @@
     }    
 }
 
+.ast-comment-data-wrap {
+    overflow: hidden;
+}
+
 .comments-area {
     border-top: 1px solid $color-border-content;
     margin-top: 20px;
@@ -179,7 +176,7 @@
         padding: 1.5em 2.14em;
     }
     @media(max-width: $mx-col-sm) {
-        padding: 1.5em 1em;
+        padding: 1.5em 2em;
     }
     
     /*  1 - Textarea Styles */
@@ -191,7 +188,7 @@
     }
 
     .comment-notes, 
-    .comment-textarea, 
+    .comment-form-comment, 
     .form-allowed-tags {
         margin-bottom: 1.5em;
     }
@@ -247,7 +244,6 @@
                     padding-bottom: 0;
                     padding-top: 0;
                     margin-bottom: 0;
-                    margin-top: 36px;
                 }
             }
             &.depth-1 .ast-comment,
@@ -261,7 +257,7 @@
         
         .comment-respond{
             padding: 2.25em 0 0 0;
-            margin: 2.35em 0 0 0;
+            margin: 2.25em 0 0 0;
             background-color: transparent;
         }
 
@@ -269,7 +265,6 @@
             margin-bottom: 0;
         }
         .bypostauthor{
-            padding: 2em;
             @media (max-width: $mx-col-sm) {
                 padding: .5em;
             }
@@ -285,14 +280,14 @@
                 background: transparent;
                 margin-bottom: 0;
                 @media (max-width: $mx-col-sm) {
-                    padding: 0 0 0 .5em;
+                    padding: 0;
                 }
             }
-            .children {
-                .ast-comment {
-                    margin: 2.250em 0 0 0;
-                }
-            } 
+        }
+        .children {
+            .ast-comment {
+                margin: 2.250em 0 0 0;
+            }
         }
     }
     .comment-respond{
@@ -333,6 +328,11 @@
 .ast-page-builder-template {
     .comments-area {
         padding: 4em 1.3em 0em 1.3em;
+    }
+    @media (max-width: $mx-col-sm) {
+        .comments-area {
+            padding: 4em 0em;
+        }
     }
 }
 
