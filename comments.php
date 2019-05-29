@@ -33,9 +33,8 @@ if ( post_password_required() ) {
 					'astra_comment_form_title',
 					sprintf( // WPCS: XSS OK.
 						/* translators: 1: number of comments */
-						esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', 'This post has %1$s comments', get_comments_number(), 'comments title', 'astra' ) ),
-						number_format_i18n( get_comments_number() ),
-						get_the_title()
+						esc_html( _nx( 'This post has %1$s comments', 'This post has %1$s comments', get_comments_number(), 'comments title', 'astra' ) ),
+						number_format_i18n( get_comments_number() )
 					)
 				);
 

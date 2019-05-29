@@ -226,7 +226,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'blockquote'                              => array(
 					'border-color' => astra_hex_to_rgba( $link_color, 0.15 ),
 				),
-				'p, .entry-content p, .ast-comment-data-wrap .ast-comment-content p'                     => array(
+				'p, .entry-content p, .ast-comment-data-wrap .ast-comment-content p' => array(
 					'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 				),
 
