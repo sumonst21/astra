@@ -5169,7 +5169,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .comments-area {
   border-top: 1px solid #eeeeee;
-  margin-top: 20px;
+  margin-top: 1.35em;
   padding: 4em;
   /*  1 - Textarea Styles */
   /*  2 - Input Fields Styles */
