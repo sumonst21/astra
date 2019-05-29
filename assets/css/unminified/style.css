@@ -5387,6 +5387,12 @@ input[type="color"]::-webkit-color-swatch {
   outline-width: 0;
 }
 
+.ast-no-comments .comment-respond {
+  padding: 0;
+  border-top: 0;
+  margin-top: 0;
+}
+
 /*--------------------------------------------------------------
 ## Blog Paginations
 --------------------------------------------------------------*/
