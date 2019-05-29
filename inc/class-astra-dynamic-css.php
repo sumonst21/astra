@@ -1200,7 +1200,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-separate-container .ast-container .ast-comment-list li.depth-1 .children li' => array(
 						'margin-top' => '0',
-						'padding'    => '0 0 0 2em',
 					),
 					'.ast-separate-container .ast-container .ast-comment-list .bypostauthor .children .ast-comment' => array(
 						'margin' => '0',
@@ -1270,6 +1269,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-separate-container .ast-article-single' => array(
 						'border-bottom' => '0',
+					),
+					'.ast-comment-list .ast-comment blockquote p:last-child' => array(
+						'margin-bottom' => '0',
 					),
 				);
 
