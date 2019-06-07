@@ -78,7 +78,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'section-blog-single',
-					'priority' => 10,
+					'priority' => 11,
 					'settings' => array(),
 				),
 
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'control'  => 'select',
 					'section'  => 'section-blog-single',
 					'default'  => astra_get_option( 'blog-single-width' ),
-					'priority' => 17,
+					'priority' => 11,
 					'title'    => __( 'Single Post Content Width', 'astra' ),
 					'choices'  => array(
 						'default' => __( 'Default', 'astra' ),
@@ -109,7 +109,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'section'     => 'section-blog-single',
 					'default'     => 1200,
 					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-single-width]', '===', 'custom' ),
-					'priority'    => 20,
+					'priority'    => 11,
 					'title'       => __( 'Enter Width', 'astra' ),
 					'suffix'      => '',
 					'input_attrs' => array(
