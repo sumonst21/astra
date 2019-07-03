@@ -182,17 +182,9 @@
         padding: 2em;
         margin-bottom: 1em;
     }
-    
-    /*  1 - Textarea Styles */
-    .comment-form-comment {
-        width: 100%;
-        border: none;
-        margin: 0;
-        padding: 0;
-    }
 
-    .comment-notes, 
-    .comment-form-comment, 
+    .comment-notes,
+    .comment-textarea, 
     .form-allowed-tags {
         margin-bottom: 2.5em;
     }

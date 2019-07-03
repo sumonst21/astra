@@ -5151,7 +5151,6 @@ input[type="color"]::-webkit-color-swatch {
   border-top: 1px solid #eeeeee;
   margin-top: 1.2em;
   padding: 3em;
-  /*  1 - Textarea Styles */
   /*  2 - Input Fields Styles */
   /*  4 - Comment List Styles  */
   /* Comment Cookie concent field aignment */
@@ -5176,15 +5175,8 @@ input[type="color"]::-webkit-color-swatch {
   }
 }
 
-.comments-area .comment-form-comment {
-  width: 100%;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
 .comments-area .comment-notes,
-.comments-area .comment-form-comment,
+.comments-area .comment-textarea,
 .comments-area .form-allowed-tags {
   margin-bottom: 2.5em;
 }

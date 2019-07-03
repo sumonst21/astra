@@ -35,6 +35,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			add_filter( 'astra_comment_form_title', array( $this, 'comment_form_title' ) );
 			add_filter( 'astra_comment_form_all_post_type_support', array( $this, 'comment_box_markup_on_page' ) );
 			add_filter( 'astra_woocommerce_css', array( $this, 'astra_woocommerce_skin_css' ) );
+			add_filter( 'astra_comment_form_default_markup', array( $this, 'astra_comment_form_scroll_to_reply' ) );
 		}
 
 		/**
@@ -63,7 +64,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 		 *
 		 * @since x.x.x
 		 * @param Array $attr HTML attributes for the comments markup.
-		 * @return string
+		 * @return array
 		 */
 		public function comment_meta_attributes( $attr ) {
 			// Capitilize the Author name for the classic skin.
@@ -72,6 +73,25 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			}
 
 			return $attr;
+		}
+
+		/**
+		 * Modify Comment Reply Markup for Scroll on reply.
+		 *
+		 * Conditionally change fieldset and id_form in the comment markup.
+		 *
+		 * @since x.x.x
+		 * @param Array $args HTML attributes for the comments reply markup.
+		 * @return array
+		 */
+		public function astra_comment_form_scroll_to_reply( $args ) {
+			// Fallback to old markup when classic skin.
+			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
+				$args['id_form']       = 'ast-commentform';
+				$args['comment_field'] = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="' . ( 'modern-skin' === Astra_Skins::astra_get_selected_skin() ? '6' : '8' ) . '" aria-required="true"></textarea></div></fieldset></div>';
+			}
+
+			return $args;
 		}
 
 		/**
