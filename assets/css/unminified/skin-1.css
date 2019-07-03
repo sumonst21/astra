@@ -972,10 +972,6 @@ body {
   }
 }
 
-.ast-page-builder-template {
-  padding-top: 3em;
-}
-
 .ast-page-builder-template .ast-article-post,
 .ast-page-builder-template .ast-article-single {
   padding-bottom: 0;
