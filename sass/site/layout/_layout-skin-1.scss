@@ -250,15 +250,14 @@ body{
 		}
 	}
 	.blog-layout-1,
-	&.single .entry-content,
-	&.page .entry-content {
+	.single-layout-1 {
 		margin-bottom: 3em;
 	}
 	.hentry {
 		margin: 0;
 	}
-	.hentry:first-child .entry-header {
-		margin-top: 3em;
+	.hentry:first-child .entry-title {
+		margin-top: 1.5em;
 	}
 	.hentry:last-child {
 		padding-bottom: 0;

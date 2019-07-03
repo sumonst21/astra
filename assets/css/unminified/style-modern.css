@@ -5841,8 +5841,7 @@ body {
 }
 
 .ast-page-builder-template .blog-layout-1,
-.ast-page-builder-template.single .entry-content,
-.ast-page-builder-template.page .entry-content {
+.ast-page-builder-template .single-layout-1 {
   margin-bottom: 3em;
 }
 
@@ -5850,8 +5849,8 @@ body {
   margin: 0;
 }
 
-.ast-page-builder-template .hentry:first-child .entry-header {
-  margin-top: 3em;
+.ast-page-builder-template .hentry:first-child .entry-title {
+  margin-top: 1.5em;
 }
 
 .ast-page-builder-template .hentry:last-child {
