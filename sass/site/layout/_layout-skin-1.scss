@@ -257,7 +257,7 @@ body{
 	.hentry {
 		margin: 0;
 	}
-	.post-content:first-child {
+	.hentry:first-child .entry-header {
 		margin-top: 3em;
 	}
 	.hentry:last-child {

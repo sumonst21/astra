@@ -5846,8 +5846,8 @@ body {
   margin-bottom: 3em;
 }
 
-.ast-page-builder-template .hentry {
-  margin: 0;
+.ast-page-builder-template .entry-header:first-child {
+  margin-top: 3em;
 }
 
 .ast-page-builder-template .hentry:last-child {

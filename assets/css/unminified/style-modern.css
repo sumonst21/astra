@@ -5850,7 +5850,7 @@ body {
   margin: 0;
 }
 
-.ast-page-builder-template .post-content:first-child {
+.ast-page-builder-template .hentry:first-child .entry-header {
   margin-top: 3em;
 }
 
