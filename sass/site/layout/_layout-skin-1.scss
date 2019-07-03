@@ -76,10 +76,8 @@ body{
 		.ast-article-post:first-child{
 			margin-top: 0;
 		}
-		@media (max-width: $mx-col-sm) {
-			.ast-article-post:last-child{
-				margin-bottom: 0;
-			}
+		.ast-article-post:last-child{
+			margin-bottom: 0;
 		}
 	}
 	.blog-layout-1{
@@ -252,6 +250,10 @@ body{
 	.blog-layout-1,
 	.single-layout-1 {
 		margin-bottom: 3em;
+	}
+	.hentry:last-child .blog-layout-1,
+	.hentry:last-child .single-layout-1 {
+		margin-bottom: 0;
 	}
 	.hentry {
 		margin: 0;

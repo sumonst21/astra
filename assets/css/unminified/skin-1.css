@@ -825,10 +825,8 @@ body {
   margin-top: 0;
 }
 
-@media (max-width: 544px) {
-  .ast-separate-container.ast-two-container .ast-article-post:last-child {
-    margin-bottom: 0;
-  }
+.ast-separate-container.ast-two-container .ast-article-post:last-child {
+  margin-bottom: 0;
 }
 
 .ast-separate-container .blog-layout-1 {
@@ -988,6 +986,11 @@ body {
 .ast-page-builder-template .blog-layout-1,
 .ast-page-builder-template .single-layout-1 {
   margin-bottom: 3em;
+}
+
+.ast-page-builder-template .hentry:last-child .blog-layout-1,
+.ast-page-builder-template .hentry:last-child .single-layout-1 {
+  margin-bottom: 0;
 }
 
 .ast-page-builder-template .hentry {
