@@ -34,6 +34,7 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			add_filter( 'astra_theme_defaults', array( $this, 'skin_defaults' ) );
 			add_filter( 'astra_comment_form_title', array( $this, 'comment_form_title' ) );
 			add_filter( 'astra_comment_form_all_post_type_support', array( $this, 'comment_box_markup_on_page' ) );
+			add_filter( 'astra_woocommerce_css', array( $this, 'astra_woocommerce_skin_css' ) );
 		}
 
 		/**
@@ -71,6 +72,24 @@ if ( ! class_exists( 'Astra_Skins' ) ) {
 			}
 
 			return $attr;
+		}
+
+		/**
+		 * Load WooCommerce compatibilty CSS according to selected Skin.
+		 *
+		 * Conditionally load WooCommerce CSS file.
+		 *
+		 * @since x.x.x
+		 * @param Array $woo_css_handle Default CSS for the WooCommerce compatibility.
+		 * @return string
+		 */
+		public function astra_woocommerce_skin_css( $woo_css_handle ) {
+			// Load default WooCommerce Astra CSS when Classic Skin applied.
+			if ( 'classic-skin' === self::astra_get_selected_skin() ) {
+				$woo_css_handle = 'woocommerce';
+			}
+
+			return $woo_css_handle;
 		}
 
 		/**
