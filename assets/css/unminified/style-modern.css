@@ -5845,8 +5845,9 @@ body {
   margin: 0;
 }
 
-.ast-page-builder-template .hentry:first-child .entry-title {
-  margin-top: 1.5em;
+.ast-page-builder-template .hentry:first-child .blog-layout-1,
+.ast-page-builder-template .hentry:first-child .single-layout-1 {
+  margin-top: 3em;
 }
 
 .ast-page-builder-template .hentry:last-child {
