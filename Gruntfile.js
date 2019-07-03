@@ -304,6 +304,10 @@ module.exports = function (grunt) {
                     	{
                     		src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css',
 	                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce.min-rtl.css',
+                        },
+                        {
+                    		src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-skin-1-rtl.css',
+	                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-skin-1.min-rtl.css',
 	                    },
                         {
                             src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-layout-rtl.css',
