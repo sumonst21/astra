@@ -5680,12 +5680,6 @@ body {
   margin-bottom: 0;
 }
 
-@media (max-width: 544px) {
-  .ast-separate-container.ast-two-container .ast-article-post:last-child {
-    margin-bottom: 0;
-  }
-}
-
 .ast-separate-container .blog-layout-1 {
   padding: 0;
   border-bottom: 0;
@@ -6061,7 +6055,7 @@ body {
 /*----------  404  ----------*/
 .ast-404-layout-1 {
   text-align: center;
-  margin: 4em auto;
+  margin: 3em auto;
 }
 
 .ast-404-layout-1 .page-sub-title {
