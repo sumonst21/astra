@@ -5841,16 +5841,13 @@ body {
 }
 
 .ast-page-builder-template .blog-layout-1,
-.ast-page-builder-template.single .entry-content {
+.ast-page-builder-template.single .entry-content,
+.ast-page-builder-template.page .entry-content {
   margin-bottom: 3em;
 }
 
 .ast-page-builder-template .hentry {
   margin: 0;
-}
-
-.ast-page-builder-template .hentry:first-child {
-  margin-top: 3em;
 }
 
 .ast-page-builder-template .hentry:last-child {
