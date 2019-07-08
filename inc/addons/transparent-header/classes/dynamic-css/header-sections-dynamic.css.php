@@ -99,10 +99,10 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 			'background-color' => esc_attr( $transparent_bg_color_desktop ),
 		),
 
-		'.ast-theme-transparent-header .ast-above-header-navigation li.current-menu-item > a,.ast-theme-transparent-header .ast-above-header-navigation li.current-menu-ancestor > a' => array(
+		'.ast-theme-transparent-header .ast-above-header-navigation li.current-menu-item > a, .ast-theme-transparent-header .ast-above-header-navigation li.current-menu-ancestor > a, .ast-theme-transparent-header .ast-above-header-navigation li.current-menu-item > .ast-menu-toggle, .ast-theme-transparent-header .ast-above-header-navigation li.current-menu-ancestor > .ast-menu-toggle' => array(
 			'color' => esc_attr( $transparent_menu_h_color_desktop ),
 		),
-		'.ast-theme-transparent-header .ast-above-header-navigation li:hover > a'     => array(
+		'.ast-theme-transparent-header .ast-above-header-navigation li:hover > a, .ast-theme-transparent-header .ast-above-header-navigation li:hover > .ast-menu-toggle'     => array(
 			'color' => esc_attr( $transparent_menu_h_color_desktop ),
 		),
 
@@ -155,10 +155,10 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 			'background-color' => esc_attr( $transparent_bg_color_tablet ),
 		),
 
-		'.ast-theme-transparent-header .ast-above-header-navigation li.current-menu-item > a,.ast-theme-transparent-header .ast-above-header-navigation li.current-menu-ancestor > a' => array(
+		'.ast-theme-transparent-header .ast-above-header-navigation li.current-menu-item > a,.ast-theme-transparent-header .ast-above-header-navigation li.current-menu-ancestor > a, .ast-theme-transparent-header .ast-above-header-navigation li.current-menu-item > .ast-menu-toggle' => array(
 			'color' => esc_attr( $transparent_menu_h_color_tablet ),
 		),
-		'.ast-theme-transparent-header .ast-above-header-navigation li:hover > a'     => array(
+		'.ast-theme-transparent-header .ast-above-header-navigation li:hover > a, .ast-theme-transparent-header .ast-above-header-navigation li:hover > .ast-menu-toggle'     => array(
 			'color' => esc_attr( $transparent_menu_h_color_tablet ),
 		),
 
@@ -210,10 +210,10 @@ function astra_ext_transparent_above_header_sections_dynamic_css( $dynamic_css, 
 			'background-color' => esc_attr( $transparent_bg_color_mobile ),
 		),
 
-		'.ast-theme-transparent-header .ast-above-header-navigation li.current-menu-item > a,.ast-theme-transparent-header .ast-above-header-navigation li.current-menu-ancestor > a' => array(
+		'.ast-theme-transparent-header .ast-above-header-navigation li.current-menu-item > a,.ast-theme-transparent-header .ast-above-header-navigation li.current-menu-ancestor > a, .ast-theme-transparent-header .ast-above-header-navigation li.current-menu-item > .ast-menu-toggle' => array(
 			'color' => esc_attr( $transparent_menu_h_color_mobile ),
 		),
-		'.ast-theme-transparent-header .ast-above-header-navigation li:hover > a'     => array(
+		'.ast-theme-transparent-header .ast-above-header-navigation li:hover > a, .ast-theme-transparent-header .ast-above-header-navigation li:hover > .ast-menu-toggle'     => array(
 			'color' => esc_attr( $transparent_menu_h_color_mobile ),
 		),
 
